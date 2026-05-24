@@ -182,7 +182,7 @@ POSTS = [
 <ol>
 <li><strong>Afmeting:</strong> grotere kozijnen kosten meer per stuk, maar minder per vierkante meter</li>
 <li><strong>Type:</strong> vast glas is goedkoper dan draai-kiep, hefschuif is duurder dan standaard schuif</li>
-<li><strong>Profielsysteem:</strong> wij gebruiken standaard Schüco LivIng 82 (premium)</li>
+<li><strong>Profielsysteem:</strong> wij werken uitsluitend met Schüco LivIng (premium)</li>
 <li><strong>Glassoort:</strong> HR++ is standaard, triple glas (HR+++) is ~30% duurder</li>
 <li><strong>Kleur:</strong> standaard wit is goedkoopst; folie-uitvoering (antraciet, eikenhout) ~15-25% meerprijs</li>
 <li><strong>Inbraakwering:</strong> RC2 is standaard; RC3 of PKVW ~10-15% meerprijs</li>
@@ -203,7 +203,7 @@ POSTS = [
 <tr><td>Schuifpui 5 m + hefschuif</td><td>Triple</td><td>€ 7.000 – € 10.000</td></tr>
 </tbody>
 </table>
-<blockquote><p><strong>Tip:</strong> alle bovenstaande prijzen zijn inclusief Schüco LivIng 82 profiel, 21% btw en montage met stelkozijn. Geen verborgen kosten.</p></blockquote>
+<blockquote><p><strong>Tip:</strong> alle bovenstaande prijzen zijn inclusief Schüco LivIng profiel, 21% btw en montage op kunststof stelkozijn. Geen verborgen kosten.</p></blockquote>
 """},
         {'id': 'compleet-huis', 'h2': 'Wat kost een compleet huis aan kozijnen?', 'body': """
 <p>Voor concrete oriëntatie — gemiddelde prijzen voor complete vervanging in 2026:</p>
@@ -258,7 +258,7 @@ POSTS = [
         'faq': [
             ('Wat kost een kunststof draai-kiep kozijn van 100×120 cm?', 'Een standaard draai-kiep kozijn van die afmeting kost inclusief HR++ glas en montage gemiddeld € 600 tot € 950. Met triple glas € 850 tot € 1.250.'),
             ('Hoeveel ISDE-subsidie krijg ik op nieuwe kozijnen?', 'Voor HR++ glas € 25-50 per m². Voor triple glas € 111-222 per m². De hogere bedragen gelden bij combinatie met een tweede isolatiemaatregel binnen 24 maanden.'),
-            ('Wat is goedkoper: kunststof of aluminium kozijnen?', 'Kunststof kozijnen (Schüco LivIng 82) zijn ongeveer 30-60% goedkoper dan aluminium met vergelijkbare isolatiewaarde. Aluminium is alleen voordeliger bij zeer grote afmetingen (>3m).'),
+            ('Wat is goedkoper: kunststof of aluminium kozijnen?', 'Kunststof kozijnen (Schüco LivIng) zijn ongeveer 30-60% goedkoper dan aluminium met vergelijkbare isolatiewaarde. Aluminium is alleen voordeliger bij zeer grote afmetingen (>3m).'),
             ('Kan ik subsidie krijgen op alleen kozijnen vervangen?', 'Alleen op het glasoppervlak (HR++ of triple), niet op het kozijnprofiel zelf. De ISDE-subsidie wordt berekend over de vierkante meters glasoppervlak die u vervangt.'),
             ('Krijg ik mijn investering ooit terug?', 'Ja. Bij vervanging van enkel glas door HR++ verdient u de investering meestal in 7-12 jaar terug via lagere stookkosten. Kozijnen gaan 40-50 jaar mee, dus de winst loopt door tientallen jaren door.'),
         ],
@@ -297,7 +297,7 @@ POSTS = [
 <li><strong>2x Low-E coating</strong></li>
 </ul>
 <p>U-waarde: <strong>Ug = 0,5 – 0,7 W/m²K</strong>. Dat is bijna passiefhuis-niveau.</p>
-<p>Wel: triple glas is veel zwaarder (~30 kg/m² i.p.v. 20). Daardoor heb je sterkere profielen nodig — gelukkig is Schüco LivIng 82 dat standaard al.</p>
+<p>Wel: triple glas is veel zwaarder (~30 kg/m² i.p.v. 20). Daardoor heb je sterkere profielen nodig — gelukkig is Schüco LivIng dat standaard al.</p>
 """},
         {'id': 'vergelijk', 'h2': 'HR++ vs triple: directe vergelijking', 'body': """
 <table>
@@ -349,7 +349,7 @@ POSTS = [
         ],
         'faq': [
             ('Is triple glas altijd beter dan HR++?', 'Technisch wel (lagere U-waarde, betere geluidsdemping). Financieel hangt het af van of u de combi-subsidie kunt pakken. Zonder combi is HR++ vaak voldoende.'),
-            ('Kan triple glas in elk kozijn?', 'Niet in oude houten kozijnen (te zwaar). In onze Schüco LivIng 82 profielen wel — die zijn standaard geschikt voor triple glas.'),
+            ('Kan triple glas in elk kozijn?', 'Niet in oude houten kozijnen (te zwaar). In onze Schüco LivIng profielen wel — die zijn standaard geschikt voor triple glas.'),
             ('Hoeveel decibel scheelt triple glas?', 'Triple glas dempt 5 tot 8 decibel meer dan HR++. Dat klinkt klein, maar elke 10 dB wordt door het menselijk oor als half zo luid ervaren. Bij verkeer/vliegroute aanrader.'),
             ('Geeft triple glas problemen met condens?', 'Nee, bij goede montage niet. De binnenkant is door de extra isolatie juist minder koud, dus minder kans op binnencondens. Buitencondens (op koude ochtenden) kan wel voorkomen — dat is een teken dat het glas perfect isoleert.'),
             ('Kan ik HR++ later upgraden naar triple?', 'Theoretisch wel (glas wisselen in hetzelfde kozijn), maar in de praktijk vaak niet zinvol. Het meeste werk zit in de montage, niet in het glas. Beter direct triple plaatsen als u dat wil.'),
@@ -457,17 +457,17 @@ POSTS = [
 
     {
         'slug': 'schueco-living-82-review',
-        'title': 'Schüco LivIng 82 review: het beste kunststof kozijn van 2026?',
-        'meta_desc': 'Onafhankelijke review van Schüco LivIng 82: 7-kamer, Uf 0,92, RC2. Specs, voor- en nadelen, vergelijking met concurrenten.',
+        'title': 'Schüco LivIng review: het beste kunststof kozijn van 2026?',
+        'meta_desc': 'Onafhankelijke review van Schüco LivIng: 7-kamer, Uf 0,92, RC2. Specs, voor- en nadelen, vergelijking met concurrenten.',
         'category': 'Product review',
         'date': '2026-05-12',
         'modified': '2026-05-24',
         'reading_time': 8,
         'intro_image': 'kunststof-kozijnen-plaatsen',
-        'lead': "Schüco LivIng 82 is ons standaard kozijnprofiel. Maar waarom? In deze review leggen we eerlijk uit waar het systeem in uitblinkt, wat de nadelen zijn, en hoe het zich verhoudt tot concurrenten als Aluplast, Veka en Deceuninck.",
+        'lead': "Schüco LivIng is ons enige kozijnprofiel. Maar waarom? In deze review leggen we eerlijk uit waar het systeem in uitblinkt, wat de nadelen zijn, en hoe het zich verhoudt tot concurrenten als Aluplast, Veka en Deceuninck.",
         'sections': [
-            {'id': 'wat-is-living-82', 'h2': 'Wat is Schüco LivIng 82?', 'body': """
-<p>Schüco LivIng 82 is een premium kunststof kozijnprofielsysteem van de Duitse fabrikant <strong>Schüco International KG</strong>, opgericht in 1951 en gevestigd in Bielefeld. Schüco is wereldwijd marktleider in raam-, deur- en gevelsystemen.</p>
+            {'id': 'wat-is-living-82', 'h2': 'Wat is Schüco LivIng?', 'body': """
+<p>Schüco LivIng is een premium kunststof kozijnprofielsysteem van de Duitse fabrikant <strong>Schüco International KG</strong>, opgericht in 1951 en gevestigd in Bielefeld. Schüco is wereldwijd marktleider in raam-, deur- en gevelsystemen.</p>
 <p>De "82" verwijst naar de <strong>bouwdiepte van 82 mm</strong> — dat is breder dan veel concurrenten (vaak 70-76 mm), wat ruimte biedt voor meer luchtkamers en betere isolatie.</p>
 """},
         {'id': 'specs', 'h2': 'Belangrijkste specificaties', 'body': """
@@ -486,24 +486,24 @@ POSTS = [
 <tr><td><strong>Garantie</strong></td><td>10 jaar fabrieksgarantie</td></tr>
 </tbody>
 </table>
-<p>Bron: <a href="https://www.schueco.com/nl/architecten/producten/kozijnen-en-beslagen/kunststof/living82" rel="external nofollow noopener">schueco.com — LivIng 82</a></p>
+<p>Bron: <a href="https://www.schueco.com/nl/architecten/producten/kozijnen-en-beslagen/kunststof/living82" rel="external nofollow noopener">schueco.com — LivIng</a></p>
 """},
         {'id': 'voordelen', 'h2': 'De vijf grootste pluspunten', 'body': """
 <h3>1. Top-isolatie</h3>
-<p>Met Uf = 0,92 W/m²K zit LivIng 82 in de top-3 van kunststof kozijnen wereldwijd. Combineer met triple glas en je haalt passiefhuis-niveau (Uw < 0,8) zonder dat je naar aluminium of hout hoeft.</p>
+<p>Met Uf = 0,92 W/m²K zit LivIng in de top-3 van kunststof kozijnen wereldwijd. Combineer met triple glas en je haalt passiefhuis-niveau (Uw < 0,8) zonder dat je naar aluminium of hout hoeft.</p>
 <h3>2. Lasbare EPDM-afdichting</h3>
 <p>Schüco was de eerste fabrikant die kunststof EPDM-afdichtingen kon lassen. Resultaat: <strong>geen zichtbare hoekverbindingen</strong> in de rubbers, geen waterlek, esthetisch strakker.</p>
 <h3>3. RC2 standaard</h3>
-<p>De meeste fabrikanten leveren RC1 of "inbraakvertragend" als standaard. Schüco LivIng 82 voldoet standaard aan RC2 — gelijkwaardig aan SKG**.</p>
+<p>De meeste fabrikanten leveren RC1 of "inbraakvertragend" als standaard. Schüco LivIng voldoet standaard aan RC2 — gelijkwaardig aan SKG**.</p>
 <h3>4. Beschikbaarheid en levertijd</h3>
 <p>Schüco produceert in Duitsland en heeft een grote voorraad. Onze gemiddelde levertijd is 4-6 weken — bij concurrenten vaak 10-14 weken.</p>
 <h3>5. 40+ jaar levensduur</h3>
 <p>Door de stabiele PVC-formule en UV-bestendigheid hebben deze kozijnen een verwachte levensduur van 40 tot 50 jaar. Goedkope concurrenten zitten op 20-25 jaar.</p>
 """},
         {'id': 'nadelen', 'h2': 'Eerlijke nadelen', 'body': """
-<p>Geen product is perfect — ook Schüco LivIng 82 niet:</p>
+<p>Geen product is perfect — ook Schüco LivIng niet:</p>
 <h3>1. Niet de goedkoopste keuze</h3>
-<p>Schüco zit in het premium segment. Een Duits A-merk-kozijn kost 15-30% meer dan een Pools of Turks no-name kozijn. Voor wie puur op aanschafprijs koopt, niet de eerste keuze.</p>
+<p>Schüco zit in het premium segment. Een Duits premium Schüco-kozijn kost 15-30% meer dan een Pools of Turks no-name kozijn. Voor wie puur op aanschafprijs koopt, niet de eerste keuze.</p>
 <h3>2. Bouwdiepte 82 mm</h3>
 <p>Bij smalle muuropeningen (denk: oude binnenstadwoningen met dikke muren maar smalle dagmaten) kan 82 mm bouwdiepte krap zijn. In ~5% van de projecten kiezen we daarom voor een dunner alternatief.</p>
 <h3>3. Strakke uitstraling</h3>
@@ -513,17 +513,17 @@ POSTS = [
 <table>
 <thead><tr><th>Systeem</th><th>Bouwdiepte</th><th>Kamers</th><th>Uf-waarde</th><th>Prijs-index</th></tr></thead>
 <tbody>
-<tr><td><strong>Schüco LivIng 82</strong></td><td>82 mm</td><td>7</td><td>0,92</td><td>100 (referentie)</td></tr>
+<tr><td><strong>Schüco LivIng</strong></td><td>82 mm</td><td>7</td><td>0,92</td><td>100 (referentie)</td></tr>
 <tr><td>Veka Softline 82</td><td>82 mm</td><td>6</td><td>1,0</td><td>95</td></tr>
 <tr><td>Deceuninck Zendow 70</td><td>70 mm</td><td>5</td><td>1,3</td><td>80</td></tr>
 <tr><td>Aluplast Ideal 7000</td><td>85 mm</td><td>7</td><td>0,95</td><td>92</td></tr>
 <tr><td>Kömmerling 76</td><td>76 mm</td><td>5</td><td>1,1</td><td>88</td></tr>
 </tbody>
 </table>
-<p>Schüco LivIng 82 zit qua prijs in het bovensegment maar levert ook bovengemiddelde prestaties. Voor wie het beste van twee werelden wil (kwaliteit + redelijke prijs) is dit ons advies.</p>
+<p>Schüco LivIng zit qua prijs in het bovensegment maar levert ook bovengemiddelde prestaties. Voor wie het beste van twee werelden wil (kwaliteit + redelijke prijs) is dit ons advies.</p>
 """},
-        {'id': 'wanneer', 'h2': 'Wanneer is LivIng 82 de juiste keuze?', 'body': """
-<p>Schüco LivIng 82 past goed bij:</p>
+        {'id': 'wanneer', 'h2': 'Wanneer is LivIng de juiste keuze?', 'body': """
+<p>Schüco LivIng past goed bij:</p>
 <ul>
 <li><strong>Renovaties</strong> waar u 25+ jaar in de woning wil blijven</li>
 <li><strong>Energie-bewuste huiseigenaren</strong> die naar label A of hoger willen</li>
@@ -535,14 +535,14 @@ POSTS = [
 """},
         ],
         'faq': [
-            ('Is Schüco LivIng 82 echt het beste kunststof kozijn?', 'Het zit in de absolute top-3 wereldwijd, samen met Aluplast Ideal 7000 en Veka Softline 82. Welke "de beste" is hangt af van uw prioriteiten (prijs, isolatie, look). Voor de Nederlandse markt vinden wij LivIng 82 de beste balans.'),
-            ('Waarom kiest Duurkracht voor Schüco?', 'Drie redenen: bewezen kwaliteit (Duits A-merk sinds 1951), beste isolatie- en inbraakwerendheidswaarden in zijn klasse, en betrouwbare leverbetrouwbaarheid (4-6 weken levertijd).'),
-            ('Wat is het verschil tussen LivIng 82 en LivIng MD?', 'LivIng MD is een nog premiumere variant met middelafdichting (3 afdichtingen i.p.v. 2). Iets betere isolatie en geluidsdemping, maar 15-20% duurder. Voor 95% van de woningen volstaat standaard LivIng 82.'),
+            ('Is Schüco LivIng echt het beste kunststof kozijn?', 'Het zit in de absolute top-3 wereldwijd, samen met Aluplast Ideal 7000 en Veka Softline 82. Welke "de beste" is hangt af van uw prioriteiten (prijs, isolatie, look). Voor de Nederlandse markt vinden wij LivIng de beste balans.'),
+            ('Waarom kiest Duurkracht voor Schüco?', 'Drie redenen: bewezen kwaliteit (Schüco kwaliteit sinds 1951), beste isolatie- en inbraakwerendheidswaarden in zijn klasse, en betrouwbare leverbetrouwbaarheid (4-6 weken levertijd).'),
+            ('Wat is het verschil tussen LivIng en LivIng MD?', 'LivIng MD is een nog premiumere variant met middelafdichting (3 afdichtingen i.p.v. 2). Iets betere isolatie en geluidsdemping, maar 15-20% duurder. Voor 95% van de woningen volstaat standaard LivIng.'),
             ('Krijg ik kortingsbon van Schüco?', 'Schüco werkt niet met consumentenkortingen — alle leveringen lopen via gecertificeerde dealers zoals wij. Wel hebben wij scherpe inkoop-prijzen door volume.'),
             ('Kan ik Schüco-kozijnen ook in een andere kleur dan wit?', 'Ja. Alle RAL-kleuren zijn mogelijk via folie-coating. Antraciet (RAL 7016) en houtnerf-eiken zijn meest gevraagd. Folie geeft 10-25% meerprijs en heeft een eigen 10-jaar garantie.'),
         ],
         'cta_inline_after_h2_index': 3,
-        'cta_inline_text': '<strong>Schüco LivIng 82 voor uw woning?</strong><p>Vraag een vaste offerte aan. Onze adviseur laat u monsters zien en bespreekt opties zoals kleur, glas en sluiting.</p>',
+        'cta_inline_text': '<strong>Schüco LivIng voor uw woning?</strong><p>Vraag een vaste offerte aan. Onze adviseur laat u monsters zien en bespreekt opties zoals kleur, glas en sluiting.</p>',
         'related': ['hr-plus-plus-of-triple-glas', 'inbraakwerend-kozijn-rc2-rc3', 'kunststof-kozijnen-kosten'],
     },
 
@@ -592,7 +592,7 @@ POSTS = [
 <p>Een woning met <strong>PKVW-certificering</strong> wordt door inbrekers significant vaker overgeslagen. Bonus: veel inboedelverzekeraars geven <strong>5-10% premiekorting</strong> bij PKVW-certificering.</p>
 """},
         {'id': 'onze-kozijnen', 'h2': 'Hoe inbraakwerend zijn onze kozijnen?', 'body': """
-<p>Onze Schüco LivIng 82 kozijnen voldoen <strong>standaard aan RC2</strong>. Dat betekent inbegrepen:</p>
+<p>Onze Schüco LivIng kozijnen voldoen <strong>standaard aan RC2</strong>. Dat betekent inbegrepen:</p>
 <ul>
 <li><strong>Stalen versterkingsprofielen</strong> in het kunststof</li>
 <li><strong>Meerpuntsluiting</strong> (5 punten op deuren, 2-4 op ramen)</li>
@@ -691,7 +691,7 @@ POSTS = [
 <blockquote><p><strong>Niet doen:</strong> harde sponzen, scheuvies, schuurmiddelen, agressieve oplosmiddelen (aceton, terpentine, ammonia). Die kunnen de kunststof beschadigen.</p></blockquote>
 """},
         {'id': 'rubbers', 'h2': 'Rubbers en afdichtingen', 'body': """
-<p>De EPDM-rubbers rondom uw kozijnen zorgen voor luchtdichtheid en waterkering. Bij onze Schüco LivIng 82 zijn deze rubbers lasbaar — dus zonder zichtbare hoeknaden — wat ze duurzamer maakt.</p>
+<p>De EPDM-rubbers rondom uw kozijnen zorgen voor luchtdichtheid en waterkering. Bij onze Schüco LivIng zijn deze rubbers lasbaar — dus zonder zichtbare hoeknaden — wat ze duurzamer maakt.</p>
 <p>Wat u jaarlijks doet:</p>
 <ol>
 <li>Inspecteer de rubbers op uitdroging, scheuren of vervorming</li>
@@ -712,7 +712,7 @@ POSTS = [
 <p>Doet uw kruk stroef, of valt het slot niet meer goed in? Vaak gewoon een kwestie van schoonmaken en smeren. Helpt niet? Bel ons — vaak een kleine reparatie.</p>
 """},
         {'id': 'kleur', 'h2': 'Kleurvastheid: gaat antraciet niet verbleken?', 'body': """
-<p>Een veelgehoorde zorg over kunststof kozijnen: <strong>verbleekt antraciet niet onder de zon?</strong> Vroeger soms wel — bij oudere PVC-formuleringen. Bij Schüco LivIng 82 niet, want:</p>
+<p>Een veelgehoorde zorg over kunststof kozijnen: <strong>verbleekt antraciet niet onder de zon?</strong> Vroeger soms wel — bij oudere PVC-formuleringen. Bij Schüco LivIng niet, want:</p>
 <ul>
 <li>De folie-laag is <strong>UV-stabiel tot 25 jaar</strong> (10 jaar fabrieksgarantie van Schüco)</li>
 <li>Bij witte kozijnen geen probleem (wit blijft wit)</li>

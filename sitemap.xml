@@ -11,7 +11,7 @@
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://www.duurkrachtkozijnen.nl/design-assets/images/Nieuwe-voordeur-huis.jpg</image:loc>
-      <image:title>Kunststof kozijnen Duurkracht — Schüco LivIng 82</image:title>
+      <image:title>Kunststof kozijnen Duurkracht — Schüco LivIng</image:title>
     </image:image>
   </url>
 
@@ -28,6 +28,7 @@
   <url><loc>https://www.duurkrachtkozijnen.nl/contact/</loc><lastmod>2026-05-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <!-- Blog -->
   <url><loc>https://www.duurkrachtkozijnen.nl/blog/</loc><lastmod>2026-05-24</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.duurkrachtkozijnen.nl/blog/compriband-vs-kunststof-stelkozijn-montage/</loc><lastmod>2026-05-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.duurkrachtkozijnen.nl/blog/kunststof-kozijnen-kosten/</loc><lastmod>2026-05-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.duurkrachtkozijnen.nl/blog/hr-plus-plus-of-triple-glas/</loc><lastmod>2026-05-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.duurkrachtkozijnen.nl/blog/isde-subsidie-kozijnen-2026/</loc><lastmod>2026-05-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>

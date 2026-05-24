@@ -77,8 +77,8 @@ LOCATIONS = [
         'slug': 'zwolle', 'name': 'Zwolle', 'province': 'Overijssel', 'region': 'IJsselland',
         'lat': 52.5168, 'lon': 6.0830,
         'rijtijd': 65, 'afstand_km': 67,
-        'intro': 'Zwolle is een groeiende stad met veel nieuwbouwprojecten in Stadshagen en Berkum. Daar plaatsen wij regelmatig moderne kunststof kozijnen met triple glas voor passiefhuis-niveau.',
-        'usp_extra': 'specialist in moderne nieuwbouw met triple glas',
+        'intro': 'Zwolle is een groeiende stad met veel nieuwbouwprojecten in Stadshagen en Berkum. Daar plaatsen wij regelmatig moderne kunststof kozijnen die zorgen voor meer comfort, minder warmteverlies en een strakke uitstraling.',
+        'usp_extra': 'specialist in moderne nieuwbouw en goed isolerende beglazing',
         'wijken': ['Stadshagen', 'Berkum', 'Aa-landen', 'Zwolle-Zuid', 'Diezerpoort', 'Holtenbroek'],
         'recent_project': 'Hefschuif 5m in moderne villa in Berkum',
         'inwoners': '129.000',
@@ -97,8 +97,8 @@ LOCATIONS = [
         'slug': 'arnhem', 'name': 'Arnhem', 'province': 'Gelderland', 'region': 'Veluwe',
         'lat': 51.9851, 'lon': 5.8987,
         'rijtijd': 90, 'afstand_km': 105,
-        'intro': 'In Arnhem werken wij vaak aan stadse rijwoningen met moderne uitstraling. Antraciet kunststof kozijnen met PKVW-deuren zijn hier een veelgevraagde combinatie.',
-        'usp_extra': 'PKVW-gecertificeerde deuren voor verzekeringskorting',
+        'intro': 'In Arnhem werken wij vaak aan stadse rijwoningen met moderne uitstraling. Antraciet kunststof kozijnen met een stevige, veilige voordeur zijn hier een veelgevraagde combinatie.',
+        'usp_extra': 'extra aandacht voor veiligheid en nette entree-afwerking',
         'wijken': ['Presikhaaf', 'Malburgen', 'Schuytgraaf', 'Geitenkamp', 'Klarendal', 'Spijkerkwartier'],
         'recent_project': 'modern stadshuis met antraciet voorgevel in Schuytgraaf',
         'inwoners': '164.000',
@@ -107,7 +107,7 @@ LOCATIONS = [
         'slug': 'assen', 'name': 'Assen', 'province': 'Drenthe', 'region': 'Drenthe',
         'lat': 52.9961, 'lon': 6.5625,
         'rijtijd': 95, 'afstand_km': 100,
-        'intro': 'Assen kent veel ruime jaren-70 en -80 woningen waar isolatie aanzienlijk verbeterd kan worden. Onze Schüco LivIng 82 met triple glas bespaart hier vaak €500-€700 per jaar op stookkosten.',
+        'intro': 'Assen kent veel ruime jaren-70 en -80 woningen waar isolatie aanzienlijk verbeterd kan worden. Nieuwe kunststof kozijnen kunnen hier direct verschil maken in warmte, tocht en wooncomfort.',
         'usp_extra': 'specialist in jaren-70/80 isolatie-upgrades',
         'wijken': ['Marsdijk', 'Pittelo', 'Kloosterveen', 'Peelo', 'De Lariks', 'Assen-Oost'],
         'recent_project': '8 kozijnen vervangen in Kloosterveen — energielabel van D naar A',
@@ -130,7 +130,7 @@ LOCATIONS = [
         'intro': 'Hoogeveen heeft veel ruime gezinswoningen waar moderne kunststof kozijnen een grote upgrade betekenen op zowel comfort als energierekening.',
         'usp_extra': 'persoonlijk advies, ook bij grotere projecten',
         'wijken': ['Krakeel', 'Erflanden', 'Schoonvelde', 'Wolfsbos', 'Tiendeveen'],
-        'recent_project': 'Schüco LivIng 82 met triple glas op rijwoning in Erflanden',
+        'recent_project': 'goed isolerende kunststof kozijnen op rijwoning in Erflanden',
         'inwoners': '56.000',
     },
     {
@@ -157,7 +157,7 @@ LOCATIONS = [
         'slug': 'drachten', 'name': 'Drachten', 'province': 'Friesland', 'region': 'Friesland',
         'lat': 53.1109, 'lon': 6.0989,
         'rijtijd': 105, 'afstand_km': 115,
-        'intro': 'Drachten heeft veel jaren-80 woningen die perfect geschikt zijn voor energetische upgrades. Wij plaatsen daar regelmatig Schüco LivIng 82 met triple glas.',
+        'intro': 'Drachten heeft veel jaren-80 woningen die perfect geschikt zijn voor een comfortupgrade. Wij plaatsen daar regelmatig kunststof kozijnen met goed isolerend glas.',
         'usp_extra': 'jaren-80 woningen — onze specialiteit',
         'wijken': ['De Drait', 'De Wiken', 'De Bouwen', 'Burgum', 'Drachten-Oost'],
         'recent_project': '12 kozijnen + Keralit gevel in De Drait',
@@ -232,7 +232,7 @@ def page(loc):
 
     # Distance text
     if afstand == 0:
-        dist_text = "Onze werkplaats — sinds 2003 gevestigd aan de Hassinkweg"
+        dist_text = "U zit dicht bij onze adviseurs en monteurs"
     elif afstand < 25:
         dist_text = f"Op slechts {afstand} km / {rijtijd} minuten rijden van onze werkplaats"
     else:
@@ -244,7 +244,7 @@ def page(loc):
         "@type": "Service",
         "@id": f"https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-{slug}/#service",
         "name": f"Kunststof kozijnen plaatsen in {name}",
-        "description": f"Levering en montage van kunststof kozijnen, deuren, schuifpuien en Keralit gevelbekleding in {name} ({province}). Schüco LivIng 82, eigen monteurs, 10 jaar garantie.",
+        "description": f"Levering en montage van uitsluitend Schüco LivIng kunststof kozijnen op kunststof stelkozijnen in {name} ({province}). Eigen monteurs, nette afwerking, 10 jaar garantie en gratis advies aan huis.",
         "provider": {"@type": "LocalBusiness", "name": "Duurkracht Kozijnen B.V.", "@id": "https://www.duurkrachtkozijnen.nl/#business"},
         "areaServed": {
             "@type": "City",
@@ -283,7 +283,7 @@ def page(loc):
     wijken_html = ''.join(f'<li>{w}</li>' for w in wijken)
 
     title = f"Kunststof Kozijnen in {name} — Duurkracht Kozijnen"
-    description = f"Specialist in kunststof kozijnen, deuren, schuifpuien en Keralit gevelbekleding in {name} ({province}). Schüco LivIng 82 · 4,9★ Google · 10 jaar garantie. Gratis adviesgesprek aan huis."
+    description = f"Specialist in Schüco LivIng kunststof kozijnen op kunststof stelkozijnen in {name} ({province}). Eigen monteurs, 4,9★ Google, 10 jaar garantie en gratis advies aan huis."
 
     return f'''<!DOCTYPE html>
 <html lang="nl-NL">
@@ -293,7 +293,7 @@ def page(loc):
 
 <title>{title}</title>
 <meta name="description" content="{description}" />
-<meta name="keywords" content="kunststof kozijnen {name}, kozijnen vervangen {name}, kozijnen plaatsen {name}, Schüco LivIng 82 {name}, kunststof deuren {name}, schuifpui {name}, Keralit gevelbekleding {name}, kozijnen {province}, kozijnen {region}" />
+<meta name="keywords" content="kunststof kozijnen {name}, kozijnen vervangen {name}, kozijnen plaatsen {name}, kunststof deuren {name}, schuifpui {name}, gevelbekleding {name}, kozijnen {province}, kozijnen {region}" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 <link rel="canonical" href="https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-{slug}/" />
 <meta name="theme-color" content="#0B5A2B" />
@@ -383,7 +383,7 @@ def page(loc):
           <span class="stars">★★★★★</span>
           <span>4,9 / 5 · <strong>Google reviews</strong></span>
           <span class="sep">|</span>
-          <span>Schüco · 10 jaar garantie · geen reistoeslag</span>
+          <span>Schüco LivIng · kunststof stelkozijnen · geen reistoeslag</span>
         </div>
       </div>
       <figure class="hero-visual">
@@ -404,13 +404,15 @@ def page(loc):
 <div class="usp-strip">
   <div class="usp-row">
     <span>Actief in {name}</span><span class="sep"></span>
-    <span>Schüco LivIng 82</span><span class="sep"></span>
+    <span>Alleen Schüco LivIng</span><span class="sep"></span>
+    <span>Kunststof stelkozijnen</span><span class="sep"></span>
     <span>Geen reistoeslag</span><span class="sep"></span>
     <span>4,9 ★ Google</span><span class="sep"></span>
     <span>10 jaar garantie</span><span class="sep"></span>
     <span>Eigen monteurs</span><span class="sep"></span>
     <span>Actief in {name}</span><span class="sep"></span>
-    <span>Schüco LivIng 82</span><span class="sep"></span>
+    <span>Alleen Schüco LivIng</span><span class="sep"></span>
+    <span>Kunststof stelkozijnen</span><span class="sep"></span>
     <span>Geen reistoeslag</span><span class="sep"></span>
     <span>4,9 ★ Google</span><span class="sep"></span>
     <span>10 jaar garantie</span><span class="sep"></span>
@@ -438,9 +440,9 @@ def page(loc):
         <li><strong>{usp_extra}</strong></li>
         <li><strong>Geen voorrijkosten</strong> in {name}</li>
         <li><strong>Eigen monteurs</strong> — geen onderaannemers</li>
-        <li><strong>Stelkozijn-montage</strong> als standaard</li>
+        <li><strong>Strakke montage</strong> met aandacht voor tocht en afdichting</li>
         <li><strong>Schoon opgeleverd</strong> — bouwafval afgevoerd</li>
-        <li><strong>10 jaar garantie</strong> op profiel en montage</li>
+        <li><strong>10 jaar garantie</strong> op product en montage</li>
       </ul>
     </div>
     <div class="img-stack">
@@ -474,14 +476,14 @@ def page(loc):
         <span class="eyebrow" style="color: var(--orange);">Onze diensten in {name}</span>
         <h2>Wat we plaatsen in <span class="em-italic">{name}.</span></h2>
       </div>
-      <p>Vijf disciplines, één vakmanschap — alle diensten leveren wij ook in {name}.</p>
+      <p>Vijf disciplines, één aanspreekpunt — alle diensten leveren wij ook in {name}.</p>
     </div>
     <div class="benefits">
-      <article class="benefit"><div class="ic"><img src="/design-assets/icons/check-gradient.svg" alt="" /></div><h3>Kunststof kozijnen</h3><p>Schüco LivIng 82 — Uf 0,92 W/m²K, RC2 inbraakwerend. <a href="/diensten/kunststof-kozijnen/" style="color:var(--green);">Meer info →</a></p></article>
-      <article class="benefit"><div class="ic"><img src="/design-assets/icons/check-gradient.svg" alt="" /></div><h3>Kunststof deuren</h3><p>Voor- en achterdeuren met meerpuntsluiting. <a href="/diensten/kunststof-deuren/" style="color:var(--green);">Meer info →</a></p></article>
-      <article class="benefit"><div class="ic"><img src="/design-assets/icons/check-gradient.svg" alt="" /></div><h3>Schuifpuien</h3><p>Tot 6 meter breed, optioneel hefschuif. <a href="/diensten/kunststof-schuifpuien/" style="color:var(--green);">Meer info →</a></p></article>
-      <article class="benefit"><div class="ic"><img src="/design-assets/icons/check-gradient.svg" alt="" /></div><h3>Keralit gevelbekleding</h3><p>10 jaar garantie, 35+ kleuren. <a href="/diensten/kunststof-gevelbekleding/" style="color:var(--green);">Meer info →</a></p></article>
-      <article class="benefit"><div class="ic"><img src="/design-assets/icons/check-gradient.svg" alt="" /></div><h3>Stelkozijn-montage</h3><p>Eigen monteurs, KOMO-conform. <a href="/diensten/montage/" style="color:var(--green);">Meer info →</a></p></article>
+      <article class="benefit"><div class="ic"><img src="/design-assets/icons/check-gradient.svg" alt="" /></div><h3>Schüco LivIng kozijnen</h3><p>Warmer wonen, minder tocht en nooit meer schilderen met onze vaste kozijnlijn. <a href="/diensten/kunststof-kozijnen/" style="color:var(--green);">Meer info →</a></p></article>
+      <article class="benefit"><div class="ic"><img src="/design-assets/icons/check-gradient.svg" alt="" /></div><h3>Kunststof deuren</h3><p>Een veilige, goed isolerende entree in de stijl van uw woning. <a href="/diensten/kunststof-deuren/" style="color:var(--green);">Meer info →</a></p></article>
+      <article class="benefit"><div class="ic"><img src="/design-assets/icons/check-gradient.svg" alt="" /></div><h3>Schuifpuien</h3><p>Meer licht, soepel naar buiten en een strakke verbinding met de tuin. <a href="/diensten/kunststof-schuifpuien/" style="color:var(--green);">Meer info →</a></p></article>
+      <article class="benefit"><div class="ic"><img src="/design-assets/icons/check-gradient.svg" alt="" /></div><h3>Kunststof gevelbekleding</h3><p>Een frisse gevel zonder schilderwerk, verkrijgbaar in veel kleuren en houtlooks. <a href="/diensten/kunststof-gevelbekleding/" style="color:var(--green);">Meer info →</a></p></article>
+      <article class="benefit"><div class="ic"><img src="/design-assets/icons/check-gradient.svg" alt="" /></div><h3>Kunststof stelkozijn montage</h3><p>Geplaatst op kunststof stelkozijnen door eigen monteurs, strak afgewerkt en schoon opgeleverd. <a href="/diensten/montage/" style="color:var(--green);">Meer info →</a></p></article>
       <article class="benefit"><div class="ic"><img src="/design-assets/icons/icon-adviesgesprek-op-locatie.svg" alt="" /></div><h3>Gratis advies aan huis</h3><p>Onze adviseur komt vrijblijvend bij u in {name} langs.</p></article>
     </div>
   </div>
@@ -500,7 +502,7 @@ def page(loc):
       <details class="faq-item"><summary>Wat kost een kunststof kozijn in {name}?</summary><div class="answer"><p>Een standaard kunststof draai-kiep kozijn van circa 1,00 × 1,20 m kost inclusief HR++ glas en montage gemiddeld <strong>€ 600 tot € 950</strong>. De prijs in {name} is gelijk aan onze prijs elders — <strong>geen toeslag voor regio of voorrijkosten</strong>.</p></div></details>
       <details class="faq-item"><summary>Hoe lang duurt de plaatsing in {name}?</summary><div class="answer"><p>De montage van een gemiddelde woning met 6 tot 10 kozijnen duurt <strong>1 à 2 werkdagen</strong>. De totale doorlooptijd van adviesgesprek tot oplevering is <strong>6 tot 8 weken</strong> — ook bij projecten in {name}.</p></div></details>
       <details class="faq-item"><summary>Welke wijken bedienen jullie in {name}?</summary><div class="answer"><p>Wij plaatsen kozijnen in alle wijken van {name}, waaronder <strong>{', '.join(wijken[:4])}</strong> en {wijken[4] if len(wijken) > 4 else 'andere wijken'}. Staat uw wijk er niet bij? Bel ons gerust.</p></div></details>
-      <details class="faq-item"><summary>Geven jullie ook in {name} 10 jaar garantie?</summary><div class="answer"><p>Ja, ongeacht uw locatie geven wij <strong>10 jaar garantie</strong> op zowel het Schüco-profiel als op onze montage. Bij eventuele klachten komen wij ook in {name} kosteloos langs voor herstel.</p></div></details>
+      <details class="faq-item"><summary>Geven jullie ook in {name} 10 jaar garantie?</summary><div class="answer"><p>Ja, ongeacht uw locatie geven wij <strong>10 jaar garantie</strong> op zowel het product als op onze montage. Bij eventuele klachten komen wij ook in {name} kosteloos langs voor herstel.</p></div></details>
     </div>
   </div>
 </section>

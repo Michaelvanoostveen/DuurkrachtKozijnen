@@ -183,17 +183,17 @@
         </p>
       </div>
 
-      <form aria-label="Contactformulier Duurkracht Kozijnen" onsubmit="event.preventDefault(); alert('Bedankt — wij nemen binnen 4 uur contact op.');">
+      <form aria-label="Contactformulier Duurkracht Kozijnen" id="adviesForm" novalidate>
         <span class="eyebrow" style="color: var(--orange);">Stuur ons een bericht</span>
         <h2 style="margin: 20px 0 30px;">Plan een gratis<br><span class="em-italic">adviesgesprek.</span></h2>
 
         <div class="row">
           <div><label for="naam">Naam</label><input id="naam" name="naam" type="text" required autocomplete="name" placeholder="Uw volledige naam" /></div>
-          <div><label for="postcode">Postcode</label><input id="postcode" name="postcode" type="text" required autocomplete="postal-code" placeholder="bv. 7556 BV" /></div>
+          <div><label for="woonplaats">Stad / woonplaats</label><input id="woonplaats" name="woonplaats" type="text" autocomplete="address-level2" placeholder="bv. Hengelo" /></div>
         </div>
         <div class="row">
           <div><label for="email">E-mailadres</label><input id="email" name="email" type="email" required autocomplete="email" placeholder="naam@voorbeeld.nl" /></div>
-          <div><label for="tel">Telefoon</label><input id="tel" name="tel" type="tel" autocomplete="tel" placeholder="06 — ..." /></div>
+          <div><label for="tel">Telefoonnummer</label><input id="tel" name="tel" type="tel" required autocomplete="tel" placeholder="06 — ..." /></div>
         </div>
         <div class="row">
           <div class="full">
@@ -228,9 +228,14 @@
             <textarea id="bericht" name="bericht" placeholder="Vertel kort over uw project, woning of vraag…"></textarea>
           </div>
         </div>
+        <label class="privacy-check" for="privacy-akkoord">
+          <input id="privacy-akkoord" name="privacy-akkoord" type="checkbox" required />
+          <span>Ik ga akkoord met de <a href="/privacybeleid/">privacyverklaring</a>.</span>
+        </label>
+        <p class="form-success" role="status" aria-live="polite">Bedankt! We nemen contact op binnen 1 werkdag.</p>
         <div class="submit">
           <button type="submit" class="btn btn-primary">Verstuur aanvraag <span class="arrow">→</span></button>
-          <p class="privacy">Door te versturen gaat u akkoord met onze <a href="/privacybeleid/">privacyverklaring</a>. Wij delen uw gegevens nooit met derden.</p>
+          <p class="privacy">Wij delen uw gegevens nooit met derden.</p>
         </div>
       </form>
     </div>
@@ -238,10 +243,27 @@
 </section>
 
 <style>
+.privacy-check{ display:flex; gap:12px; align-items:flex-start; margin: 10px 0 6px; font-size:14px; color:var(--gray-700); }
+.privacy-check input{ margin-top:4px; width:18px; height:18px; accent-color:var(--orange); flex-shrink:0; }
+.privacy-check a{ color:var(--green); text-decoration:underline; }
+.form-success{ display:none; margin: 16px 0 0; padding: 14px 16px; border-radius: var(--radius-sm); background: var(--green-tint); color: var(--green-deep); font-weight: 600; }
+.form-success.show{ display:block; }
 @media (max-width: 900px){
   .contact-grid{ grid-template-columns: 1fr !important; gap: 50px !important; }
 }
 </style>
+
+<script>
+document.getElementById('adviesForm')?.addEventListener('submit', function (event) {
+  event.preventDefault();
+  if (!this.checkValidity()) {
+    this.reportValidity();
+    return;
+  }
+  this.querySelector('.form-success')?.classList.add('show');
+  this.reset();
+});
+</script>
 
 <section class="cta-banner">
   <div class="container">
