@@ -506,23 +506,48 @@
   .svc{
     background: var(--gray-50);
     border-radius: var(--radius);
-    padding: 28px;
+    padding: 0;
     display: flex; flex-direction: column; justify-content: space-between;
-    min-height: 280px;
+    min-height: 360px;
     transition: all .3s ease;
     position: relative;
     overflow: hidden;
   }
   .svc:hover{ background: var(--green-tint); transform: translateY(-2px); }
+  .svc-body{
+    padding: 24px 28px 28px;
+    display: flex; flex-direction: column;
+    flex: 1;
+  }
   .svc .ic{
     width: 48px; height: 48px;
     background: white; border-radius: 10px;
     display: flex; align-items: center; justify-content: center;
-    margin-bottom: 24px;
+    margin: 28px 28px 0;
   }
   .svc .ic img{ width: 24px; height: 24px; }
-  .svc h3{ font-weight: 600; margin: 0 0 10px; }
-  .svc p{ font-size: 14px; color: var(--gray-700); margin: 0; line-height: 1.5; }
+  .svc-photo{
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    position: relative;
+    background: var(--gray-200);
+  }
+  .svc-photo img{
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform .5s ease;
+  }
+  .svc:hover .svc-photo img{ transform: scale(1.04); }
+  .svc-photo .ic-overlay{
+    position: absolute; top: 14px; left: 14px;
+    width: 40px; height: 40px;
+    background: white; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,.15);
+  }
+  .svc-photo .ic-overlay img{ width: 22px; height: 22px; }
+  .svc h3{ font-weight: 600; margin: 16px 0 10px; }
+  .svc p{ font-size: 14px; color: var(--gray-700); margin: 0; line-height: 1.5; flex: 1; }
   .svc .more{
     margin-top: 20px;
     display:inline-flex; align-items: center; gap: 8px;
@@ -537,18 +562,19 @@
     background-image: linear-gradient(180deg, rgba(11,90,43,.4) 30%, rgba(11,90,43,.96) 100%), url("/design-assets/images/kunststof-kozijnen-plaatsen.jpg");
     background-size: cover;
     background-position: center;
-    min-height: 580px;
+    min-height: 740px;
+    padding: 28px;
   }
   .svc.feature:hover{ background-image: linear-gradient(180deg, rgba(11,90,43,.3) 30%, rgba(11,90,43,.92) 100%), url("/design-assets/images/kunststof-kozijnen-plaatsen.jpg"); transform: translateY(-2px); }
-  .svc.feature .ic{ background: var(--orange); }
+  .svc.feature .ic{ background: var(--orange); margin: 0 0 24px; }
   .svc.feature h3{ color: white; font-size: 30px; margin-top: auto; }
   .svc.feature p{ color: #d6e3da; font-size: 15px; max-width: 320px; }
   .svc.feature .more{ color: var(--lime); }
 
-  .svc.dark{ background: var(--ink); color: white; }
+  .svc.dark{ background: var(--ink); color: white; padding: 28px; min-height: 360px; }
   .svc.dark:hover{ background: #1a1a18; }
-  .svc.dark .ic{ background: var(--orange); }
-  .svc.dark h3{ color: white; }
+  .svc.dark .ic{ background: var(--orange); margin: 0 0 24px; }
+  .svc.dark h3{ color: white; margin-top: 0; }
   .svc.dark p{ color: #aaa; }
   .svc.dark .more{ color: var(--orange); }
 
@@ -1104,24 +1130,39 @@
       </article>
 
       <article class="svc">
-        <div class="ic"><img src="/design-assets/icons/check-gradient.svg" alt="" width="24" height="24" /></div>
-        <h3>Kunststof deuren</h3>
-        <p>Voor- en achterdeuren met meerpuntsluiting en SKG**-cilinder. Optioneel PKVW-certificering voor premiekorting op uw inboedelverzekering.</p>
-        <a href="/diensten/kunststof-deuren/" class="more">Lees meer <span class="arrow" aria-hidden="true">→</span></a>
+        <div class="svc-photo">
+          <img src="/design-assets/images/diensten-deuren.jpeg" alt="Antraciet kunststof voordeur met handvat en zijraam — recent project Duurkracht Kozijnen" loading="lazy" width="400" height="250" />
+          <div class="ic-overlay"><img src="/design-assets/icons/check-gradient.svg" alt="" width="22" height="22" /></div>
+        </div>
+        <div class="svc-body">
+          <h3>Kunststof deuren</h3>
+          <p>Voor- en achterdeuren met meerpuntsluiting en SKG**-cilinder. Optioneel PKVW-certificering voor premiekorting op uw inboedelverzekering.</p>
+          <a href="/diensten/kunststof-deuren/" class="more">Lees meer <span class="arrow" aria-hidden="true">→</span></a>
+        </div>
       </article>
 
       <article class="svc">
-        <div class="ic"><img src="/design-assets/icons/check-gradient.svg" alt="" width="24" height="24" /></div>
-        <h3>Schuifpuien</h3>
-        <p>Tot zes meter breed, soepel lopend op rvs-rails. Smalle profielen voor maximale glasvlakken — perfect voor tuinkamers en achteruitbouw.</p>
-        <a href="/diensten/kunststof-schuifpuien/" class="more">Lees meer <span class="arrow" aria-hidden="true">→</span></a>
+        <div class="svc-photo">
+          <img src="/design-assets/images/dienst-schuifpuien.jpeg" alt="Brede schuifpui met antraciet kunststof profielen — uitzicht op achtertuin" loading="lazy" width="400" height="250" />
+          <div class="ic-overlay"><img src="/design-assets/icons/check-gradient.svg" alt="" width="22" height="22" /></div>
+        </div>
+        <div class="svc-body">
+          <h3>Schuifpuien</h3>
+          <p>Tot zes meter breed, soepel lopend op rvs-rails. Smalle profielen voor maximale glasvlakken — perfect voor tuinkamers en achteruitbouw.</p>
+          <a href="/diensten/kunststof-schuifpuien/" class="more">Lees meer <span class="arrow" aria-hidden="true">→</span></a>
+        </div>
       </article>
 
       <article class="svc">
-        <div class="ic"><img src="/design-assets/icons/check-gradient.svg" alt="" width="24" height="24" /></div>
-        <h3>Keralit gevelbekleding</h3>
-        <p>Onderhoudsarme kunststof gevelbekleding in 35+ kleuren. 10 jaar fabrieksgarantie. Nooit meer schilderen of schuren.</p>
-        <a href="/diensten/kunststof-gevelbekleding/" class="more">Lees meer <span class="arrow" aria-hidden="true">→</span></a>
+        <div class="svc-photo">
+          <img src="/design-assets/images/voorkant-gevel-huis.jpg" alt="Antraciet Keralit gevelbekleding op een woning in Hengelo — strak en onderhoudsarm" loading="lazy" width="400" height="250" />
+          <div class="ic-overlay"><img src="/design-assets/icons/check-gradient.svg" alt="" width="22" height="22" /></div>
+        </div>
+        <div class="svc-body">
+          <h3>Keralit gevelbekleding</h3>
+          <p>Onderhoudsarme kunststof gevelbekleding in 35+ kleuren. 10 jaar fabrieksgarantie. Nooit meer schilderen of schuren.</p>
+          <a href="/diensten/kunststof-gevelbekleding/" class="more">Lees meer <span class="arrow" aria-hidden="true">→</span></a>
+        </div>
       </article>
 
       <article class="svc dark">
