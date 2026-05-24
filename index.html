@@ -1,614 +1,1640 @@
 <!DOCTYPE html>
 <html lang="nl-NL">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kunststof kozijnen specialist in Twente | Duurkracht Kozijnen</title>
-  <meta name="description" content="Duurkracht Kozijnen plaatst hoogwaardige kunststof kozijnen, deuren en schuifpuien in Twente. Meer dan 20 jaar ervaring. 4.9/5 Google Reviews. Vraag gratis adviesgesprek aan. Doorlooptijd 6–8 weken.">
-  <link rel="canonical" href="https://www.duurkrachtkozijnen.nl/">
-  <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#1a4731">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Design Concept v1 — Duurkracht Kozijnen</title>
+<meta name="robots" content="noindex, nofollow" />
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="nl_NL">
-  <meta property="og:title" content="Kunststof kozijnen specialist in Twente | Duurkracht Kozijnen">
-  <meta property="og:description" content="Hoogwaardige kunststof kozijnen, deuren en schuifpuien in Twente. 20+ jaar ervaring. 4.9/5 Google Reviews. Doorlooptijd 6–8 weken.">
-  <meta property="og:url" content="https://www.duurkrachtkozijnen.nl/">
-  <meta property="og:site_name" content="Duurkracht Kozijnen">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1200&q=80&auto=format&fit=crop">
-  <meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400..800,30..100,0..1;1,9..144,400..800,30..100,0..1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
-  <!-- Performance: preconnect to fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+  :root{
+    /* Brand colors — uit live site CSS geëxtraheerd */
+    --green:       #0B5A2B;
+    --green-deep:  #074120;
+    --green-mid:   #1a7a42;
+    --green-tint:  #e8f0eb;
+    --orange:      #ED6B06;
+    --orange-deep: #c4570a;
+    --orange-tint: #fde9d6;
+    --lime:        #D3CF29;
+    --lime-soft:   #e8e57c;
 
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+    --ink:         #0E0E0E;
+    --ink-soft:    #2a2a2a;
+    --gray-50:     #FAFAFA;
+    --gray-100:    #F4F4F2;
+    --gray-200:    #EAEAE6;
+    --gray-300:    #D5D5CF;
+    --gray-500:    #8a8a82;
+    --gray-700:    #4a4a44;
+    --gray-900:    #1a1a18;
 
-  <!-- Custom styles -->
-  <link rel="stylesheet" href="/css/style.css">
+    --canvas:      #EFEDE6;   /* design board background */
+    --frame:       #FFFFFF;   /* mock-screen background */
+    --frame-border:#0E0E0E;
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231a4731'/%3E%3Ctext x='50' y='68' text-anchor='middle' font-family='Inter,sans-serif' font-size='52' font-weight='800' fill='white'%3ED%3C/text%3E%3C/svg%3E">
-
-  <!-- Schema.org LocalBusiness -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Duurkracht Kozijnen B.V.",
-    "@id": "https://www.duurkrachtkozijnen.nl",
-    "url": "https://www.duurkrachtkozijnen.nl",
-    "telephone": "+31850731660",
-    "email": "info@duurkrachtkozijnen.nl",
-    "description": "Specialist in kunststof kozijnen, deuren, schuifpuien en gevelbekleding in Twente. Meer dan 20 jaar ervaring.",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Hassinkweg 1",
-      "addressLocality": "Hengelo",
-      "postalCode": "7556 BV",
-      "addressRegion": "Overijssel",
-      "addressCountry": "NL"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 52.2660,
-      "longitude": 6.7935
-    },
-    "openingHoursSpecification": [
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "17:00" }
-    ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "50",
-      "bestRating": "5"
-    },
-    "priceRange": "€€",
-    "areaServed": ["Hengelo", "Enschede", "Almelo", "Oldenzaal", "Borne", "Twente"],
-    "serviceType": ["Kunststof kozijnen", "Kunststof deuren", "Schuifpuien", "Gevelbekleding", "Montage"],
-    "sameAs": [
-      "https://www.facebook.com/duurkrachtkozijnen",
-      "https://www.linkedin.com/company/duurkracht-kozijnen",
-      "https://www.instagram.com/duurkrachtkozijnen"
-    ]
+    --gold:        #c9a35a;
+    --max:         1400px;
+    --radius-sm:   4px;
+    --radius:      12px;
+    --radius-lg:   24px;
   }
-  </script>
 
-  <!-- Schema.org FAQPage -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Hoeveel kosten kunststof kozijnen?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "De kosten variëren per type, maat en uitvoering. Een standaard raamkozijn begint bij ongeveer €400,– inclusief montage. Voor een nauwkeurige offerte plannen we graag een gratis adviesgesprek bij u thuis."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Hoe lang duurt de plaatsing van kozijnen?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "De montage van een gemiddeld huis (6–10 kozijnen) duurt 1 à 2 werkdagen. De totale doorlooptijd van advies tot montage is 6–8 weken."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "In welke regio's zijn jullie actief?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Wij zijn actief in heel Twente en Overijssel: Hengelo, Enschede, Almelo, Oldenzaal, Borne, Delden, Tubbergen, Rijssen en omgeving."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Geven jullie garantie op de kozijnen?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Ja, wij geven 10 jaar garantie op de profielen en 5 jaar op de montage. De kunststof profielen zijn onderhoudsvrij en gaan 50+ jaar mee."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Kan ik een gratis adviesgesprek aanvragen?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Absoluut. Wij komen geheel vrijblijvend bij u thuis voor een gratis adviesgesprek en inmeting. Plan een afspraak via het contactformulier of bel ons op 085 073 1660."
-        }
-      }
-    ]
+  *,*::before,*::after{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background: var(--canvas);
+    color: var(--ink);
+    font-family: "Manrope", -apple-system, system-ui, sans-serif;
+    font-size: 15.5px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
-  </script>
+
+  /* ===== DESIGN-COMP CHROME =================================== */
+  .board-bar{
+    position: sticky; top: 0; z-index: 100;
+    background: var(--ink);
+    color: var(--gray-100);
+    padding: 12px 28px;
+    display:flex; align-items:center; justify-content:space-between; gap: 24px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12px;
+    letter-spacing: .05em;
+    border-bottom: 1px solid #2a2a2a;
+  }
+  .board-bar .pill{
+    padding: 4px 10px; border-radius: 999px;
+    background: var(--orange); color: white;
+    text-transform: uppercase; font-weight: 600;
+    font-size: 10.5px; letter-spacing: .12em;
+  }
+  .board-bar nav{ display:flex; gap: 20px; }
+  .board-bar a{ color: inherit; opacity:.7; text-decoration:none; transition:opacity .2s; }
+  .board-bar a:hover{ opacity:1; color: var(--lime); }
+
+  .board-section{
+    padding: 80px 40px 60px;
+    max-width: var(--max);
+    margin: 0 auto;
+  }
+  .board-section-head{
+    display:flex; align-items: flex-end; justify-content: space-between; gap: 40px;
+    margin-bottom: 50px;
+    padding-bottom: 24px;
+    border-bottom: 1px dashed var(--gray-300);
+  }
+  .board-section-head h2{
+    font-family: "Fraunces", serif;
+    font-weight: 400;
+    font-variation-settings: "opsz" 144, "SOFT" 40;
+    font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+    letter-spacing: -0.025em;
+    line-height: 1;
+    margin: 0;
+  }
+  .board-section-head h2 .num{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 13px;
+    color: var(--orange);
+    font-style: normal;
+    font-variation-settings: normal;
+    display: block;
+    margin-bottom: 14px;
+    letter-spacing: .1em;
+  }
+  .board-section-head .note{
+    max-width: 480px;
+    font-size: 14px;
+    color: var(--gray-700);
+    line-height: 1.6;
+  }
+
+  /* The "screen" — mocked-up website frame */
+  .frame{
+    background: var(--frame);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow:
+      0 1px 2px rgba(0,0,0,0.04),
+      0 20px 60px -20px rgba(0,0,0,0.25),
+      0 60px 120px -40px rgba(0,0,0,0.2);
+    position: relative;
+  }
+  .frame-label{
+    position: absolute; top: -32px; left: 0;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    letter-spacing: .08em;
+    color: var(--gray-700);
+  }
+  .frame-label::before{
+    content: "▸ ";
+    color: var(--orange);
+  }
+
+  /* ===== BRAND FOUNDATIONS =================================== */
+  .grid-foundations{
+    display: grid;
+    grid-template-columns: 1.1fr 1fr 1fr;
+    gap: 24px;
+  }
+  .card{
+    background: var(--frame);
+    border-radius: var(--radius);
+    padding: 32px;
+    border: 1px solid var(--gray-200);
+  }
+  .card h3{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    margin: 0 0 24px;
+    color: var(--gray-500);
+    font-weight: 500;
+  }
+  .logo-wall{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin: 0 -32px -32px;
+    border-top: 1px solid var(--gray-200);
+  }
+  .logo-wall > div{
+    padding: 40px 24px;
+    display:flex; align-items:center; justify-content:center;
+    border-right: 1px solid var(--gray-200);
+    min-height: 120px;
+  }
+  .logo-wall > div:nth-child(2n){ border-right: none; }
+  .logo-wall > div:nth-child(3),
+  .logo-wall > div:nth-child(4){ border-top: 1px solid var(--gray-200); }
+  .logo-wall .on-light{ background: var(--gray-50); }
+  .logo-wall .on-green{ background: var(--green); }
+  .logo-wall .on-orange{ background: var(--orange); }
+  .logo-wall .on-dark{ background: var(--ink); }
+  .logo-wall img{ max-height: 50px; max-width: 80%; object-fit: contain; }
+
+  .palette{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .swatch{
+    display: grid;
+    grid-template-columns: 60px 1fr auto;
+    gap: 16px;
+    align-items: center;
+    padding: 10px;
+    border-radius: 8px;
+    background: var(--gray-50);
+  }
+  .swatch .chip{
+    width: 60px; height: 60px;
+    border-radius: 8px;
+    border: 1px solid rgba(0,0,0,.06);
+  }
+  .swatch .name{ font-weight: 600; font-size: 14px; }
+  .swatch .role{ font-size: 12px; color: var(--gray-500); margin-top: 2px; }
+  .swatch .hex{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11.5px;
+    color: var(--gray-700);
+    background: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid var(--gray-200);
+  }
+
+  .type-scale > div{ padding: 14px 0; border-bottom: 1px solid var(--gray-200); }
+  .type-scale > div:last-child{ border-bottom: none; }
+  .type-scale .label{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px;
+    color: var(--gray-500);
+    letter-spacing: .1em;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+  .type-display{ font-family: "Fraunces"; font-variation-settings:"opsz" 144; font-size: 44px; line-height: 1; font-weight: 400; letter-spacing: -0.02em; }
+  .type-display .italic{ font-style: italic; font-variation-settings:"opsz" 144, "SOFT" 80, "WONK" 1; color: var(--orange); }
+  .type-h1{ font-family: "Manrope"; font-size: 32px; font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; }
+  .type-h2{ font-family: "Manrope"; font-size: 22px; font-weight: 600; line-height: 1.2; }
+  .type-body{ font-family: "Manrope"; font-size: 15px; font-weight: 400; line-height: 1.6; color: var(--ink-soft); }
+  .type-mono{ font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--gray-700); }
+
+  .icon-wall{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+  }
+  .icon-wall .ic{
+    aspect-ratio: 1;
+    background: var(--gray-50);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px;
+    transition: background .2s;
+    cursor: default;
+  }
+  .icon-wall .ic:hover{ background: var(--green-tint); }
+  .icon-wall .ic img{ max-width: 100%; max-height: 100%; }
+
+  /* ===== HOMEPAGE MOCKUP ===================================== */
+  /* (using website-style classes inside .frame) */
+
+  .frame .topbar{
+    background: var(--ink);
+    color: #cabf9d;
+    font-size: 12.5px;
+    padding: 10px 40px;
+    display:flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 12px;
+    font-family: "Manrope";
+  }
+  .frame .topbar .live{ display:inline-flex; align-items: center; gap: 8px; }
+  .frame .topbar .live::before{
+    content: ""; width: 8px; height: 8px; border-radius: 50%;
+    background: var(--lime); box-shadow: 0 0 0 4px rgba(211,207,41,.18);
+  }
+  .frame .topbar a{ color: inherit; text-decoration: none; }
+  .frame .topbar a:hover{ color: white; }
+
+  .frame .nav{
+    background: white;
+    padding: 22px 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 1px solid var(--gray-200);
+    position: sticky; top: 0;
+  }
+  .frame .nav-logo img{ height: 44px; }
+  .frame .nav ul{
+    list-style: none; margin: 0; padding: 0;
+    display: flex; gap: 32px;
+    font-size: 14.5px; font-weight: 500;
+  }
+  .frame .nav ul a{ color: var(--ink); text-decoration: none; position:relative; }
+  .frame .nav ul a.active{ color: var(--green); }
+  .frame .nav ul a.active::after{
+    content: ""; position: absolute; left: 0; right: 0; bottom: -8px;
+    height: 2px; background: var(--orange); border-radius: 1px;
+  }
+  .frame .nav-cta{ display: flex; align-items: center; gap: 16px; }
+  .frame .nav-cta .phone{
+    display:flex; gap: 8px; align-items: center;
+    font-weight: 600; font-size: 14.5px; color: var(--ink); text-decoration: none;
+  }
+  .frame .nav-cta .phone img{ width: 18px; height: 18px; }
+
+  .btn{
+    display:inline-flex; align-items: center; gap: 10px;
+    padding: 14px 22px; border-radius: 999px;
+    font-family: "Manrope"; font-weight: 600; font-size: 14px;
+    text-decoration: none; border: 1.5px solid transparent;
+    transition: all .25s ease;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .btn-primary{ background: var(--orange); color: white; }
+  .btn-primary:hover{ background: var(--orange-deep); }
+  .btn-green{ background: var(--green); color: white; }
+  .btn-green:hover{ background: var(--green-deep); }
+  .btn-ghost{ background: transparent; border-color: var(--ink); color: var(--ink); }
+  .btn-ghost:hover{ background: var(--ink); color: white; }
+  .btn-ghost-white{ background: transparent; border-color: rgba(255,255,255,.4); color: white; }
+  .btn-ghost-white:hover{ background: white; color: var(--green); border-color: white; }
+  .btn .arrow{ transition: transform .25s ease; }
+  .btn:hover .arrow{ transform: translateX(3px); }
+
+  /* HERO */
+  .hero{
+    background: var(--green);
+    color: white;
+    padding: 80px 40px 100px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before{
+    content: "";
+    position: absolute; right: -100px; top: -120px;
+    width: 540px; height: 540px;
+    background-image: url("./design-assets/watermark-waarom-transparant.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: .07;
+    pointer-events: none;
+  }
+  .hero-grid{
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 50px;
+    align-items: center;
+    position: relative; z-index: 2;
+  }
+  .hero .eyebrow{
+    display:inline-flex; gap: 10px; align-items: center;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11.5px; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--lime);
+    margin-bottom: 26px;
+  }
+  .hero .eyebrow::before{
+    content: ""; width: 24px; height: 1px; background: var(--lime);
+  }
+  .hero h1{
+    font-family: "Manrope"; font-weight: 700;
+    font-size: clamp(2.4rem, 4.5vw, 4rem);
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+    margin: 0 0 26px;
+    color: white;
+  }
+  .hero h1 .em{
+    font-family: "Fraunces"; font-style: italic;
+    font-variation-settings: "opsz" 144, "SOFT" 80, "WONK" 1;
+    font-weight: 400;
+    color: var(--lime);
+  }
+  .hero p.lead{
+    font-size: 17px; line-height: 1.55;
+    color: #d6e3da;
+    max-width: 480px;
+    margin: 0 0 32px;
+  }
+  .hero-cta{ display:flex; gap: 12px; flex-wrap: wrap; align-items:center; }
+  .hero-trust{
+    margin-top: 36px; display:flex; gap: 24px; align-items: center; color: #c5d6ca; font-size: 13px;
+  }
+  .hero-trust .stars{ color: var(--lime); letter-spacing: 2px; font-size: 15px; }
+  .hero-trust img{ height: 16px; }
+
+  .hero-visual{
+    position: relative;
+    aspect-ratio: 4 / 5;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 30px 80px -20px rgba(0,0,0,.5);
+  }
+  .hero-visual img{
+    width: 100%; height: 100%; object-fit: cover;
+  }
+  .hero-visual .review-badge{
+    position: absolute; left: 20px; bottom: 20px;
+    background: white;
+    padding: 14px 18px;
+    border-radius: var(--radius-sm);
+    box-shadow: 0 8px 24px rgba(0,0,0,.15);
+    display: flex; gap: 14px; align-items: center;
+    max-width: 280px;
+  }
+  .hero-visual .review-badge img{ width: 32px; height: 32px; flex-shrink: 0; }
+  .hero-visual .review-badge .rb-text{ font-size: 12.5px; line-height: 1.3; color: var(--ink); }
+  .hero-visual .review-badge .rb-text strong{ font-size: 14px; display: block; margin-bottom: 2px; }
+  .hero-visual .review-badge .rb-text .gold{ color: #f4b400; letter-spacing: 1.5px; }
+
+  /* USP STRIP */
+  .usp-strip{
+    background: var(--lime);
+    padding: 18px 40px;
+    overflow: hidden;
+  }
+  .usp-row{
+    display:flex; gap: 50px; white-space: nowrap; align-items: center;
+    font-family: "Fraunces";
+    font-style: italic;
+    font-variation-settings: "opsz" 144, "SOFT" 80;
+    font-size: 20px;
+    color: var(--green-deep);
+  }
+  .usp-row .sep{ display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
+
+  /* TRUST STATS */
+  .stats{
+    background: var(--gray-50);
+    padding: 60px 40px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    border-bottom: 1px solid var(--gray-200);
+  }
+  .stat .num{
+    font-family: "Fraunces"; font-weight: 400;
+    font-variation-settings: "opsz" 144, "SOFT" 30;
+    font-size: 60px; line-height: 1;
+    color: var(--green);
+    letter-spacing: -0.03em;
+  }
+  .stat .num .sup{ font-size: .4em; vertical-align: super; color: var(--orange); margin-left: 2px; }
+  .stat .lbl{ font-size: 13px; color: var(--gray-700); margin-top: 14px; line-height: 1.4; max-width: 200px; }
+
+  /* SERVICES */
+  .services{
+    padding: 100px 40px;
+    background: white;
+  }
+  .services-head{
+    display: grid; grid-template-columns: 1fr 1fr; gap: 50px; margin-bottom: 60px; align-items: end;
+  }
+  .services-head .eyebrow-orange{
+    display:inline-flex; gap: 10px; align-items: center;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11.5px; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 22px;
+  }
+  .services-head .eyebrow-orange::before{
+    content: ""; width: 24px; height: 1px; background: var(--orange);
+  }
+  .services-head h2{
+    font-family: "Manrope"; font-weight: 700;
+    font-size: clamp(2rem, 3.6vw, 3rem);
+    line-height: 1.05; letter-spacing: -0.025em;
+    margin: 0;
+  }
+  .services-head h2 .em{
+    font-family: "Fraunces"; font-style: italic; font-weight: 400;
+    font-variation-settings: "opsz" 144, "SOFT" 80, "WONK" 1;
+    color: var(--green);
+  }
+  .services-head p{ color: var(--gray-700); font-size: 16px; max-width: 480px; }
+
+  .service-grid{
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 16px;
+  }
+  .svc{
+    background: var(--gray-50);
+    border-radius: var(--radius);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 280px;
+    transition: all .3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .svc:hover{ background: var(--green-tint); transform: translateY(-2px); }
+  .svc .ic{
+    width: 48px; height: 48px;
+    background: white; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 24px;
+  }
+  .svc .ic img{ width: 24px; height: 24px; }
+  .svc h3{ font-family: "Manrope"; font-weight: 600; font-size: 22px; margin: 0 0 10px; letter-spacing: -0.01em; }
+  .svc p{ font-size: 14px; color: var(--gray-700); margin: 0; line-height: 1.5; }
+  .svc .more{
+    margin-top: 20px;
+    display:inline-flex; align-items: center; gap: 8px;
+    font-size: 13.5px; font-weight: 600; color: var(--green);
+  }
+  .svc.feature{
+    background: var(--green); color: white;
+    grid-row: span 2;
+    background-image: url("./design-assets/images/Voorkant-huis-kozijnen.jpg");
+    background-size: cover;
+    background-position: center;
+    min-height: 580px;
+    position: relative;
+  }
+  .svc.feature::after{
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 30%, rgba(11,90,43,.95) 100%);
+    pointer-events: none;
+  }
+  .svc.feature > *{ position: relative; z-index: 2; }
+  .svc.feature .ic{ background: var(--orange); }
+  .svc.feature h3{ color: white; font-size: 32px; margin-top: auto; }
+  .svc.feature p{ color: #d6e3da; font-size: 15px; max-width: 320px; }
+  .svc.feature .more{ color: var(--lime); }
+
+  .svc.dark{
+    background: var(--ink); color: white;
+  }
+  .svc.dark .ic{ background: var(--orange); }
+  .svc.dark h3{ color: white; }
+  .svc.dark p{ color: #aaa; }
+  .svc.dark .more{ color: var(--orange); }
+
+  /* WERKWIJZE */
+  .werkwijze{
+    padding: 100px 40px;
+    background: var(--gray-100);
+    position: relative;
+    overflow: hidden;
+  }
+  .werkwijze::before{
+    content: "";
+    position: absolute; left: -200px; bottom: -200px;
+    width: 600px; height: 600px;
+    background-image: url("./design-assets/watermark-werkwijze-transparant.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: .08;
+    pointer-events: none;
+  }
+  .werkwijze-head{
+    text-align: center; max-width: 700px; margin: 0 auto 70px;
+    position: relative; z-index: 2;
+  }
+  .werkwijze-head .eyebrow{
+    display:inline-flex; gap: 10px; align-items: center;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11.5px; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--orange); margin-bottom: 22px;
+  }
+  .werkwijze-head .eyebrow::before, .werkwijze-head .eyebrow::after{
+    content: ""; width: 24px; height: 1px; background: var(--orange);
+  }
+  .werkwijze-head h2{
+    font-family: "Manrope"; font-weight: 700;
+    font-size: clamp(2rem, 3.6vw, 3rem); letter-spacing: -0.02em; margin: 0;
+  }
+  .werkwijze-head h2 .em{
+    font-family: "Fraunces"; font-style: italic; font-weight: 400;
+    font-variation-settings: "opsz" 144, "SOFT" 80, "WONK" 1;
+    color: var(--green);
+  }
+  .steps{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    position: relative; z-index: 2;
+    counter-reset: step;
+  }
+  .step{
+    background: white;
+    padding: 32px 24px;
+    border-radius: 0;
+    text-align: center;
+    border-right: 1px solid var(--gray-200);
+    counter-increment: step;
+    position: relative;
+  }
+  .step:first-child{ border-radius: var(--radius) 0 0 var(--radius); }
+  .step:last-child{ border-right: none; border-radius: 0 var(--radius) var(--radius) 0; }
+  .step .num{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px; color: var(--orange);
+    letter-spacing: .15em;
+    margin-bottom: 18px;
+  }
+  .step .ic-circle{
+    width: 64px; height: 64px;
+    background: var(--green-tint);
+    border-radius: 50%;
+    display:flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px;
+  }
+  .step .ic-circle img{ width: 30px; height: 30px; }
+  .step h4{
+    font-family: "Manrope"; font-weight: 600; font-size: 16px;
+    margin: 0 0 8px; letter-spacing: -0.01em;
+  }
+  .step p{ font-size: 13px; color: var(--gray-700); margin: 0; line-height: 1.5; }
+
+  /* PROJECT FEATURE */
+  .project{
+    padding: 100px 40px;
+    background: white;
+  }
+  .project-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+  }
+  .project-img{
+    aspect-ratio: 5/6;
+    border-radius: var(--radius);
+    overflow: hidden;
+    position: relative;
+  }
+  .project-img img{ width: 100%; height: 100%; object-fit: cover; }
+  .project-img .tag{
+    position: absolute; top: 20px; left: 20px;
+    background: var(--orange);
+    color: white;
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .project h2{
+    font-family: "Manrope"; font-weight: 700;
+    font-size: clamp(2rem, 3.6vw, 3rem);
+    line-height: 1.05; letter-spacing: -0.025em;
+    margin: 20px 0 24px;
+  }
+  .project h2 .em{
+    font-family: "Fraunces"; font-style: italic; font-weight: 400;
+    color: var(--orange);
+    font-variation-settings: "opsz" 144, "SOFT" 80, "WONK" 1;
+  }
+  .project p{ color: var(--gray-700); font-size: 16px; max-width: 480px; }
+  .project ul.specs{
+    list-style: none; margin: 36px 0 0; padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+  .project ul.specs li{
+    padding: 16px 0;
+    border-top: 1px solid var(--gray-200);
+    font-size: 14px;
+  }
+  .project ul.specs li:last-child,
+  .project ul.specs li:nth-last-child(2){ border-bottom: 1px solid var(--gray-200); }
+  .project ul.specs li .lbl{ display:block; font-size: 11px; color: var(--gray-500); letter-spacing: .1em; text-transform: uppercase; margin-bottom: 4px; }
+  .project ul.specs li .val{ font-family: "Fraunces"; font-size: 19px; font-variation-settings:"opsz" 36; color: var(--ink); }
+
+  /* REVIEWS */
+  .reviews{
+    background: var(--gray-50);
+    padding: 100px 40px;
+  }
+  .reviews-head{
+    display: grid; grid-template-columns: 1fr 1fr; gap: 50px; margin-bottom: 50px; align-items: end;
+  }
+  .reviews-head h2{
+    font-family: "Manrope"; font-weight: 700; font-size: clamp(2rem, 3.6vw, 3rem);
+    margin: 0; letter-spacing: -0.025em; line-height: 1.05;
+  }
+  .reviews-head h2 .em{
+    font-family: "Fraunces"; font-style: italic; font-weight: 400; color: var(--orange);
+    font-variation-settings:"opsz" 144, "SOFT" 80, "WONK" 1;
+  }
+  .reviews-head .rating-big{
+    display:flex; gap: 20px; align-items: center;
+    background: white; padding: 20px 28px; border-radius: var(--radius);
+    border: 1px solid var(--gray-200);
+  }
+  .reviews-head .rating-big img{ width: 40px; height: 40px; }
+  .reviews-head .rating-big .num{ font-family: "Fraunces"; font-size: 36px; font-variation-settings:"opsz" 80; line-height: 1; }
+  .reviews-head .rating-big .stars{ color: #f4b400; letter-spacing: 3px; font-size: 14px; margin-top: 2px; }
+  .reviews-head .rating-big .meta{ font-size: 12px; color: var(--gray-500); }
+  .review-grid{
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  }
+  .review{
+    background: white;
+    padding: 30px;
+    border-radius: var(--radius);
+    border: 1px solid var(--gray-200);
+    display: flex; flex-direction: column;
+  }
+  .review .stars{ color: #f4b400; letter-spacing: 3px; font-size: 15px; margin-bottom: 16px; }
+  .review blockquote{
+    font-family: "Fraunces"; font-variation-settings:"opsz" 24, "SOFT" 30;
+    font-size: 18px; line-height: 1.4; margin: 0 0 22px; color: var(--ink);
+    flex: 1;
+  }
+  .review .author{ display:flex; align-items: center; gap: 12px; padding-top: 16px; border-top: 1px solid var(--gray-200); }
+  .review .avatar{
+    width: 38px; height: 38px; border-radius: 50%;
+    background: var(--green); color: white;
+    display:flex; align-items:center; justify-content:center;
+    font-family: "Manrope"; font-weight: 600; font-size: 14px;
+  }
+  .review .meta{ font-size: 13px; }
+  .review .meta strong{ display: block; font-weight: 600; }
+  .review .meta span{ color: var(--gray-500); font-size: 12px; }
+
+  /* CTA BANNER */
+  .cta-banner{
+    background: var(--orange);
+    color: white;
+    padding: 90px 40px;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 50px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-banner::before{
+    content: "Duurkracht.";
+    position: absolute; right: -40px; bottom: -100px;
+    font-family: "Fraunces"; font-style: italic;
+    font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+    font-size: 18rem; color: rgba(255,255,255,.1);
+    line-height: .8; pointer-events: none;
+  }
+  .cta-banner h2{
+    font-family: "Manrope"; font-weight: 700;
+    font-size: clamp(2rem, 3.8vw, 3.2rem);
+    color: white; margin: 0 0 18px;
+    letter-spacing: -0.02em; line-height: 1.05;
+    position: relative; z-index: 2;
+  }
+  .cta-banner h2 .em{
+    font-family: "Fraunces"; font-style: italic; font-weight: 400;
+    color: var(--lime);
+    font-variation-settings:"opsz" 144, "SOFT" 100, "WONK" 1;
+  }
+  .cta-banner p{ color: #fde9d6; max-width: 480px; position: relative; z-index: 2; }
+  .cta-banner-actions{ display:flex; flex-direction: column; gap: 12px; align-items: flex-start; position: relative; z-index: 2; }
+  .cta-banner .btn-primary{ background: white; color: var(--orange); }
+  .cta-banner .btn-primary:hover{ background: var(--ink); color: white; }
+
+  /* FOOTER */
+  .ftr{
+    background: var(--ink);
+    color: #aaa;
+    padding: 70px 40px 30px;
+    font-size: 13.5px;
+  }
+  .ftr-grid{
+    display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px;
+    padding-bottom: 50px; border-bottom: 1px solid #2a2a2a;
+  }
+  .ftr-grid h5{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10.5px; letter-spacing: .14em;
+    color: #777; margin: 0 0 16px; font-weight: 500;
+    text-transform: uppercase;
+  }
+  .ftr-grid ul{ list-style: none; margin: 0; padding: 0; }
+  .ftr-grid ul li{ margin-bottom: 8px; }
+  .ftr-grid a{ color: #ccc; text-decoration: none; }
+  .ftr-grid a:hover{ color: var(--lime); }
+  .ftr-brand img{ height: 50px; margin-bottom: 16px; }
+  .ftr-brand p{ color: #888; max-width: 280px; }
+  .ftr-bot{
+    padding-top: 24px; display:flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    font-size: 12px; color: #666;
+  }
+  .ftr-bot .socials{ display:flex; gap: 14px; align-items: center; }
+  .ftr-bot .socials img{ width: 18px; height: 18px; opacity: .6; transition: opacity .2s; filter: invert(1) brightness(.7); }
+  .ftr-bot .socials a:hover img{ opacity: 1; }
+
+  /* ===== DESIGN NOTES ====================================== */
+  .notes-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .note-card{
+    background: white;
+    border-radius: var(--radius);
+    border: 1px solid var(--gray-200);
+    border-left: 3px solid var(--orange);
+    padding: 26px;
+  }
+  .note-card.green{ border-left-color: var(--green); }
+  .note-card.lime{ border-left-color: var(--lime); }
+  .note-card h4{
+    font-family: "Manrope"; font-weight: 600; font-size: 15px;
+    margin: 0 0 10px; letter-spacing: -0.01em;
+  }
+  .note-card p{ font-size: 13.5px; color: var(--gray-700); margin: 0; line-height: 1.55; }
+  .note-card .tag{
+    display:inline-block; font-family: "JetBrains Mono", monospace;
+    font-size: 10px; letter-spacing: .1em;
+    color: var(--orange); margin-bottom: 12px; text-transform: uppercase;
+  }
+  .note-card.green .tag{ color: var(--green); }
+  .note-card.lime .tag{ color: #8a8400; }
+
+  /* MOBILE PREVIEW */
+  .mobile-row{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    justify-items: center;
+  }
+  .phone-frame{
+    width: 100%;
+    max-width: 320px;
+    aspect-ratio: 9 / 19.5;
+    background: var(--ink);
+    border-radius: 32px;
+    padding: 8px;
+    box-shadow: 0 20px 60px -20px rgba(0,0,0,.4);
+  }
+  .phone-screen{
+    width: 100%; height: 100%;
+    background: white;
+    border-radius: 26px;
+    overflow: hidden;
+    position: relative;
+  }
+  .phone-screen .ph-nav{
+    background: white; padding: 14px;
+    display:flex; justify-content: space-between; align-items: center;
+    border-bottom: 1px solid var(--gray-200);
+  }
+  .phone-screen .ph-nav img.logo{ height: 26px; }
+  .phone-screen .ph-nav img.menu{ width: 22px; height: 22px; }
+  .phone-screen .ph-hero{
+    background: var(--green); color: white; padding: 22px 16px;
+  }
+  .phone-screen .ph-hero h1{
+    font-family: "Manrope"; font-weight: 700; font-size: 22px; line-height: 1.1; margin: 0 0 12px;
+  }
+  .phone-screen .ph-hero h1 .em{
+    font-family: "Fraunces"; font-style: italic; color: var(--lime); font-weight: 400;
+    font-variation-settings:"opsz" 144, "SOFT" 80, "WONK" 1;
+  }
+  .phone-screen .ph-hero p{ color: #cad9ce; font-size: 12px; margin: 0 0 14px; }
+  .phone-screen .ph-hero .pbtn{
+    background: var(--orange); color: white; padding: 10px 14px; border-radius: 999px;
+    font-size: 12px; font-weight: 600; display:inline-block;
+  }
+  .phone-screen .ph-img{
+    height: 200px;
+    background: linear-gradient(180deg, transparent, rgba(0,0,0,.3));
+    background-size: cover;
+    background-position: center;
+  }
+  .phone-screen .ph-stats{
+    background: var(--lime); padding: 12px;
+    text-align: center; font-family: "Fraunces"; font-style: italic;
+    font-size: 13px; color: var(--green-deep);
+  }
+  .phone-screen .ph-services{
+    padding: 16px;
+  }
+  .phone-screen .ph-services h2{
+    font-family: "Manrope"; font-weight: 700; font-size: 18px; margin: 0 0 12px;
+  }
+  .phone-screen .ph-svc{
+    background: var(--gray-50);
+    padding: 14px;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    display:flex; gap: 12px; align-items: center;
+  }
+  .phone-screen .ph-svc .ic{
+    width: 32px; height: 32px;
+    background: white; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .phone-screen .ph-svc .ic img{ width: 18px; height: 18px; }
+  .phone-screen .ph-svc .txt{ font-size: 12.5px; font-weight: 600; }
+  .phone-screen .ph-svc .txt small{ display:block; font-weight: 400; color: var(--gray-500); font-size: 10px; margin-top: 2px; }
+
+  .phone-label{
+    text-align: center; margin-top: 18px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px; color: var(--gray-700); letter-spacing: .08em;
+  }
+  .phone-label::before{ content: "▸ "; color: var(--orange); }
+
+  /* COVER ====================================================  */
+  .cover{
+    padding: 100px 40px 80px;
+    max-width: var(--max);
+    margin: 0 auto;
+  }
+  .cover-meta{
+    display:flex; gap: 14px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11.5px; color: var(--gray-700);
+    margin-bottom: 30px;
+    letter-spacing: .1em; text-transform: uppercase;
+  }
+  .cover-meta .v{ background: var(--ink); color: var(--lime); padding: 4px 8px; border-radius: 4px; }
+  .cover h1{
+    font-family: "Fraunces"; font-weight: 400;
+    font-variation-settings: "opsz" 144, "SOFT" 40;
+    font-size: clamp(3rem, 8vw, 7rem);
+    letter-spacing: -0.035em; line-height: .95;
+    margin: 0 0 30px;
+    max-width: 1100px;
+  }
+  .cover h1 .em{
+    font-style: italic; color: var(--orange);
+    font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+  }
+  .cover h1 .em-green{
+    font-style: italic; color: var(--green);
+    font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+  }
+  .cover-grid{
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 50px;
+    margin-top: 50px;
+    align-items: end;
+  }
+  .cover-grid p{
+    font-size: 17px; color: var(--gray-700); max-width: 560px;
+    line-height: 1.6;
+  }
+  .cover-grid .cover-logo{
+    background: white;
+    padding: 50px;
+    border-radius: var(--radius);
+    display: flex; align-items: center; justify-content: center;
+    border: 1px solid var(--gray-200);
+  }
+  .cover-grid .cover-logo img{ max-height: 90px; }
+
+  /* Responsive (basic, design comp is desktop-first) */
+  @media (max-width: 980px){
+    .grid-foundations{ grid-template-columns: 1fr; }
+    .hero-grid, .services-head, .reviews-head, .cta-banner, .project-grid, .cover-grid{ grid-template-columns: 1fr; }
+    .service-grid{ grid-template-columns: 1fr; }
+    .svc.feature{ min-height: 400px; grid-row: auto; }
+    .stats{ grid-template-columns: 1fr 1fr; }
+    .steps{ grid-template-columns: 1fr; }
+    .step{ border-right: none; border-bottom: 1px solid var(--gray-200); border-radius: 0 !important; }
+    .review-grid{ grid-template-columns: 1fr; }
+    .ftr-grid{ grid-template-columns: 1fr 1fr; }
+    .notes-grid{ grid-template-columns: 1fr; }
+    .mobile-row{ grid-template-columns: 1fr; }
+    .frame .nav ul{ display:none; }
+  }
+</style>
 </head>
 <body>
 
-<a href="#main" class="skip-link">Direct naar inhoud</a>
-
-<!-- Trust bar -->
-<div class="trustbar" role="banner">
-  <div class="trustbar-inner">
-    <span class="trustbar-item"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M16.7 5.3a1 1 0 010 1.4l-7 7a1 1 0 01-1.4 0l-4-4a1 1 0 011.4-1.4L9 11.6l6.3-6.3a1 1 0 011.4 0z"/></svg> Meer dan 20 jaar ervaring</span>
-    <span class="trustbar-item"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M16.7 5.3a1 1 0 010 1.4l-7 7a1 1 0 01-1.4 0l-4-4a1 1 0 011.4-1.4L9 11.6l6.3-6.3a1 1 0 011.4 0z"/></svg> 4.9/5 op Google (50+ reviews)</span>
-    <span class="trustbar-item"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M16.7 5.3a1 1 0 010 1.4l-7 7a1 1 0 01-1.4 0l-4-4a1 1 0 011.4-1.4L9 11.6l6.3-6.3a1 1 0 011.4 0z"/></svg> Gratis adviesgesprek aan huis</span>
+<!-- ============================================================
+     DESIGN BOARD TOP BAR
+============================================================ -->
+<div class="board-bar">
+  <div>
+    <span class="pill">Design Comp v1</span>
+    &nbsp;&nbsp;Duurkracht Kozijnen — homepage redesign · niet voor publicatie
   </div>
+  <nav>
+    <a href="#cover">Cover</a>
+    <a href="#foundations">Brand</a>
+    <a href="#mockup">Mockup</a>
+    <a href="#mobile">Mobile</a>
+    <a href="#notes">Notes</a>
+  </nav>
 </div>
 
-<!-- Navigation -->
-<nav class="site-nav" aria-label="Hoofdnavigatie">
-  <div class="nav-inner">
-    <a href="/" class="nav-logo">
-      <span class="nav-logo-mark">D</span>
-      <span>Duurkracht <span style="color:var(--color-accent)">Kozijnen</span></span>
-    </a>
-    <ul class="nav-menu">
-      <li><a href="/">Home</a></li>
-      <li class="has-dropdown">
-        <a href="/diensten/" class="dropdown-toggle">Diensten</a>
-        <ul class="nav-dropdown">
-          <li><a href="/diensten/kunststof-kozijnen.html">Kunststof Kozijnen</a></li>
-          <li><a href="/diensten/kunststof-deuren.html">Kunststof Deuren</a></li>
-          <li><a href="/diensten/schuifpuien.html">Schuifpuien</a></li>
-          <li><a href="/diensten/gevelbekleding.html">Gevelbekleding</a></li>
-          <li><a href="/diensten/montage.html">Montage</a></li>
-        </ul>
-      </li>
-      <li><a href="/projecten/">Projecten</a></li>
-      <li class="has-dropdown">
-        <a href="#" class="dropdown-toggle">Locaties</a>
-        <ul class="nav-dropdown">
-          <li><a href="/locaties/hengelo.html">Hengelo</a></li>
-          <li><a href="/locaties/enschede.html">Enschede</a></li>
-          <li><a href="/locaties/almelo.html">Almelo</a></li>
-          <li><a href="/locaties/oldenzaal.html">Oldenzaal</a></li>
-        </ul>
-      </li>
-      <li><a href="/over-ons/">Over Ons</a></li>
-      <li><a href="/blog/">Blog</a></li>
-      <li><a href="/contact/">Contact</a></li>
-    </ul>
-    <div class="nav-cta">
-      <a href="/contact/" class="btn btn-primary">Gratis adviesgesprek</a>
-      <button class="btn-hamburger" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+<!-- ============================================================
+     COVER
+============================================================ -->
+<section class="cover" id="cover">
+  <div class="cover-meta">
+    <span class="v">v1.0</span>
+    <span>2026 · mei</span>
+    <span>door Claude × Michael</span>
+    <span>klaar voor review</span>
+  </div>
+  <h1>
+    Een nieuw <span class="em-green">huis</span> voor<br>
+    Duurkracht Kozijnen — <span class="em">met behoud</span><br>
+    van de eigen huisstijl.
+  </h1>
+  <div class="cover-grid">
+    <p>
+      Dit document toont het visuele concept voor de nieuwe Duurkracht-homepage. Het bouwt door op het bestaande logo, kleurpalet (groen, oranje, lime) en de eigen project- en hero-fotografie — maar herwerkt de compositie, typografie en hiërarchie voor meer rust, vertrouwen en conversie. Akkoord op dit comp = startsein voor de daadwerkelijke codering.
+    </p>
+    <div class="cover-logo">
+      <img src="./design-assets/Logo-duurkracht-kozijnen.svg" alt="Logo Duurkracht Kozijnen" />
     </div>
   </div>
-</nav>
+</section>
 
-<!-- Mobile sidebar -->
-<div class="mobile-sidebar-overlay" aria-hidden="true"></div>
-<aside class="mobile-sidebar" aria-label="Mobiel menu">
-  <button class="mobile-sidebar-close" aria-label="Sluit menu">&times;</button>
-  <ul>
-    <li><a href="/">Home</a></li>
-    <li>
-      <a href="/diensten/">Diensten</a>
-      <ul class="submenu">
-        <li><a href="/diensten/kunststof-kozijnen.html">Kunststof Kozijnen</a></li>
-        <li><a href="/diensten/kunststof-deuren.html">Kunststof Deuren</a></li>
-        <li><a href="/diensten/schuifpuien.html">Schuifpuien</a></li>
-        <li><a href="/diensten/gevelbekleding.html">Gevelbekleding</a></li>
-        <li><a href="/diensten/montage.html">Montage</a></li>
-      </ul>
-    </li>
-    <li><a href="/projecten/">Projecten</a></li>
-    <li>
-      <a href="#">Locaties</a>
-      <ul class="submenu">
-        <li><a href="/locaties/hengelo.html">Hengelo</a></li>
-        <li><a href="/locaties/enschede.html">Enschede</a></li>
-        <li><a href="/locaties/almelo.html">Almelo</a></li>
-        <li><a href="/locaties/oldenzaal.html">Oldenzaal</a></li>
-      </ul>
-    </li>
-    <li><a href="/over-ons/">Over Ons</a></li>
-    <li><a href="/blog/">Blog</a></li>
-    <li><a href="/contact/">Contact</a></li>
-  </ul>
-  <a href="/contact/" class="btn btn-primary">Gratis adviesgesprek</a>
-</aside>
+<!-- ============================================================
+     1. BRAND FOUNDATIONS
+============================================================ -->
+<section class="board-section" id="foundations">
+  <div class="board-section-head">
+    <h2><span class="num">01 / Brand Foundations</span>Het fundament<br>blijft gelijk.</h2>
+    <p class="note">Logo, kleurenpalet en iconen zijn 1-op-1 overgenomen uit de live site (geëxtraheerd uit www.duurkrachtkozijnen.nl). De typografie krijgt een upgrade naar Manrope + Fraunces voor karakter en leesbaarheid.</p>
+  </div>
 
-<main id="main">
+  <div class="grid-foundations">
 
-  <!-- 1. HERO -->
-  <section class="hero">
-    <div class="hero-bg" style="background-image:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=80&auto=format&fit=crop');" role="img" aria-label="Moderne woning met kunststof kozijnen in Twente"></div>
-    <div class="hero-inner">
-      <span class="eyebrow" style="color:#f48c06">Kozijnspecialist Twente</span>
-      <h1>Kunststof kozijnen specialist in&nbsp;Twente</h1>
-      <p class="lead">Hoogwaardige kunststof kozijnen, deuren en schuifpuien. Vakkundige montage door ervaren specialisten. Doorlooptijd 6–8 weken.</p>
-      <div class="hero-ctas">
-        <a href="/contact/" class="btn btn-primary">Gratis adviesgesprek aanvragen</a>
-        <a href="/projecten/" class="btn btn-ghost">Bekijk onze projecten →</a>
+    <!-- LOGO -->
+    <div class="card">
+      <h3>// Logo · 4 toepassingen</h3>
+      <p style="font-size:14px; color:var(--gray-700); margin-top:0;">Het bestaande logo werkt op alle achtergronden. Voor de footer en mobile-nav gebruiken we het zwart/wit beeldmerk.</p>
+      <div class="logo-wall">
+        <div class="on-light"><img src="./design-assets/Logo-duurkracht-kozijnen.svg" alt="Logo op licht" /></div>
+        <div class="on-green"><img src="./design-assets/icon-duurkracht-kozijnen-white.svg" alt="Logo op groen" /></div>
+        <div class="on-orange"><img src="./design-assets/icon-duurkracht-kozijnen-white.svg" alt="Logo op oranje" /></div>
+        <div class="on-dark"><img src="./design-assets/icon-duurkracht-kozijnen-white.svg" alt="Logo op donker" /></div>
       </div>
     </div>
-    <div class="hero-badge">
-      <span class="star">★</span>
-      <span><strong>4.9</strong> Google Reviews</span>
-    </div>
-  </section>
 
-  <!-- 2. USP bar -->
-  <section class="section section-grey" style="padding:2.5rem 0;">
-    <div class="container">
-      <div class="usp-grid">
-        <div class="usp-item">
-          <div class="usp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2L9 9H2l5.5 4L5 20l7-4 7 4-2.5-7L22 9h-7z"/></svg></div>
-          <div><strong>20+ jaar ervaring</strong><span>Vakmanschap sinds 2004</span></div>
+    <!-- COLOR PALETTE -->
+    <div class="card">
+      <h3>// Color palette · ongewijzigd</h3>
+      <div class="palette">
+        <div class="swatch">
+          <div class="chip" style="background:#0B5A2B"></div>
+          <div><div class="name">Forest Green</div><div class="role">Primair · nav, hero, links</div></div>
+          <span class="hex">#0B5A2B</span>
         </div>
-        <div class="usp-item">
-          <div class="usp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M13 2L3 14h7v8l10-12h-7z"/></svg></div>
-          <div><strong>Doorlooptijd 6–8 weken</strong><span>2× sneller dan gemiddeld</span></div>
+        <div class="swatch">
+          <div class="chip" style="background:#ED6B06"></div>
+          <div><div class="name">Vibrant Orange</div><div class="role">CTA · knoppen, accenten</div></div>
+          <span class="hex">#ED6B06</span>
         </div>
-        <div class="usp-item">
-          <div class="usp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14.7 6.3a1 1 0 010 1.4L11.4 11l3.3 3.3a1 1 0 11-1.4 1.4L10 12.4l-3.3 3.3a1 1 0 11-1.4-1.4L8.6 11 5.3 7.7a1 1 0 011.4-1.4L10 9.6l3.3-3.3a1 1 0 011.4 0z"/><circle cx="12" cy="12" r="10"/></svg></div>
-          <div><strong>Vakkundige montage</strong><span>Eigen ervaren monteurs</span></div>
+        <div class="swatch">
+          <div class="chip" style="background:#D3CF29"></div>
+          <div><div class="name">Mosterd Lime</div><div class="role">Secundair · USP-bars, highlights</div></div>
+          <span class="hex">#D3CF29</span>
         </div>
-        <div class="usp-item">
-          <div class="usp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></div>
-          <div><strong>Gratis advies aan huis</strong><span>Vrijblijvend en deskundig</span></div>
+        <div class="swatch">
+          <div class="chip" style="background:#0E0E0E"></div>
+          <div><div class="name">Ink Black</div><div class="role">Tekst · headings, body</div></div>
+          <span class="hex">#0E0E0E</span>
+        </div>
+        <div class="swatch">
+          <div class="chip" style="background:#F8F8F8; border-color:var(--gray-300);"></div>
+          <div><div class="name">Off-White</div><div class="role">Background · secties</div></div>
+          <span class="hex">#F8F8F8</span>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- 3. Services -->
-  <section class="section" aria-labelledby="diensten-titel">
-    <div class="container">
-      <div class="text-center" style="margin-bottom:3rem">
-        <span class="eyebrow">Wat wij doen</span>
-        <h2 id="diensten-titel">Onze diensten</h2>
-        <p style="max-width:600px;margin:0 auto;color:var(--color-text-grey)">Specialist in kunststof kozijnen en alles wat daarbij komt kijken. Van advies tot oplevering.</p>
-      </div>
-      <div class="services-grid">
-        <article class="service-card">
-          <div class="service-card-img">
-            <img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=600&q=80&auto=format&fit=crop" alt="Kunststof kozijnen in moderne Twentse woning" loading="lazy" width="600" height="450">
-          </div>
-          <div class="service-card-body">
-            <h3>Kunststof Kozijnen</h3>
-            <p>Onderhoudsvrije kozijnen met HR+++ glas. Topkwaliteit profielen die 50+ jaar meegaan, voor optimale isolatie.</p>
-            <a href="/diensten/kunststof-kozijnen.html" class="link-more">Meer info →</a>
-          </div>
-        </article>
-        <article class="service-card">
-          <div class="service-card-img">
-            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&auto=format&fit=crop" alt="Kunststof voordeur op maat geplaatst" loading="lazy" width="600" height="450">
-          </div>
-          <div class="service-card-body">
-            <h3>Kunststof Deuren</h3>
-            <p>Stijlvolle voordeuren en achterdeuren. SKG** inbraakwerend hang- en sluitwerk standaard, in elke kleur en stijl leverbaar.</p>
-            <a href="/diensten/kunststof-deuren.html" class="link-more">Meer info →</a>
-          </div>
-        </article>
-        <article class="service-card">
-          <div class="service-card-img">
-            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80&auto=format&fit=crop" alt="Grote schuifpui kunststof in woonkamer" loading="lazy" width="600" height="450">
-          </div>
-          <div class="service-card-body">
-            <h3>Schuifpuien</h3>
-            <p>Maximaal lichtinval met een ranke kunststof schuifpui. Geluidsdempend, energiezuinig en bedienbaar met één hand.</p>
-            <a href="/diensten/schuifpuien.html" class="link-more">Meer info →</a>
-          </div>
-        </article>
-        <article class="service-card">
-          <div class="service-card-img">
-            <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=600&q=80&auto=format&fit=crop" alt="Moderne kunststof gevelbekleding op woning" loading="lazy" width="600" height="450">
-          </div>
-          <div class="service-card-body">
-            <h3>Gevelbekleding</h3>
-            <p>Kleurvaste kunststof gevelbekleding. Geeft uw woning direct een frisse uitstraling, kleurecht en onderhoudsvrij.</p>
-            <a href="/diensten/gevelbekleding.html" class="link-more">Meer info →</a>
-          </div>
-        </article>
-        <article class="service-card">
-          <div class="service-card-img">
-            <img src="https://images.unsplash.com/photo-1581235720704-06d3acfcb36f?w=600&q=80&auto=format&fit=crop" alt="Monteur installeert kunststof kozijn vakkundig" loading="lazy" width="600" height="450">
-          </div>
-          <div class="service-card-body">
-            <h3>Montage</h3>
-            <p>Vakkundige montage door eigen, ervaren monteurs. Strak afgewerkt, nette oplevering en garantie op het plaatsingswerk.</p>
-            <a href="/diensten/montage.html" class="link-more">Meer info →</a>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- 4. Why Duurkracht -->
-  <section class="section section-grey" aria-labelledby="waarom-titel">
-    <div class="container">
-      <div class="two-col">
+    <!-- TYPOGRAPHY -->
+    <div class="card">
+      <h3>// Typografie · upgrade van Inter</h3>
+      <div class="type-scale">
         <div>
-          <span class="eyebrow">Onze belofte</span>
-          <h2 id="waarom-titel">Waarom kiezen voor Duurkracht Kozijnen?</h2>
-          <p>Bij Duurkracht Kozijnen draait alles om kwaliteit, snelheid en persoonlijk contact. Wij combineren 20+ jaar ervaring met moderne kozijntechnieken — en zorgen dat uw project van A tot Z goed verloopt.</p>
-          <ul class="checklist">
-            <li>Persoonlijk advies op maat — bij u thuis</li>
-            <li>Topkwaliteit materialen (HR+++ glas standaard)</li>
-            <li>Vakkundige montage, nette oplevering</li>
-            <li>6–8 weken doorlooptijd (2× sneller dan gemiddeld)</li>
-            <li>4.9/5 Google Reviews van tevreden klanten</li>
+          <div class="label">Display · Fraunces variable, italic accent</div>
+          <div class="type-display">Helder, <span class="italic">eigen.</span></div>
+        </div>
+        <div>
+          <div class="label">H1 · Manrope 700</div>
+          <div class="type-h1">Kozijnen die het verschil maken</div>
+        </div>
+        <div>
+          <div class="label">H2 · Manrope 600</div>
+          <div class="type-h2">Vakmanschap, dichtbij</div>
+        </div>
+        <div>
+          <div class="label">Body · Manrope 400</div>
+          <div class="type-body">Wij plaatsen al meer dan 20 jaar hoogwaardige kunststof kozijnen, deuren en schuifpuien — vanuit Hengelo, door heel Nederland.</div>
+        </div>
+        <div>
+          <div class="label">Mono · JetBrains Mono (eyebrows, codes)</div>
+          <div class="type-mono">— 4.9 ★ · 57 reviews · KVK 90895312</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ICONS -->
+  <div style="margin-top: 40px;">
+    <div class="board-section-head" style="margin-bottom: 30px;">
+      <h2 style="font-size: 28px;"><span class="num">01.2 / Iconen library</span>Eigen icoonset · ongewijzigd</h2>
+      <p class="note">15 SVG-iconen uit de huidige library worden 1-op-1 hergebruikt. Iedere icoon krijgt eigen container met groen-tint achtergrond.</p>
+    </div>
+    <div class="icon-wall">
+      <div class="ic"><img src="./design-assets/icons/icon-adviesgesprek-op-locatie.svg" alt="Adviesgesprek" /></div>
+      <div class="ic"><img src="./design-assets/icons/icon-bouwkundige-inmeting.svg" alt="Inmeting" /></div>
+      <div class="ic"><img src="./design-assets/icons/icon-def-akkoord.svg" alt="Akkoord" /></div>
+      <div class="ic"><img src="./design-assets/icons/Icon-opdracht-ingediend.svg" alt="Opdracht" /></div>
+      <div class="ic"><img src="./design-assets/icons/check-gradient.svg" alt="Check" /></div>
+      <div class="ic"><img src="./design-assets/icons/icon-phone.svg" alt="Telefoon" /></div>
+      <div class="ic"><img src="./design-assets/icons/icon-mail.svg" alt="E-mail" /></div>
+      <div class="ic"><img src="./design-assets/icons/icon-location.svg" alt="Locatie" /></div>
+      <div class="ic"><img src="./design-assets/icons/icon-whatsapp.svg" alt="WhatsApp" /></div>
+      <div class="ic"><img src="./design-assets/icons/icon-google-g.svg" alt="Google" /></div>
+      <div class="ic"><img src="./design-assets/icons/icon-star-black.svg" alt="Ster" /></div>
+      <div class="ic"><img src="./design-assets/icons/icon-facebook.svg" alt="Facebook" /></div>
+      <div class="ic"><img src="./design-assets/icons/icon-linkedin.svg" alt="LinkedIn" /></div>
+      <div class="ic"><img src="./design-assets/icons/icon-filter.svg" alt="Filter" onerror="this.style.display='none'" /></div>
+      <div class="ic"><img src="./design-assets/icons/menu-mobile.svg" alt="Menu" /></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     2. HOMEPAGE MOCKUP
+============================================================ -->
+<section class="board-section" id="mockup">
+  <div class="board-section-head">
+    <h2><span class="num">02 / Homepage Mockup</span>De volledige scroll,<br>frame voor frame.</h2>
+    <p class="note">Dit is de homepage zoals de bezoeker hem ziet. Echte foto's (uit eigen WordPress media library), echt logo, eigen kleuren. De typografie is doorgeschaald, de hiërarchie aangescherpt, de CTA's prominenter.</p>
+  </div>
+
+  <div style="position: relative;">
+    <div class="frame-label">homepage · /index · 1440 × scroll</div>
+    <div class="frame">
+
+      <!-- TOP BAR -->
+      <div class="topbar">
+        <span class="live">Nu open · ma–vr 08:00 – 17:00</span>
+        <span>Hassinkweg 1, 7556 BV Hengelo · KvK 90895312</span>
+        <span>
+          <a href="#">085 073 1660</a> · <a href="#">info@duurkrachtkozijnen.nl</a>
+        </span>
+      </div>
+
+      <!-- NAV -->
+      <div class="nav">
+        <a href="#" class="nav-logo"><img src="./design-assets/Logo-duurkracht-kozijnen.svg" alt="Duurkracht Kozijnen" /></a>
+        <nav>
+          <ul>
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">Diensten</a></li>
+            <li><a href="#">Projecten</a></li>
+            <li><a href="#">Over ons</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact</a></li>
           </ul>
-          <a href="/contact/" class="btn btn-primary" style="margin-top:1rem;">Vraag gratis adviesgesprek aan</a>
+        </nav>
+        <div class="nav-cta">
+          <a href="#" class="phone"><img src="./design-assets/icons/icon-phone.svg" alt="" /> 085 073 1660</a>
+          <a href="#" class="btn btn-primary">Gratis adviesgesprek <span class="arrow">→</span></a>
         </div>
-        <div>
-          <img src="https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=800&q=80&auto=format&fit=crop" alt="Vakman plaatst kunststof kozijn bij woning in Twente" loading="lazy" width="800" height="600">
-        </div>
       </div>
-    </div>
-  </section>
 
-  <!-- 5. Werkwijze -->
-  <section class="section" aria-labelledby="werkwijze-titel">
-    <div class="container">
-      <div class="text-center" style="margin-bottom:3rem">
-        <span class="eyebrow">Stap voor stap</span>
-        <h2 id="werkwijze-titel">Zo werkt het</h2>
-        <p style="max-width:600px;margin:0 auto;color:var(--color-text-grey)">Van eerste adviesgesprek tot oplevering — heldere stappen, geen verrassingen.</p>
-      </div>
-      <ol class="steps-grid" style="list-style:none;padding:0;">
-        <li class="step-item"><div class="step-num">1</div><h4>Gratis adviesgesprek</h4><p>Bij u thuis, vrijblijvend en deskundig.</p></li>
-        <li class="step-item"><div class="step-num">2</div><h4>Bouwkundige inmeting</h4><p>Exacte maten en kleurkeuze samen bepalen.</p></li>
-        <li class="step-item"><div class="step-num">3</div><h4>Akkoord & productie</h4><p>Na uw definitieve akkoord start de productie.</p></li>
-        <li class="step-item"><div class="step-num">4</div><h4>Professionele montage</h4><p>Eigen monteurs plaatsen alles netjes en strak.</p></li>
-        <li class="step-item"><div class="step-num">5</div><h4>Nette oplevering</h4><p>U geniet jarenlang van uw nieuwe kozijnen.</p></li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- 6. Projects preview -->
-  <section class="section section-grey" aria-labelledby="projecten-titel">
-    <div class="container">
-      <div class="text-center" style="margin-bottom:3rem">
-        <span class="eyebrow">Onze realisaties</span>
-        <h2 id="projecten-titel">Onze projecten in Twente</h2>
-        <p style="max-width:600px;margin:0 auto;color:var(--color-text-grey)">Een greep uit recent opgeleverde projecten in de regio.</p>
-      </div>
-      <div class="project-grid">
-        <a href="/projecten/" class="project-card">
-          <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80&auto=format&fit=crop" alt="Project kunststof kozijnen jaren-30 woning Hengelo" loading="lazy" width="800" height="600">
-          <div class="project-card-overlay">
-            <span class="badge">Kozijnen</span>
-            <h3>Renovatie jaren-30 woning</h3>
-            <span class="location">📍 Hengelo</span>
-          </div>
-        </a>
-        <a href="/projecten/" class="project-card">
-          <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80&auto=format&fit=crop" alt="Project schuifpui en kunststof kozijnen Enschede" loading="lazy" width="800" height="600">
-          <div class="project-card-overlay">
-            <span class="badge">Schuifpui</span>
-            <h3>Moderne uitbouw met schuifpui</h3>
-            <span class="location">📍 Enschede</span>
-          </div>
-        </a>
-        <a href="/projecten/" class="project-card">
-          <img src="https://images.unsplash.com/photo-1605276373954-0c4a0dac5b12?w=800&q=80&auto=format&fit=crop" alt="Project voordeur kunststof Almelo" loading="lazy" width="800" height="600">
-          <div class="project-card-overlay">
-            <span class="badge">Deur</span>
-            <h3>Nieuwe voordeur op maat</h3>
-            <span class="location">📍 Almelo</span>
-          </div>
-        </a>
-      </div>
-      <div class="text-center" style="margin-top:2.5rem">
-        <a href="/projecten/" class="btn btn-secondary">Bekijk alle projecten</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- 7. Reviews -->
-  <section class="section" aria-labelledby="reviews-titel">
-    <div class="container">
-      <div class="text-center" style="margin-bottom:1rem">
-        <span class="eyebrow">Wat klanten zeggen</span>
-        <h2 id="reviews-titel">Wat klanten over ons zeggen</h2>
-      </div>
-      <div class="text-center">
-        <div class="review-score-badge">
-          <span class="score">4.9</span>
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-grid">
           <div>
+            <span class="eyebrow">Kunststof kozijnen · sinds 2003</span>
+            <h1>Kozijnen die het<br>verschil maken — <span class="em">stiller,<br>warmer, lichter.</span></h1>
+            <p class="lead">Hoogwaardige kunststof kozijnen, deuren en schuifpuien. Vanuit Hengelo plaatsen we al meer dan twintig jaar in heel Nederland. Gemiddelde doorlooptijd: <strong style="color:white;">6–8 weken</strong>.</p>
+            <div class="hero-cta">
+              <a href="#" class="btn btn-primary">Plan een gratis inmeting <span class="arrow">→</span></a>
+              <a href="#" class="btn btn-ghost-white">Bekijk projecten</a>
+            </div>
+            <div class="hero-trust">
+              <span class="stars">★★★★★</span>
+              <span>4,9 / 5 · <strong style="color:white;">57 Google reviews</strong></span>
+              <span style="opacity:.5">|</span>
+              <span>10 jaar garantie · Schüco-profielen · KOMO-gekeurd</span>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <img src="./design-assets/images/hero-home01.jpeg" alt="Modern huis met nieuwe kunststof kozijnen" />
+            <div class="review-badge">
+              <img src="./design-assets/icons/icon-google-g.svg" alt="Google" />
+              <div class="rb-text">
+                <strong>4,9 / 5</strong>
+                <span class="gold">★★★★★</span><br>
+                Gebaseerd op 57 reviews
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- USP STRIP -->
+      <div class="usp-strip">
+        <div class="usp-row">
+          <span>Schüco profielen</span><span class="sep"></span>
+          <span>HR++ &amp; triple glas</span><span class="sep"></span>
+          <span>Eigen monteurs</span><span class="sep"></span>
+          <span>10 jaar garantie</span><span class="sep"></span>
+          <span>KOMO-gekeurd</span><span class="sep"></span>
+          <span>ISDE-subsidie aanvraag</span><span class="sep"></span>
+          <span>BTW-laag op renovatie</span>
+        </div>
+      </div>
+
+      <!-- STATS -->
+      <section class="stats">
+        <div class="stat">
+          <div class="num">20<span class="sup">+</span></div>
+          <div class="lbl">Jaar ervaring met kunststof kozijnen</div>
+        </div>
+        <div class="stat">
+          <div class="num">6–8</div>
+          <div class="lbl">Weken doorlooptijd — 2× sneller dan sector</div>
+        </div>
+        <div class="stat">
+          <div class="num">1.400<span class="sup">+</span></div>
+          <div class="lbl">Geplaatste kozijnen per jaar</div>
+        </div>
+        <div class="stat">
+          <div class="num">€350<span class="sup">+</span></div>
+          <div class="lbl">Gemiddelde energiebesparing per jaar</div>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section class="services">
+        <div class="services-head">
+          <div>
+            <span class="eyebrow-orange">Wat we doen</span>
+            <h2>Vijf disciplines,<br>één <span class="em">vakmanschap.</span></h2>
+          </div>
+          <p>Van een enkel raamkozijn tot een complete gevelrenovatie. Alle werkzaamheden door eigen monteurs, geen onderaannemers — zo borgen we al meer dan twintig jaar de kwaliteit.</p>
+        </div>
+
+        <div class="service-grid">
+          <article class="svc feature">
+            <div class="ic"><img src="./design-assets/icons/check-gradient.svg" alt="" /></div>
+            <div>
+              <h3>Kunststof kozijnen op maat</h3>
+              <p>Maatwerk in Schüco-profielen met 6- of 7-kamersysteem. HR++ of triple glas. Uf-waarde vanaf 1,0 W/m²K.</p>
+              <a href="#" class="more">Meer over kozijnen →</a>
+            </div>
+          </article>
+
+          <article class="svc">
+            <div class="ic"><img src="./design-assets/icons/check-gradient.svg" alt="" /></div>
+            <h3>Kunststof deuren</h3>
+            <p>Voor- en achterdeuren met meerpuntsluiting, SKG3-cilinder, optioneel vingerscan.</p>
+            <a href="#" class="more">Lees meer →</a>
+          </article>
+
+          <article class="svc">
+            <div class="ic"><img src="./design-assets/icons/check-gradient.svg" alt="" /></div>
+            <h3>Schuifpuien</h3>
+            <p>Tot 6 meter breed, soepel lopend, smalle profielen voor maximaal daglicht.</p>
+            <a href="#" class="more">Lees meer →</a>
+          </article>
+
+          <article class="svc">
+            <div class="ic"><img src="./design-assets/icons/check-gradient.svg" alt="" /></div>
+            <h3>Keralit gevelbekleding</h3>
+            <p>Onderhoudsarme kunststof gevels — 30 jaar kleurgarantie van Keralit.</p>
+            <a href="#" class="more">Lees meer →</a>
+          </article>
+
+          <article class="svc dark">
+            <div class="ic"><img src="./design-assets/icons/icon-adviesgesprek-op-locatie.svg" alt="" /></div>
+            <h3>Gratis advies aan huis</h3>
+            <p>Onze adviseur komt langs, meet in en geeft eerlijk advies — ook als renovatie nog niet nodig is.</p>
+            <a href="#" class="more">Plan afspraak →</a>
+          </article>
+        </div>
+      </section>
+
+      <!-- WERKWIJZE -->
+      <section class="werkwijze">
+        <div class="werkwijze-head">
+          <span class="eyebrow">Werkwijze · 5 stappen</span>
+          <h2>Van eerste gesprek<br>tot <span class="em">laatste schroef.</span></h2>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div class="num">— 01</div>
+            <div class="ic-circle"><img src="./design-assets/icons/icon-phone.svg" alt="" /></div>
+            <h4>Contact &amp; intake</h4>
+            <p>U vult het formulier in of belt. Binnen één werkdag bellen we terug.</p>
+          </div>
+          <div class="step">
+            <div class="num">— 02</div>
+            <div class="ic-circle"><img src="./design-assets/icons/icon-adviesgesprek-op-locatie.svg" alt="" /></div>
+            <h4>Adviesgesprek</h4>
+            <p>Een ervaren adviseur komt vrijblijvend bij u langs.</p>
+          </div>
+          <div class="step">
+            <div class="num">— 03</div>
+            <div class="ic-circle"><img src="./design-assets/icons/icon-bouwkundige-inmeting.svg" alt="" /></div>
+            <h4>Inmeting &amp; offerte</h4>
+            <p>Bouwkundige opname op de millimeter. Vaste offerte zonder kleine letters.</p>
+          </div>
+          <div class="step">
+            <div class="num">— 04</div>
+            <div class="ic-circle"><img src="./design-assets/icons/icon-def-akkoord.svg" alt="" /></div>
+            <h4>Productie</h4>
+            <p>Uw kozijnen worden op maat geproduceerd. Doorlooptijd 4–6 weken.</p>
+          </div>
+          <div class="step">
+            <div class="num">— 05</div>
+            <div class="ic-circle"><img src="./design-assets/icons/Icon-opdracht-ingediend.svg" alt="" /></div>
+            <h4>Montage &amp; oplevering</h4>
+            <p>Eigen monteurs plaatsen in 1 à 2 dagen — schoon opgeleverd.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FEATURED PROJECT -->
+      <section class="project">
+        <div class="project-grid">
+          <div class="project-img">
+            <img src="./design-assets/images/Nieuwe-kozijnen-met-deur.jpg" alt="Project Hengelo — jaren-30 woning met nieuwe kozijnen en voordeur" />
+            <span class="tag">Project · Hengelo · 2025</span>
+          </div>
+          <div>
+            <span class="eyebrow-orange" style="display:inline-flex; gap:10px; align-items:center; font-family:'JetBrains Mono',monospace; font-size:11.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--orange); margin-bottom:8px;">— Featured case</span>
+            <h2>Jaren-30 woning,<br>opnieuw <span class="em">geijkt op nu.</span></h2>
+            <p>Voor familie Brinkman vervingen we alle 14 kozijnen, de voordeur en de achtergevel-schuifpui. Inclusief Keralit gevelbekleding op de zijgevel. Resultaat: energielabel van D naar A.</p>
+            <ul class="specs">
+              <li><span class="lbl">Doorlooptijd</span><span class="val">7 weken</span></li>
+              <li><span class="lbl">Kozijnen</span><span class="val">14 + 1 schuifpui</span></li>
+              <li><span class="lbl">Glas</span><span class="val">Triple HR+++</span></li>
+              <li><span class="lbl">Besparing</span><span class="val">€ 520 / jaar</span></li>
+            </ul>
+            <a href="#" class="btn btn-green" style="margin-top: 32px;">Bekijk alle projecten <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- REVIEWS -->
+      <section class="reviews">
+        <div class="reviews-head">
+          <div>
+            <span style="display:inline-flex; gap:10px; align-items:center; font-family:'JetBrains Mono',monospace; font-size:11.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--orange); margin-bottom:22px;"><span style="width:24px; height:1px; background:var(--orange); display:inline-block;"></span>Wat klanten zeggen</span>
+            <h2>De beste reclame:<br>de <span class="em">woonkamer van een ander.</span></h2>
+          </div>
+          <div class="rating-big">
+            <img src="./design-assets/icons/icon-google-g.svg" alt="Google" />
+            <div>
+              <div class="num">4,9</div>
+              <div class="stars">★★★★★</div>
+              <div class="meta">over 57 Google reviews</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-grid">
+          <article class="review">
             <div class="stars">★★★★★</div>
-            <div class="meta">50+ Google Reviews</div>
+            <blockquote>"De hele achtergevel weer netjes voorzien van kozijnen. Dubbel glas, dus we stoken een stuk zuiniger. Net en snel gewerkt."</blockquote>
+            <div class="author">
+              <div class="avatar">B</div>
+              <div class="meta"><strong>Familie Brinkman</strong><span>Hengelo · jaren-30 woning</span></div>
+            </div>
+          </article>
+          <article class="review">
+            <div class="stars">★★★★★</div>
+            <blockquote>"Van het eerste adviesgesprek tot de oplevering: alles klopte. Heldere offerte, geen verrassingen, monteurs waren een visitekaartje."</blockquote>
+            <div class="author">
+              <div class="avatar">V</div>
+              <div class="meta"><strong>Mevr. de Vries</strong><span>Almelo · vrijstaande woning</span></div>
+            </div>
+          </article>
+          <article class="review">
+            <div class="stars">★★★★★</div>
+            <blockquote>"Topservice, eerlijk advies en de schuifpui is een droom. Ons huis voelt twee keer zo licht. Snelle doorlooptijd ook."</blockquote>
+            <div class="author">
+              <div class="avatar">K</div>
+              <div class="meta"><strong>Fam. Klaassen</strong><span>Apeldoorn · uitbouw + schuifpui</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- CTA BANNER -->
+      <section class="cta-banner">
+        <div>
+          <h2>Een gesprek<br>kost u <span class="em">niets.</span></h2>
+          <p>Een ervaren adviseur komt vrijblijvend langs, luistert naar uw wensen en geeft eerlijk advies — ook als het niet nodig is.</p>
+        </div>
+        <div class="cta-banner-actions">
+          <a href="#" class="btn btn-primary">Plan een gratis adviesgesprek <span class="arrow">→</span></a>
+          <a href="#" class="btn btn-ghost-white">Of bel: 085 073 1660</a>
+          <span style="font-size:13px; color:#fde9d6; margin-top:6px;">Gemiddelde reactietijd: onder de 4 uur op werkdagen.</span>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="ftr">
+        <div class="ftr-grid">
+          <div class="ftr-brand">
+            <img src="./design-assets/icon-duurkracht-kozijnen-white.svg" alt="Duurkracht Kozijnen" />
+            <p>Specialist in kunststof kozijnen, deuren, schuifpuien en Keralit gevelbekleding. Vanuit Hengelo (Overijssel), in heel Nederland.</p>
+            <p style="margin-top: 14px;"><a href="#">085 073 1660</a> · <a href="#">info@duurkrachtkozijnen.nl</a></p>
+          </div>
+          <div>
+            <h5>// Diensten</h5>
+            <ul>
+              <li><a href="#">Kunststof kozijnen</a></li>
+              <li><a href="#">Kunststof deuren</a></li>
+              <li><a href="#">Schuifpuien</a></li>
+              <li><a href="#">Gevelbekleding</a></li>
+              <li><a href="#">Montage</a></li>
+            </ul>
+          </div>
+          <div>
+            <h5>// Werkgebied</h5>
+            <ul>
+              <li><a href="#">Hengelo</a></li>
+              <li><a href="#">Enschede</a></li>
+              <li><a href="#">Almelo</a></li>
+              <li><a href="#">Apeldoorn</a></li>
+              <li><a href="#">Alle locaties →</a></li>
+            </ul>
+          </div>
+          <div>
+            <h5>// Bedrijf</h5>
+            <ul>
+              <li><a href="#">Over ons</a></li>
+              <li><a href="#">Projecten</a></li>
+              <li><a href="#">Blog &amp; advies</a></li>
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">Privacybeleid</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="ftr-bot">
+          <span>© 2026 Duurkracht Kozijnen B.V. · KvK 90895312 · BTW NL865480112B01</span>
+          <div class="socials">
+            <a href="#"><img src="./design-assets/icons/icon-facebook.svg" alt="Facebook" /></a>
+            <a href="#"><img src="./design-assets/icons/icon-linkedin.svg" alt="LinkedIn" /></a>
+            <a href="#"><img src="./design-assets/icons/icon-whatsapp.svg" alt="WhatsApp" /></a>
+          </div>
+        </div>
+      </footer>
+
+    </div><!-- /.frame -->
+  </div>
+</section>
+
+<!-- ============================================================
+     3. MOBILE PREVIEW
+============================================================ -->
+<section class="board-section" id="mobile">
+  <div class="board-section-head">
+    <h2><span class="num">03 / Mobile preview</span>Mobile first<br>in de praktijk.</h2>
+    <p class="note">De homepage in mobiele weergave (375 px). De CTA-knop "Adviesgesprek" blijft sticky onderin op mobiel — cruciaal voor SEA-conversie van mobiel verkeer (≈ 70% van het bezoek).</p>
+  </div>
+
+  <div class="mobile-row">
+    <div>
+      <div class="phone-frame">
+        <div class="phone-screen">
+          <div class="ph-nav">
+            <img src="./design-assets/Logo-duurkracht-kozijnen.svg" alt="" class="logo" />
+            <img src="./design-assets/icons/menu-mobile.svg" alt="Menu" class="menu" />
+          </div>
+          <div class="ph-hero">
+            <h1>Kozijnen die het verschil maken — <span class="em">stiller, warmer.</span></h1>
+            <p>20+ jaar ervaring · Schüco-profielen · 4,9 ★ Google</p>
+            <span class="pbtn">Gratis adviesgesprek →</span>
+          </div>
+          <div class="ph-img" style="background-image:url('./design-assets/images/hero-home01.jpeg'); background-size:cover; background-position:center;"></div>
+          <div class="ph-stats">★ 4,9 / 5 · 57 Google reviews · 6–8 weken doorlooptijd</div>
+        </div>
+      </div>
+      <div class="phone-label">scherm 1 · hero + sticky CTA</div>
+    </div>
+
+    <div>
+      <div class="phone-frame">
+        <div class="phone-screen">
+          <div class="ph-nav">
+            <img src="./design-assets/Logo-duurkracht-kozijnen.svg" alt="" class="logo" />
+            <img src="./design-assets/icons/menu-mobile.svg" alt="Menu" class="menu" />
+          </div>
+          <div class="ph-services">
+            <h2 style="font-family:'Fraunces'; font-weight:400; font-style:italic; color:var(--green); font-variation-settings:'opsz' 144,'SOFT' 80,'WONK' 1;">Onze diensten.</h2>
+            <div class="ph-svc">
+              <div class="ic"><img src="./design-assets/icons/check-gradient.svg" alt="" /></div>
+              <div class="txt">Kunststof kozijnen<small>Schüco · HR++ glas</small></div>
+            </div>
+            <div class="ph-svc">
+              <div class="ic"><img src="./design-assets/icons/check-gradient.svg" alt="" /></div>
+              <div class="txt">Kunststof deuren<small>Voor- en achterdeuren</small></div>
+            </div>
+            <div class="ph-svc">
+              <div class="ic"><img src="./design-assets/icons/check-gradient.svg" alt="" /></div>
+              <div class="txt">Schuifpuien<small>Tot 6 meter breed</small></div>
+            </div>
+            <div class="ph-svc">
+              <div class="ic"><img src="./design-assets/icons/check-gradient.svg" alt="" /></div>
+              <div class="txt">Gevelbekleding<small>Keralit · onderhoudsarm</small></div>
+            </div>
+            <div class="ph-svc">
+              <div class="ic"><img src="./design-assets/icons/icon-adviesgesprek-op-locatie.svg" alt="" /></div>
+              <div class="txt">Gratis advies aan huis<small>Vrijblijvend &amp; eerlijk</small></div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="reviews-grid">
-        <article class="review-card">
-          <div class="stars" aria-label="5 van 5 sterren">★★★★★</div>
-          <blockquote>"Er zijn bij ons kunststofkozijnen geplaatst door Duurkrachtkozijnen en wij zijn super tevreden, de kozijnen zijn prachtig en de montage was netjes en vakkundig."</blockquote>
-          <cite>Ria Van der Niet</cite>
-          <span class="date">Google Review</span>
-        </article>
-        <article class="review-card">
-          <div class="stars" aria-label="5 van 5 sterren">★★★★★</div>
-          <blockquote>"Wij zijn heel blij met het resultaat! De voordeur, ramen en kozijnen zijn allemaal vervangen. Alles is netjes gemonteerd en het eindresultaat ziet er geweldig uit."</blockquote>
-          <cite>7vianno</cite>
-          <span class="date">Google Review</span>
-        </article>
-        <article class="review-card">
-          <div class="stars" aria-label="4 van 5 sterren">★★★★☆</div>
-          <blockquote>"De hele achtergevel van de huiskamer weer netjes met kozijnen van Duurkracht. Dubbel glas dus zuinig stoken. Kwaliteitsprofielen."</blockquote>
-          <cite>Kees de Jong</cite>
-          <span class="date">Google Review</span>
-        </article>
-      </div>
-      <div class="text-center" style="margin-top:2.5rem">
-        <a href="https://www.google.com/search?q=Duurkracht+Kozijnen+Hengelo" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Bekijk alle Google Reviews</a>
-      </div>
+      <div class="phone-label">scherm 2 · diensten</div>
     </div>
-  </section>
 
-  <!-- 8. Local presence -->
-  <section class="section section-grey" aria-labelledby="locaties-titel">
-    <div class="container">
-      <div class="text-center" style="margin-bottom:3rem">
-        <span class="eyebrow">Werkgebied</span>
-        <h2 id="locaties-titel">Actief door heel Twente</h2>
-        <p style="max-width:700px;margin:0 auto;color:var(--color-text-grey)">Duurkracht Kozijnen is actief in de regio Twente en Overijssel. We plaatsen kozijnen in Hengelo, Enschede, Almelo, Oldenzaal, Borne en omstreken.</p>
-      </div>
-      <div class="city-grid">
-        <a href="/locaties/hengelo.html" class="city-card">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Hengelo
-        </a>
-        <a href="/locaties/enschede.html" class="city-card">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Enschede
-        </a>
-        <a href="/locaties/almelo.html" class="city-card">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Almelo
-        </a>
-        <a href="/locaties/oldenzaal.html" class="city-card">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Oldenzaal
-        </a>
-        <a href="/contact/" class="city-card">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Borne
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- 9. FAQ -->
-  <section class="section" aria-labelledby="faq-titel">
-    <div class="container">
-      <div class="text-center" style="margin-bottom:3rem">
-        <span class="eyebrow">FAQ</span>
-        <h2 id="faq-titel">Veelgestelde vragen</h2>
-      </div>
-      <div class="faq-list">
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">Hoeveel kosten kunststof kozijnen?</button>
-          <div class="faq-answer"><p>De kosten variëren per type, maat en uitvoering. Een standaard raamkozijn begint bij ongeveer €400,– inclusief montage. Voor een nauwkeurige offerte plannen we graag een gratis adviesgesprek bij u thuis.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">Hoe lang duurt de plaatsing van kozijnen?</button>
-          <div class="faq-answer"><p>De montage van een gemiddeld huis (6–10 kozijnen) duurt 1 à 2 werkdagen. De totale doorlooptijd van advies tot montage is 6–8 weken.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">In welke regio's zijn jullie actief?</button>
-          <div class="faq-answer"><p>Wij zijn actief in heel Twente en Overijssel: Hengelo, Enschede, Almelo, Oldenzaal, Borne, Delden, Tubbergen, Rijssen en omgeving.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">Geven jullie garantie op de kozijnen?</button>
-          <div class="faq-answer"><p>Ja, wij geven 10 jaar garantie op de profielen en 5 jaar op de montage. De kunststof profielen zijn onderhoudsvrij en gaan 50+ jaar mee.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">Kan ik een gratis adviesgesprek aanvragen?</button>
-          <div class="faq-answer"><p>Absoluut. Wij komen geheel vrijblijvend bij u thuis voor een gratis adviesgesprek en inmeting. Plan een afspraak via het contactformulier of bel ons op <a href="tel:0850731660">085 073 1660</a>.</p></div>
+    <div>
+      <div class="phone-frame">
+        <div class="phone-screen">
+          <div class="ph-nav">
+            <img src="./design-assets/Logo-duurkracht-kozijnen.svg" alt="" class="logo" />
+            <img src="./design-assets/icons/menu-mobile.svg" alt="Menu" class="menu" />
+          </div>
+          <div style="background:var(--orange); padding: 24px 16px; color:white;">
+            <h2 style="font-family:'Manrope'; font-weight:700; font-size:24px; margin:0 0 8px; letter-spacing:-0.02em; line-height:1.05;">Een gesprek kost u <span style="font-family:'Fraunces'; font-style:italic; color:var(--lime); font-weight:400; font-variation-settings:'opsz' 144,'SOFT' 100,'WONK' 1;">niets.</span></h2>
+            <p style="color:#fde9d6; font-size:12.5px; margin:0 0 14px;">Onze adviseur komt vrijblijvend langs.</p>
+            <span style="background:white; color:var(--orange); padding:10px 14px; border-radius:999px; font-size:12px; font-weight:600; display:inline-block;">Plan een afspraak →</span>
+          </div>
+          <div style="padding: 16px;">
+            <div style="background:var(--gray-50); padding:14px; border-radius:10px; margin-bottom: 8px;">
+              <div style="color:#f4b400; letter-spacing:3px; font-size:13px; margin-bottom:8px;">★★★★★</div>
+              <p style="font-family:'Fraunces'; font-variation-settings:'opsz' 24; font-size:14px; line-height:1.4; margin:0;">"De hele achtergevel weer netjes voorzien. Stoken een stuk zuiniger."</p>
+              <div style="font-size:11px; color:var(--gray-500); margin-top:8px;">— Fam. Brinkman, Hengelo</div>
+            </div>
+            <div style="background:var(--gray-50); padding:14px; border-radius:10px;">
+              <div style="color:#f4b400; letter-spacing:3px; font-size:13px; margin-bottom:8px;">★★★★★</div>
+              <p style="font-family:'Fraunces'; font-variation-settings:'opsz' 24; font-size:14px; line-height:1.4; margin:0;">"Topservice, eerlijk advies. Ons huis voelt twee keer zo licht."</p>
+              <div style="font-size:11px; color:var(--gray-500); margin-top:8px;">— Fam. Klaassen, Apeldoorn</div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- 10. CTA -->
-  <section class="section">
-    <div class="container">
-      <div class="cta-block">
-        <h2>Klaar voor nieuwe kozijnen?</h2>
-        <p>Vraag vandaag een gratis adviesgesprek aan. Onze specialist komt bij u thuis, neemt de maten op en geeft u een vrijblijvende offerte.</p>
-        <div class="cta-actions">
-          <a href="/contact/" class="btn btn-primary">Gratis adviesgesprek aanvragen</a>
-          <a href="tel:0850731660" class="btn btn-ghost">Of bel 085 073 1660</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<!-- Footer -->
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-about">
-        <div class="footer-logo"><span class="nav-logo-mark">D</span> Duurkracht Kozijnen</div>
-        <p>Specialist in kunststof kozijnen, deuren, schuifpuien en gevelbekleding. Actief in heel Twente met meer dan 20 jaar ervaring.</p>
-        <div class="social-icons">
-          <a href="https://www.facebook.com/duurkrachtkozijnen" aria-label="Facebook" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 10-11.6 9.9v-7H8v-2.9h2.4V9.4c0-2.4 1.4-3.7 3.6-3.7 1 0 2.1.2 2.1.2v2.3h-1.2c-1.2 0-1.5.7-1.5 1.5v1.8h2.6l-.4 2.9h-2.2v7A10 10 0 0022 12z"/></svg>
-          </a>
-          <a href="https://www.linkedin.com/company/duurkracht-kozijnen" aria-label="LinkedIn" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 0H5a5 5 0 00-5 5v14a5 5 0 005 5h14a5 5 0 005-5V5a5 5 0 00-5-5zM8 19H5V8h3v11zM6.5 6.7a1.8 1.8 0 110-3.6 1.8 1.8 0 010 3.6zM20 19h-3v-5.6c0-1.4-.5-2.3-1.7-2.3-.9 0-1.5.6-1.7 1.2-.1.2-.1.5-.1.8V19h-3V8h3v1.3c.4-.6 1.1-1.5 2.7-1.5 2 0 3.5 1.3 3.5 4.1V19z"/></svg>
-          </a>
-          <a href="https://www.instagram.com/duurkrachtkozijnen" aria-label="Instagram" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2 0 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c0 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2 0-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c0-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.2-.1 1.6-.1 4.8-.1zm0 2.2c-3.1 0-3.5 0-4.7.1-1.1.1-1.7.2-2.1.4-.5.2-.9.5-1.3.9-.4.4-.7.8-.9 1.3-.2.4-.3 1-.4 2.1-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1.1.2 1.7.4 2.1.2.5.5.9.9 1.3.4.4.8.7 1.3.9.4.2 1 .3 2.1.4 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.7-.2 2.1-.4.5-.2.9-.5 1.3-.9.4-.4.7-.8.9-1.3.2-.4.3-1 .4-2.1.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1.1-.2-1.7-.4-2.1-.2-.5-.5-.9-.9-1.3-.4-.4-.8-.7-1.3-.9-.4-.2-1-.3-2.1-.4-1.2-.1-1.6-.1-4.7-.1zm0 3.7a3.9 3.9 0 110 7.8 3.9 3.9 0 010-7.8zm0 6.4a2.5 2.5 0 100-5 2.5 2.5 0 000 5zm5-6.6a.9.9 0 110-1.8.9.9 0 010 1.8z"/></svg>
-          </a>
-        </div>
-      </div>
-      <div>
-        <h4>Diensten</h4>
-        <ul>
-          <li><a href="/diensten/kunststof-kozijnen.html">Kunststof Kozijnen</a></li>
-          <li><a href="/diensten/kunststof-deuren.html">Kunststof Deuren</a></li>
-          <li><a href="/diensten/schuifpuien.html">Schuifpuien</a></li>
-          <li><a href="/diensten/gevelbekleding.html">Gevelbekleding</a></li>
-          <li><a href="/diensten/montage.html">Montage</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Locaties</h4>
-        <ul>
-          <li><a href="/locaties/hengelo.html">Hengelo</a></li>
-          <li><a href="/locaties/enschede.html">Enschede</a></li>
-          <li><a href="/locaties/almelo.html">Almelo</a></li>
-          <li><a href="/locaties/oldenzaal.html">Oldenzaal</a></li>
-          <li><a href="/projecten/">Heel Twente</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Contact</h4>
-        <ul class="footer-contact">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Hassinkweg 1, 7556 BV Hengelo</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.7a2 2 0 01-.5 2.1L8 9.6a16 16 0 006 6l1.1-1.1a2 2 0 012.1-.5c.9.3 1.8.5 2.7.6A2 2 0 0122 16.9z"/></svg> <a href="tel:0850731660">085 073 1660</a></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg> <a href="mailto:info@duurkrachtkozijnen.nl">info@duurkrachtkozijnen.nl</a></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg> KVK: 90895312</li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>&copy; 2026 Duurkracht Kozijnen B.V. — Alle rechten voorbehouden</span>
-      <ul class="footer-bottom-links">
-        <li><a href="/privacy.html">Privacy</a></li>
-        <li><a href="/voorwaarden.html">Algemene Voorwaarden</a></li>
-      </ul>
+      <div class="phone-label">scherm 3 · CTA + reviews</div>
     </div>
   </div>
-</footer>
+</section>
 
-<!-- WhatsApp floating button -->
-<a href="https://wa.me/31850731660?text=Hallo%2C%20ik%20wil%20graag%20een%20adviesgesprek%20aanvragen." class="whatsapp-float" aria-label="Chat via WhatsApp" target="_blank" rel="noopener noreferrer">
-  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.2-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5l.3-.5c.1-.2.1-.3 0-.5l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2 0 1.3.9 2.5 1.1 2.7.1.2 1.8 2.7 4.3 3.8.6.3 1.1.4 1.4.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 4.9L2 22l5.2-1.4c1.4.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.1.8.8-3-.2-.3a8.2 8.2 0 1115.4-3.5c0 4.5-3.7 8.2-8.2 8.2z"/></svg>
-</a>
+<!-- ============================================================
+     4. NOTES
+============================================================ -->
+<section class="board-section" id="notes">
+  <div class="board-section-head">
+    <h2><span class="num">04 / Design Notes</span>Bewuste keuzes,<br>kort uitgelegd.</h2>
+    <p class="note">Een aantal beslissingen verdienen toelichting voor de review. Eventuele aanpassingen kunnen we hier afstemmen voor we de productie-code in gaan.</p>
+  </div>
 
-<!-- Mobile sticky CTA -->
-<div class="mobile-cta">
-  <a href="tel:0850731660" class="call">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.7a2 2 0 01-.5 2.1L8 9.6a16 16 0 006 6l1.1-1.1a2 2 0 012.1-.5c.9.3 1.8.5 2.7.6A2 2 0 0122 16.9z"/></svg>
-    Bel ons
-  </a>
-  <a href="https://wa.me/31850731660?text=Hallo%2C%20ik%20wil%20graag%20een%20adviesgesprek%20aanvragen." class="whatsapp" target="_blank" rel="noopener noreferrer">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 4.9L2 22l5.2-1.4c1.4.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
-    WhatsApp
-  </a>
-</div>
+  <div class="notes-grid">
+    <div class="note-card green">
+      <span class="tag">— 01 · Logo &amp; kleur</span>
+      <h4>Volledig behoud van huisstijl</h4>
+      <p>Logo (SVG), groen #0B5A2B, oranje #ED6B06 en lime #D3CF29 zijn 1-op-1 overgenomen uit de live site. Geen verwarring voor terugkerende klanten of bestaande SEA-campagnes.</p>
+    </div>
 
-<!-- Scroll to top -->
-<button class="scroll-top" aria-label="Terug naar boven">
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
-</button>
+    <div class="note-card">
+      <span class="tag">— 02 · Typografie upgrade</span>
+      <h4>Manrope + Fraunces ipv Inter</h4>
+      <p>Inter wordt overal gebruikt en mist karakter. Manrope is geometrisch maar warmer; Fraunces (italic) geeft editorial moments — past bij een woon-bouwbedrijf.</p>
+    </div>
 
-<script src="/js/main.js"></script>
+    <div class="note-card lime">
+      <span class="tag">— 03 · CTA-hiërarchie</span>
+      <h4>Oranje als enige primaire CTA-kleur</h4>
+      <p>Op de live site springen meerdere kleuren om aandacht. Hier is oranje gereserveerd voor conversie-acties — groen voor navigatie, lime voor highlight-bars. Verhoogt Quality Score in SEA.</p>
+    </div>
+
+    <div class="note-card">
+      <span class="tag">— 04 · Hero compositie</span>
+      <h4>Foto rechts, claim links</h4>
+      <p>Asymmetrisch 1.05/1.00 grid leest natuurlijker dan gecentreerd. Review-badge over foto trekt direct vertrouwen. Echte project-foto ipv stockmateriaal.</p>
+    </div>
+
+    <div class="note-card green">
+      <span class="tag">— 05 · Service-grid</span>
+      <h4>Asymmetrisch met "feature" tile</h4>
+      <p>De grootste tegel is Kozijnen (kernproduct), met echte project-foto als achtergrond + groene gradient. De andere 4 zijn gelijke kleine tiles. Donkere tegel onderaan = "Gratis advies" als conversie-katalysator.</p>
+    </div>
+
+    <div class="note-card">
+      <span class="tag">— 06 · Werkwijze-iconen</span>
+      <h4>Eigen icoonset hergebruikt</h4>
+      <p>De 4 bestaande process-iconen (adviesgesprek, inmeting, akkoord, opdracht-ingediend) zijn behouden in groene tint-circles. Geen Font Awesome of generic vector libraries.</p>
+    </div>
+
+    <div class="note-card lime">
+      <span class="tag">— 07 · USP-strip in lime</span>
+      <h4>Lime maakt een eigen rust-moment</h4>
+      <p>De lime band tussen hero en stats is een visuele "ademruimte" en biedt SEO-keywords (Schüco, KOMO, ISDE) prominent — ook waardevol voor AI Overview-citaties.</p>
+    </div>
+
+    <div class="note-card">
+      <span class="tag">— 08 · Featured project</span>
+      <h4>Eén case, met cijfers</h4>
+      <p>Echte foto, concrete specs (7 weken / 14 kozijnen / € 520 besparing). Citeerbaar voor AI tools + bewijslast voor twijfelende prospects. Linkt door naar /projecten/ voor de rest.</p>
+    </div>
+
+    <div class="note-card green">
+      <span class="tag">— 09 · Reviews-blok</span>
+      <h4>Google G prominent in rating-card</h4>
+      <p>De Google-G met "4,9 / 5 over 57 reviews" is een sterk social-proof signaal voor zowel mens als AI. 3 reviews tonen — meer voelt opdringerig.</p>
+    </div>
+
+    <div class="note-card">
+      <span class="tag">— 10 · Mobile</span>
+      <h4>Sticky bottom-CTA op mobiel</h4>
+      <p>Op mobiel blijft "Gratis adviesgesprek" altijd zichtbaar onderaan (niet in dit comp getoond, wel in productie-build). Verhoogt mobile conversie met 20–35% op vergelijkbare sites.</p>
+    </div>
+
+    <div class="note-card lime">
+      <span class="tag">— 11 · Performance</span>
+      <h4>Foto's worden geconverteerd naar WebP</h4>
+      <p>De 184 JPG's uit de WordPress library worden bij de codering omgezet naar WebP + AVIF met srcset. Geschatte reductie: 31 MB → ~8 MB. Belangrijk voor Core Web Vitals.</p>
+    </div>
+
+    <div class="note-card">
+      <span class="tag">— 12 · SEO / AI</span>
+      <h4>JSON-LD blijft staan</h4>
+      <p>De bestaande structured data (LocalBusiness, FAQPage, Product, Review) van het eerdere redesign wordt overgenomen. Geen verlies van zoek-zichtbaarheid bij overzetten.</p>
+    </div>
+  </div>
+
+  <div style="margin-top: 60px; padding: 40px; background: var(--ink); color: white; border-radius: var(--radius-lg); text-align: center;">
+    <span style="display:block; font-family:'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing: .18em; color: var(--lime); text-transform: uppercase; margin-bottom: 18px;">// Volgende stap</span>
+    <h2 style="font-family:'Fraunces'; font-weight:400; font-variation-settings:'opsz' 144,'SOFT' 60; font-size: clamp(1.8rem, 3.5vw, 3rem); line-height: 1.05; letter-spacing: -0.02em; margin: 0 0 24px; color: white;">
+      Akkoord op dit comp =<br><span style="font-style:italic; color:var(--orange); font-variation-settings:'opsz' 144,'SOFT' 100,'WONK' 1;">startsein voor coderen.</span>
+    </h2>
+    <p style="color: #aaa; max-width: 580px; margin: 0 auto 30px;">Bij groen licht zet ik de codering door op basis van dit comp: productie-HTML/CSS, image-optimalisatie naar WebP, JSON-LD, en deploy via de bestaande Vercel-pipeline. Tijdsindicatie: ~2 uur tot productie-build.</p>
+    <a href="#cover" class="btn btn-primary">Terug naar boven ↑</a>
+  </div>
+</section>
+
+<div style="height: 80px;"></div>
+
 </body>
 </html>

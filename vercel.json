@@ -5,6 +5,8 @@
   "redirects": [
     { "source": "/redesign", "destination": "/preview", "permanent": false },
     { "source": "/redesign.html", "destination": "/preview", "permanent": true },
+    { "source": "/design-comp", "destination": "/", "permanent": false },
+    { "source": "/design-comp.html", "destination": "/", "permanent": false },
     { "source": "/home", "destination": "/", "permanent": true }
   ],
   "headers": [
