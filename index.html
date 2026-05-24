@@ -1336,85 +1336,101 @@
 </section>
 
 <!-- ============================================================
-     ISDE SUBSIDIE-CALCULATOR (interactief)
+     SLIMME TOOLS — gecombineerde subsidie & postcode widget
 ============================================================ -->
-<section class="section subsidie-calc" id="subsidie" aria-labelledby="subsidie-titel">
+<section class="tools-section" id="tools" aria-labelledby="tools-titel">
+  <!-- Decoratieve achtergrond-elementen -->
+  <div class="tools-deco" aria-hidden="true">
+    <svg class="deco-blob deco-blob--1" viewBox="0 0 200 200" preserveAspectRatio="none"><path d="M44,-72C56,-62,63,-46,69,-30C75,-14,80,3,77,18C74,33,64,46,51,55C38,64,22,69,5,68C-12,67,-30,60,-44,49C-58,38,-69,23,-73,5C-77,-13,-74,-31,-65,-44C-56,-57,-41,-65,-26,-72C-11,-79,4,-85,19,-83C34,-81,32,-82,44,-72Z" transform="translate(100 100)"/></svg>
+    <svg class="deco-blob deco-blob--2" viewBox="0 0 200 200" preserveAspectRatio="none"><path d="M40,-65C53,-58,66,-49,73,-37C80,-25,82,-10,79,4C76,18,68,31,57,42C46,53,32,62,17,67C2,72,-13,73,-27,68C-41,63,-54,52,-62,38C-70,24,-73,7,-72,-9C-71,-25,-66,-40,-56,-50C-46,-60,-31,-65,-15,-69C1,-73,17,-76,40,-65Z" transform="translate(100 100)"/></svg>
+    <svg class="deco-dots" viewBox="0 0 120 80" aria-hidden="true">
+      <g fill="currentColor">
+        <circle cx="6" cy="6" r="2"/><circle cx="22" cy="6" r="2"/><circle cx="38" cy="6" r="2"/><circle cx="54" cy="6" r="2"/><circle cx="70" cy="6" r="2"/><circle cx="86" cy="6" r="2"/><circle cx="102" cy="6" r="2"/>
+        <circle cx="6" cy="22" r="2"/><circle cx="22" cy="22" r="2"/><circle cx="38" cy="22" r="2"/><circle cx="54" cy="22" r="2"/><circle cx="70" cy="22" r="2"/><circle cx="86" cy="22" r="2"/><circle cx="102" cy="22" r="2"/>
+        <circle cx="6" cy="38" r="2"/><circle cx="22" cy="38" r="2"/><circle cx="38" cy="38" r="2"/><circle cx="54" cy="38" r="2"/><circle cx="70" cy="38" r="2"/><circle cx="86" cy="38" r="2"/><circle cx="102" cy="38" r="2"/>
+      </g>
+    </svg>
+  </div>
+
   <div class="container">
-    <div class="calc-head">
-      <span class="eyebrow">ISDE-subsidie 2026 · indicatie binnen 10 seconden</span>
-      <h2 id="subsidie-titel">Wat krijgt u terug<br>via <span class="em-italic">de ISDE?</span></h2>
-      <p>De Rijksdienst voor Ondernemend Nederland (RVO) subsidieert isolatieglas via de ISDE-regeling. Bereken hieronder een indicatie voor uw situatie. De definitieve aanvraag verzorgen wij voor u bij de offerte.</p>
+    <div class="tools-head">
+      <span class="eyebrow eyebrow--lime">Slimme tools · direct antwoord</span>
+      <h2 id="tools-titel">Wat kost het<br>en <span class="em-italic em-italic--orange">komen wij langs?</span></h2>
+      <p class="tools-intro">Bereken in 10 seconden een indicatie van uw ISDE-subsidie, of check of we in uw regio plaatsen. Geen mailadres, geen registratie.</p>
     </div>
 
-    <div class="calc-grid">
-      <form class="calc-tool" id="isde-calc" novalidate>
-        <fieldset class="calc-step">
-          <legend><span class="step-num">01</span> Hoeveel m² isolatieglas plaatst u?</legend>
-          <div class="calc-slider-wrap">
-            <input type="range" id="m2" name="m2" min="3" max="40" step="1" value="12" aria-describedby="m2-value" />
-            <output id="m2-value" for="m2"><strong>12</strong> m²</output>
-          </div>
-          <p class="calc-hint">Voor de ISDE geldt een minimum van <strong>3 m²</strong> isolatieglas. Onder de 3 m² komt u niet in aanmerking.</p>
-        </fieldset>
+    <div class="tools-widget" role="region" aria-label="Slimme tools">
+      <div class="tools-tabs" role="tablist" aria-label="Selecteer een tool">
+        <button type="button" class="tools-tab is-active" role="tab" aria-selected="true" aria-controls="panel-subsidie" id="tab-subsidie" data-tab="subsidie">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          <span>ISDE-subsidie</span>
+        </button>
+        <button type="button" class="tools-tab" role="tab" aria-selected="false" aria-controls="panel-postcode" id="tab-postcode" data-tab="postcode" tabindex="-1">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Postcode-check</span>
+        </button>
+      </div>
 
-        <fieldset class="calc-step">
-          <legend><span class="step-num">02</span> Welk type glas?</legend>
-          <div class="calc-radio-row">
-            <label class="calc-radio">
-              <input type="radio" name="glas" value="hrpp" checked />
-              <span class="calc-radio-card">
-                <strong>HR++ glas</strong>
-                <span>U-waarde ≤ 1,2 W/m²K · meest gekozen</span>
-              </span>
-            </label>
-            <label class="calc-radio">
-              <input type="radio" name="glas" value="triple" />
-              <span class="calc-radio-card">
-                <strong>Triple glas</strong>
-                <span>U-waarde ≤ 0,7 W/m²K · hoogste subsidie</span>
-              </span>
-            </label>
+      <!-- TAB PANEL: SUBSIDIE -->
+      <div class="tools-panel is-active" id="panel-subsidie" role="tabpanel" aria-labelledby="tab-subsidie">
+        <form class="calc-form" id="isde-calc" novalidate>
+          <div class="calc-row">
+            <label for="m2" class="calc-row-label"><span class="calc-num">01</span> M² isolatieglas</label>
+            <div class="calc-slider-wrap">
+              <input type="range" id="m2" name="m2" min="3" max="40" step="1" value="12" aria-describedby="m2-value m2-hint" />
+              <output id="m2-value" for="m2"><strong>12</strong> m²</output>
+            </div>
+            <p id="m2-hint" class="calc-mini-hint">Min. 3 m² (RVO-eis)</p>
           </div>
-        </fieldset>
 
-        <fieldset class="calc-step">
-          <legend><span class="step-num">03</span> Combineert u met een tweede isolatiemaatregel?</legend>
-          <div class="calc-radio-row">
-            <label class="calc-radio">
-              <input type="radio" name="combi" value="ja" />
-              <span class="calc-radio-card">
-                <strong>Ja</strong>
-                <span>Bv. spouw-, dak- of gevelisolatie · subsidie verdubbelt</span>
-              </span>
-            </label>
-            <label class="calc-radio">
-              <input type="radio" name="combi" value="nee" checked />
-              <span class="calc-radio-card">
-                <strong>Nee, alleen glas</strong>
-                <span>Standaard ISDE-tarief</span>
-              </span>
-            </label>
+          <div class="calc-row">
+            <span class="calc-row-label"><span class="calc-num">02</span> Glastype</span>
+            <div class="calc-pill-row">
+              <label class="calc-pill"><input type="radio" name="glas" value="hrpp" checked /><span>HR++</span></label>
+              <label class="calc-pill"><input type="radio" name="glas" value="triple" /><span>Triple</span></label>
+            </div>
           </div>
-        </fieldset>
-      </form>
 
-      <aside class="calc-result" aria-live="polite">
-        <span class="result-eyebrow">Indicatie voor uw situatie</span>
-        <div class="result-amount">
-          <span class="result-label">U kunt indicatief terugkrijgen:</span>
-          <strong class="result-value" id="result-value">€ 276 – € 552</strong>
-          <span class="result-period">ISDE-subsidie via RVO</span>
+          <div class="calc-row">
+            <span class="calc-row-label"><span class="calc-num">03</span> Combineren met andere maatregel?</span>
+            <div class="calc-pill-row">
+              <label class="calc-pill"><input type="radio" name="combi" value="nee" checked /><span>Nee</span></label>
+              <label class="calc-pill"><input type="radio" name="combi" value="ja" /><span>Ja (bonus)</span></label>
+            </div>
+          </div>
+        </form>
+
+        <div class="calc-result-bar" aria-live="polite">
+          <div class="calc-result-text">
+            <span class="calc-result-label">Indicatie ISDE-subsidie</span>
+            <strong class="calc-result-value" id="result-value">€ 276 – € 552</strong>
+          </div>
+          <a href="#contact" class="btn btn-primary calc-result-cta">Vraag offerte aan <span class="arrow" aria-hidden="true">→</span></a>
         </div>
-        <ul class="result-breakdown" id="result-breakdown">
-          <li><span>Glastype</span><span id="rb-glas">HR++ (€ 23/m²)</span></li>
-          <li><span>Oppervlakte</span><span id="rb-m2">12 m²</span></li>
-          <li><span>Combinatie-bonus</span><span id="rb-combi">Nee · standaardtarief</span></li>
-        </ul>
-        <div class="result-cta">
-          <a href="#contact" class="btn btn-primary">Vraag exacte berekening aan <span class="arrow" aria-hidden="true">→</span></a>
-          <p class="result-disclaimer">Indicatie op basis van RVO ISDE-tarieven 2026. Definitieve subsidie hangt af van glas-U-waarde, factuurdatum en aanvraagvolgorde. <a href="https://www.rvo.nl/subsidies-financiering/isde" rel="external nofollow noopener">Bron: RVO</a>.</p>
-        </div>
-      </aside>
+        <p class="calc-disclaimer">RVO ISDE-tarieven 2026: HR++ € 23-46/m², triple € 111-222/m². Definitieve subsidie hangt af van U-waarde en aanvraagvolgorde. <a href="https://www.rvo.nl/subsidies-financiering/isde" rel="external nofollow noopener">Bron: RVO</a>.</p>
+      </div>
+
+      <!-- TAB PANEL: POSTCODE -->
+      <div class="tools-panel" id="panel-postcode" role="tabpanel" aria-labelledby="tab-postcode" hidden>
+        <form class="pc-form-v2" id="pc-form" novalidate>
+          <label for="pc-input" class="pc-label-v2">Vul uw postcode in — wij tonen direct of we bij u plaatsen</label>
+          <div class="pc-input-row">
+            <input
+              type="text"
+              id="pc-input"
+              inputmode="numeric"
+              autocomplete="postal-code"
+              maxlength="7"
+              pattern="[0-9]{4}\s?[A-Za-z]{0,2}"
+              placeholder="bv. 7556 BV"
+              aria-describedby="pc-help"
+            />
+            <button type="submit" class="btn btn-primary" id="pc-submit">Check <span class="arrow" aria-hidden="true">→</span></button>
+          </div>
+          <p id="pc-help" class="pc-help-v2">4 cijfers + eventueel 2 letters · 20 werkgebieden geladen</p>
+        </form>
+        <div class="pc-result" id="pc-result" hidden aria-live="polite"></div>
+      </div>
     </div>
   </div>
 </section>
@@ -1473,9 +1489,49 @@
   form.addEventListener('change', update);
   update();
 })();
-</script>
 
-<script>
+/* ============================================================
+   TAB SWITCHER — tools-widget
+   ============================================================ */
+(function(){
+  var tabs   = document.querySelectorAll('.tools-tab');
+  var panels = document.querySelectorAll('.tools-panel');
+  if (!tabs.length) return;
+
+  function activate(target){
+    tabs.forEach(function(t){
+      var active = t.dataset.tab === target;
+      t.classList.toggle('is-active', active);
+      t.setAttribute('aria-selected', active ? 'true' : 'false');
+      t.setAttribute('tabindex', active ? '0' : '-1');
+    });
+    panels.forEach(function(p){
+      var active = p.id === 'panel-' + target;
+      p.classList.toggle('is-active', active);
+      p.hidden = !active;
+    });
+  }
+
+  tabs.forEach(function(t){
+    t.addEventListener('click', function(){ activate(t.dataset.tab); });
+    t.addEventListener('keydown', function(e){
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft'){
+        e.preventDefault();
+        var others = Array.from(tabs).filter(function(x){ return x !== t; });
+        if (others[0]){ activate(others[0].dataset.tab); others[0].focus(); }
+      }
+    });
+  });
+
+  // Diepelink naar /#subsidie of /#postcode opent juiste tab
+  function openFromHash(){
+    var h = (location.hash || '').replace('#','');
+    if (h === 'subsidie' || h === 'postcode') activate(h);
+  }
+  window.addEventListener('hashchange', openFromHash);
+  openFromHash();
+})();
+
 /* ============================================================
    POSTCODE-CHECK — werkgebied lookup
    PC2 (eerste 2 cijfers) → dichtstbijzijnde Duurkracht-locatie
@@ -1821,29 +1877,7 @@
         Onze werkplaats staat in Hengelo (Overijssel), maar onze eigen monteurs rijden dagelijks door Twente, de Achterhoek, de Veluwe, Drenthe, Flevoland en de Randstad.
       </p>
 
-      <!-- POSTCODE-CHECK TOOL -->
-      <div class="postcode-check" id="postcode-check">
-        <label for="pc-input" class="pc-label">Check uw postcode</label>
-        <form class="pc-form" id="pc-form" novalidate>
-          <input
-            type="text"
-            id="pc-input"
-            inputmode="numeric"
-            autocomplete="postal-code"
-            maxlength="7"
-            pattern="[0-9]{4}\s?[A-Za-z]{0,2}"
-            placeholder="bv. 7556 BV"
-            aria-describedby="pc-help"
-            aria-label="Voer uw postcode in (4 cijfers, eventueel met 2 letters)"
-          />
-          <button type="submit" class="btn btn-primary" id="pc-submit">
-            Check <span class="arrow" aria-hidden="true">→</span>
-          </button>
-        </form>
-        <p id="pc-help" class="pc-help">4 cijfers + eventueel 2 letters</p>
-
-        <div class="pc-result" id="pc-result" hidden aria-live="polite"></div>
-      </div>
+      <a href="#tools" class="btn btn-ghost" style="margin-top: 28px;">Check uw postcode <span class="arrow" aria-hidden="true">→</span></a>
     </div>
     <nav class="area-list" aria-label="Plaatsen waar wij werken">
       <a href="/kunststof-kozijnen-hengelo/">Hengelo</a>
