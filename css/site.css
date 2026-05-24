@@ -185,6 +185,31 @@ h3{ font-size: clamp(1.25rem, 1.8vw, 1.6rem); }
 .hero-visual .review-badge .rb-text strong{ font-size: 14px; display: block; margin-bottom: 2px; }
 .hero-visual .review-badge .rb-text .gold{ color: #f4b400; letter-spacing: 1.5px; }
 
+/* TRUST BADGES — certificeringen prominent bovenaan */
+.trust-badges{ background: #fff; padding: 36px 0 32px; border-top: 1px solid var(--gray-200); border-bottom: 1px solid var(--gray-200); }
+.trust-eyebrow{ font-family: "Fraunces", serif; font-style: italic; font-variation-settings: "opsz" 144; font-weight: 400; font-size: clamp(15px, 1.4vw, 18px); color: var(--green-deep); text-align: center; margin: 0 0 26px; letter-spacing: 0; }
+.trust-row{ list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; align-items: stretch; }
+.trust-badge{ display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 18px 12px; border-radius: 14px; background: var(--gray-50); transition: transform .2s ease, background .2s ease, box-shadow .2s ease; cursor: default; }
+.trust-badge:hover{ transform: translateY(-2px); background: #fff; box-shadow: 0 4px 14px rgba(7, 65, 32, 0.08); }
+.badge-shape{ width: 64px; height: 64px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; background: rgba(11, 90, 43, 0.08); color: var(--green); flex-shrink: 0; }
+.badge-shape--lock{ background: rgba(237, 107, 6, 0.10); color: var(--accent); }
+.badge-shape--star{ background: rgba(211, 207, 41, 0.18); color: var(--green-deep); }
+.badge-shape--house{ background: rgba(11, 90, 43, 0.08); color: var(--green); }
+.badge-shape--google{ background: rgba(244, 180, 0, 0.16); color: #f4b400; }
+.badge-shape svg{ display: block; }
+.badge-label{ text-align: center; display: flex; flex-direction: column; gap: 2px; line-height: 1.3; }
+.badge-label strong{ font-size: 14.5px; color: var(--ink); font-weight: 700; letter-spacing: -0.01em; }
+.badge-label span{ font-size: 12.5px; color: var(--ink-soft); }
+.trust-foot{ text-align: center; margin: 24px 0 0; font-size: 13.5px; color: var(--ink-soft); }
+.trust-foot a{ color: var(--green); font-weight: 600; }
+.trust-foot a:hover{ color: var(--accent); }
+/* Compacte variant voor sub-pagina's: kleiner, geen titel */
+.trust-badges--compact{ padding: 22px 0 18px; }
+.trust-badges--compact .trust-badge{ padding: 12px 8px; gap: 8px; }
+.trust-badges--compact .badge-shape{ width: 52px; height: 52px; }
+.trust-badges--compact .badge-label strong{ font-size: 13.5px; }
+.trust-badges--compact .badge-label span{ font-size: 11.5px; }
+
 /* USP STRIP */
 .usp-strip{ background: var(--lime); padding: 18px 0; overflow: hidden; }
 .usp-row{
@@ -499,6 +524,10 @@ form .privacy a{ color: var(--green); text-decoration: underline; }
   }
   .hero{ padding: 60px 0 80px; }
   .stats .container{ grid-template-columns: 1fr 1fr; gap: 40px 30px; }
+  .trust-row{ grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .trust-badge:nth-child(4){ grid-column: 1 / span 2; flex-direction: row; justify-content: center; }
+  .trust-badge:nth-child(5){ grid-column: 3 / span 1; }
+  .trust-badge:nth-child(4) .badge-label{ text-align: left; }
   .steps{ grid-template-columns: 1fr; gap: 16px; }
   .step{ border: 1px solid var(--gray-200) !important; border-radius: var(--radius) !important; }
   .step:first-child,
@@ -518,6 +547,14 @@ form .privacy a{ color: var(--green); text-decoration: underline; }
 }
 @media (max-width: 520px){
   .ftr-grid{ grid-template-columns: 1fr; }
+  .trust-row{ grid-template-columns: 1fr 1fr; }
+  .trust-badge:nth-child(4),
+  .trust-badge:nth-child(5){ grid-column: span 1; flex-direction: column; }
+  .trust-badge:nth-child(5){ grid-column: 1 / span 2; flex-direction: row; justify-content: center; }
+  .trust-badge:nth-child(5) .badge-label{ text-align: left; }
+  .trust-badge:nth-child(4) .badge-label{ text-align: center; }
+  .badge-shape{ width: 52px; height: 52px; }
+  .badge-shape svg{ width: 36px; height: 36px; }
 }
 
 ::selection{ background: var(--orange); color: white; }
