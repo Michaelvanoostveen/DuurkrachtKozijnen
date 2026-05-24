@@ -1475,6 +1475,195 @@
 })();
 </script>
 
+<script>
+/* ============================================================
+   POSTCODE-CHECK — werkgebied lookup
+   PC2 (eerste 2 cijfers) → dichtstbijzijnde Duurkracht-locatie
+   ============================================================ */
+(function(){
+  // Onze 20 locatiepagina's met lat/lon
+  var LOCATIES = [
+    { slug:'hengelo',     name:'Hengelo',     lat:52.2659, lon:6.7930  },
+    { slug:'enschede',    name:'Enschede',    lat:52.2215, lon:6.8937  },
+    { slug:'almelo',      name:'Almelo',      lat:52.3502, lon:6.6685  },
+    { slug:'oldenzaal',   name:'Oldenzaal',   lat:52.3128, lon:6.9311  },
+    { slug:'borne',       name:'Borne',       lat:52.3014, lon:6.7493  },
+    { slug:'deventer',    name:'Deventer',    lat:52.2660, lon:6.1552  },
+    { slug:'zwolle',      name:'Zwolle',      lat:52.5168, lon:6.0830  },
+    { slug:'apeldoorn',   name:'Apeldoorn',   lat:52.2112, lon:5.9699  },
+    { slug:'arnhem',      name:'Arnhem',      lat:51.9851, lon:5.8987  },
+    { slug:'assen',       name:'Assen',       lat:52.9967, lon:6.5625  },
+    { slug:'emmen',       name:'Emmen',       lat:52.7858, lon:6.8975  },
+    { slug:'hoogeveen',   name:'Hoogeveen',   lat:52.7228, lon:6.4783  },
+    { slug:'leeuwarden',  name:'Leeuwarden',  lat:53.2012, lon:5.7999  },
+    { slug:'heerenveen',  name:'Heerenveen',  lat:52.9594, lon:5.9197  },
+    { slug:'drachten',    name:'Drachten',    lat:53.1117, lon:6.0989  },
+    { slug:'lelystad',    name:'Lelystad',    lat:52.5185, lon:5.4714  },
+    { slug:'almere',      name:'Almere',      lat:52.3508, lon:5.2647  },
+    { slug:'utrecht',     name:'Utrecht',     lat:52.0907, lon:5.1214  },
+    { slug:'den-haag',    name:'Den Haag',    lat:52.0705, lon:4.3007  },
+    { slug:'rotterdam',   name:'Rotterdam',   lat:51.9244, lon:4.4777  }
+  ];
+
+  // Postcode PC2 (eerste 2 cijfers) → benaderde lat/lon van het centrum van die regio.
+  // Bron: standaard NL postcodegebieden (CBS/PostNL referentie).
+  // Wordt gebruikt om afstand naar dichtstbijzijnde Duurkracht-locatie te schatten.
+  var PC2 = {
+    '10':{lat:52.378,lon:4.900,plaats:'Amsterdam'},'11':{lat:52.367,lon:4.900,plaats:'Amsterdam'},
+    '12':{lat:52.300,lon:4.870,plaats:'Hoofddorp/Haarlem'},'13':{lat:52.380,lon:4.640,plaats:'Zaanstreek'},
+    '14':{lat:52.450,lon:4.820,plaats:'IJmond/Beverwijk'},'15':{lat:52.640,lon:4.745,plaats:'Alkmaar/Heerhugowaard'},
+    '16':{lat:52.840,lon:4.797,plaats:'Den Helder'},'17':{lat:52.630,lon:4.760,plaats:'Heiloo/Schagen'},
+    '18':{lat:52.350,lon:5.060,plaats:'Hilversum'},'19':{lat:52.250,lon:4.640,plaats:'Aalsmeer/Uithoorn'},
+    '20':{lat:52.380,lon:4.640,plaats:'Haarlem'},'21':{lat:52.156,lon:4.493,plaats:'Leiden'},
+    '22':{lat:52.180,lon:4.430,plaats:'Katwijk/Wassenaar'},'23':{lat:52.110,lon:4.300,plaats:'Leiden ZO'},
+    '24':{lat:52.030,lon:4.350,plaats:'Den Haag NW'},'25':{lat:52.078,lon:4.310,plaats:'Den Haag'},
+    '26':{lat:52.000,lon:4.355,plaats:'Den Haag/Rijswijk'},'27':{lat:52.045,lon:4.358,plaats:'Zoetermeer'},
+    '28':{lat:52.066,lon:4.495,plaats:'Gouda regio'},'29':{lat:52.078,lon:4.310,plaats:'Den Haag'},
+    '30':{lat:51.924,lon:4.477,plaats:'Rotterdam'},'31':{lat:51.916,lon:4.482,plaats:'Rotterdam Zuid'},
+    '32':{lat:51.825,lon:4.667,plaats:'Dordrecht'},'33':{lat:51.812,lon:4.690,plaats:'Dordrecht/Zwijndrecht'},
+    '34':{lat:51.987,lon:5.105,plaats:'Utrecht ZW/Nieuwegein'},'35':{lat:52.090,lon:5.121,plaats:'Utrecht'},
+    '36':{lat:52.155,lon:5.387,plaats:'Amersfoort'},'37':{lat:52.150,lon:5.380,plaats:'Veenendaal'},
+    '38':{lat:52.150,lon:5.300,plaats:'Soest/Baarn'},'39':{lat:52.150,lon:5.300,plaats:'Amersfoort'},
+    '40':{lat:51.857,lon:4.000,plaats:'Gorinchem'},'41':{lat:51.832,lon:5.063,plaats:'Brakel/Tiel'},
+    '42':{lat:51.700,lon:4.900,plaats:'Den Bosch West'},'43':{lat:51.450,lon:3.575,plaats:'Vlissingen/Middelburg'},
+    '44':{lat:51.500,lon:3.610,plaats:'Goes/Middelburg'},'45':{lat:51.488,lon:4.290,plaats:'Bergen op Zoom'},
+    '46':{lat:51.585,lon:4.480,plaats:'Roosendaal'},'47':{lat:51.585,lon:4.778,plaats:'Breda'},
+    '48':{lat:51.594,lon:4.780,plaats:'Breda'},'49':{lat:51.595,lon:4.788,plaats:'Breda'},
+    '50':{lat:51.560,lon:5.080,plaats:'Tilburg'},'51':{lat:51.560,lon:5.080,plaats:'Tilburg'},
+    '52':{lat:51.696,lon:5.300,plaats:"'s-Hertogenbosch"},'53':{lat:51.700,lon:5.300,plaats:"'s-Hertogenbosch"},
+    '54':{lat:51.560,lon:5.880,plaats:'Helmond'},'55':{lat:51.441,lon:5.469,plaats:'Eindhoven'},
+    '56':{lat:51.441,lon:5.469,plaats:'Eindhoven'},'57':{lat:51.370,lon:5.215,plaats:'Valkenswaard'},
+    '58':{lat:51.220,lon:5.980,plaats:'Weert'},'59':{lat:51.354,lon:5.974,plaats:'Venlo/Roermond'},
+    '60':{lat:51.420,lon:6.166,plaats:'Venlo'},'61':{lat:51.197,lon:5.987,plaats:'Roermond'},
+    '62':{lat:50.851,lon:5.690,plaats:'Maastricht'},'63':{lat:50.880,lon:5.971,plaats:'Heerlen'},
+    '64':{lat:50.880,lon:5.971,plaats:'Heerlen/Kerkrade'},'65':{lat:51.842,lon:5.860,plaats:'Nijmegen'},
+    '66':{lat:51.812,lon:5.836,plaats:'Wijchen/Nijmegen'},'67':{lat:51.940,lon:6.020,plaats:'Renkum/Wageningen'},
+    '68':{lat:51.985,lon:5.899,plaats:'Arnhem'},'69':{lat:52.020,lon:6.030,plaats:'Velp/Rheden'},
+    '70':{lat:51.964,lon:6.291,plaats:'Doetinchem'},'71':{lat:52.080,lon:6.310,plaats:'Zutphen'},
+    '72':{lat:52.255,lon:6.165,plaats:'Deventer'},'73':{lat:52.211,lon:5.970,plaats:'Apeldoorn'},
+    '74':{lat:52.350,lon:6.669,plaats:'Almelo'},'75':{lat:52.266,lon:6.793,plaats:'Hengelo'},
+    '76':{lat:52.221,lon:6.894,plaats:'Enschede'},'77':{lat:52.617,lon:6.730,plaats:'Coevorden/Hardenberg'},
+    '78':{lat:52.516,lon:6.083,plaats:'Zwolle'},'79':{lat:52.520,lon:6.090,plaats:'Zwolle'},
+    '80':{lat:52.515,lon:6.090,plaats:'Zwolle'},'81':{lat:52.500,lon:6.090,plaats:'Zwolle'},
+    '82':{lat:52.520,lon:5.471,plaats:'Lelystad'},'83':{lat:52.700,lon:6.485,plaats:'Meppel/Hoogeveen'},
+    '84':{lat:52.700,lon:6.485,plaats:'Hoogeveen'},'85':{lat:52.700,lon:6.480,plaats:'Steenwijk/Hoogeveen'},
+    '86':{lat:52.900,lon:5.640,plaats:'Wolvega/Heerenveen'},'87':{lat:52.700,lon:6.480,plaats:'Hoogeveen omstr.'},
+    '88':{lat:52.700,lon:6.460,plaats:'Hoogeveen'},'89':{lat:52.350,lon:5.265,plaats:'Almere'},
+    '90':{lat:53.219,lon:6.566,plaats:'Groningen'},'91':{lat:53.219,lon:6.566,plaats:'Groningen'},
+    '92':{lat:53.250,lon:6.770,plaats:'Groningen NO'},'93':{lat:53.330,lon:6.880,plaats:'Delfzijl'},
+    '94':{lat:53.327,lon:6.917,plaats:'Delfzijl/Appingedam'},'95':{lat:53.218,lon:6.566,plaats:'Groningen Z'},
+    '96':{lat:53.000,lon:6.560,plaats:'Assen'},'97':{lat:52.785,lon:6.898,plaats:'Emmen'},
+    '98':{lat:53.111,lon:6.099,plaats:'Drachten/Smallingerland'},'99':{lat:53.201,lon:5.800,plaats:'Leeuwarden'}
+  };
+
+  var form    = document.getElementById('pc-form');
+  var input   = document.getElementById('pc-input');
+  var result  = document.getElementById('pc-result');
+  if (!form || !input || !result) return;
+
+  // Haversine afstand in km
+  function distKm(lat1, lon1, lat2, lon2){
+    var R = 6371;
+    var dLat = (lat2 - lat1) * Math.PI / 180;
+    var dLon = (lon2 - lon1) * Math.PI / 180;
+    var a = Math.sin(dLat/2)*Math.sin(dLat/2) +
+            Math.cos(lat1*Math.PI/180) * Math.cos(lat2*Math.PI/180) *
+            Math.sin(dLon/2)*Math.sin(dLon/2);
+    return Math.round(R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)));
+  }
+
+  function findNearest(lat, lon){
+    var best = null;
+    for (var i = 0; i < LOCATIES.length; i++){
+      var loc = LOCATIES[i];
+      var d = distKm(lat, lon, loc.lat, loc.lon);
+      if (!best || d < best.dist) best = { loc: loc, dist: d };
+    }
+    return best;
+  }
+
+  function findTop3(lat, lon){
+    var arr = LOCATIES.map(function(loc){
+      return { loc: loc, dist: distKm(lat, lon, loc.lat, loc.lon) };
+    });
+    arr.sort(function(a, b){ return a.dist - b.dist; });
+    return arr.slice(0, 3);
+  }
+
+  function showResult(html){
+    result.innerHTML = html;
+    result.hidden = false;
+  }
+
+  function escapeHtml(s){
+    return String(s).replace(/[&<>"']/g, function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var raw = (input.value || '').replace(/\s+/g, '').toUpperCase();
+    var pc4 = raw.match(/^(\d{4})/);
+    if (!pc4){
+      showResult('<div class="pc-error">Voer een geldige Nederlandse postcode in (4 cijfers, eventueel met 2 letters).</div>');
+      return;
+    }
+    var pc2 = pc4[1].substring(0, 2);
+    var ref = PC2[pc2];
+    if (!ref){
+      showResult('<div class="pc-error">Onbekende postcode. Wij plaatsen in heel Nederland — neem gerust contact op via het formulier hieronder of bel <a href="tel:+31850731660" rel="nofollow">085 073 1660</a>.</div>');
+      return;
+    }
+
+    var top3 = findTop3(ref.lat, ref.lon);
+    var nearest = top3[0];
+    var plaats = escapeHtml(ref.plaats);
+    var locName = escapeHtml(nearest.loc.name);
+    var locSlug = nearest.loc.slug;
+    var km = nearest.dist;
+
+    // Categoriseer reactie op afstand
+    var headline, sub;
+    if (km <= 25){
+      headline = 'Goed nieuws — wij plaatsen actief in uw regio';
+      sub = 'Onze monteurs zijn regelmatig in ' + plaats + ' en omstreken.';
+    } else if (km <= 75){
+      headline = 'Ja, wij komen graag bij u langs';
+      sub = 'Uw regio ' + plaats + ' valt binnen ons standaard werkgebied.';
+    } else {
+      headline = 'Ook bij u komen wij langs';
+      sub = 'Wij plaatsen in heel Nederland — ook ' + plaats + '. Onze monteurs rijden vanuit Hengelo.';
+    }
+
+    var listItems = top3.map(function(t){
+      return '<li><a href="/kunststof-kozijnen-' + t.loc.slug + '/">' +
+             escapeHtml(t.loc.name) + '</a> <span>~' + t.dist + ' km</span></li>';
+    }).join('');
+
+    showResult(
+      '<div class="pc-success">' +
+        '<strong class="pc-headline">' + escapeHtml(headline) + '</strong>' +
+        '<p class="pc-sub">' + escapeHtml(sub) + '</p>' +
+        '<div class="pc-nearest">' +
+          'Dichtstbijzijnde projectpagina: ' +
+          '<a href="/kunststof-kozijnen-' + locSlug + '/"><strong>' + locName + '</strong></a>' +
+          ' <span class="pc-km">~' + km + ' km van uw postcode</span>' +
+        '</div>' +
+        '<details class="pc-more">' +
+          '<summary>3 dichtstbijzijnde werkgebieden</summary>' +
+          '<ol>' + listItems + '</ol>' +
+        '</details>' +
+        '<div class="pc-cta-row">' +
+          '<a href="#contact" class="btn btn-primary">Plan een gratis bezoek <span class="arrow" aria-hidden="true">→</span></a>' +
+          '<a href="/kunststof-kozijnen-' + locSlug + '/" class="btn btn-ghost">Bekijk ' + locName + '</a>' +
+        '</div>' +
+      '</div>'
+    );
+  });
+})();
+</script>
+
 <!-- ============================================================
      FEATURED PROJECT
 ============================================================ -->
@@ -1631,7 +1820,30 @@
       <p style="color: var(--gray-700); margin-top: 20px; max-width: 360px; line-height: 1.6;">
         Onze werkplaats staat in Hengelo (Overijssel), maar onze eigen monteurs rijden dagelijks door Twente, de Achterhoek, de Veluwe, Drenthe, Flevoland en de Randstad.
       </p>
-      <a href="#contact" class="btn btn-ghost" style="margin-top: 28px;">Check uw locatie <span class="arrow" aria-hidden="true">→</span></a>
+
+      <!-- POSTCODE-CHECK TOOL -->
+      <div class="postcode-check" id="postcode-check">
+        <label for="pc-input" class="pc-label">Check uw postcode</label>
+        <form class="pc-form" id="pc-form" novalidate>
+          <input
+            type="text"
+            id="pc-input"
+            inputmode="numeric"
+            autocomplete="postal-code"
+            maxlength="7"
+            pattern="[0-9]{4}\s?[A-Za-z]{0,2}"
+            placeholder="bv. 7556 BV"
+            aria-describedby="pc-help"
+            aria-label="Voer uw postcode in (4 cijfers, eventueel met 2 letters)"
+          />
+          <button type="submit" class="btn btn-primary" id="pc-submit">
+            Check <span class="arrow" aria-hidden="true">→</span>
+          </button>
+        </form>
+        <p id="pc-help" class="pc-help">4 cijfers + eventueel 2 letters</p>
+
+        <div class="pc-result" id="pc-result" hidden aria-live="polite"></div>
+      </div>
     </div>
     <nav class="area-list" aria-label="Plaatsen waar wij werken">
       <a href="/kunststof-kozijnen-hengelo/">Hengelo</a>
