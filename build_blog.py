@@ -170,7 +170,7 @@ POSTS = [
         'category': 'Prijzen & advies',
         'date': '2026-05-20',
         'modified': '2026-05-24',
-        'reading_time': 7,
+        'reading_time': 10,
         'intro_image': 'Voorkant-huis-kozijnen',
         'lead': "Wat kosten kunststof kozijnen in 2026? In dit artikel zetten we alle prijscomponenten op een rij — van standaard draai-kiep tot complete gevelrenovatie. Inclusief actuele ISDE-subsidies en concrete prijsvoorbeelden.",
         'sections': [
@@ -255,6 +255,31 @@ POSTS = [
 <li><strong>Uw houten kozijnen verzakt of verrot zijn</strong></li>
 </ul>
 """},
+        {'id': 'wat-zit-erin', 'h2': 'Wat zit er wél en niet in onze prijs?', 'body': """
+<p>Een veelgemaakte fout bij prijzen vergelijken: appels met peren. Onze offerte is altijd <strong>all-in</strong> — wat u betaalt, is wat u krijgt. Concreet zit er in onze prijs:</p>
+<ul>
+<li><strong>Het Schüco LivIng kozijn</strong> op maat geproduceerd, in de door u gekozen kleur</li>
+<li><strong>Isolatieglas</strong> (HR++ of triple), inclusief warme glasafstandhouder</li>
+<li><strong>Het kunststof stelkozijn</strong> als montagebasis — vormvast en vochtbestendig</li>
+<li><strong>SKG-getest hang- en sluitwerk</strong> in RC2-klasse standaard</li>
+<li><strong>Demontage</strong> van uw oude kozijn, inclusief afvoer naar de milieustraat</li>
+<li><strong>Montage door eigen Duurkracht-monteurs</strong> — geen onderaanneming</li>
+<li><strong>Afkitten en netjes afwerken</strong> aan binnen- en buitenzijde</li>
+<li><strong>10 jaar garantie</strong> op materiaal én montage</li>
+<li><strong>21% btw</strong> (kozijnen vallen niet onder het verlaagd tarief)</li>
+</ul>
+<p>Wat <em>niet</em> in onze standaardprijs zit: schilderwerk binnen (stucwerk repareren), nieuwe vensterbanken, jaloezieën of horren — die offreren we apart als u dat wenst. Steigerwerk bij hoge ramen rekenen we transparant per dag door, geen verborgen kostenposten achteraf.</p>
+"""},
+        {'id': 'betaling-btw', 'h2': 'Btw, aanbetaling en betaaltermijnen — hoe werkt het?', 'body': """
+<p>Bij Duurkracht werken we met transparante betaalmomenten zodat u nooit voor verrassingen komt te staan:</p>
+<ol>
+<li><strong>Aanbetaling 30%</strong> bij ondertekening van de offerte — dit is nodig om uw maatwerk in productie te zetten.</li>
+<li><strong>40%</strong> bij start van de montage op de planningsdag.</li>
+<li><strong>Restbetaling 30%</strong> binnen 14 dagen na oplevering, als u tevreden bent en alles werkt naar wens.</li>
+</ol>
+<p>Alle bedragen op uw offerte zijn <strong>inclusief 21% btw</strong>. Voor het isolatieglas zelf gold tot 2026 een verlaagd btw-tarief op de arbeid, maar dat is per 2026 vervallen. De ISDE-subsidie compenseert die verhoging echter ruimschoots — netto bent u meestal beter af dan vóór 2026.</p>
+<p>Heeft u behoefte aan financiering? Een renteloze lening via het <a href="https://www.warmtefonds.nl/" rel="external nofollow noopener">Nationaal Warmtefonds</a> is in veel gevallen mogelijk voor energiebesparende maatregelen.</p>
+"""},
         ],
         'faq': [
             ('Wat kost een kunststof draai-kiep kozijn van 100×120 cm?', 'Een standaard draai-kiep kozijn van die afmeting kost inclusief HR++ glas en montage gemiddeld € 600 tot € 950. Met triple glas € 850 tot € 1.250.'),
@@ -262,6 +287,10 @@ POSTS = [
             ('Wat is goedkoper: kunststof of aluminium kozijnen?', 'Kunststof kozijnen (Schüco LivIng) zijn ongeveer 30-60% goedkoper dan aluminium met vergelijkbare isolatiewaarde. Aluminium is alleen voordeliger bij zeer grote afmetingen (>3m).'),
             ('Kan ik subsidie krijgen op alleen kozijnen vervangen?', 'Alleen op het glasoppervlak (HR++ of triple), niet op het kozijnprofiel zelf. De ISDE-subsidie wordt berekend over de vierkante meters glasoppervlak die u vervangt.'),
             ('Krijg ik mijn investering ooit terug?', 'Ja. Bij vervanging van enkel glas door HR++ verdient u de investering meestal in 7-12 jaar terug via lagere stookkosten. Kozijnen gaan 40-50 jaar mee, dus de winst loopt door tientallen jaren door.'),
+            ('Voert Duurkracht de oude kozijnen af?', 'Ja, demontage en afvoer naar de milieustraat zit standaard in de prijs. Glas, kozijnprofielen, beslag en kitresten gaan gescheiden mee. U houdt geen rommel over.'),
+            ('Hoe wordt de offerte opgebouwd?', 'Per kozijn ziet u: afmeting, type (draai-kiep, vast, schuif), glaskeuze, kleur en sluitwerk. Daarnaast zijn de montagekosten, eventueel steigerwerk en btw apart zichtbaar. Alle prijzen zijn vast — geen meerwerk achteraf zonder uw akkoord.'),
+            ('Krijg ik vooraf een prijs, of pas na inmeting?', 'Bij een eerste gesprek geven we een indicatie op basis van foto´s of maten die u zelf heeft genomen. Een definitieve vaste offerte volgt na de bouwkundige inmeting door onze adviseur — die opname is gratis en vrijblijvend.'),
+            ('Geldt 9% btw op de plaatsing van kozijnen?', 'Nee. Sinds 1 januari 2026 is het verlaagd btw-tarief voor isolerende beglazing vervallen. Alle werkzaamheden vallen onder 21% btw. De ISDE-subsidie compenseert dit ruimschoots.'),
         ],
         'cta_inline_after_h2_index': 3,  # na "compleet huis" sectie
         'cta_inline_text': '<strong>Een vaste prijs voor uw woning?</strong><p>Onze adviseur komt vrijblijvend langs, meet uw kozijnen in en maakt een vaste offerte zonder verrassingen.</p>',
@@ -275,7 +304,7 @@ POSTS = [
         'category': 'Productadvies',
         'date': '2026-05-18',
         'modified': '2026-05-24',
-        'reading_time': 6,
+        'reading_time': 9,
         'intro_image': 'hero-raamkozijnen',
         'lead': "HR++ of triple glas? Een keuze die jaarlijks honderden euro's verschil kan maken — én duizenden euro's bij de aanschaf. Wij vergelijken eerlijk en geven praktisch advies per woningtype.",
         'sections': [
@@ -347,6 +376,48 @@ POSTS = [
         {'id': 'advies', 'h2': 'Ons advies in één zin', 'body': """
 <blockquote><p><strong>Gaat u verbouwen en pakt u sowieso een tweede maatregel mee (spouwisolatie, warmtepomp)?</strong> Kies triple glas — de combi-subsidie maakt het bijna gratis. <strong>Geen combi?</strong> HR++ is een prima keuze, vooral op bestaande woningen.</p></blockquote>
 """},
+        {'id': 'geluid-cijfers', 'h2': 'Geluidsisolatie in praktijk-cijfers', 'body': """
+<p>Geluidsdemping wordt uitgedrukt in <strong>R<sub>w</sub></strong> (decibel-waarde). Hoe hoger, hoe stiller binnen. Een vuistregel: <strong>elke 10 dB extra wordt door het oor als half zo luid ervaren</strong>.</p>
+<p>Indicatieve R<sub>w</sub>-waarden voor verschillende glassoorten:</p>
+<table>
+<thead><tr><th>Glassoort</th><th>R<sub>w</sub> (dB)</th><th>Praktijk-vergelijking</th></tr></thead>
+<tbody>
+<tr><td>Enkel glas 4 mm</td><td>~28 dB</td><td>Verkeer goed hoorbaar</td></tr>
+<tr><td>HR++ glas standaard</td><td>~32 dB</td><td>Normaal stadsverkeer</td></tr>
+<tr><td>HR++ asymmetrisch (4-15-6)</td><td>~36 dB</td><td>Drukke doorgaande weg</td></tr>
+<tr><td>Triple glas standaard</td><td>~37 dB</td><td>Snelweg op afstand</td></tr>
+<tr><td>Triple geluidsisolerend</td><td>~42 dB</td><td>Vliegroute / treinrails</td></tr>
+</tbody>
+</table>
+<p>Woont u aan een drukke weg of vliegroute? Dan kan een speciaal <strong>asymmetrisch glas</strong> (verschillende dikte aan binnen- en buitenzijde) net zo veel verschil maken als triple glas, voor minder geld. Wij berekenen tijdens de offerte welke combinatie voor uw gevel het beste werkt.</p>
+"""},
+        {'id': 'speciaalglas', 'h2': 'Wanneer kies je speciaalglas?', 'body': """
+<p>Naast HR++ en triple bestaan er specifieke glasvarianten voor bijzondere situaties. Goed om te kennen voordat u kiest:</p>
+<ul>
+<li><strong>Zonwerend glas</strong> — speciale coating die warmte van de zon tegenhoudt. Zinvol bij grote zuid- of westgevels waar oververhitting in zomer een probleem is. Belangrijk: zonwerend glas is altijd iets donkerder dan standaard.</li>
+<li><strong>Veiligheidsglas (gehard/gelaagd)</strong> — verplicht bij vloer-tot-plafond glaspartijen, schuifpuien en lage borstweringen. Gehard glas valt uiteen in kleine korrels; gelaagd glas blijft heel dankzij een folie tussen de glaslagen (veiliger bij inbraak).</li>
+<li><strong>Inbraakwerend glas (P2A/P4A)</strong> — meerdere lagen met taaie folies. Verplicht voor SKG**-classificatie. Standaard onderdeel bij onze RC2-kozijnen.</li>
+<li><strong>Matglas of figuurglas</strong> — voor badkamers, toiletten en hoeken waar privacy gewenst is zonder een hele gordijnoplossing. Verkrijgbaar in tientallen patronen.</li>
+<li><strong>Glas met geïntegreerde roeden</strong> — voor klassieke uitstraling zonder dat schoonmaken moeilijker wordt.</li>
+</ul>
+<p>Tijdens het adviesgesprek nemen we per kozijn door wat zinvol is voor uw situatie. Vaak is een combinatie de optimale keuze — bijvoorbeeld HR++ standaard, met triple in slaapkamers aan de straatkant.</p>
+"""},
+        {'id': 'glasdikte-spouw', 'h2': 'Glasdikte en spouwbreedte — wat zegt dat over de prestatie?', 'body': """
+<p>Veel verkopers gooien met cijfers als "4-15-4 HR++". Het is nuttig te weten wat die getallen betekenen — vooral als u offertes vergelijkt.</p>
+<p><strong>Het eerste en laatste getal</strong> zijn de dikte van de glasruiten in millimeters. <strong>Het middelste getal</strong> is de breedte van de spouw daartussen (waar het isolerend gas in zit). Een vuistregel:</p>
+<table>
+<thead><tr><th>Code</th><th>Type</th><th>U-waarde glas</th><th>Toepassing</th></tr></thead>
+<tbody>
+<tr><td>4-15-4</td><td>HR++ standaard</td><td>~1.1 W/m²K</td><td>Renovatie, meeste woningen</td></tr>
+<tr><td>4-18-4</td><td>HR++ extra spouw</td><td>~1.0 W/m²K</td><td>Iets betere isolatie, zelfde dikte mogelijk</td></tr>
+<tr><td>4-15-6 (asymmetrisch)</td><td>HR++ geluid</td><td>~1.1 W/m²K, R<sub>w</sub> +4 dB</td><td>Drukke wegen, vliegroutes</td></tr>
+<tr><td>4-12-4-12-4</td><td>Triple standaard</td><td>~0.7 W/m²K</td><td>Nieuwbouw, verduurzaming</td></tr>
+<tr><td>4-14-4-14-4</td><td>Triple optimaal</td><td>~0.5 W/m²K</td><td>Passiefhuis-niveau</td></tr>
+</tbody>
+</table>
+<p>De spouw is gevuld met <strong>argon-gas</strong> (standaard) of <strong>krypton-gas</strong> (premium, ~10% beter isolerend bij smallere spouw). Voor Schüco LivIng-kozijnen werken wij standaard met argon-gevuld 4-15-4 HR++ of 4-12-4-12-4 triple — wat presteert in de praktijk vrijwel identiek aan duurdere krypton-varianten.</p>
+<p>Tip bij offertes vergelijken: let niet alleen op "HR++", maar op de U-waarde (U<sub>g</sub>) van het glas in W/m²K. Hoe lager, hoe beter. Een offerte zonder dat cijfer is geen complete offerte.</p>
+"""},
         ],
         'faq': [
             ('Is triple glas altijd beter dan HR++?', 'Technisch wel (lagere U-waarde, betere geluidsdemping). Financieel hangt het af van of u de combi-subsidie kunt pakken. Zonder combi is HR++ vaak voldoende.'),
@@ -354,6 +425,10 @@ POSTS = [
             ('Hoeveel decibel scheelt triple glas?', 'Triple glas dempt 5 tot 8 decibel meer dan HR++. Dat klinkt klein, maar elke 10 dB wordt door het menselijk oor als half zo luid ervaren. Bij verkeer/vliegroute aanrader.'),
             ('Geeft triple glas problemen met condens?', 'Nee, bij goede montage niet. De binnenkant is door de extra isolatie juist minder koud, dus minder kans op binnencondens. Buitencondens (op koude ochtenden) kan wel voorkomen — dat is een teken dat het glas perfect isoleert.'),
             ('Kan ik HR++ later upgraden naar triple?', 'Theoretisch wel (glas wisselen in hetzelfde kozijn), maar in de praktijk vaak niet zinvol. Het meeste werk zit in de montage, niet in het glas. Beter direct triple plaatsen als u dat wil.'),
+            ('Wat kost triple glas extra ten opzichte van HR++?', 'Per vierkante meter glasoppervlak is triple ongeveer € 80-130 duurder dan HR++. Voor een gemiddelde rijwoning met 15 m² glas komt dat op € 1.200-2.000 meerprijs — die u met de hogere ISDE-subsidie meestal volledig terugkrijgt.'),
+            ('Is asymmetrisch glas een alternatief voor triple?', 'Voor geluid: ja, vaak. Asymmetrisch HR++ (bijvoorbeeld 4 mm buiten en 6 mm binnen) dempt geluid bijna net zo goed als standaard triple, voor minder geld. Voor warmte-isolatie is triple wel beter.'),
+            ('Kan zonwerend glas mijn binnenruimte donkerder maken?', 'Een lichte verkleuring is zichtbaar, vooral bij grote glaspartijen. Moderne zonwerende coatings zijn echter nauwelijks merkbaar tijdens normaal gebruik — meestal valt het op door minder hitte, niet door minder licht.'),
+            ('Krijg ik bij grote schuifpuien automatisch triple glas?', 'Niet automatisch, maar wij adviseren het wel sterk. Bij glasoppervlakken boven ~6 m² is het warmteverlies van HR++ relatief groot. Triple verdient zich bij die afmetingen sneller terug en geeft direct comfortabeler aanvoelen.'),
         ],
         'cta_inline_after_h2_index': 2,
         'cta_inline_text': '<strong>Onzeker over HR++ of triple?</strong><p>Onze adviseur kijkt naar uw woning, energielabel en wensen — en geeft eerlijk advies. Geen verkoopdruk.</p>',
@@ -367,7 +442,7 @@ POSTS = [
         'category': 'Subsidie',
         'date': '2026-05-15',
         'modified': '2026-05-24',
-        'reading_time': 5,
+        'reading_time': 8,
         'intro_image': 'Nieuwe-voordeur-huis',
         'lead': "De ISDE-subsidie is in 2026 hoger dan ooit voor isolatieglas. In deze gids leggen we precies uit hoeveel u krijgt, wanneer u aanspraak maakt en hoe u de aanvraag indient — zonder de bekende valkuilen.",
         'sections': [
@@ -443,6 +518,40 @@ POSTS = [
 </ul>
 <p>Dit zit standaard bij onze service inbegrepen — geen extra kosten.</p>
 """},
+        {'id': 'documenten', 'h2': 'Welke documenten heeft u nodig?', 'body': """
+<p>Een ISDE-aanvraag staat of valt met de juiste papierwinkel. Bewaar deze documenten zorgvuldig — RVO kan tot vijf jaar na uitbetaling controleren of alles klopt:</p>
+<ul>
+<li><strong>Eindfactuur</strong> met daarop: glassoort (HR++ of triple), exacte U-waarde, vierkante meters glas, kozijnsoort en het btw-bedrag apart.</li>
+<li><strong>Betaalbewijs</strong> van de eindfactuur (bankafschrift of bevestiging via iDEAL).</li>
+<li><strong>Offerte</strong> waarin de glassoort en U-waarde duidelijk staan vermeld.</li>
+<li><strong>Productattest of CE-merk</strong> van het isolatieglas — u krijgt deze bij oplevering van ons.</li>
+<li><strong>Bewijs van de combi-maatregel</strong>, als u die heeft uitgevoerd (factuur + betaalbewijs van bijvoorbeeld spouwmuurisolatie).</li>
+<li><strong>BSN-gegevens en bankgegevens</strong> voor de aanvraag op mijn.rvo.nl.</li>
+<li><strong>Een DigiD-account</strong> om in te loggen (regel dit ruim van tevoren als u dat nog niet heeft).</li>
+</ul>
+<p>Wij leveren bij oplevering een <strong>complete ISDE-map</strong> aan met al deze stukken in de juiste volgorde. U hoeft alleen nog uw bankgegevens in te vullen en op verzenden te drukken.</p>
+"""},
+        {'id': 'combi-tips', 'h2': 'Welke combi-maatregelen combineren goed met kozijnen?', 'body': """
+<p>De combi-bonus verdubbelt de subsidie per m² glas. Maar niet elke tweede maatregel is even logisch. Onze top 4 die naadloos aansluit op een kozijnvervanging:</p>
+<ol>
+<li><strong>Spouwmuurisolatie</strong> — meestal de goedkoopste tweede maatregel (€ 1.000-2.500 voor een rijwoning) en levert direct comfortwinst. Combineert prima met kozijnen omdat beide ingrepen aan de gevel plaatsvinden.</li>
+<li><strong>Dakisolatie of zoldervloerisolatie</strong> — vooral zinvol bij woningen uit de jaren '60-'80 waar daken nog ongeïsoleerd zijn. Levert vaak € 2.500-5.000 ISDE-subsidie op zichzelf op, bovenop de glassubsidie.</li>
+<li><strong>Vloerisolatie of bodemisolatie</strong> — geliefd bij kruipruimtes, geeft minder koude voeten en lagere stookkosten. Combineert ook prima met de gangbare 24-maanden termijn.</li>
+<li><strong>(Hybride) warmtepomp</strong> — grootste investering, maar ook de grootste subsidie (€ 1.500-3.500). Pas in te zetten als de woning genoeg geïsoleerd is — daarom past het goed ná de kozijnvervanging.</li>
+</ol>
+<p>Wat <em>niet</em> kwalificeert als combi-maatregel: zonnepanelen, isolerend buitenwerk dat niet onder de RVO-lijst valt, of kleinere maatregelen zoals tochtstrips. Twijfelt u? Onze adviseur kijkt vrijblijvend mee welke combinatie voor uw woning de beste verhouding heeft tussen kosten en subsidie.</p>
+"""},
+        {'id': 'andere-regelingen', 'h2': 'Andere regelingen naast ISDE — wat kunt u nog meer benutten?', 'body': """
+<p>De ISDE is de bekendste landelijke regeling, maar zeker niet de enige. Een korte rondleiding door wat er nog meer is in 2026:</p>
+<ul>
+<li><strong>Energiebespaarlening (Nationaal Warmtefonds)</strong> — een renteloze of zeer rentegunstige lening voor verduurzamingsmaatregelen, vanaf € 1.000 tot € 25.000 per huishouden. Combineert prima met de ISDE: u gebruikt de lening voor de investering en de subsidie als gedeeltelijke aflossing.</li>
+<li><strong>Provinciale en gemeentelijke regelingen</strong> — sommige gemeenten (zoals Hengelo, Almelo, Enschede, Apeldoorn en Zwolle in ons werkgebied) hebben aanvullende lokale subsidiepotjes voor isolatie. Het loont om bij uw gemeente te checken — soms zijn er meerdere honderden euro's extra te halen.</li>
+<li><strong>BTW-teruggaaf zonnepanelen</strong> — niet direct voor kozijnen, maar voor wie de verduurzaming combineert met zonnepanelen geldt dat de btw op zonnepanelen 0% is sinds 2023. Goed om mee te nemen in uw totale verbouwbudget.</li>
+<li><strong>BENG-eisen bij nieuwbouw</strong> — geen subsidie maar een verplichting. Voor nieuwbouw vanaf 2021 gelden strikte energie-eisen. Onze Schüco LivIng kozijnen voldoen ruim aan BENG-niveau 3 voor woningbouw.</li>
+<li><strong>WOZ-effect</strong> — geen subsidie, maar een neveneffect: woningen met een beter energielabel hebben een hogere marktwaarde. Bij verkoop wordt label A/B vaak met 6-9% meerprijs verhandeld dan label D/E (NVM-onderzoek 2024).</li>
+</ul>
+<p>Wij houden de actuele regelingen bij voor ons werkgebied en wijzen u op alles waar u in aanmerking voor komt. Voor de meest actuele info kunt u ook terecht bij <a href="https://www.verbeterjehuis.nl/" rel="external nofollow noopener">Verbeter je huis</a> of de <a href="https://www.energiesubsidiewijzer.nl/" rel="external nofollow noopener">Energiesubsidiewijzer</a> — onafhankelijke overheidsbronnen.</p>
+"""},
         ],
         'faq': [
             ('Kan ik ISDE krijgen op alleen kozijnen vervangen?', 'Alleen op het glasoppervlak (HR++ of triple glas), niet op het kozijnprofiel. De subsidie is afhankelijk van vierkante meters glas, niet van het aantal kozijnen.'),
@@ -450,6 +559,10 @@ POSTS = [
             ('Geldt ISDE ook voor nieuwbouw?', 'Nee. De ISDE is alleen voor bestaande woningen die zijn gebouwd vóór 2024.'),
             ('Hoe lang duurt de uitbetaling?', 'RVO streeft naar uitbetaling binnen 8 tot 13 weken na een complete aanvraag. Bij ontbrekende gegevens kan het langer duren.'),
             ('Moet ik ISDE aanvragen vóór of na de plaatsing?', 'Na plaatsing — u heeft de eindfactuur en het betaalbewijs nodig. Maar de subsidieregeling moet wel beschikbaar zijn op het moment van plaatsing.'),
+            ('Kan een VvE of appartementeneigenaar ISDE aanvragen?', 'Ja. Bij een VvE kan de vereniging zelf aanvragen voor gemeenschappelijke kozijnen. Individuele appartementseigenaren kunnen voor de eigen kozijnen apart aanvragen. Voorwaarde: u bent eigenaar, geen huurder.'),
+            ('Wat als RVO mijn aanvraag afwijst?', 'U krijgt een afwijzing met onderbouwing. Vaak gaat het om missende documenten of een te lage U-waarde. In dat geval kunt u binnen 6 weken bezwaar maken. Bij twijfel helpen wij u kosteloos met een hertoets.'),
+            ('Kan de subsidie achteraf worden teruggevorderd?', 'Alleen als u onjuiste informatie heeft verstrekt of de werkzaamheden niet daadwerkelijk zijn uitgevoerd. Bij een correcte aanvraag en factuur van een erkend bedrijf is dat risico nihil. Bewaar alle documenten 5 jaar.'),
+            ('Loopt ISDE in 2027 nog?', 'De ISDE-regeling is meerjarig en loopt op dit moment tot eind 2030. De tarieven en voorwaarden kunnen jaarlijks worden bijgesteld. Houd <a href="https://www.rvo.nl/subsidies-financiering/isde" rel="external nofollow noopener">rvo.nl</a> in de gaten voor het meest actuele overzicht.'),
         ],
         'cta_inline_after_h2_index': 3,
         'cta_inline_text': '<strong>Maximale subsidie + zekerheid?</strong><p>Wij berekenen vooraf precies hoeveel ISDE-subsidie u krijgt en helpen kosteloos met de aanvraag. Geen verrassingen.</p>',
@@ -534,6 +647,28 @@ POSTS = [
 </ul>
 <p>Minder geschikt voor: zeer beperkt budget (kies dan een goedkoper merk) of wanneer u zeer smalle profielen wenst (kies dan aluminium).</p>
 """},
+        {'id': 'duurzaamheid', 'h2': 'Duurzaamheid en milieu — hoe groen is een kunststof kozijn?', 'body': """
+<p>De grootste mythe over kunststof kozijnen is dat ze "slecht voor het milieu" zouden zijn. De realiteit voor de Schüco LivIng-lijn:</p>
+<ul>
+<li><strong>Tot 30% gerecycled materiaal</strong> in het profiel zelf. Schüco gebruikt sinds 2019 actief teruggewonnen PVC uit oude kozijnen in nieuwe productie.</li>
+<li><strong>Volledig recyclebaar aan het einde van de levensduur</strong> — Duurkracht voert oude kozijnen af naar het Schüco-recyclingnetwerk (Rewindo). PVC-profielen worden tot 7x hergebruikt.</li>
+<li><strong>Geen schilderwerk nodig</strong> betekent geen oplosmiddelen, geen jaarlijkse onderhouds-CO₂ en geen chemisch afval gedurende 40+ jaar.</li>
+<li><strong>Energiebesparing over de levensduur</strong> compenseert de productie-impact ruimschoots. Onafhankelijke LCA-studies wijzen op een terugverdientijd van 2-4 jaar in CO₂.</li>
+<li><strong>Productie in Duitsland</strong> — Schüco produceert in Bielefeld en Borchen, dichter bij Nederland dan vergelijkbare merken uit Polen of Turkije. Minder transportkilometers.</li>
+</ul>
+<p>De keuze tussen kunststof, hout en aluminium is qua duurzaamheid genuanceerd. Hout scoort beter op hernieuwbare grondstoffen, maar slechter op onderhoudsimpact en U-waarde. Aluminium heeft een hoge productie-CO₂ door smelten, maar is oneindig recyclebaar. Kunststof zit hier tussenin met de beste balans tussen onderhoudsvrij en isolatie. Bron: <a href="https://www.rewindo.de/" rel="external nofollow noopener">Rewindo PVC-recyclingrapport</a>.</p>
+"""},
+        {'id': 'onderhoud-living', 'h2': 'Onderhoud van Schüco LivIng — wat moet u doen?', 'body': """
+<p>Schüco LivIng is bewust ontworpen om <strong>minimaal onderhoud</strong> te vragen. Voor een rustige levensduur van 30+ jaar volstaat het volgende:</p>
+<ol>
+<li><strong>Eén of twee keer per jaar schoonmaken</strong> — gewoon met sopwater en een zachte spons. Geen agressieve middelen, geen chloorhoudende reinigers. Antraciet of houtnerf profielen mogen op dezelfde manier.</li>
+<li><strong>Jaarlijks de afwateringsgaatjes controleren</strong> onderin het kozijn. Een paar zandkorrels of insectjes blokkeren de afvoer en kunnen op termijn voor vochtproblemen zorgen.</li>
+<li><strong>Eens per 1-2 jaar de rubbers behandelen</strong> met een neutraal siliconenmiddel of glycerine. Dat houdt ze soepel en voorkomt scheurtjes.</li>
+<li><strong>Scharnieren en sluitwerk smeren</strong> elke 2-3 jaar met een teflon- of siliconenspray. Geen olie — die trekt stof aan.</li>
+<li><strong>Visuele check</strong> na een ruige winter: zit de afdichting nog goed? Sluit het kozijn nog strak? Bij twijfel kunnen wij gratis bijstellen binnen onze garantieperiode.</li>
+</ol>
+<p>Dat is alles. Geen schilderen, geen lakken, geen schuren. Voor een uitgebreide guide met seizoenstips, zie ons <a href="/blog/kunststof-kozijnen-onderhoud/">onderhoudsartikel</a>.</p>
+"""},
         ],
         'faq': [
             ('Is Schüco LivIng echt het beste kunststof kozijn?', 'Het zit in de absolute top-3 wereldwijd, samen met Aluplast Ideal 7000 en Veka Softline 82. Welke "de beste" is hangt af van uw prioriteiten (prijs, isolatie, look). Voor de Nederlandse markt vinden wij LivIng de beste balans.'),
@@ -541,6 +676,10 @@ POSTS = [
             ('Wat is het verschil tussen LivIng en LivIng MD?', 'LivIng MD is een nog premiumere variant met middelafdichting (3 afdichtingen i.p.v. 2). Iets betere isolatie en geluidsdemping, maar 15-20% duurder. Voor 95% van de woningen volstaat standaard LivIng.'),
             ('Krijg ik kortingsbon van Schüco?', 'Schüco werkt niet met consumentenkortingen — alle leveringen lopen via gecertificeerde dealers zoals wij. Wel hebben wij scherpe inkoop-prijzen door volume.'),
             ('Kan ik Schüco-kozijnen ook in een andere kleur dan wit?', 'Ja. Alle RAL-kleuren zijn mogelijk via folie-coating. Antraciet (RAL 7016) en houtnerf-eiken zijn meest gevraagd. Folie geeft 10-25% meerprijs en heeft een eigen 10-jaar garantie.'),
+            ('Welke garantie geeft Schüco zelf op de profielen?', 'Schüco geeft fabrieksgarantie van 10 jaar op de profielen (kleurvastheid, vormstabiliteit). Duurkracht voegt daar een eigen 10 jaar garantie aan toe op montage en aansluiting. U heeft dus dubbele dekking via één aanspreekpunt.'),
+            ('Hoe lang gaat een Schüco LivIng kozijn echt mee?', 'In de praktijk 40 tot 50 jaar. PVC verbleekt of vervormt niet onder normale Nederlandse weersomstandigheden. Het hang- en sluitwerk gaat 15-25 jaar mee en is daarna vervangbaar zonder het kozijn te raken.'),
+            ('Kan ik losse onderdelen vervangen, of moet het hele kozijn eruit?', 'Losse onderdelen zoals scharnieren, raamboompjes, sluitwerk en zelfs glasvlakken zijn op zichzelf vervangbaar. Schüco onderhoudt het LivIng-systeem al sinds de jaren 2000, dus reserveonderdelen blijven beschikbaar.'),
+            ('Is Schüco te koop bij de bouwmarkt?', 'Nee. Schüco-kozijnen worden uitsluitend op maat geproduceerd en geleverd via een netwerk van geautoriseerde dealers en montagebedrijven zoals Duurkracht. Dat garandeert kwaliteit van plaatsing — een verkeerd gemonteerd kozijn presteert nooit als beloofd.'),
         ],
         'cta_inline_after_h2_index': 3,
         'cta_inline_text': '<strong>Schüco LivIng voor uw woning?</strong><p>Vraag een vaste offerte aan. Onze adviseur laat u monsters zien en bespreekt opties zoals kleur, glas en sluiting.</p>',
@@ -554,7 +693,7 @@ POSTS = [
         'category': 'Veiligheid',
         'date': '2026-05-08',
         'modified': '2026-05-24',
-        'reading_time': 6,
+        'reading_time': 9,
         'intro_image': 'diensten-deuren',
         'lead': "RC2? SKG**? PKVW? Een wirwar aan termen rond inbraakwerendheid van kozijnen. In deze gids leggen we ze één voor één uit — en geven we praktisch advies over welk niveau u nodig heeft.",
         'sections': [
@@ -639,6 +778,29 @@ POSTS = [
 </ul>
 <p>Volgens politiestatistieken vermindert PKVW-certificering de inbraakkans met <strong>~70%</strong> in vergelijking met niet-gecertificeerde woningen.</p>
 """},
+        {'id': 'inbraakmethodes', 'h2': 'Veelvoorkomende inbraakmethodes — en hoe RC2 en RC3 ze stoppen', 'body': """
+<p>Politiestatistieken laten zien dat de meeste woninginbraken in Nederland via dezelfde route binnenkomen. Door de techniek te kennen, snapt u beter waarom certificering ertoe doet:</p>
+<ol>
+<li><strong>Insteekbraak via achterdeur of tuindeur</strong> (~40% van inbraken). Inbreker drukt met schroevendraaier of beitel het slot open. Een RC2-deur met meerpuntssluiting en een SKG ★★ cilinder houdt dit drie minuten tegen — meestal genoeg om de dief af te schrikken.</li>
+<li><strong>Hengelen via brievenbus of klein raam</strong> (~25%). Met een haakje of metaaldraad wordt de raamboom van binnen omgedraaid. Tegenmaatregel: kerntrekbeveiliging op cilinder + brievenbus minimaal 50 cm van het slot. Onze RC2-kozijnen krijgen standaard kerntrekbeveiliging.</li>
+<li><strong>Openbreken van schuifpui of grote raamkozijnen</strong> (~15%). Inbreker drukt met breekijzer tussen het kozijn en de muur. Hier maakt het kunststof stelkozijn als montagebasis het verschil: de constructie is vormvast en kan de kracht beter opvangen dan een loszittend houten stelkozijn.</li>
+<li><strong>Glasbraak</strong> (~10%). Glas wordt ingeslagen, deur of raam wordt van binnen geopend. Tegenmaatregel: gelaagd P2A-glas in alle bereikbare ramen — verbrijzelt niet, blijft heel hangen. Standaard onderdeel van onze RC2-uitvoering bij begane grond ramen.</li>
+<li><strong>Cilinder-omdraaien</strong> (~5%). De volledige slotcilinder wordt eruit gedraaid met een tang. Tegenmaatregel: SKG ★★★ cilinder met anti-omdraaibeslag. Dit komt mee bij RC3-niveau.</li>
+</ol>
+<p>RC2 bestrijkt de eerste vier methodes en is voor ~85% van de Nederlandse rijwoningen voldoende. RC3 voegt bescherming toe tegen breekijzer en SKG ★★★ cilinder, en is zinvol bij vrijstaande woningen, hoekwoningen of locaties met verhoogd inbraakrisico.</p>
+"""},
+        {'id': 'aanvullend', 'h2': 'Aanvullende beveiliging buiten het kozijn', 'body': """
+<p>Een inbraakwerend kozijn is een sterke eerste lijn, maar werkt het beste binnen een gelaagde beveiliging. Concrete maatregelen die elkaar versterken:</p>
+<ul>
+<li><strong>Kierstandhouder op slaapkamerramen</strong> — laat het raam veilig op een kier staan voor frisse lucht, zonder dat er een hand door past. Bij ons standaard meegeleverd op kantelramen.</li>
+<li><strong>Anti-inbraakfolie op bestaand glas</strong> — als u nog geen nieuw kozijn wilt, biedt een goede inbraakwerende folie (klasse A1/A2) tijdelijk extra weerstand. Niet vergelijkbaar met gelaagd P2A-glas, maar wel een betaalbare tussenstap.</li>
+<li><strong>Smart-deurbel met camera</strong> (Ring, Nest, Eufy) — afschrikkend effect én bewijsmateriaal als er toch iets gebeurt. Tip: zichtbaar monteren, niet verstopt.</li>
+<li><strong>Alarmsysteem met silent alarm</strong> — bij detectie krijgt u én een meldkamer direct bericht. De combinatie met PKVW-certificering geeft bij veel verzekeraars dubbele korting op de inboedel.</li>
+<li><strong>Sociale controle</strong> — leer uw buren kennen. Een onbekende busje voor de deur valt het snelst op aan iemand die de straat kent. WhatsApp-buurtgroepen werken bewezen effectief.</li>
+<li><strong>Geen waardevolle spullen zichtbaar vanaf de straat</strong> — gordijnen halfopen, fiets in de schuur, sleutels niet zichtbaar in de gang.</li>
+</ul>
+<p>De kosten van deze maatregelen samen liggen meestal tussen € 200 en € 800 — minder dan één inbraakschade en een betere nachtrust waard. <a href="https://www.politie.nl/onderwerpen/woninginbraak.html" rel="external nofollow noopener">Politie.nl</a> heeft een gratis preventiescan die u helpt prioriteren.</p>
+"""},
         ],
         'faq': [
             ('Wat is het verschil tussen RC2 en SKG**?', 'In de praktijk vergelijkbaar — beide bieden bescherming tegen inbraak met simpel gereedschap (~5 minuten weerstand). RC is een Europese norm voor kozijnen, SKG een Nederlandse keuring voor cilinders en sloten.'),
@@ -646,6 +808,10 @@ POSTS = [
             ('Kost RC3 veel meer dan RC2?', 'Ongeveer 10-15% meerprijs op het kozijn. Voor PKVW-certificering komt daar een keuringskostje bij van ~€ 250-500 per woning.'),
             ('Heb ik PKVW nodig in een rustige wijk?', 'Niet strikt nodig, maar wel verstandig als u korting op uw inboedelverzekering wil. De terugverdientijd op PKVW-certificering is meestal 4-7 jaar via verzekeringskorting.'),
             ('Werkt inbraakwering ook tegen woninginbraak met breekijzer?', 'RC2 niet — die is op breekijzer-niveau niet bestand. RC3 wel: bestand tegen 5 minuten breekijzer-aanval. Voor begane grond raden we daarom RC3 aan.'),
+            ('Wat is een kierstandhouder en heb ik die nodig?', 'Een kierstandhouder vergrendelt een openstaand raam in een veilige kierstand. Handig op slaapkamers waar u graag met open raam slaapt. Bij ons standaard op kantelramen, optioneel op draairamen.'),
+            ('Is anti-inbraakfolie een goed alternatief voor RC2-glas?', 'Als tijdelijke maatregel ja, structureel nee. Een goede folie (klasse A2) houdt 30-60 seconden langer stand dan gewoon glas. Gelaagd P2A-glas in een RC2-kozijn houdt 3-5 minuten stand. Wezenlijk verschil.'),
+            ('Geldt RC2 ook voor de schuifpui?', 'Ja, ook schuifpuien zijn leverbaar in RC2 (en RC3) uitvoering. Schuifpuien zijn een aandachtspunt omdat het glasoppervlak groot is — gelaagd glas en SKG-sluitwerk zijn dan extra belangrijk.'),
+            ('Maakt het kunststof stelkozijn echt verschil voor inbraakwering?', 'Ja, indirect. Een vormvaste basis betekent dat het zichtbare kozijn beter blijft sluiten, met minder speling. Inbrekers zoeken juist die speling om hun gereedschap in te zetten. Een correcte montage op stelkozijn levert effectief meer inbraakweerstand dan een los geplaatst kozijn met dezelfde RC-classificatie.'),
         ],
         'cta_inline_after_h2_index': 3,
         'cta_inline_text': '<strong>PKVW-certificering voor uw woning?</strong><p>Onze adviseur kijkt naar uw situatie en buurt, en geeft eerlijk advies of RC2 voldoende is of dat RC3/PKVW slim is.</p>',
@@ -659,7 +825,7 @@ POSTS = [
         'category': 'Onderhoud',
         'date': '2026-05-04',
         'modified': '2026-05-24',
-        'reading_time': 5,
+        'reading_time': 8,
         'intro_image': 'hero-raamkozijnen',
         'lead': "De grote belofte van kunststof kozijnen: onderhoudsarm. Klopt dat ook? Ja — maar 'onderhoudsarm' is niet 'onderhoudsvrij'. In deze gids: precies wat u jaarlijks moet doen om uw kozijnen 40+ jaar in topconditie te houden.",
         'sections': [
@@ -732,6 +898,38 @@ POSTS = [
 <h3>Vochtige plekken binnen het glas</h3>
 <p>Dit is condens binnenin de spouw — een teken dat de glasafdichting kapot is. Vervanging van het glaspakket is dan nodig (~€ 200-400 per ruit).</p>
 """},
+        {'id': 'seizoenen', 'h2': 'Seizoenstips: voor- en najaarsschoonmaak', 'body': """
+<p>Kunststof kozijnen zijn niet seizoensgevoelig, maar twee momenten per jaar zijn ideaal om er even bij stil te staan. Een kwartier per kozijn is genoeg.</p>
+<h3>Voorjaarsschoonmaak (maart-april)</h3>
+<p>Na de winter zit er meestal een laagje straatvuil, fijnstof en bij landelijk wonen ook bloesem of pollen op de profielen. Goed moment voor:</p>
+<ul>
+<li><strong>Profielen wassen</strong> met sopwater, daarna napoetsen met een microvezeldoek.</li>
+<li><strong>Afwateringsgaatjes prikken</strong> met een dun stokje — afgebroken takjes, dode insecten en blad blokkeren ze.</li>
+<li><strong>Glas binnen + buiten</strong> met glasreiniger (of azijn-water 1:5) — geen krasinitiatieven met staalwol.</li>
+<li><strong>Hor- of rolluikrails</strong> uitvegen en eventueel met siliconenspray licht smeren.</li>
+</ul>
+<h3>Najaarsschoonmaak (oktober-november)</h3>
+<p>Vóór de eerste vorst is het tijd voor:</p>
+<ul>
+<li><strong>Rubbers controleren</strong> op uitdroging of scheurtjes. Glycerine of een neutrale siliconenstift houdt ze soepel — dat scheelt 5-10 jaar levensduur.</li>
+<li><strong>Scharnieren en sluitwerk smeren</strong> met PTFE- of siliconenspray. Geen WD-40 — die droogt uit en trekt stof aan.</li>
+<li><strong>Afdichtingen rondom het kozijn</strong> visueel controleren: zit de kit er nog goed in, geen scheurtjes of loslatende randen?</li>
+<li><strong>Functioneren testen</strong>: gaat het raam soepel open en dicht? Sluit het strak? Bij twijfel binnen garantieperiode: bel ons even.</li>
+</ul>
+<p>Wie deze twee momenten serieus neemt, heeft over de hele levensduur van het kozijn nooit extra onderhoudskosten. Schüco LivIng-profielen zijn ontworpen voor 40+ jaar gebruik onder Nederlandse weersomstandigheden — die belofte maken ze waar als de basishygiëne klopt.</p>
+"""},
+        {'id': 'professioneel-onderhoud', 'h2': 'Wanneer is professioneel onderhoud zinvol?', 'body': """
+<p>Het meeste onderhoud kunt u zelf. Maar er zijn momenten waarop het verstandig is om ons of een andere vakman in te schakelen:</p>
+<ul>
+<li><strong>Bij scheurtjes diep in het profiel</strong> (niet alleen oppervlakkige krasjes). Binnen onze 10-jaar garantie kosteloos beoordeeld, daarna meestal met cosmetische reparatie te verhelpen.</li>
+<li><strong>Bij condensvorming tussen het glas zelf</strong> — de glasafdichting is dan kapot. Glas vervangen kost € 200-400 per ruit, kozijn blijft zitten.</li>
+<li><strong>Bij raamsluiting die niet meer goed klikt of klem zit</strong>, ondanks schoonmaken en smeren. Vaak een kwestie van scharnieren afstellen — een monteur is binnen 30 minuten klaar.</li>
+<li><strong>Tochtklachten ná een aantal jaren</strong>, terwijl het kozijn er nog goed uitziet. Mogelijk verzakt het stelkozijn of zit er een afdichtingsfout — beide met een onderhoudsbeurt oplosbaar.</li>
+<li><strong>Hoge ramen of dakkapellen</strong> waar u zelf niet veilig bij kunt. Glasbewassing van buiten doet u beter niet vanaf een wankele ladder.</li>
+<li><strong>Bij verhuizing of verbouwing</strong> — een professionele check vóór de oplevering geeft zowel u als de koper zekerheid.</li>
+</ul>
+<p>Onze service-afdeling is bereikbaar via 085 073 1660 of <a href="/contact/">het contactformulier</a>. Binnen de garantieperiode (10 jaar) komen wij kosteloos langs voor onderhoud en kleine reparaties — daarna geldt een redelijke uurprijs zonder voorrijkosten binnen ons werkgebied.</p>
+"""},
         ],
         'faq': [
             ('Hoe vaak moet ik kunststof kozijnen schoonmaken?', '1x per jaar grondig (lente), eventueel 2x bij dakkapellen of zon-exposed zijde. Dagelijks schoonpoetsen is niet nodig.'),
@@ -739,6 +937,10 @@ POSTS = [
             ('Moet ik de rubbers vervangen?', 'Pas na 20+ jaar of bij zichtbare schade (scheuren, uitdroging). Onderhoud (siliconen-spray) verlengt de levensduur.'),
             ('Wat doe ik bij scheurtjes in het kozijn?', 'Bij kleine oppervlakkige scheurtjes is dat meestal cosmetisch. Bij diepe scheuren in het profiel: meld bij ons binnen garantietermijn (10 jaar).'),
             ('Hoe weet ik of mijn glasafdichting nog goed is?', 'Geen condens binnen het glas, geen tocht voelbaar bij geluiden van wind. Bij condens binnenin: glas vervangen.'),
+            ('Kan ik krassen in het kunststof zelf wegwerken?', 'Heel oppervlakkige krassen vervagen met een speciale PVC-poetspaste (verkrijgbaar via Schüco-dealers). Diepere krassen niet — dan blijft het cosmetisch. Vermijd schuurmiddelen of staalwol: die maken het juist erger.'),
+            ('Mag ik een hogedrukreiniger gebruiken op de kozijnen?', 'Liever niet. Een hogedrukstraal kan kit, rubbers en afwateringen beschadigen. Beter is sopwater en een zachte borstel. Als u toch hogedruk gebruikt, hou minstens 50 cm afstand en gebruik lage druk.'),
+            ('Hoe verwijder ik schimmel op de rubbers?', 'Met een mild sopje en een zachte tandenborstel. Daarna goed naspoelen en drogen. Voorkomen is beter: zorg voor goede ventilatie en sluit niet direct na douchen alle ramen volledig dicht.'),
+            ('Wat doe ik bij verfvlekken of bouwafval op een nieuw kozijn?', 'Direct verwijderen met een vochtige doek werkt het beste. Opgedroogde verf voorzichtig met een zachte plastic schraper afhalen — geen mes of metaal. Voor hardnekkige resten: terpentine-vrije reiniger zoals isopropanol op een doek (nooit direct op het profiel).'),
         ],
         'cta_inline_after_h2_index': 3,
         'cta_inline_text': '<strong>Service nodig op bestaande Duurkracht-kozijnen?</strong><p>Bel ons op 085 073 1660. Binnen garantietermijn (10 jaar) komen wij kosteloos langs voor onderhoud of reparatie.</p>',
