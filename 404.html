@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="nl-NL">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Pagina niet gevonden (404) | Duurkracht Kozijnen</title>
+<meta name="description" content="Deze pagina bestaat niet of is verplaatst. Bekijk onze diensten, projecten of neem contact op." />
+<meta name="robots" content="noindex, follow" />
+<meta name="theme-color" content="#0B5A2B" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400..800,30..100,0..1;1,9..144,400..800,30..100,0..1&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/css/site.css" />
+<link rel="icon" type="image/svg+xml" href="/design-assets/beelmerkje-klein.svg" />
+
+<style>
+.err-hero{
+  background: var(--green);
+  color: white;
+  min-height: 70vh;
+  display: flex; align-items: center;
+  padding: 80px 0;
+  position: relative; overflow: hidden;
+}
+.err-hero::before{
+  content: "404";
+  position: absolute;
+  right: -50px; bottom: -80px;
+  font-family: "Fraunces", serif; font-style: italic;
+  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+  font-size: clamp(20rem, 40vw, 38rem);
+  color: rgba(255,255,255,.06);
+  line-height: .8; pointer-events: none; font-weight: 400;
+}
+.err-hero .container{ position: relative; z-index: 2; max-width: 720px; }
+.err-hero .num-tag{
+  display: inline-block;
+  background: var(--orange);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 12px; font-weight: 600;
+  letter-spacing: .15em; text-transform: uppercase;
+  margin-bottom: 28px;
+}
+.err-hero h1{ color: white; margin-bottom: 24px; }
+.err-hero h1 .em-italic{ color: var(--lime); }
+.err-hero p.lead{ color: #d6e3da; font-size: 18px; margin-bottom: 36px; max-width: 540px; }
+
+.err-suggestions{
+  background: white;
+  padding: 80px 0;
+}
+.err-suggestions h2{ margin-bottom: 40px; }
+.err-grid{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.err-link{
+  display: block; text-decoration: none; color: inherit;
+  background: var(--gray-50); border: 1px solid var(--gray-200);
+  border-radius: var(--radius); padding: 24px;
+  transition: all .25s ease;
+}
+.err-link:hover{ background: var(--green-tint); border-color: var(--green); transform: translateY(-2px); }
+.err-link .ic{
+  width: 40px; height: 40px;
+  background: var(--green); border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 16px;
+}
+.err-link .ic img{ width: 20px; height: 20px; filter: brightness(0) invert(1); }
+.err-link h3{ font-size: 16px; font-weight: 600; margin: 0 0 4px; }
+.err-link p{ font-size: 13px; color: var(--gray-700); margin: 0; }
+
+@media (max-width: 760px){ .err-grid{ grid-template-columns: 1fr; } }
+</style>
+
+</head>
+<body>
+
+<a href="#main" class="skip">Direct naar inhoud</a>
+
+<div class="topbar">
+  <div class="container">
+    <span class="live">Nu open — ma t/m vr 08:00 tot 17:00</span>
+    <span>Hassinkweg 1, 7556 BV Hengelo · KvK 90895312</span>
+    <span><a href="tel:+31850731660" rel="nofollow">085 073 1660</a> · <a href="mailto:info@duurkrachtkozijnen.nl">info@duurkrachtkozijnen.nl</a></span>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="container">
+    <a href="/" class="nav-logo"><img src="/design-assets/Logo-duurkracht-kozijnen.svg" alt="Duurkracht Kozijnen logo" width="150" height="44" /></a>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/diensten/">Diensten</a></li>
+        <li><a href="/projecten/">Projecten</a></li>
+        <li><a href="/over-ons/">Over ons</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a href="tel:+31850731660" class="phone" rel="nofollow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+        085 073 1660
+      </a>
+      <a href="/contact/" class="btn btn-primary">Gratis adviesgesprek <span class="arrow">→</span></a>
+    </div>
+    <button class="nav-mobile-toggle" type="button" onclick="document.querySelector('.nav ul').style.display = document.querySelector('.nav ul').style.display === 'flex' ? 'none' : 'flex'">
+      <img src="/design-assets/icons/menu-mobile.svg" alt="" />
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="err-hero">
+  <div class="container">
+    <span class="num-tag">404 · Pagina niet gevonden</span>
+    <h1>Deze pagina staat hier <span class="em-italic">niet meer.</span></h1>
+    <p class="lead">
+      Misschien is de link verouderd, of heeft u zich vertypt. Geen zorgen — onze populairste pagina's vindt u hieronder, of bel ons gerust op <strong>085 073 1660</strong>.
+    </p>
+    <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+      <a href="/" class="btn btn-primary">Terug naar home <span class="arrow">→</span></a>
+      <a href="/contact/" class="btn btn-ghost-white">Neem contact op</a>
+    </div>
+  </div>
+</section>
+
+<section class="err-suggestions">
+  <div class="container">
+    <h2 style="text-align: center;">Misschien zocht u <span class="em-italic">dit?</span></h2>
+    <div class="err-grid" style="margin-top: 40px;">
+      <a href="/diensten/kunststof-kozijnen/" class="err-link">
+        <div class="ic"><img src="/design-assets/icons/check-gradient.svg" alt="" /></div>
+        <h3>Kunststof kozijnen</h3>
+        <p>Schüco LivIng 82 specs, prijzen en voorbeelden</p>
+      </a>
+      <a href="/diensten/kunststof-deuren/" class="err-link">
+        <div class="ic"><img src="/design-assets/icons/check-gradient.svg" alt="" /></div>
+        <h3>Kunststof deuren</h3>
+        <p>Voor- en achterdeuren met meerpuntsluiting</p>
+      </a>
+      <a href="/diensten/kunststof-schuifpuien/" class="err-link">
+        <div class="ic"><img src="/design-assets/icons/check-gradient.svg" alt="" /></div>
+        <h3>Schuifpuien</h3>
+        <p>Tot 6 meter breed, soepel lopend</p>
+      </a>
+      <a href="/diensten/kunststof-gevelbekleding/" class="err-link">
+        <div class="ic"><img src="/design-assets/icons/check-gradient.svg" alt="" /></div>
+        <h3>Keralit gevelbekleding</h3>
+        <p>10 jaar garantie · 35+ kleuren</p>
+      </a>
+      <a href="/projecten/" class="err-link">
+        <div class="ic"><img src="/design-assets/icons/check-gradient.svg" alt="" /></div>
+        <h3>Onze projecten</h3>
+        <p>Recente plaatsingen in heel Nederland</p>
+      </a>
+      <a href="/contact/" class="err-link">
+        <div class="ic"><img src="/design-assets/icons/icon-phone.svg" alt="" /></div>
+        <h3>Plan een adviesgesprek</h3>
+        <p>Onze adviseur komt vrijblijvend langs</p>
+      </a>
+    </div>
+
+    <div style="text-align: center; margin-top: 50px; padding-top: 40px; border-top: 1px solid var(--gray-200);">
+      <p style="color: var(--gray-500); font-size: 14px; margin-bottom: 18px;">Iets specifieks zoeken? Bel ons direct.</p>
+      <a href="tel:+31850731660" class="btn btn-green" rel="nofollow">085 073 1660</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="ftr-grid">
+      <div class="ftr-brand">
+        <img src="/design-assets/icon-duurkracht-kozijnen-white.svg" alt="Duurkracht Kozijnen" />
+        <p>Specialist in kunststof kozijnen, deuren, schuifpuien en Keralit gevelbekleding. Vanuit Hengelo, in heel Nederland.</p>
+        <p><a href="tel:+31850731660" rel="nofollow">085 073 1660</a> · <a href="mailto:info@duurkrachtkozijnen.nl">info@duurkrachtkozijnen.nl</a></p>
+      </div>
+      <div><h5>Diensten</h5><ul>
+        <li><a href="/diensten/kunststof-kozijnen/">Kunststof kozijnen</a></li>
+        <li><a href="/diensten/kunststof-deuren/">Kunststof deuren</a></li>
+        <li><a href="/diensten/kunststof-schuifpuien/">Schuifpuien</a></li>
+        <li><a href="/diensten/kunststof-gevelbekleding/">Gevelbekleding</a></li>
+        <li><a href="/diensten/montage/">Montage</a></li>
+      </ul></div>
+      <div><h5>Werkgebied</h5><ul>
+        <li><a href="/kunststof-kozijnen-hengelo/">Hengelo</a></li>
+        <li><a href="/kunststof-kozijnen-enschede/">Enschede</a></li>
+        <li><a href="/kunststof-kozijnen-almelo/">Almelo</a></li>
+        <li><a href="/kunststof-kozijnen-apeldoorn/">Apeldoorn</a></li>
+        <li><a href="/kunststof-kozijnen-zwolle/">Zwolle</a></li>
+      </ul></div>
+      <div><h5>Bedrijf</h5><ul>
+        <li><a href="/over-ons/">Over ons</a></li>
+        <li><a href="/projecten/">Projecten</a></li>
+        <li><a href="/blog/">Blog &amp; advies</a></li>
+        <li><a href="/contact/">Contact</a></li>
+        <li><a href="/privacybeleid/">Privacybeleid</a></li>
+      </ul></div>
+    </div>
+    <div class="ftr-bot">
+      <span>© 2026 Duurkracht Kozijnen B.V. · KvK 90895312 · BTW NL865480112B01</span>
+      <div class="socials">
+        <a href="https://www.facebook.com/duurkrachtkozijnen" rel="noopener" aria-label="Facebook"><img src="/design-assets/icons/icon-facebook.svg" alt="" /></a>
+        <a href="https://www.linkedin.com/company/duurkracht-kozijnen" rel="noopener" aria-label="LinkedIn"><img src="/design-assets/icons/icon-linkedin.svg" alt="" /></a>
+        <a href="https://wa.me/31850731660" rel="noopener" aria-label="WhatsApp"><img src="/design-assets/icons/icon-whatsapp.svg" alt="" /></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="mobile-cta">
+  <a href="tel:+31850731660" class="m-call" rel="nofollow"><img src="/design-assets/icons/icon-phone.svg" alt="" /> Bel direct</a>
+  <a href="https://wa.me/31850731660" class="m-wa" rel="noopener"><img src="/design-assets/icons/icon-whatsapp.svg" alt="" /> WhatsApp</a>
+</div>
+
+</body>
+</html>
