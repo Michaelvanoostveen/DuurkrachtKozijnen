@@ -1336,6 +1336,146 @@
 </section>
 
 <!-- ============================================================
+     ISDE SUBSIDIE-CALCULATOR (interactief)
+============================================================ -->
+<section class="section subsidie-calc" id="subsidie" aria-labelledby="subsidie-titel">
+  <div class="container">
+    <div class="calc-head">
+      <span class="eyebrow">ISDE-subsidie 2026 · indicatie binnen 10 seconden</span>
+      <h2 id="subsidie-titel">Wat krijgt u terug<br>via <span class="em-italic">de ISDE?</span></h2>
+      <p>De Rijksdienst voor Ondernemend Nederland (RVO) subsidieert isolatieglas via de ISDE-regeling. Bereken hieronder een indicatie voor uw situatie. De definitieve aanvraag verzorgen wij voor u bij de offerte.</p>
+    </div>
+
+    <div class="calc-grid">
+      <form class="calc-tool" id="isde-calc" novalidate>
+        <fieldset class="calc-step">
+          <legend><span class="step-num">01</span> Hoeveel m² isolatieglas plaatst u?</legend>
+          <div class="calc-slider-wrap">
+            <input type="range" id="m2" name="m2" min="3" max="40" step="1" value="12" aria-describedby="m2-value" />
+            <output id="m2-value" for="m2"><strong>12</strong> m²</output>
+          </div>
+          <p class="calc-hint">Voor de ISDE geldt een minimum van <strong>3 m²</strong> isolatieglas. Onder de 3 m² komt u niet in aanmerking.</p>
+        </fieldset>
+
+        <fieldset class="calc-step">
+          <legend><span class="step-num">02</span> Welk type glas?</legend>
+          <div class="calc-radio-row">
+            <label class="calc-radio">
+              <input type="radio" name="glas" value="hrpp" checked />
+              <span class="calc-radio-card">
+                <strong>HR++ glas</strong>
+                <span>U-waarde ≤ 1,2 W/m²K · meest gekozen</span>
+              </span>
+            </label>
+            <label class="calc-radio">
+              <input type="radio" name="glas" value="triple" />
+              <span class="calc-radio-card">
+                <strong>Triple glas</strong>
+                <span>U-waarde ≤ 0,7 W/m²K · hoogste subsidie</span>
+              </span>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="calc-step">
+          <legend><span class="step-num">03</span> Combineert u met een tweede isolatiemaatregel?</legend>
+          <div class="calc-radio-row">
+            <label class="calc-radio">
+              <input type="radio" name="combi" value="ja" />
+              <span class="calc-radio-card">
+                <strong>Ja</strong>
+                <span>Bv. spouw-, dak- of gevelisolatie · subsidie verdubbelt</span>
+              </span>
+            </label>
+            <label class="calc-radio">
+              <input type="radio" name="combi" value="nee" checked />
+              <span class="calc-radio-card">
+                <strong>Nee, alleen glas</strong>
+                <span>Standaard ISDE-tarief</span>
+              </span>
+            </label>
+          </div>
+        </fieldset>
+      </form>
+
+      <aside class="calc-result" aria-live="polite">
+        <span class="result-eyebrow">Indicatie voor uw situatie</span>
+        <div class="result-amount">
+          <span class="result-label">U kunt indicatief terugkrijgen:</span>
+          <strong class="result-value" id="result-value">€ 276 – € 552</strong>
+          <span class="result-period">ISDE-subsidie via RVO</span>
+        </div>
+        <ul class="result-breakdown" id="result-breakdown">
+          <li><span>Glastype</span><span id="rb-glas">HR++ (€ 23/m²)</span></li>
+          <li><span>Oppervlakte</span><span id="rb-m2">12 m²</span></li>
+          <li><span>Combinatie-bonus</span><span id="rb-combi">Nee · standaardtarief</span></li>
+        </ul>
+        <div class="result-cta">
+          <a href="#contact" class="btn btn-primary">Vraag exacte berekening aan <span class="arrow" aria-hidden="true">→</span></a>
+          <p class="result-disclaimer">Indicatie op basis van RVO ISDE-tarieven 2026. Definitieve subsidie hangt af van glas-U-waarde, factuurdatum en aanvraagvolgorde. <a href="https://www.rvo.nl/subsidies-financiering/isde" rel="external nofollow noopener">Bron: RVO</a>.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  // ISDE 2026 indicatieve tarieven per m² (laag–hoog range)
+  // HR++ glas (U ≤ 1.2): standaard € 23/m², met combi-bonus € 46/m²
+  // Triple glas (U ≤ 0.7): standaard € 111/m², met combi-bonus € 222/m²
+  var TARIEVEN = {
+    hrpp:   { laag: 23,  hoog: 46  },
+    triple: { laag: 111, hoog: 222 }
+  };
+  var GLAS_LABEL = {
+    hrpp:   'HR++ (€ 23/m²)',
+    triple: 'Triple glas (€ 111/m²)'
+  };
+
+  var m2El      = document.getElementById('m2');
+  var m2Val     = document.getElementById('m2-value');
+  var resVal    = document.getElementById('result-value');
+  var rbGlas    = document.getElementById('rb-glas');
+  var rbM2      = document.getElementById('rb-m2');
+  var rbCombi   = document.getElementById('rb-combi');
+  var form      = document.getElementById('isde-calc');
+
+  if (!form || !m2El) return;
+
+  function fmt(n){ return '€ ' + n.toLocaleString('nl-NL'); }
+
+  function update(){
+    var m2     = parseInt(m2El.value, 10);
+    var glas   = (form.elements['glas'].value || 'hrpp');
+    var combi  = (form.elements['combi'].value || 'nee') === 'ja';
+    var tarief = TARIEVEN[glas];
+
+    var laag = m2 * tarief.laag;
+    var hoog = m2 * tarief.hoog;
+
+    // Combi-bonus: gebruik de "hoge" waarde als basis en toon enkel hoog
+    if (combi) {
+      resVal.textContent = fmt(hoog) + ' (met combi-bonus)';
+    } else {
+      resVal.textContent = fmt(laag) + ' – ' + fmt(hoog);
+    }
+
+    m2Val.innerHTML = '<strong>' + m2 + '</strong> m²';
+    rbGlas.textContent = GLAS_LABEL[glas];
+    rbM2.textContent = m2 + ' m²';
+    rbCombi.textContent = combi
+      ? 'Ja · subsidie verdubbeld'
+      : 'Nee · standaardtarief';
+  }
+
+  m2El.addEventListener('input', update);
+  form.addEventListener('change', update);
+  update();
+})();
+</script>
+
+<!-- ============================================================
      FEATURED PROJECT
 ============================================================ -->
 <section class="section project" id="projecten" aria-labelledby="project-titel">
