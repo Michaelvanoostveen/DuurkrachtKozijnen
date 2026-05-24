@@ -30,9 +30,10 @@ NAV = '''<header class="nav">
         <li><a href="/">Home</a></li>
         <li><a href="/diensten/" class="active">Diensten</a></li>
         <li><a href="/projecten/">Projecten</a></li>
-        <li><a href="/#reviews">Reviews</a></li>
-        <li><a href="/#werkwijze">Werkwijze</a></li>
-        <li><a href="/#contact">Contact</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/faq/">FAQ</a></li>
+        <li><a href="/over-ons/">Over ons</a></li>
+        <li><a href="/contact/">Contact</a></li>
       </ul>
     </nav>
     <div class="nav-cta">

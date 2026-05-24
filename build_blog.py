@@ -21,7 +21,7 @@ def topbar():
   </div></div>'''
 
 def nav(active='blog'):
-    items = [('Home','/','home'),('Diensten','/diensten/','diensten'),('Projecten','/projecten/','projecten'),('Over ons','/over-ons/','over-ons'),('Blog','/blog/','blog'),('Contact','/contact/','contact')]
+    items = [('Home','/','home'),('Diensten','/diensten/','diensten'),('Projecten','/projecten/','projecten'),('Blog','/blog/','blog'),('FAQ','/faq/','faq'),('Over ons','/over-ons/','over-ons'),('Contact','/contact/','contact')]
     parts = []
     for l, u, k in items:
         cls = ' class="active"' if k == active else ''
@@ -63,6 +63,7 @@ def footer():
         <li><a href="/over-ons/">Over ons</a></li>
         <li><a href="/projecten/">Projecten</a></li>
         <li><a href="/blog/">Blog &amp; advies</a></li>
+        <li><a href="/faq/">FAQ</a></li>
         <li><a href="/contact/">Contact</a></li>
         <li><a href="/privacybeleid/">Privacybeleid</a></li>
       </ul></div>
