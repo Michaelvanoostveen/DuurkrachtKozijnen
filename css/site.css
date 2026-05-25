@@ -15,6 +15,11 @@
   --lime:        #D3CF29;
   --lime-soft:   #e8e57c;
 
+  /* Aliassen voor backwards compatibility met componenten die var(--accent) gebruiken */
+  --accent:      #ED6B06;
+  --accent-deep: #c4570a;
+  --surface:     #FAFAFA;
+
   --ink:         #0E0E0E;
   --ink-soft:    #2a2a2a;
   --gray-50:     #FAFAFA;
@@ -456,9 +461,9 @@ h3{ font-size: clamp(1.25rem, 1.8vw, 1.6rem); }
   overflow: hidden;
 }
 
-/* TABS */
+/* TABS — gebruik hogere specificiteit zodat eventuele globale button-styles uit een inline <style>-block niet winnen */
 .tools-tabs{ display: flex; background: var(--gray-50); border-bottom: 1px solid var(--gray-200); }
-.tools-tab{
+.tools-widget button.tools-tab{
   flex: 1;
   display: flex; align-items: center; justify-content: center; gap: 10px;
   padding: 18px 16px;
@@ -470,14 +475,21 @@ h3{ font-size: clamp(1.25rem, 1.8vw, 1.6rem); }
   letter-spacing: -0.005em;
   transition: all .2s ease;
   position: relative;
+  text-transform: none;
+  box-shadow: none;
 }
-.tools-tab svg{ color: currentColor; flex-shrink: 0; }
-.tools-tab:hover{ color: var(--green); background: rgba(11, 90, 43, 0.03); }
-.tools-tab.is-active{
+.tools-widget button.tools-tab svg{ color: currentColor; flex-shrink: 0; stroke: currentColor; }
+.tools-widget button.tools-tab span{ color: inherit; }
+.tools-widget button.tools-tab:hover{ color: var(--green); background: rgba(11, 90, 43, 0.03); }
+.tools-widget button.tools-tab:hover span{ color: inherit; }
+.tools-widget button.tools-tab.is-active,
+.tools-widget button.tools-tab.is-active:hover{
   color: var(--accent);
   background: #fff;
   border-bottom-color: var(--accent);
 }
+.tools-widget button.tools-tab.is-active span,
+.tools-widget button.tools-tab.is-active svg{ color: var(--accent); }
 .tools-tab.is-active::after{
   content: ""; position: absolute; bottom: -3px; left: 50%; transform: translateX(-50%);
   width: 8px; height: 8px; border-radius: 50%; background: var(--accent);
