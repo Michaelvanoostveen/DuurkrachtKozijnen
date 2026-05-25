@@ -21,7 +21,7 @@ def topbar():
   </div></div>'''
 
 def nav(active='blog'):
-    items = [('Home','/','home'),('Diensten','/diensten/','diensten'),('Projecten','/projecten/','projecten'),('Blog','/blog/','blog'),('FAQ','/faq/','faq'),('Over ons','/over-ons/','over-ons'),('Contact','/contact/','contact')]
+    items = [('Home','/','home'),('Diensten','/diensten/','diensten'),('Kosten','/kosten/','kosten'),('Projecten','/projecten/','projecten'),('Blog','/blog/','blog'),('FAQ','/faq/','faq'),('Over ons','/over-ons/','over-ons'),('Contact','/contact/','contact')]
     parts = []
     for l, u, k in items:
         cls = ' class="active"' if k == active else ''
@@ -62,6 +62,7 @@ def footer():
       <div><h5>Bedrijf</h5><ul>
         <li><a href="/over-ons/">Over ons</a></li>
         <li><a href="/projecten/">Projecten</a></li>
+        <li><a href="/kosten/">Kosten</a></li>
         <li><a href="/blog/">Blog &amp; advies</a></li>
         <li><a href="/faq/">FAQ</a></li>
         <li><a href="/contact/">Contact</a></li>
@@ -174,7 +175,8 @@ POSTS = [
         'lead': "Wat kosten kunststof kozijnen in 2026? In dit artikel zetten we alle prijscomponenten op een rij — van standaard draai-kiep tot complete gevelrenovatie. Inclusief actuele ISDE-subsidies en concrete prijsvoorbeelden.",
         'sections': [
             {'id': 'gemiddelde-prijs', 'h2': 'Wat kost een kunststof kozijn gemiddeld?', 'body': """
-<p>Een standaard kunststof draai-kiep kozijn van circa <strong>1,00 × 1,20 m</strong> kost inclusief HR++ glas en montage gemiddeld <strong>€ 600 tot € 950</strong>. Voor een rijwoning met 6 tot 10 kozijnen kom je daarmee uit op <strong>€ 4.500 tot € 9.000</strong> totaal.</p>
+<p>Wij werken met <strong>all-in stelposten</strong> zodat u vooraf weet wat een Schüco LivIng-kozijn van Duurkracht u kost — inclusief montage, kunststof stelkozijn, HR++ glas, RC2 sluitwerk, 10 jaar garantie en btw. Voor een standaard raamkozijn rekenen we op <strong>€ 2.500 per stuk</strong>.</p>
+<p>Een rijwoning met 6 tot 10 kozijnen komt daarmee uit op <strong>€ 15.000 tot € 25.000</strong>. Daar trekt u in de meeste gevallen nog ISDE-subsidie van af. Open onze <a href="/kosten/">kosten-calculator</a> om voor uw situatie een directe indicatie te krijgen.</p>
 <p>De definitieve prijs hangt af van een handvol factoren die we hieronder per stuk behandelen.</p>
 """},
         {'id': 'prijsfactoren', 'h2': 'Welke factoren bepalen de prijs?', 'body': """
@@ -189,31 +191,30 @@ POSTS = [
 <li><strong>Bereikbaarheid:</strong> begane grond goedkoper dan derde verdieping (steiger nodig)</li>
 </ol>
 """},
-        {'id': 'voorbeelden', 'h2': 'Concrete prijsvoorbeelden voor 2026', 'body': """
+        {'id': 'voorbeelden', 'h2': 'Onze stelposten per onderdeel (2026)', 'body': """
 <table>
-<thead><tr><th>Type / afmeting</th><th>Glas</th><th>Inclusief montage</th></tr></thead>
+<thead><tr><th>Onderdeel</th><th>All-in stelpost</th><th>Toelichting</th></tr></thead>
 <tbody>
-<tr><td>Vast glas kozijn 80×100 cm</td><td>HR++</td><td>€ 350 – € 500</td></tr>
-<tr><td>Draai-kiep kozijn 100×120 cm</td><td>HR++</td><td>€ 600 – € 950</td></tr>
-<tr><td>Draai-kiep kozijn 100×120 cm</td><td>Triple</td><td>€ 850 – € 1.250</td></tr>
-<tr><td>Stolpraam 150×140 cm</td><td>HR++</td><td>€ 900 – € 1.400</td></tr>
-<tr><td>Voordeur kunststof (standaard)</td><td>HR++</td><td>€ 1.500 – € 3.500</td></tr>
-<tr><td>Achterdeur kunststof</td><td>HR++</td><td>€ 1.200 – € 2.500</td></tr>
-<tr><td>Schuifpui 3 × 2,30 m</td><td>HR++</td><td>€ 3.500 – € 5.500</td></tr>
-<tr><td>Schuifpui 5 m + hefschuif</td><td>Triple</td><td>€ 7.000 – € 10.000</td></tr>
+<tr><td>Raamkozijn (standaard draai-kiep)</td><td><strong>€ 2.500</strong></td><td>Schüco LivIng wit, HR++ glas, RC2 sluitwerk, op kunststof stelkozijn</td></tr>
+<tr><td>Achterdeur</td><td><strong>€ 4.500</strong></td><td>Kunststof achterdeur met meerpuntssluiting + glasinleg</td></tr>
+<tr><td>Voordeur</td><td><strong>€ 5.500</strong></td><td>Kunststof voordeur met SKG-getest cilinder + RC2-pakket</td></tr>
+<tr><td>Schuifpui</td><td><strong>€ 7.500</strong></td><td>Standaard 2- of 3-rail schuifpui tot 3 meter breed, HR++ glas</td></tr>
+<tr><td>Tuindeuren (set)</td><td><strong>€ 8.500</strong></td><td>Dubbele openslaande tuindeuren met zijlichten, HR++ glas</td></tr>
 </tbody>
 </table>
-<blockquote><p><strong>Tip:</strong> alle bovenstaande prijzen zijn inclusief Schüco LivIng profiel, 21% btw en montage op kunststof stelkozijn. Geen verborgen kosten.</p></blockquote>
+<blockquote><p><strong>All-in betekent:</strong> Schüco LivIng profiel, HR++ glas, kunststof stelkozijn, RC2 sluitwerk, montage door eigen monteurs, afvoer oude kozijnen, 10 jaar garantie en 21% btw. Geen kleine lettertjes.</p></blockquote>
+<p>Wilt u uw eigen project samenstellen? Open de <a href="/kosten/">interactieve kosten-calculator</a> — een schuifpui + 8 kozijnen + voordeur is bijvoorbeeld in 10 seconden uitgerekend.</p>
 """},
         {'id': 'compleet-huis', 'h2': 'Wat kost een compleet huis aan kozijnen?', 'body': """
-<p>Voor concrete oriëntatie — gemiddelde prijzen voor complete vervanging in 2026:</p>
+<p>Voor concrete oriëntatie — totale investering bij vervanging in 2026, op basis van onze all-in stelposten:</p>
 <ul>
-<li><strong>Hoekwoning, 6 kozijnen:</strong> € 4.500 – € 7.500</li>
-<li><strong>Tussenwoning, 8 kozijnen:</strong> € 6.000 – € 9.500</li>
-<li><strong>Vrijstaande woning, 12-15 kozijnen:</strong> € 9.000 – € 16.000</li>
-<li><strong>Bovenstaand + voordeur + schuifpui:</strong> € 13.000 – € 25.000</li>
+<li><strong>Hoekwoning, 6 kozijnen:</strong> € 15.000</li>
+<li><strong>Tussenwoning, 8 kozijnen:</strong> € 20.000</li>
+<li><strong>Tussenwoning, 8 kozijnen + voordeur + achterdeur:</strong> € 30.000</li>
+<li><strong>Vrijstaande woning, 12 kozijnen + voordeur + schuifpui:</strong> € 43.000</li>
+<li><strong>Volledige renovatie (15 kozijnen + voor- en achterdeur + tuindeuren):</strong> circa € 56.500</li>
 </ul>
-<p>Met de huidige ISDE-subsidies kun je daar nog € 500 tot € 2.500 van aftrekken (zie volgende sectie).</p>
+<p>Met de huidige ISDE-subsidie kunt u daar nog enkele honderden tot enkele duizenden euro's van aftrekken (zie volgende sectie). En een nieuw kozijnpakket gaat 40+ jaar mee — geamortiseerd is dat minder dan € 60 per maand voor een complete tussenwoning.</p>
 """},
         {'id': 'subsidie', 'h2': 'Welke ISDE-subsidie krijg je in 2026?', 'body': """
 <p>De Investeringssubsidie Duurzame Energie (ISDE) is in 2026 fors:</p>
@@ -281,7 +282,7 @@ POSTS = [
 """},
         ],
         'faq': [
-            ('Wat kost een kunststof draai-kiep kozijn van 100×120 cm?', 'Een standaard draai-kiep kozijn van die afmeting kost inclusief HR++ glas en montage gemiddeld € 600 tot € 950. Met triple glas € 850 tot € 1.250.'),
+            ('Wat kost een kunststof raamkozijn gemiddeld?', 'Onze all-in stelpost voor een standaard raamkozijn is € 2.500 — inclusief Schüco LivIng profiel, HR++ glas, kunststof stelkozijn, RC2 sluitwerk, montage, garantie en btw. Bereken uw totale project op onze /kosten/ pagina.'),
             ('Hoeveel ISDE-subsidie krijg ik op nieuwe kozijnen?', 'Voor HR++ glas € 25-50 per m². Voor triple glas € 111-222 per m². De hogere bedragen gelden bij combinatie met een tweede isolatiemaatregel binnen 24 maanden.'),
             ('Wat is goedkoper: kunststof of aluminium kozijnen?', 'Kunststof kozijnen (Schüco LivIng) zijn ongeveer 30-60% goedkoper dan aluminium met vergelijkbare isolatiewaarde. Aluminium is alleen voordeliger bij zeer grote afmetingen (>3m).'),
             ('Kan ik subsidie krijgen op alleen kozijnen vervangen?', 'Alleen op het glasoppervlak (HR++ of triple), niet op het kozijnprofiel zelf. De ISDE-subsidie wordt berekend over de vierkante meters glasoppervlak die u vervangt.'),

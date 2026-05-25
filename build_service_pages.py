@@ -29,6 +29,7 @@ NAV = '''<header class="nav">
       <ul>
         <li><a href="/">Home</a></li>
         <li><a href="/diensten/" class="active">Diensten</a></li>
+        <li><a href="/kosten/">Kosten</a></li>
         <li><a href="/projecten/">Projecten</a></li>
         <li><a href="/blog/">Blog</a></li>
         <li><a href="/faq/">FAQ</a></li>
@@ -530,14 +531,14 @@ PAGES = {
                 ('Wat is het verschil tussen SKG** en SKG***?', 'SKG** (twee sterren) is het standaard inbraakwerend niveau dat verzekeraars eisen. SKG*** (drie sterren) biedt extra bescherming tegen kerntrekken en wordt geadviseerd voor woningen op de begane grond of in inbraakgevoelige gebieden.'),
                 ('Wat is PKVW en hoeveel korting krijg ik op mijn verzekering?', 'PKVW (Politiekeurmerk Veilig Wonen) is een certificering die garandeert dat uw woning voldoet aan strenge inbraakwerings-eisen. Veel inboedelverzekeraars geven 5–10% premiekorting bij PKVW-gecertificeerde woningen.'),
                 ('Kan ik een vingerscan of digitaal slot laten installeren?', 'Ja, wij leveren onze kunststof deuren optioneel met vingerscan, codepaneel of app-bestuurd slot. Dit kan eenvoudig worden gecombineerd met traditioneel sleutelgebruik.'),
-                ('Wat kost een nieuwe kunststof voordeur gemiddeld?', 'Een standaard kunststof voordeur kost inclusief montage gemiddeld €1.500 tot €3.500. De prijs hangt af van model, kleur, glasinleg, sluiting en accessoires. Achterdeuren zijn meestal €1.200–€2.500.'),
+                ('Wat kost een nieuwe kunststof voordeur gemiddeld?', 'Een nieuwe kunststof voordeur kost als all-in stelpost € 5.500 (Schüco LivIng profiel, RC2 sluitwerk, montage, btw). Een achterdeur rekent u op € 4.500. Definitieve prijs hangt af van model, kleur, glasinleg en accessoires.'),
                 ('Hoe lang duurt de plaatsing van een nieuwe deur?', 'De vervanging van een enkele voordeur of achterdeur duurt 3 tot 6 uur. Bij vervanging van meerdere deuren en kozijnen reken op 1 tot 2 dagen.'),
             ],
             'faq_html': [
                 ('Wat is het verschil tussen SKG** en SKG***?', '<p><strong>SKG**</strong> (twee sterren) is het standaard inbraakwerend niveau dat verzekeraars eisen. <strong>SKG***</strong> (drie sterren) biedt extra bescherming tegen kerntrekken en wordt geadviseerd voor woningen op de begane grond of in inbraakgevoelige gebieden.</p>'),
                 ('Wat is PKVW en hoeveel korting krijg ik op mijn verzekering?', '<p><strong>PKVW</strong> (Politiekeurmerk Veilig Wonen) is een certificering die garandeert dat uw woning voldoet aan strenge inbraakwerings-eisen. Veel inboedelverzekeraars geven <strong>5 tot 10%</strong> premiekorting bij PKVW-gecertificeerde woningen.</p>'),
                 ('Kan ik een vingerscan of digitaal slot laten installeren?', '<p>Ja, wij leveren onze kunststof deuren optioneel met <strong>vingerscan, codepaneel of app-bestuurd slot</strong>. Dit kan eenvoudig worden gecombineerd met traditioneel sleutelgebruik.</p>'),
-                ('Wat kost een nieuwe kunststof voordeur gemiddeld?', '<p>Een standaard kunststof voordeur kost inclusief montage gemiddeld <strong>€ 1.500 tot € 3.500</strong>. De prijs hangt af van model, kleur, glasinleg, sluiting en accessoires. Achterdeuren zijn meestal € 1.200 – € 2.500.</p>'),
+                ('Wat kost een nieuwe kunststof voordeur gemiddeld?', '<p>Onze all-in stelpost voor een nieuwe kunststof voordeur is <strong>€ 5.500</strong> (Schüco LivIng profiel, RC2 sluitwerk, montage en btw). Voor een achterdeur rekenen we op <strong>€ 4.500</strong>. Model, kleur, glasinleg en sluiting bepalen de definitieve prijs — <a href="/kosten/">bereken uw indicatie</a>.</p>'),
                 ('Hoe lang duurt de plaatsing van een nieuwe deur?', '<p>De vervanging van een enkele voordeur of achterdeur duurt <strong>3 tot 6 uur</strong>. Bij vervanging van meerdere deuren en kozijnen reken op 1 tot 2 dagen.</p>'),
                 ('Kan ik mijn oude scharnieren en sleutels behouden?', '<p>Nee. Een nieuwe kunststof deur komt altijd met nieuwe scharnieren (passend op het profielsysteem) en een nieuwe SKG**-cilinder met set sleutels. Dit is essentieel voor de garantie en de inbraakwerendheid.</p>'),
             ],
@@ -630,7 +631,7 @@ PAGES = {
                 ('Hoe breed kan een schuifpui worden?', '<p>Wij leveren schuifpuien tot <strong>6 meter breed</strong> in één geheel (2 of 3 vleugels). Voor bredere openingen koppelen we meerdere puien naast elkaar of adviseren we hefschuif-deuren met staal-versterkte profielen.</p>'),
                 ('Wat is het verschil tussen schuif en hefschuif?', '<p>Bij een <strong>standaard schuifpui</strong> rolt de vleugel horizontaal op rvs-rails. Bij een <strong>hefschuifsysteem</strong> wordt de vleugel eerst licht opgetild (ca. 6 mm) voordat hij schuift. Dat geeft volledig dichte afdichting in gesloten stand en is daarom beter geïsoleerd en geluidsdempender. Hefschuif kost ca. 20–30% meer maar is een aanrader bij puien vanaf 4 meter breed.</p>'),
                 ('Kan een schuifpui drempelloos worden uitgevoerd?', '<p>Ja. Wij leveren onze schuifpuien standaard met een lage drempel (ca. 20 mm), maar op aanvraag volledig <strong>drempelloos</strong>. Belangrijk: voor drempelloze uitvoering is een goede afvoer van regenwater (gootafvoer en helling) noodzakelijk.</p>'),
-                ('Wat kost een schuifpui gemiddeld?', '<p>Een standaard schuifpui van 3 × 2,30 m kost inclusief HR++ glas en montage gemiddeld <strong>€ 3.500 – € 5.500</strong>. Een 5-meter pui met triple glas en hefschuif komt op € 7.000 – € 10.000. Wij maken na inmeting een vaste offerte.</p>'),
+                ('Wat kost een schuifpui gemiddeld?', '<p>Onze all-in stelpost voor een schuifpui is <strong>€ 7.500</strong> (Schüco LivIng, HR++ glas, montage en btw). Voor een complete tuindeur-set rekenen we op <strong>€ 8.500</strong>. Een 5-meter hefschuifpui met triple glas valt hoger uit — <a href="/kosten/">bereken uw indicatie</a> of vraag een vaste offerte na inmeting.</p>'),
                 ('Hoe wordt de pui ingebroken-bestendig gemaakt?', '<p>Onze schuifpuien hebben standaard <strong>meerpuntsluiting met haakpalen</strong>, <strong>RC2-inbraakwerendheid</strong> en <strong>gehard veiligheidsglas</strong>. Op verzoek upgraden we naar RC3 met anti-uitlichtbeveiliging.</p>'),
                 ('Wat zijn de installatiekosten?', '<p>De montage van een schuifpui duurt <strong>1 werkdag</strong>. De prijs voor levering inclusief montage staat altijd vast in onze offerte — geen meerwerk achteraf, tenzij u zelf wijzigingen aanbrengt.</p>'),
             ],
@@ -638,7 +639,7 @@ PAGES = {
                 ('Hoe breed kan een schuifpui worden?', 'Wij leveren schuifpuien tot 6 meter breed in één geheel (2 of 3 vleugels). Voor bredere openingen koppelen we meerdere puien naast elkaar of adviseren we hefschuif-deuren met staal-versterkte profielen.'),
                 ('Wat is het verschil tussen schuif en hefschuif?', 'Bij een standaard schuifpui rolt de vleugel horizontaal op rvs-rails. Bij een hefschuifsysteem wordt de vleugel eerst licht opgetild (ca. 6 mm) voordat hij schuift. Dat geeft volledig dichte afdichting in gesloten stand en is daarom beter geïsoleerd en geluidsdempender. Hefschuif kost ca. 20-30% meer maar is een aanrader bij puien vanaf 4 meter breed.'),
                 ('Kan een schuifpui drempelloos worden uitgevoerd?', 'Ja. Wij leveren onze schuifpuien standaard met een lage drempel (ca. 20 mm), maar op aanvraag volledig drempelloos. Belangrijk: voor drempelloze uitvoering is een goede afvoer van regenwater noodzakelijk.'),
-                ('Wat kost een schuifpui gemiddeld?', 'Een standaard schuifpui van 3 × 2,30 m kost inclusief HR++ glas en montage gemiddeld €3.500 - €5.500. Een 5-meter pui met triple glas en hefschuif komt op €7.000 - €10.000.'),
+                ('Wat kost een schuifpui gemiddeld?', 'All-in stelpost voor een schuifpui is € 7.500 (Schüco LivIng, HR++ glas, montage). Voor tuindeuren rekenen we € 8.500. Een 5-meter hefschuifpui met triple glas valt hoger uit.'),
             ],
             'cta_h2_intro': 'Klaar voor meer',
             'cta_h2_em': 'licht en ruimte?',

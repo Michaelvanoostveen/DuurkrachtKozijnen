@@ -338,6 +338,7 @@ def page(loc):
       <ul>
         <li><a href="/">Home</a></li>
         <li><a href="/diensten/">Diensten</a></li>
+        <li><a href="/kosten/">Kosten</a></li>
         <li><a href="/projecten/">Projecten</a></li>
         <li><a href="/blog/">Blog</a></li>
         <li><a href="/faq/">FAQ</a></li>
