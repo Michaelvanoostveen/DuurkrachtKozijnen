@@ -99,7 +99,6 @@ FOOTER = '''<footer>
       <span>© 2026 Duurkracht Kozijnen B.V. · KvK 90895312 · BTW NL865480112B01</span>
       <div class="socials">
         <a href="https://www.facebook.com/duurkrachtkozijnen" rel="noopener" aria-label="Facebook"><img src="/design-assets/icons/icon-facebook.svg" alt="" /></a>
-        <a href="https://www.linkedin.com/company/duurkracht-kozijnen" rel="noopener" aria-label="LinkedIn"><img src="/design-assets/icons/icon-linkedin.svg" alt="" /></a>
         <a href="https://wa.me/31850731660" rel="noopener" aria-label="WhatsApp"><img src="/design-assets/icons/icon-whatsapp.svg" alt="" /></a>
       </div>
     </div>
@@ -697,7 +696,7 @@ PAGES = {
                 ('Recyclebaar', 'Ja — 100% PVC recyclebaar'),
                 ('Toepassing', 'Gevels, dakkapellen, dakranden, schuurwanden'),
             ],
-            'specs_source': '<a href="https://www.keralit.nl/gevelbekleding/reviews/garantie-duurzaam-kleurvast/" rel="external nofollow noopener" style="color: var(--green);">keralit.nl</a>',
+            'specs_source': '<a href="https://www.keralit.nl/" rel="external nofollow noopener" style="color: var(--green);">keralit.nl</a>',
             'benefits_eyebrow': 'Voordelen',
             'benefits_h2': 'Zes redenen voor<br><span class="em-italic">Keralit gevelbekleding.</span>',
             'benefits_p': 'Keralit combineert het beste van kunststof (onderhoudsarm, duurzaam) met de uitstraling van traditionele houten gevels.',
@@ -726,7 +725,7 @@ PAGES = {
                 ('K', 'Kees de Jong', 'Juli 2025', 'De hele achtergevel van de huiskamer weer netjes met kozijnen van Duurkracht. Dubbel glas dus zuinig stoken. Kwaliteitsprofielen van Schüco!'),
             ],
             'faq_html': [
-                ('Hoeveel jaar garantie geeft Keralit?', '<p>Keralit geeft standaard <strong>10 jaar fabrieksgarantie</strong> op zowel het product als de kleurvastheid van de gevelbekleding. Wij geven daarbovenop garantie op de montage. Bron: <a href="https://www.keralit.nl/gevelbekleding/reviews/garantie-duurzaam-kleurvast/" rel="external nofollow noopener">keralit.nl</a>.</p>'),
+                ('Hoeveel jaar garantie geeft Keralit?', '<p>Keralit geeft standaard <strong>10 jaar fabrieksgarantie</strong> op zowel het product als de kleurvastheid van de gevelbekleding. Wij geven daarbovenop garantie op de montage. Bron: <a href="https://www.keralit.nl/" rel="external nofollow noopener">keralit.nl</a>.</p>'),
                 ('Welke sponningmodellen zijn er?', '<p>Keralit biedt drie sponningmodellen: <strong>143 mm</strong> (smal — klassiek), <strong>167 mm</strong> (medium — robuust modern) en <strong>190 mm</strong> (breed — strak/minimalistisch). De keuze hangt af van de uitstraling die u zoekt en de gevelhoogte.</p>'),
                 ('Is Keralit beschikbaar in houtlook?', '<p>Ja. Keralit heeft een uitgebreide houtlook-collectie met <strong>eiken, douglas en cederlook</strong> dessins. Visueel nauwelijks van echt hout te onderscheiden, maar zonder de nadelen van schilderen of rotten.</p>'),
                 ('Kan Keralit op bestaande gevels worden geplaatst?', '<p>Ja, in de meeste gevallen wel. Wij plaatsen Keralit op <strong>houten regelwerk of aluminium rails</strong> die op de bestaande gevel worden bevestigd. Eventueel kunnen we daar isolatieplaten achter aanbrengen voor extra warmte- en geluidsisolatie.</p>'),

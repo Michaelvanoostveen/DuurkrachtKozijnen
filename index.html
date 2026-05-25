@@ -173,7 +173,6 @@
   ],
   "sameAs": [
     "https://www.facebook.com/duurkrachtkozijnen",
-    "https://www.linkedin.com/company/duurkracht-kozijnen",
     "https://www.instagram.com/duurkrachtkozijnen",
     "https://www.solvari.nl/bedrijven-overzicht/duurkracht-kozijnen-bv",
     "https://slimster.nl/bedrijf/duurkracht-kozijnen/",
@@ -1525,10 +1524,14 @@
     });
   });
 
-  // Diepelink naar /#subsidie of /#postcode opent juiste tab
+  // Diepelink naar /#subsidie of /#postcode opent juiste tab + scrolt naar widget
   function openFromHash(){
     var h = (location.hash || '').replace('#','');
-    if (h === 'subsidie' || h === 'postcode') activate(h);
+    if (h === 'subsidie' || h === 'postcode'){
+      activate(h);
+      var section = document.getElementById('tools');
+      if (section) section.scrollIntoView({behavior: 'smooth', block: 'start'});
+    }
   }
   window.addEventListener('hashchange', openFromHash);
   openFromHash();
@@ -2125,7 +2128,6 @@
       <span>© 2026 Duurkracht Kozijnen B.V. · KvK 90895312 · BTW NL865480112B01</span>
       <div class="socials">
         <a href="https://www.facebook.com/duurkrachtkozijnen" rel="noopener" aria-label="Facebook"><img src="/design-assets/icons/icon-facebook.svg" alt="" /></a>
-        <a href="https://www.linkedin.com/company/duurkracht-kozijnen" rel="noopener" aria-label="LinkedIn"><img src="/design-assets/icons/icon-linkedin.svg" alt="" /></a>
         <a href="https://wa.me/31850731660" rel="noopener" aria-label="WhatsApp"><img src="/design-assets/icons/icon-whatsapp.svg" alt="" /></a>
       </div>
     </div>

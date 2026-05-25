@@ -72,7 +72,6 @@ def footer():
       <span>© 2026 Duurkracht Kozijnen B.V. · KvK 90895312 · BTW NL865480112B01</span>
       <div class="socials">
         <a href="https://www.facebook.com/duurkrachtkozijnen" rel="noopener" aria-label="Facebook"><img src="/design-assets/icons/icon-facebook.svg" alt="" /></a>
-        <a href="https://www.linkedin.com/company/duurkracht-kozijnen" rel="noopener" aria-label="LinkedIn"><img src="/design-assets/icons/icon-linkedin.svg" alt="" /></a>
         <a href="https://wa.me/31850731660" rel="noopener" aria-label="WhatsApp"><img src="/design-assets/icons/icon-whatsapp.svg" alt="" /></a>
       </div>
     </div>
@@ -600,7 +599,7 @@ POSTS = [
 <tr><td><strong>Garantie</strong></td><td>10 jaar fabrieksgarantie</td></tr>
 </tbody>
 </table>
-<p>Bron: <a href="https://www.schueco.com/nl/architecten/producten/kozijnen-en-beslagen/kunststof/living82" rel="external nofollow noopener">schueco.com — LivIng</a></p>
+<p>Bron: <a href="https://www.schueco.com/nl" rel="external nofollow noopener">schueco.com — LivIng</a></p>
 """},
         {'id': 'voordelen', 'h2': 'De vijf grootste pluspunten', 'body': """
 <h3>1. Top-isolatie</h3>
