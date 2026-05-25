@@ -144,12 +144,12 @@
             </div>
           </div>
 
-          <div class="calc-row">
+          <div class="calc-row calc-row--stepper">
             <span class="calc-row-label">
               <span class="calc-num">02</span>
               <span>Achterdeur <span class="calc-unit-price">€ 4.500 / stuk</span></span>
-              <span class="calc-item-count" id="achterdeur-count" hidden></span>
             </span>
+            <span class="calc-item-count" id="achterdeur-count">0</span>
             <div class="calc-stepper" data-name="achterdeur" data-price="4500">
               <button type="button" class="step-btn" data-act="minus" aria-label="Minder achterdeuren">−</button>
               <span class="step-val" id="achterdeur-val">0</span>
@@ -157,12 +157,12 @@
             </div>
           </div>
 
-          <div class="calc-row">
+          <div class="calc-row calc-row--stepper">
             <span class="calc-row-label">
               <span class="calc-num">03</span>
               <span>Voordeur <span class="calc-unit-price">€ 5.500 / stuk</span></span>
-              <span class="calc-item-count" id="voordeur-count" hidden></span>
             </span>
+            <span class="calc-item-count" id="voordeur-count">0</span>
             <div class="calc-stepper" data-name="voordeur" data-price="5500">
               <button type="button" class="step-btn" data-act="minus" aria-label="Minder voordeuren">−</button>
               <span class="step-val" id="voordeur-val">0</span>
@@ -170,12 +170,12 @@
             </div>
           </div>
 
-          <div class="calc-row">
+          <div class="calc-row calc-row--stepper">
             <span class="calc-row-label">
               <span class="calc-num">04</span>
               <span>Schuifpui <span class="calc-unit-price">€ 7.500 / stuk</span></span>
-              <span class="calc-item-count" id="schuifpui-count" hidden></span>
             </span>
+            <span class="calc-item-count" id="schuifpui-count">0</span>
             <div class="calc-stepper" data-name="schuifpui" data-price="7500">
               <button type="button" class="step-btn" data-act="minus" aria-label="Minder schuifpuien">−</button>
               <span class="step-val" id="schuifpui-val">0</span>
@@ -183,12 +183,12 @@
             </div>
           </div>
 
-          <div class="calc-row">
+          <div class="calc-row calc-row--stepper">
             <span class="calc-row-label">
               <span class="calc-num">05</span>
               <span>Tuindeuren <span class="calc-unit-price">€ 8.500 / stuk</span></span>
-              <span class="calc-item-count" id="tuindeuren-count" hidden></span>
             </span>
+            <span class="calc-item-count" id="tuindeuren-count">0</span>
             <div class="calc-stepper" data-name="tuindeuren" data-price="8500">
               <button type="button" class="step-btn" data-act="minus" aria-label="Minder tuindeuren">−</button>
               <span class="step-val" id="tuindeuren-val">0</span>
@@ -433,8 +433,8 @@
       minus.disabled = n <= 0;
       plus.disabled = n >= max;
       if (countEl) {
-        if (n > 0) { countEl.textContent = n; countEl.hidden = false; }
-        else { countEl.hidden = true; }
+        countEl.textContent = n;
+        countEl.classList.toggle('is-active', n > 0);
       }
     }
     minus.addEventListener('click', function(){

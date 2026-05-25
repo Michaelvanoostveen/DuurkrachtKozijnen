@@ -608,14 +608,28 @@ h3{ font-size: clamp(1.25rem, 1.8vw, 1.6rem); }
   font-size: 11.5px; font-weight: 600;
   letter-spacing: 0.01em;
 }
+.calc-row--stepper{
+  display: flex; align-items: center; gap: 10px;
+}
+.calc-row--stepper .calc-row-label{ flex: 1; min-width: 0; }
 .calc-item-count{
+  flex-shrink: 0;
   display: inline-flex; align-items: center; justify-content: center;
-  min-width: 22px; height: 22px;
-  padding: 0 6px; border-radius: 999px;
-  background: var(--green);
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  background: var(--gray-100);
+  color: var(--gray-400);
+  font-family: "Fraunces", serif;
+  font-size: 22px; font-weight: 600;
+  border: 2px solid var(--gray-200);
+  transition: background .2s ease, color .2s ease, border-color .2s ease, box-shadow .2s ease;
+  font-variation-settings: "opsz" 144;
+}
+.calc-item-count.is-active{
+  background: var(--accent);
   color: #fff;
-  font-size: 12px; font-weight: 700;
-  line-height: 1;
+  border-color: transparent;
+  box-shadow: 0 4px 14px rgba(237, 107, 6, 0.40);
 }
 .calc-stepper{
   display: inline-flex; align-items: center; gap: 4px;
