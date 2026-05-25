@@ -617,18 +617,16 @@ h3{ font-size: clamp(1.25rem, 1.8vw, 1.6rem); }
   display: inline-flex; align-items: center; justify-content: center;
   width: 48px; height: 48px;
   border-radius: 12px;
-  background: var(--gray-100);
-  color: var(--gray-400);
+  background: #deded8;
+  color: #777;
   font-family: "Fraunces", serif;
   font-size: 22px; font-weight: 600;
-  border: 2px solid var(--gray-200);
-  transition: background .2s ease, color .2s ease, border-color .2s ease, box-shadow .2s ease;
+  transition: background .2s ease, color .2s ease, box-shadow .2s ease;
   font-variation-settings: "opsz" 144;
 }
 .calc-item-count.is-active{
-  background: var(--accent);
+  background: #ED6B06;
   color: #fff;
-  border-color: transparent;
   box-shadow: 0 4px 14px rgba(237, 107, 6, 0.40);
 }
 .calc-stepper{
