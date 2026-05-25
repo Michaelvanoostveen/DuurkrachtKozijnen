@@ -499,8 +499,7 @@ h3{ font-size: clamp(1.25rem, 1.8vw, 1.6rem); }
 
 /* PANELS */
 .tools-panel{ padding: 32px clamp(20px, 4vw, 40px); display: none; }
-.tools-panel.is-active{ display: block; animation: fadeInPanel .25s ease; }
-@keyframes fadeInPanel{ from{ opacity: 0; transform: translateY(4px); } to{ opacity: 1; transform: translateY(0); } }
+.tools-panel.is-active{ display: block; }
 
 /* SUBSIDIE-PANEL ROWS */
 .calc-form{ display: flex; flex-direction: column; gap: 22px; margin-bottom: 24px; }
