@@ -1429,7 +1429,7 @@
             />
             <button type="submit" class="btn btn-primary" id="pc-submit">Check <span class="arrow" aria-hidden="true">→</span></button>
           </div>
-          <p id="pc-help" class="pc-help-v2">4 cijfers + eventueel 2 letters · 20 werkgebieden geladen</p>
+          <p id="pc-help" class="pc-help-v2">4 cijfers + eventueel 2 letters · 25 werkgebieden geladen</p>
         </form>
         <div class="pc-result" id="pc-result" hidden aria-live="polite"></div>
       </div>
@@ -1480,11 +1480,11 @@
     }
 
     m2Val.innerHTML = '<strong>' + m2 + '</strong> m²';
-    rbGlas.textContent = GLAS_LABEL[glas];
-    rbM2.textContent = m2 + ' m²';
-    rbCombi.textContent = combi
+    rbGlas  && (rbGlas.textContent  = GLAS_LABEL[glas]);
+    rbM2    && (rbM2.textContent    = m2 + ' m²');
+    rbCombi && (rbCombi.textContent = combi
       ? 'Ja · subsidie verdubbeld'
-      : 'Nee · standaardtarief';
+      : 'Nee · standaardtarief');
   }
 
   m2El.addEventListener('input', update);
@@ -1564,7 +1564,12 @@
     { slug:'almere',      name:'Almere',      lat:52.3508, lon:5.2647  },
     { slug:'utrecht',     name:'Utrecht',     lat:52.0907, lon:5.1214  },
     { slug:'den-haag',    name:'Den Haag',    lat:52.0705, lon:4.3007  },
-    { slug:'rotterdam',   name:'Rotterdam',   lat:51.9244, lon:4.4777  }
+    { slug:'rotterdam',   name:'Rotterdam',   lat:51.9244, lon:4.4777  },
+    { slug:'nijmegen',    name:'Nijmegen',    lat:51.8426, lon:5.8546  },
+    { slug:'groningen',   name:'Groningen',   lat:53.2194, lon:6.5665  },
+    { slug:'amsterdam',   name:'Amsterdam',   lat:52.3676, lon:4.9041  },
+    { slug:'eindhoven',   name:'Eindhoven',   lat:51.4416, lon:5.4697  },
+    { slug:'breda',       name:'Breda',       lat:51.5719, lon:4.7683  }
   ];
 
   // Postcode PC2 (eerste 2 cijfers) → benaderde lat/lon van het centrum van die regio.
