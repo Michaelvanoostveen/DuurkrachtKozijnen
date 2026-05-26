@@ -213,6 +213,56 @@ LOCATIONS = [
         'recent_project': 'hefschuif 6m + Keralit op penthouse in Nesselande',
         'inwoners': '655.000',
     },
+    {
+        'slug': 'nijmegen', 'name': 'Nijmegen', 'province': 'Gelderland', 'region': 'Nijmegen',
+        'lat': 51.8426, 'lon': 5.8546,
+        'rijtijd': 95, 'afstand_km': 105,
+        'intro': 'Nijmegen is de oudste stad van Nederland en heeft een rijke mix van historische grachtenpanden en moderne uitbreidingen zoals de Waalsprong. Wij plaatsen Schüco LivIng kozijnen die passen bij elk woningtype — van klassiek tot modern.',
+        'usp_extra': 'ervaring met zowel historische als moderne woningtypen',
+        'wijken': ['Centrum', 'Waalsprong', 'Dukenburg', 'Lindenholt', 'Neerbosch-Oost', 'Hatert'],
+        'recent_project': 'schuifpui en 8 kozijnen in een jaren-30 woning in Hatert',
+        'inwoners': '180.000',
+    },
+    {
+        'slug': 'groningen', 'name': 'Groningen', 'province': 'Groningen', 'region': 'Groningen',
+        'lat': 53.2194, 'lon': 6.5665,
+        'rijtijd': 120, 'afstand_km': 140,
+        'intro': 'Groningen is een levendige studentenstad met een grote woningmarkt. Veel woningen uit de jaren 50-70 zijn toe aan een isolatie-upgrade. Wij rijden naar Groningen voor projecten vanaf 4 kozijnen.',
+        'usp_extra': 'energiebesparing bij oudere Groningse woningbouw',
+        'wijken': ['Paddepoel', 'Selwerd', 'De Wijert', 'Beijum', 'Corpus den Hoorn', 'Stad'],
+        'recent_project': '12 kozijnen in een jaren-60 rijtjeswoning in Paddepoel',
+        'inwoners': '235.000',
+    },
+    {
+        'slug': 'amsterdam', 'name': 'Amsterdam', 'province': 'Noord-Holland', 'region': 'Randstad',
+        'lat': 52.3676, 'lon': 4.9041,
+        'rijtijd': 130, 'afstand_km': 155,
+        'intro': 'Amsterdam heeft een enorme variatie aan woningtypen — van grachtenpanden tot moderne appartementen in IJburg. Wij plaatsen Schüco LivIng kozijnen in Amsterdam voor projecten waarbij kwaliteit en minimale overlast centraal staan.',
+        'usp_extra': 'specialist in projecten met beperkte bereikbaarheid en inrijverbod',
+        'wijken': ['Oost', 'West', 'Noord', 'Nieuw-West', 'IJburg', 'Bos en Lommer'],
+        'recent_project': 'antraciet kozijnen en voordeur in een 1930s woning in Oost',
+        'inwoners': '930.000',
+    },
+    {
+        'slug': 'eindhoven', 'name': 'Eindhoven', 'province': 'Noord-Brabant', 'region': 'Brabant',
+        'lat': 51.4416, 'lon': 5.4697,
+        'rijtijd': 120, 'afstand_km': 135,
+        'intro': 'Eindhoven is een moderne technologiestad met veel particuliere woningbouw. De combinatie van Schüco LivIng kozijnen en triple glas is hier populair vanwege de focus op energieprestaties en duurzaamheid.',
+        'usp_extra': 'populair bij bewoners met focus op energieprestaties',
+        'wijken': ['Stratum', 'Woensel', 'Tongelre', 'Gestel', 'Strijp', 'Meerhoven'],
+        'recent_project': 'triple glas en hefschuifpui in een vrijstaande woning in Meerhoven',
+        'inwoners': '240.000',
+    },
+    {
+        'slug': 'breda', 'name': 'Breda', 'province': 'Noord-Brabant', 'region': 'Brabant',
+        'lat': 51.5719, 'lon': 4.7683,
+        'rijtijd': 130, 'afstand_km': 145,
+        'intro': 'Breda heeft een grote woningmarkt met veel tussenwoning- en vrijstaande woningbouw uit de jaren 70-90. Wij verzorgen complete kozijnrenovaties, inclusief voordeur, schuifpui en gevelbekleding in één project.',
+        'usp_extra': 'graag complete gevelpakketten in één opdracht',
+        'wijken': ['Bavel', 'Hoge Vugt', 'Prinsenbeek', 'Teteringen', 'Noord', 'Haagse Beemden'],
+        'recent_project': 'complete gevelrenovatie met Keralit en 9 kozijnen in Teteringen',
+        'inwoners': '185.000',
+    },
 ]
 
 
@@ -298,7 +348,7 @@ def page(loc):
 <link rel="canonical" href="https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-{slug}/" />
 <meta name="theme-color" content="#0B5A2B" />
 
-<meta name="geo.region" content="NL-{('OV' if province=='Overijssel' else 'GE' if province=='Gelderland' else 'DR' if province=='Drenthe' else 'FR' if province=='Friesland' else 'FL' if province=='Flevoland' else 'UT' if province=='Utrecht' else 'ZH')}" />
+<meta name="geo.region" content="NL-{('OV' if province=='Overijssel' else 'GE' if province=='Gelderland' else 'DR' if province=='Drenthe' else 'FR' if province=='Friesland' else 'FL' if province=='Flevoland' else 'UT' if province=='Utrecht' else 'ZH' if province=='Zuid-Holland' else 'GR' if province=='Groningen' else 'NH' if province=='Noord-Holland' else 'NB' if province=='Noord-Brabant' else 'ZH')}" />
 <meta name="geo.placename" content="{name}, {province}" />
 <meta name="geo.position" content="{lat};{lon}" />
 <meta name="ICBM" content="{lat}, {lon}" />
@@ -548,6 +598,11 @@ def page(loc):
         <li><a href="/kunststof-kozijnen-almelo/">Almelo</a></li>
         <li><a href="/kunststof-kozijnen-apeldoorn/">Apeldoorn</a></li>
         <li><a href="/kunststof-kozijnen-zwolle/">Zwolle</a></li>
+        <li><a href="/kunststof-kozijnen-nijmegen/">Nijmegen</a></li>
+        <li><a href="/kunststof-kozijnen-groningen/">Groningen</a></li>
+        <li><a href="/kunststof-kozijnen-amsterdam/">Amsterdam</a></li>
+        <li><a href="/kunststof-kozijnen-eindhoven/">Eindhoven</a></li>
+        <li><a href="/kunststof-kozijnen-breda/">Breda</a></li>
       </ul></div>
       <div><h5>Bedrijf</h5><ul>
         <li><a href="/over-ons/">Over ons</a></li>
