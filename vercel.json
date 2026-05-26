@@ -42,7 +42,32 @@
     { "source": "/locaties/amersfoort", "destination": "/kunststof-kozijnen-utrecht", "permanent": false },
     { "source": "/locaties/meppel", "destination": "/kunststof-kozijnen-hoogeveen", "permanent": false },
     { "source": "/locaties/groningen", "destination": "/kunststof-kozijnen-assen", "permanent": false },
-    { "source": "/locaties/amsterdam", "destination": "/kunststof-kozijnen-almere", "permanent": false }
+    { "source": "/locaties/amsterdam", "destination": "/kunststof-kozijnen-almere", "permanent": false },
+
+    { "source": "/diensten/kunststofkozijnen", "destination": "/diensten/kunststof-kozijnen", "permanent": true },
+    { "source": "/diensten/voor-en-achterdeuren", "destination": "/diensten/kunststof-deuren", "permanent": true },
+
+    { "source": "/nieuws", "destination": "/blog", "permanent": true },
+    { "source": "/nieuws/hoe-lang-gaan-kunststof-kozijnen-gemiddeld-mee", "destination": "/blog/kunststof-kozijnen-onderhoud", "permanent": true },
+    { "source": "/nieuws/hoe-onderhoud-je-een-kunststof-schuifpui", "destination": "/blog/kunststof-kozijnen-onderhoud", "permanent": true },
+    { "source": "/nieuws/hoe-geluiddempend-zijn-kunststof-kozijnen", "destination": "/blog/hr-plus-plus-of-triple-glas", "permanent": true },
+    { "source": "/nieuws/hoe-wordt-een-kunststof-deur-geplaatst-en-waar-moet-u-op-letten", "destination": "/diensten/kunststof-deuren", "permanent": true },
+    { "source": "/nieuws/waarom-steeds-meer-huiseigenaren-kiezen-voor-kunststof-kozijnen", "destination": "/diensten/kunststof-kozijnen", "permanent": true },
+    { "source": "/nieuws/veelgestelde-vragen-over-kunststof-schuifpuien-beantwoord", "destination": "/diensten/kunststof-schuifpuien", "permanent": true },
+    { "source": "/nieuws/veilig-kunststof-kozijnen-tegen-inbraak", "destination": "/blog/inbraakwerend-kozijn-rc2-rc3", "permanent": true },
+    { "source": "/nieuws/voordelen-van-kunststof-schuifpuien", "destination": "/diensten/kunststof-schuifpuien", "permanent": true },
+    { "source": "/nieuws/kunststof-kozijnen-slimme-keuze", "destination": "/diensten/kunststof-kozijnen", "permanent": true },
+    { "source": "/nieuws/is-gevelbekleding-onderhoudsarm", "destination": "/diensten/kunststof-gevelbekleding", "permanent": true },
+    { "source": "/nieuws/de-juiste-kunststof-kozijnen-voor-uw-woning", "destination": "/blog/kunststof-kozijnen-kleuren", "permanent": true },
+    { "source": "/nieuws/de-voordelen-van-kunststof-deuren", "destination": "/diensten/kunststof-deuren", "permanent": true },
+    { "source": "/nieuws/:slug", "destination": "/blog", "permanent": true },
+
+    { "source": "/kunststof-kozijnen-amersfoort", "destination": "/kunststof-kozijnen-utrecht", "permanent": true },
+    { "source": "/kunststof-kozijnen-haaksbergen", "destination": "/kunststof-kozijnen-hengelo", "permanent": true },
+    { "source": "/kunststof-kozijnen-hardenberg", "destination": "/kunststof-kozijnen-zwolle", "permanent": true },
+    { "source": "/kunststof-deuren-hengelo", "destination": "/diensten/kunststof-deuren", "permanent": true },
+    { "source": "/kunststof-schuifpui-hengelo", "destination": "/diensten/kunststof-schuifpuien", "permanent": true },
+    { "source": "/kunststof-schuifpui-enschede", "destination": "/diensten/kunststof-schuifpuien", "permanent": true }
   ],
   "headers": [
     {
