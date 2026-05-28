@@ -93,7 +93,11 @@
 .cfg-slider-row input[type=range]{ flex:1; -webkit-appearance:none; appearance:none; height:6px; background:var(--gray-200); border-radius:3px; outline:none; cursor:pointer; }
 .cfg-slider-row input[type=range]::-webkit-slider-thumb{ -webkit-appearance:none; width:20px; height:20px; border-radius:50%; background:var(--accent); border:3px solid #fff; box-shadow:0 2px 6px rgba(237,107,6,.4); cursor:pointer; }
 .cfg-slider-row input[type=range]::-moz-range-thumb{ width:20px; height:20px; border-radius:50%; background:var(--accent); border:3px solid #fff; cursor:pointer; }
-.cfg-slider-row output{ min-width:64px; text-align:right; font-weight:600; font-size:14px; color:var(--green); }
+.cfg-num-wrap{ display:flex; align-items:center; gap:3px; flex-shrink:0; }
+.cfg-dim-num{ width:58px; text-align:right; font-weight:600; font-size:14px; color:var(--green); border:none; border-bottom:1.5px solid var(--gray-200); border-radius:4px 4px 0 0; padding:3px 4px; outline:none; font-family:inherit; background:transparent; -moz-appearance:textfield; }
+.cfg-dim-num::-webkit-inner-spin-button,.cfg-dim-num::-webkit-outer-spin-button{ -webkit-appearance:none; margin:0; }
+.cfg-dim-num:focus{ border-bottom-color:var(--green); background:rgba(11,90,43,.04); }
+.cfg-unit{ font-size:12px; color:var(--gray-500); font-weight:500; }
 .cfg-m2{ margin-top:10px; font-size:12.5px; color:var(--gray-500); }
 .cfg-m2 strong{ color:var(--ink); }
 
@@ -285,14 +289,14 @@
               <label for="breedte">Breedte</label>
               <div class="cfg-slider-row">
                 <input type="range" id="breedte" name="breedte" min="500" max="3000" step="50" value="1000" />
-                <output id="breedte-val">1000 mm</output>
+                <div class="cfg-num-wrap"><input type="number" class="cfg-dim-num" id="breedte-val" inputmode="numeric" min="500" max="3000" step="50" value="1000" /><span class="cfg-unit">mm</span></div>
               </div>
             </div>
             <div class="cfg-dim-field">
               <label for="hoogte">Hoogte</label>
               <div class="cfg-slider-row">
                 <input type="range" id="hoogte" name="hoogte" min="500" max="2700" step="50" value="1200" />
-                <output id="hoogte-val">1200 mm</output>
+                <div class="cfg-num-wrap"><input type="number" class="cfg-dim-num" id="hoogte-val" inputmode="numeric" min="500" max="2700" step="50" value="1200" /><span class="cfg-unit">mm</span></div>
               </div>
             </div>
           </div>
@@ -512,6 +516,7 @@
   var form = document.getElementById('cfg');
   if (!form) return;
   var bEl = document.getElementById('breedte'), hEl = document.getElementById('hoogte');
+  var bNumEl = document.getElementById('breedte-val'), hNumEl = document.getElementById('hoogte-val');
 
   function val(name){ var el=form.elements[name]; return el ? el.value : ''; }
   function eur(n){ return '€ ' + (Math.round(n/10)*10).toLocaleString('nl-NL'); }
@@ -657,6 +662,7 @@
   function applyRanges(p, pKey){
     if(pKey!==lastProduct){ bEl.value=p.wDef; hEl.value=p.hDef; lastProduct=pKey; }
     bEl.min=p.wMin; bEl.max=p.wMax; hEl.min=p.hMin; hEl.max=p.hMax;
+    bNumEl.min=p.wMin; bNumEl.max=p.wMax; hNumEl.min=p.hMin; hNumEl.max=p.hMax;
     if(+bEl.value<p.wMin) bEl.value=p.wMin;
     if(+bEl.value>p.wMax) bEl.value=p.wMax;
     if(+hEl.value<p.hMin) hEl.value=p.hMin;
@@ -692,8 +698,8 @@
     var glasM2 = Math.max(0, m2*0.8);
     var isdeLow = Math.round(glasM2*glas.isdeLow), isdeHigh = Math.round(glasM2*glas.isdeHigh);
 
-    document.getElementById('breedte-val').textContent = w+' mm';
-    document.getElementById('hoogte-val').textContent = h+' mm';
+    bNumEl.value = w;
+    hNumEl.value = h;
     document.getElementById('m2-val').textContent = m2.toLocaleString('nl-NL',{minimumFractionDigits:2,maximumFractionDigits:2})+' m²';
     document.getElementById('price-val').textContent = eur(price);
     document.getElementById('isde-val').textContent = isdeLow>0 ? (eur(isdeLow)+' – '+eur(isdeHigh)) : '—';
@@ -826,6 +832,17 @@
   document.getElementById('cfg-add').addEventListener('click', addToProject);
   document.getElementById('qty-plus').addEventListener('click', function(){ currentQty++; document.getElementById('qty-val').textContent=currentQty; });
   document.getElementById('qty-minus').addEventListener('click', function(){ if(currentQty>1){ currentQty--; document.getElementById('qty-val').textContent=currentQty; } });
+
+  // Sync: invulveld → slider
+  function syncNumToSlider(numEl, rangeEl){
+    var v=parseInt(numEl.value)||0, mn=+rangeEl.min, mx=+rangeEl.max, st=+rangeEl.step||50;
+    v=Math.max(mn,Math.min(mx,Math.round(v/st)*st));
+    numEl.value=v; rangeEl.value=v; update();
+  }
+  bNumEl.addEventListener('change', function(){ syncNumToSlider(bNumEl, bEl); });
+  hNumEl.addEventListener('change', function(){ syncNumToSlider(hNumEl, hEl); });
+  bNumEl.addEventListener('keydown', function(e){ if(e.key==='Enter'){ e.preventDefault(); syncNumToSlider(bNumEl, bEl); } });
+  hNumEl.addEventListener('keydown', function(e){ if(e.key==='Enter'){ e.preventDefault(); syncNumToSlider(hNumEl, hEl); } });
 
   // Config-events
   form.addEventListener('input', function(e){
