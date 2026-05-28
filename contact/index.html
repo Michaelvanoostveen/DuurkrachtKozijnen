@@ -332,5 +332,22 @@ document.getElementById('adviesForm')?.addEventListener('submit', function (even
   <a href="https://wa.me/31850731660" class="m-wa" rel="noopener"><img src="/design-assets/icons/icon-whatsapp.svg" alt="" /> WhatsApp</a>
 </div>
 
+<script>
+// Vul bericht-veld voor met configuratie/project uit de configurator (querystring)
+(function(){
+  try{
+    var p = new URLSearchParams(location.search);
+    var txt = p.get('project') || p.get('config');
+    if(!txt) return;
+    var el = document.getElementById('bericht');
+    if(!el) return;
+    el.value = txt + '\n\n(Samengesteld via de online configurator — graag een vrijblijvende offerte.)';
+    el.focus();
+    var form = el.closest('form');
+    if(form) form.scrollIntoView({behavior:'smooth', block:'center'});
+  }catch(e){}
+})();
+</script>
+
 </body>
 </html>

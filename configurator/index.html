@@ -136,8 +136,53 @@
 .cfg-spec li{ display:flex; justify-content:space-between; gap:10px; padding:5px 0; border-bottom:1px solid rgba(255,255,255,.10); }
 .cfg-spec li:last-child{ border-bottom:0; }
 .cfg-spec li span:first-child{ opacity:.72; }
-.cfg-cta{ width:100%; justify-content:center; background:var(--accent); margin-top:20px; }
+.cfg-qtyrow{ display:flex; align-items:center; justify-content:space-between; margin-top:16px; padding-top:14px; border-top:1px solid rgba(255,255,255,.18); font-size:13px; }
+.cfg-stepper{ display:inline-flex; align-items:center; gap:4px; background:rgba(255,255,255,.12); border-radius:999px; padding:3px; }
+.cfg-stepper button{ width:30px; height:30px; border-radius:50%; border:none; background:#fff; color:var(--green); font-size:18px; font-weight:600; line-height:1; cursor:pointer; }
+.cfg-stepper button:hover{ background:var(--lime); }
+.cfg-stepper span{ min-width:28px; text-align:center; font-weight:700; color:#fff; }
+.cfg-cta{ width:100%; justify-content:center; background:var(--accent); margin-top:16px; }
 .cfg-cta:hover{ background:#d05c00; }
+.cfg-cta.added{ background:var(--lime); color:var(--green-deep); }
+
+/* MIJN PROJECT */
+.cfg-project{ max-width:1180px; margin:36px auto 0; background:#fff; border:1px solid var(--gray-200); border-radius:18px; padding:28px; box-shadow:0 4px 20px rgba(7,65,32,.04); }
+.cfg-project-head{ display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin-bottom:18px; }
+.cfg-project-head h2{ font-size:clamp(1.4rem,2vw,1.8rem); }
+.cfg-project-count{ font-size:13px; color:var(--gray-500); font-weight:600; }
+.cfg-project-empty{ padding:28px; text-align:center; color:var(--ink-soft); background:var(--gray-50); border-radius:12px; font-size:14.5px; line-height:1.6; }
+.cfg-project-table{ display:flex; flex-direction:column; gap:10px; }
+.cfg-pitem{ display:grid; grid-template-columns:54px 1fr auto auto; gap:14px; align-items:center; padding:12px 14px; border:1px solid var(--gray-200); border-radius:12px; }
+.cfg-pitem-thumb{ width:54px; height:54px; background:var(--gray-50); border-radius:8px; overflow:hidden; display:flex; align-items:center; justify-content:center; }
+.cfg-pitem-thumb svg{ width:100%; height:100%; }
+.cfg-pitem-info strong{ display:block; font-size:14px; color:var(--ink); }
+.cfg-pitem-info span{ font-size:12px; color:var(--gray-500); }
+.cfg-pitem-qty{ display:inline-flex; align-items:center; gap:4px; background:var(--gray-50); border-radius:999px; padding:3px; }
+.cfg-pitem-qty button{ width:26px; height:26px; border-radius:50%; border:none; background:#fff; color:var(--green); font-size:15px; font-weight:600; cursor:pointer; box-shadow:0 1px 2px rgba(0,0,0,.08); }
+.cfg-pitem-qty button:hover{ background:var(--accent); color:#fff; }
+.cfg-pitem-qty span{ min-width:22px; text-align:center; font-weight:600; font-size:13px; }
+.cfg-pitem-price{ text-align:right; }
+.cfg-pitem-price strong{ display:block; font-size:14.5px; color:var(--green); }
+.cfg-pitem-remove{ background:none; border:none; cursor:pointer; color:var(--gray-500); font-size:12px; text-decoration:underline; padding:2px 0; }
+.cfg-pitem-remove:hover{ color:var(--accent); }
+.cfg-project-foot{ margin-top:22px; padding-top:22px; border-top:1px solid var(--gray-200); display:flex; flex-wrap:wrap; gap:20px; align-items:center; justify-content:space-between; }
+.cfg-project-totals{ min-width:240px; }
+.cfg-total-line{ display:flex; justify-content:space-between; gap:24px; padding:4px 0; font-size:15px; }
+.cfg-total-line strong{ font-family:"Fraunces",serif; font-size:22px; color:var(--green); font-variation-settings:"opsz" 144; }
+.cfg-total-isde{ font-size:13px; color:var(--ink-soft); }
+.cfg-total-isde strong{ font-size:15px; color:var(--accent); }
+.cfg-project-actions{ display:flex; flex-direction:column; gap:8px; align-items:flex-end; }
+.cfg-clear{ background:none; border:none; cursor:pointer; color:var(--gray-500); font-size:12.5px; text-decoration:underline; }
+.cfg-clear:hover{ color:var(--accent); }
+@media (max-width:560px){
+  .cfg-pitem{ grid-template-columns:44px 1fr; grid-template-areas:"thumb info" "qty price"; row-gap:10px; }
+  .cfg-pitem-thumb{ grid-area:thumb; width:44px; height:44px; }
+  .cfg-pitem-info{ grid-area:info; }
+  .cfg-pitem-qty{ grid-area:qty; }
+  .cfg-pitem-price{ grid-area:price; }
+  .cfg-project-foot{ flex-direction:column; align-items:stretch; }
+  .cfg-project-actions{ align-items:stretch; }
+}
 .cfg-disclaimer{ font-size:11px; opacity:.72; margin:12px 0 0; line-height:1.5; }
 .cfg-disclaimer a{ color:var(--lime); text-decoration:underline; }
 
@@ -293,10 +338,41 @@
             <span>Mogelijke ISDE-subsidie:</span> <strong id="isde-val">€ 28 – € 55</strong>
           </div>
           <ul class="cfg-spec" id="cfg-spec"></ul>
-          <a href="/contact/" class="btn btn-primary cfg-cta" id="cfg-cta">Vraag vaste offerte aan <span class="arrow" aria-hidden="true">→</span></a>
+          <div class="cfg-qtyrow">
+            <span>Aantal</span>
+            <div class="cfg-stepper">
+              <button type="button" id="qty-minus" aria-label="Minder">−</button>
+              <span id="qty-val">1</span>
+              <button type="button" id="qty-plus" aria-label="Meer">+</button>
+            </div>
+          </div>
+          <button type="button" class="btn btn-primary cfg-cta" id="cfg-add">+ Toevoegen aan project</button>
           <p class="cfg-disclaimer">Indicatie op basis van standaard uitvoering en RVO ISDE-tarieven 2026. Definitieve prijs en subsidie volgen na gratis inmeting. <a href="https://www.rvo.nl/subsidies-financiering/isde" rel="external nofollow noopener">Bron: RVO</a>.</p>
         </div>
       </aside>
+    </div>
+
+    <!-- MIJN PROJECT -->
+    <div class="cfg-project" id="cfg-project">
+      <div class="cfg-project-head">
+        <h2>Mijn project</h2>
+        <span id="project-count" class="cfg-project-count">0 onderdelen</span>
+      </div>
+      <div id="project-empty" class="cfg-project-empty">
+        Nog niets toegevoegd. Stel hierboven een kozijn samen en klik op <strong>“Toevoegen aan project”</strong> om uw hele woning op te bouwen.
+      </div>
+      <div class="cfg-project-table" id="project-list" hidden></div>
+      <div class="cfg-project-foot" id="project-foot" hidden>
+        <div class="cfg-project-totals">
+          <div class="cfg-total-line"><span>Indicatie totaal (incl. btw)</span><strong id="project-total">€ 0</strong></div>
+          <div class="cfg-total-line cfg-total-isde"><span>Mogelijke ISDE-subsidie</span><strong id="project-isde">€ 0</strong></div>
+        </div>
+        <div class="cfg-project-actions">
+          <a href="/contact/" class="btn btn-primary" id="project-offerte">Vraag offerte aan voor dit project <span class="arrow" aria-hidden="true">→</span></a>
+          <button type="button" class="cfg-clear" id="project-clear">Project leegmaken</button>
+        </div>
+      </div>
+      <p class="cfg-disclaimer" style="opacity:.7;">Uw project wordt lokaal in uw browser bewaard — er worden geen gegevens verstuurd tot u zelf een offerte aanvraagt.</p>
     </div>
   </div>
 </section>
@@ -419,7 +495,7 @@
     houtnerf:   {label:'Houtnerf eiken',mult:1.18, frame:'#8a5a2b', stroke:'#6d4620'}
   };
   var BESLAG = { rc2:{label:'RC2 sluitwerk', mult:1.00}, rc3:{label:'RC3 sluitwerk', mult:1.10} };
-  var GLASSFILL = '#cfe0ea', GLASSO = 0.62, HANDLE = '#b9933f';
+  var GLASSFILL = '#d4e3ec', GLASSO = 1, HANDLE = '#b9933f';
 
   var form = document.getElementById('cfg');
   if (!form) return;
@@ -612,8 +688,8 @@
       '<li><span>Beslag</span><span>'+bes.label+'</span></li>' +
       '<li><span>Oppervlakte</span><span>'+m2.toLocaleString('nl-NL',{minimumFractionDigits:2,maximumFractionDigits:2})+' m²</span></li>';
 
-    var cfgStr = p.label+' ('+v.label+') '+Math.round(w/10)+'x'+Math.round(h/10)+'cm, '+glas.label+', '+col.label+', '+bes.label+' ('+eur(price)+')';
-    document.getElementById('cfg-cta').href = '/contact/?config=' + encodeURIComponent(cfgStr);
+    // huidige samenstelling onthouden voor "toevoegen aan project"
+    curItem = { pKey:pKey, vKey:v.key, w:w, h:h, glas:val('glas'), kleur:val('kleur'), beslag:val('beslag') };
 
     // grote preview met echte verhouding
     document.getElementById('cfg-svg').innerHTML = buildSVG(p.kind, v, w/h, col);
@@ -622,7 +698,88 @@
     if(opts.recolor){ renderVariants(p, pKey, col); }
   }
 
-  // Events
+  // ── PROJECT (winkelmand zonder afrekenen) ──
+  var STORAGE='dk_project', curItem={}, currentQty=1;
+  var project = loadProject();
+
+  function loadProject(){ try{ return JSON.parse(localStorage.getItem(STORAGE))||[]; }catch(e){ return []; } }
+  function saveProject(){ try{ localStorage.setItem(STORAGE, JSON.stringify(project)); }catch(e){} }
+
+  function computeItem(it){
+    var p=PRODUCTS[it.pKey]; if(!p) return null;
+    var v=(p.variants.filter(function(x){return x.key===it.vKey;})[0])||p.variants[0];
+    var glas=GLASS[it.glas]||GLASS.hrpp, col=COLOR[it.kleur]||COLOR.wit, bes=BESLAG[it.beslag]||BESLAG.rc2;
+    var m2=(it.w/1000)*(it.h/1000);
+    var sub=(p.base+Math.max(0,m2-p.stdM2)*p.perM2)*glas.mult*col.mult*bes.mult*v.mult;
+    var price=Math.round(sub/10)*10, glasM2=Math.max(0,m2*0.8);
+    return { p:p,v:v,glas:glas,col:col,bes:bes,m2:m2,price:price,
+             isdeLow:Math.round(glasM2*glas.isdeLow), isdeHigh:Math.round(glasM2*glas.isdeHigh) };
+  }
+
+  function addToProject(){
+    if(!curItem.pKey) return;
+    var key=[curItem.pKey,curItem.vKey,curItem.w,curItem.h,curItem.glas,curItem.kleur,curItem.beslag].join('|');
+    var ex=project.filter(function(x){return x.key===key;})[0];
+    if(ex){ ex.qty+=currentQty; }
+    else { project.push({ id:Date.now().toString(36)+Math.random().toString(36).slice(2,6), key:key,
+            pKey:curItem.pKey, vKey:curItem.vKey, w:curItem.w, h:curItem.h,
+            glas:curItem.glas, kleur:curItem.kleur, beslag:curItem.beslag, qty:currentQty }); }
+    saveProject(); renderProject();
+    // reset aantal + feedback
+    currentQty=1; document.getElementById('qty-val').textContent='1';
+    var btn=document.getElementById('cfg-add'); btn.classList.add('added'); btn.textContent='✓ Toegevoegd';
+    setTimeout(function(){ btn.classList.remove('added'); btn.textContent='+ Toevoegen aan project'; }, 1500);
+    document.getElementById('cfg-project').scrollIntoView({behavior:'smooth',block:'nearest'});
+  }
+
+  function renderProject(){
+    var list=document.getElementById('project-list'), empty=document.getElementById('project-empty'),
+        foot=document.getElementById('project-foot'), count=document.getElementById('project-count');
+    var totalItems=project.reduce(function(a,x){return a+x.qty;},0);
+    count.textContent=totalItems+' '+(totalItems===1?'onderdeel':'onderdelen');
+    if(!project.length){ empty.hidden=false; list.hidden=true; foot.hidden=true; return; }
+    empty.hidden=true; list.hidden=false; foot.hidden=false;
+    var html='', total=0, isL=0, isH=0;
+    project.forEach(function(it){
+      var c=computeItem(it); if(!c) return;
+      var line=c.price*it.qty; total+=line; isL+=c.isdeLow*it.qty; isH+=c.isdeHigh*it.qty;
+      var ratio=c.p.kind==='door'?0.5:c.p.kind==='slider'?1.9:c.p.kind==='french'?1.0:(it.w/it.h);
+      var thumb='<svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">'+buildSVG(c.p.kind,c.v,ratio,c.col)+'</svg>';
+      html+='<div class="cfg-pitem">'
+        +'<div class="cfg-pitem-thumb">'+thumb+'</div>'
+        +'<div class="cfg-pitem-info"><strong>'+esc(c.p.label)+' · '+esc(c.v.label)+'</strong>'
+          +'<span>'+Math.round(it.w/10)+'×'+Math.round(it.h/10)+' cm · '+esc(c.glas.label)+' · '+esc(c.col.label)+' · '+esc(c.bes.label)+'</span></div>'
+        +'<div class="cfg-pitem-qty"><button type="button" data-act="dec" data-id="'+it.id+'" aria-label="Minder">−</button><span>'+it.qty+'</span><button type="button" data-act="inc" data-id="'+it.id+'" aria-label="Meer">+</button></div>'
+        +'<div class="cfg-pitem-price"><strong>'+eur(line)+'</strong>'
+          +'<button type="button" class="cfg-pitem-remove" data-act="rm" data-id="'+it.id+'">verwijder</button></div>'
+        +'</div>';
+    });
+    list.innerHTML=html;
+    document.getElementById('project-total').textContent=eur(total);
+    document.getElementById('project-isde').textContent = isL>0 ? (eur(isL)+' – '+eur(isH)) : '—';
+    var lines=project.map(function(it){ var c=computeItem(it); return it.qty+'x '+c.p.label+' ('+c.v.label+') '+Math.round(it.w/10)+'x'+Math.round(it.h/10)+'cm '+c.glas.label+'/'+c.col.label+'/'+c.bes.label+' '+eur(c.price*it.qty); });
+    var msg='Mijn project ('+totalItems+' onderdelen, indicatie '+eur(total)+'):\n'+lines.join('\n');
+    document.getElementById('project-offerte').href='/contact/?project='+encodeURIComponent(msg);
+  }
+
+  // Project events (delegatie)
+  document.getElementById('project-list').addEventListener('click', function(e){
+    var b=e.target.closest('button'); if(!b) return;
+    var id=b.getAttribute('data-id'), act=b.getAttribute('data-act');
+    var it=project.filter(function(x){return x.id===id;})[0];
+    if(act==='inc'){ if(it) it.qty++; }
+    else if(act==='dec'){ if(it){ it.qty--; if(it.qty<=0) project=project.filter(function(x){return x.id!==id;}); } }
+    else if(act==='rm'){ project=project.filter(function(x){return x.id!==id;}); }
+    saveProject(); renderProject();
+  });
+  document.getElementById('project-clear').addEventListener('click', function(){
+    if(confirm('Weet u zeker dat u het project wilt leegmaken?')){ project=[]; saveProject(); renderProject(); }
+  });
+  document.getElementById('cfg-add').addEventListener('click', addToProject);
+  document.getElementById('qty-plus').addEventListener('click', function(){ currentQty++; document.getElementById('qty-val').textContent=currentQty; });
+  document.getElementById('qty-minus').addEventListener('click', function(){ if(currentQty>1){ currentQty--; document.getElementById('qty-val').textContent=currentQty; } });
+
+  // Config-events
   form.addEventListener('input', function(e){
     if(e.target && e.target.name==='kleur'){ update({recolor:true}); }
     else { update(); }
@@ -635,6 +792,7 @@
 
   // init
   update({forceVariants:true});
+  renderProject();
 })();
 </script>
 
