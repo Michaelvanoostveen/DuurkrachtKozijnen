@@ -333,7 +333,7 @@ def page(loc):
     wijken_html = ''.join(f'<li>{w}</li>' for w in wijken)
 
     title = f"Kunststof Kozijnen in {name} — Duurkracht Kozijnen"
-    description = f"Specialist in Schüco LivIng kunststof kozijnen op kunststof stelkozijnen in {name} ({province}). Eigen monteurs, 4,9★ Google, 10 jaar garantie en gratis advies aan huis."
+    description = f"Kunststof kozijnen in {name} ({province}) door Duurkracht: Schüco LivIng, eigen monteurs, 4,9★ Google, 10 jaar garantie en gratis advies aan huis."
 
     return f'''<!DOCTYPE html>
 <html lang="nl-NL">
@@ -359,6 +359,8 @@ def page(loc):
 <meta property="og:description" content="{description}" />
 <meta property="og:url" content="https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-{slug}/" />
 <meta property="og:image" content="https://www.duurkrachtkozijnen.nl/design-assets/images/Voorkant-huis-kozijnen.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://www.duurkrachtkozijnen.nl/design-assets/images/Voorkant-huis-kozijnen.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

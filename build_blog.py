@@ -29,7 +29,7 @@ def nav(active='blog'):
     lis = ''.join(parts)
     return f'''<header class="nav"><div class="container">
     <a href="/" class="nav-logo"><img src="/design-assets/Logo-duurkracht-kozijnen.svg" alt="Duurkracht Kozijnen logo" width="150" height="44" /></a>
-    <nav><ul>{lis}</ul></nav>
+    <nav aria-label="Hoofdnavigatie"><ul>{lis}</ul></nav>
     <div class="nav-cta">
       <a href="tel:+31850731660" class="phone" rel="nofollow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>085 073 1660</a>
       <a href="/contact/" class="btn btn-primary">Gratis adviesgesprek <span class="arrow">→</span></a>
@@ -166,7 +166,7 @@ BLOG_CSS = '''<style>
 POSTS = [
     {
         'slug': 'kunststof-kozijnen-kosten',
-        'title': 'Kunststof kozijnen kosten in 2026: complete prijsgids',
+        'title': 'Kunststof kozijnen kosten 2026',
         'meta_desc': 'Wat kosten kunststof kozijnen in 2026? Complete prijsgids: per kozijn, per huis, inclusief montage, glas en kleur. Plus ISDE-subsidie tips.',
         'category': 'Prijzen & advies',
         'date': '2026-05-20',
@@ -300,7 +300,7 @@ POSTS = [
 
     {
         'slug': 'hr-plus-plus-of-triple-glas',
-        'title': 'HR++ of triple glas: welke kies je voor je nieuwe kozijnen?',
+        'title': 'HR++ of triple glas — vergelijking',
         'meta_desc': 'HR++ of triple glas? Wij vergelijken U-waarde, prijs, geluidsdemping en ISDE-subsidie. Praktisch advies voor uw kozijnenkeuze.',
         'category': 'Productadvies',
         'date': '2026-05-18',
@@ -438,7 +438,7 @@ POSTS = [
 
     {
         'slug': 'isde-subsidie-kozijnen-2026',
-        'title': 'ISDE-subsidie voor kozijnen in 2026: complete gids',
+        'title': 'ISDE-subsidie kozijnen 2026',
         'meta_desc': 'Krijg in 2026 tot €222 per m² ISDE-subsidie op triple glas. Voorwaarden, aanvraag-stappen en valkuilen — alles in één gids.',
         'category': 'Subsidie',
         'date': '2026-05-15',
@@ -572,7 +572,7 @@ POSTS = [
 
     {
         'slug': 'schueco-living-82-review',
-        'title': 'Schüco LivIng review: het beste kunststof kozijn van 2026?',
+        'title': 'Schüco LivIng review 2026',
         'meta_desc': 'Onafhankelijke review van Schüco LivIng: 7-kamer, Uf 0,92, RC2. Specs, voor- en nadelen, vergelijking met concurrenten.',
         'category': 'Product review',
         'date': '2026-05-12',
@@ -689,7 +689,7 @@ POSTS = [
 
     {
         'slug': 'inbraakwerend-kozijn-rc2-rc3',
-        'title': 'Inbraakwerend kozijn: alles over RC2, RC3, SKG en PKVW',
+        'title': 'Inbraakwerend kozijn — RC2, RC3, SKG',
         'meta_desc': 'Wat betekenen RC2, RC3, SKG** en PKVW? Inbraakwerendheid van kunststof kozijnen uitgelegd, plus tips voor maximale veiligheid.',
         'category': 'Veiligheid',
         'date': '2026-05-08',
@@ -821,7 +821,7 @@ POSTS = [
 
     {
         'slug': 'kunststof-kozijnen-onderhoud',
-        'title': 'Kunststof kozijnen onderhouden: zo simpel is het',
+        'title': 'Kunststof kozijnen onderhouden',
         'meta_desc': 'Hoe onderhoudt u kunststof kozijnen? Stap-voor-stap gids: schoonmaken, scharnieren, rubbers, kleine reparaties. Niets schilderen, niets schuren.',
         'category': 'Onderhoud',
         'date': '2026-05-04',
@@ -1192,17 +1192,20 @@ def render_landing():
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>Blog & Advies — Praktisch over kunststof kozijnen | Duurkracht Kozijnen</title>
-<meta name="description" content="Praktisch advies over kunststof kozijnen, deuren, schuifpuien en gevelbekleding. Prijzen, subsidies, productadvies en onderhoudstips." />
+<title>Blog &amp; advies kunststof kozijnen | Duurkracht Kozijnen</title>
+<meta name="description" content="Praktisch advies over kunststof kozijnen, deuren, schuifpuien en gevelbekleding: prijzen, ISDE-subsidie, productadvies en onderhoudstips van Duurkracht." />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 <link rel="canonical" href="https://www.duurkrachtkozijnen.nl/blog/" />
 <meta name="theme-color" content="#0B5A2B" />
 
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="nl_NL" />
-<meta property="og:title" content="Blog & Advies — Duurkracht Kozijnen" />
+<meta property="og:title" content="Blog & advies — Duurkracht Kozijnen" />
 <meta property="og:description" content="Praktische gidsen over kozijnen, glas, subsidies en onderhoud." />
+<meta property="og:image" content="https://www.duurkrachtkozijnen.nl/design-assets/images/Nieuwe-voordeur-huis.jpg" />
 <meta property="og:url" content="https://www.duurkrachtkozijnen.nl/blog/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://www.duurkrachtkozijnen.nl/design-assets/images/Nieuwe-voordeur-huis.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
