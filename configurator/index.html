@@ -258,9 +258,12 @@
           <div class="cfg-step-label"><span class="cfg-num">5</span> Kleur</div>
           <div class="cfg-swatches" role="radiogroup" aria-label="Kleur">
             <label class="cfg-swatch"><input type="radio" name="kleur" value="wit" checked /><span class="cfg-swatch-dot" style="background:#f5f5f0"></span><span>Wit</span></label>
-            <label class="cfg-swatch"><input type="radio" name="kleur" value="antraciet" /><span class="cfg-swatch-dot" style="background:#383b3d"></span><span>Antraciet</span></label>
-            <label class="cfg-swatch"><input type="radio" name="kleur" value="houtnerf" /><span class="cfg-swatch-dot" style="background:#8a5a2b"></span><span>Houtnerf</span></label>
             <label class="cfg-swatch"><input type="radio" name="kleur" value="creme" /><span class="cfg-swatch-dot" style="background:#e8e2d0"></span><span>Crème</span></label>
+            <label class="cfg-swatch"><input type="radio" name="kleur" value="antraciet" /><span class="cfg-swatch-dot" style="background:#383b3d"></span><span>Antraciet</span></label>
+            <label class="cfg-swatch"><input type="radio" name="kleur" value="zwart" /><span class="cfg-swatch-dot" style="background:#1c1c1c"></span><span>Zwart</span></label>
+            <label class="cfg-swatch"><input type="radio" name="kleur" value="kwartsgrijs" /><span class="cfg-swatch-dot" style="background:#6b6863"></span><span>Kwartsgrijs</span></label>
+            <label class="cfg-swatch"><input type="radio" name="kleur" value="dennengroen" /><span class="cfg-swatch-dot" style="background:#2e3b2e"></span><span>Dennengroen</span></label>
+            <label class="cfg-swatch"><input type="radio" name="kleur" value="houtnerf" /><span class="cfg-swatch-dot" style="background:#8a5a2b"></span><span>Houtnerf</span></label>
           </div>
         </div>
 
@@ -356,9 +359,11 @@
         { key:'vast',      label:'Vast glas',         mult:0.80, cols:['fixed'] },
         { key:'draai',     label:'Draairaam',         mult:0.96, cols:['turnR'] },
         { key:'valraam',   label:'Valraam',           mult:0.92, cols:['tilt'] },
+        { key:'draai_vast',label:'Draai + vast',      mult:1.50, cols:['turnL','fixed'] },
         { key:'vast_dk',   label:'Vast + draai-kiep', mult:1.55, cols:['fixed','tiltturn'] },
-        { key:'driedelig', label:'3-delig',           mult:2.15, cols:['fixed','tiltturn','fixed'] },
         { key:'stolp',     label:'Stolpraam',         mult:1.55, cols:['turnR','turnL'] },
+        { key:'driedelig', label:'3-delig',           mult:2.15, cols:['fixed','tiltturn','fixed'] },
+        { key:'vierdelig', label:'4-delig',           mult:2.70, cols:['fixed','tiltturn','tiltturn','fixed'] },
         { key:'bovenlicht',label:'Met bovenlicht',    mult:1.30, cols:['tiltturn'], topLight:true }
       ]
     },
@@ -366,28 +371,32 @@
       label:'Voordeur', base:5500, stdM2:2.07, perM2:600, kind:'door',
       wMin:800, wMax:1400, hMin:2000, hMax:2400, wDef:1000, hDef:2300, indeling:'Deurmodel',
       variants:[
-        { key:'dicht',     label:'Dicht paneel',        mult:1.00, style:'panel' },
-        { key:'glasstrook',label:'Met glasstrook',      mult:1.10, style:'glassStrip' },
-        { key:'zijlicht',  label:'Met zijlicht',        mult:1.35, style:'sidelight' },
-        { key:'zijboven',  label:'Zijlicht + bovenlicht',mult:1.60, style:'sideTop' }
+        { key:'dicht',       label:'Dicht paneel',         mult:1.00, blade:'panel' },
+        { key:'glasstrook',  label:'Met glasstrook',       mult:1.10, blade:'glassStrip' },
+        { key:'bovenlicht',  label:'Met bovenlicht',       mult:1.20, blade:'panel', top:true },
+        { key:'zijlicht',    label:'Met zijlicht',         mult:1.35, blade:'glassStrip', sideL:true },
+        { key:'zijboven',    label:'Zijlicht + bovenlicht',mult:1.60, blade:'glassStrip', sideL:true, top:true },
+        { key:'tweezijlicht',label:'2 zijlichten',         mult:1.85, blade:'glassStrip', sideL:true, sideR:true }
       ]
     },
     achterdeur: {
       label:'Achterdeur', base:4500, stdM2:1.89, perM2:560, kind:'door',
       wMin:800, wMax:1300, hMin:2000, hMax:2300, wDef:900, hDef:2100, indeling:'Deurmodel',
       variants:[
-        { key:'half',     label:'Half glas',     mult:1.00, style:'halfglass' },
-        { key:'vol',      label:'Vol glas',      mult:1.10, style:'fullglass' },
-        { key:'zijlicht', label:'Met zijlicht',  mult:1.30, style:'sidelight' }
+        { key:'half',       label:'Half glas',      mult:1.00, blade:'halfglass' },
+        { key:'vol',        label:'Vol glas',       mult:1.10, blade:'fullglass' },
+        { key:'bovenlicht', label:'Met bovenlicht', mult:1.18, blade:'halfglass', top:true },
+        { key:'zijlicht',   label:'Met zijlicht',   mult:1.30, blade:'halfglass', sideL:true }
       ]
     },
     schuifpui: {
       label:'Schuifpui', base:7500, stdM2:6.90, perM2:520, kind:'slider',
       wMin:2000, wMax:6500, hMin:2000, hMax:2700, wDef:3000, hDef:2300, indeling:'Aantal delen',
       variants:[
-        { key:'2delig', label:'2-delig', mult:1.00, panels:2 },
-        { key:'3delig', label:'3-delig', mult:1.45, panels:3 },
-        { key:'4delig', label:'4-delig', mult:1.85, panels:4 }
+        { key:'2delig', label:'2-delig',          mult:1.00, panels:2 },
+        { key:'3delig', label:'3-delig',          mult:1.45, panels:3 },
+        { key:'4delig', label:'4-delig',          mult:1.85, panels:4 },
+        { key:'hef',    label:'Hefschuif premium', mult:1.35, panels:2, hef:true }
       ]
     },
     tuindeuren: {
@@ -400,7 +409,15 @@
     }
   };
   var GLASS = { hrpp:{label:'HR++ glas', mult:1.00, isdeLow:23, isdeHigh:46}, triple:{label:'Triple glas', mult:1.25, isdeLow:111, isdeHigh:222} };
-  var COLOR = { wit:{label:'Wit', mult:1.00, frame:'#f5f5f0', stroke:'#cfcfc6'}, antraciet:{label:'Antraciet', mult:1.15, frame:'#383b3d', stroke:'#26282a'}, houtnerf:{label:'Houtnerf', mult:1.18, frame:'#8a5a2b', stroke:'#6d4620'}, creme:{label:'Crème', mult:1.05, frame:'#e8e2d0', stroke:'#cdc6b0'} };
+  var COLOR = {
+    wit:        {label:'Wit',          mult:1.00, frame:'#f5f5f0', stroke:'#cfcfc6'},
+    creme:      {label:'Crème',        mult:1.05, frame:'#e8e2d0', stroke:'#cdc6b0'},
+    antraciet:  {label:'Antraciet',    mult:1.15, frame:'#383b3d', stroke:'#26282a'},
+    zwart:      {label:'Zwart',        mult:1.15, frame:'#1c1c1c', stroke:'#000000'},
+    kwartsgrijs:{label:'Kwartsgrijs',  mult:1.15, frame:'#6b6863', stroke:'#54514c'},
+    dennengroen:{label:'Dennengroen',  mult:1.18, frame:'#2e3b2e', stroke:'#1f291f'},
+    houtnerf:   {label:'Houtnerf eiken',mult:1.18, frame:'#8a5a2b', stroke:'#6d4620'}
+  };
   var BESLAG = { rc2:{label:'RC2 sluitwerk', mult:1.00}, rc3:{label:'RC3 sluitwerk', mult:1.10} };
   var GLASSFILL = '#cfe0ea', GLASSO = 0.62, HANDLE = '#b9933f';
 
@@ -453,21 +470,23 @@
 
   function drawDoor(v, bx,by,bw,bh, col, fr){
     var s = r(bx,by,bw,bh,col.frame,col.stroke,1.5);
-    var dx=bx, dw=bw, sideW=0, topH=0, style=v.style;
-    if(style==='sidelight' || style==='sideTop'){ sideW=bw*0.26; }
-    if(style==='sideTop'){ topH=bh*0.16; }
-    // zijlicht (links)
-    if(sideW>0){ s += glass(bx+fr, by+fr+topH, sideW-fr*1.5, bh-2*fr-topH); s += r(bx+sideW, by, fr, bh, col.frame); dx=bx+sideW; dw=bw-sideW; }
-    // bovenlicht
-    if(topH>0){ s += glass(bx+fr, by+fr, bw-2*fr, topH-fr*1.5); s += r(bx, by+topH, bw, fr, col.frame); }
+    var sideL=!!v.sideL, sideR=!!v.sideR, top=!!v.top, blade=v.blade||'panel';
+    var sideW = (sideL||sideR) ? bw*0.20 : 0;
+    var topH  = top ? bh*0.15 : 0;
+    var dx = bx + (sideL?sideW:0);
+    var dw = bw - (sideL?sideW:0) - (sideR?sideW:0);
+    // zijlichten
+    if(sideL){ s += glass(bx+fr, by+fr, sideW-fr*1.5, bh-2*fr); s += r(bx+sideW, by, fr, bh, col.frame); }
+    if(sideR){ s += glass(bx+bw-sideW+fr*0.5, by+fr, sideW-fr*1.5, bh-2*fr); s += r(bx+bw-sideW-fr, by, fr, bh, col.frame); }
+    // bovenlicht (alleen boven het deurblad, niet over zijlichten)
+    if(top){ s += glass(dx+fr, by+fr, dw-2*fr, topH-fr*1.5); s += r(dx, by+topH, dw, fr, col.frame); }
     // deurblad
-    var px=dx+fr, py=by+fr+topH, pw=dw-fr*2, ph=bh-2*fr-topH;
+    var px=dx+fr, py=by+topH+fr, pw=dw-2*fr, ph=bh-topH-2*fr;
     s += r(px,py,pw,ph,col.frame,col.stroke,0.8);
-    if(style==='glassStrip'){ s += glass(px+pw*0.60, py+ph*0.06, pw*0.30, ph*0.88); }
-    else if(style==='halfglass'){ s += glass(px+pw*0.12, py+ph*0.06, pw*0.76, ph*0.42); }
-    else if(style==='fullglass'){ s += glass(px+pw*0.12, py+ph*0.06, pw*0.76, ph*0.88); }
-    else if(style==='panel'){ s += r(px+pw*0.18, py+ph*0.10, pw*0.64, ph*0.36, 'none', col.stroke, 1); s += r(px+pw*0.18, py+ph*0.54, pw*0.64, ph*0.36, 'none', col.stroke, 1); }
-    else { /* sidelight/sideTop deurblad: glasstrook */ s += glass(px+pw*0.58, py+ph*0.06, pw*0.32, ph*0.88); }
+    if(blade==='glassStrip'){ s += glass(px+pw*0.58, py+ph*0.06, pw*0.32, ph*0.88); }
+    else if(blade==='halfglass'){ s += glass(px+pw*0.12, py+ph*0.06, pw*0.76, ph*0.42); }
+    else if(blade==='fullglass'){ s += glass(px+pw*0.12, py+ph*0.06, pw*0.76, ph*0.88); }
+    else { /* panel */ s += r(px+pw*0.18, py+ph*0.10, pw*0.64, ph*0.34, 'none', col.stroke, 1); s += r(px+pw*0.18, py+ph*0.54, pw*0.64, ph*0.34, 'none', col.stroke, 1); }
     // kruk
     s += '<circle cx="'+(px+pw*0.14).toFixed(1)+'" cy="'+(py+ph*0.52).toFixed(1)+'" r="2.4" fill="'+HANDLE+'"/>';
     return s;
@@ -479,8 +498,9 @@
     s += glass(gx,gy,gw,gh);
     var pw=gw/n;
     for(var i=1;i<n;i++){ s += r(gx+i*pw-fr*0.4, by, fr*0.8, bh, col.frame); }
-    // grepen op de schuivende delen
-    for(var j=0;j<n;j++){ s += r(gx+j*pw+pw*0.5-1, gy+gh*0.45, 2, gh*0.10, col.frame); }
+    // grepen op de schuivende delen (hefschuif = forsere stang-greep)
+    var hh = v.hef ? gh*0.22 : gh*0.10, hw = v.hef ? 3.2 : 2;
+    for(var j=0;j<n;j++){ s += r(gx+j*pw+pw*0.5-hw/2, gy+gh*0.42, hw, hh, col.frame); }
     return s;
   }
 
