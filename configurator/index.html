@@ -169,8 +169,10 @@
 .cfg-pitem-qty span{ min-width:22px; text-align:center; font-weight:600; font-size:13px; }
 .cfg-pitem-price{ text-align:right; }
 .cfg-pitem-price strong{ display:block; font-size:14.5px; color:var(--green); }
-.cfg-pitem-remove{ background:none; border:none; cursor:pointer; color:var(--gray-500); font-size:12px; text-decoration:underline; padding:2px 0; }
-.cfg-pitem-remove:hover{ color:var(--accent); }
+.cfg-pitem-price > div{ display:inline-flex; gap:10px; margin-top:2px; }
+.cfg-pitem-edit,.cfg-pitem-remove{ background:none; border:none; cursor:pointer; color:var(--gray-500); font-size:12px; text-decoration:underline; padding:2px 0; }
+.cfg-pitem-edit:hover,.cfg-pitem-remove:hover{ color:var(--accent); }
+.cfg-pitem-note{ display:inline-block; font-size:11px; font-weight:600; color:var(--green); background:rgba(11,90,43,.08); border-radius:6px; padding:1px 7px; margin-bottom:3px; }
 .cfg-project-foot{ margin-top:22px; padding-top:22px; border-top:1px solid var(--gray-200); display:flex; flex-wrap:wrap; gap:20px; align-items:center; justify-content:space-between; }
 .cfg-project-totals{ min-width:240px; }
 .cfg-total-line{ display:flex; justify-content:space-between; gap:24px; padding:4px 0; font-size:15px; }
