@@ -410,6 +410,11 @@ def cta_banner(h2_intro, h2_em, p):
 </section>'''
 
 
+def howto_jsonld():
+    """HowTo schema voor de montage-pagina — 5-staps werkwijze."""
+    return '''{"@context":"https://schema.org","@type":"HowTo","name":"Zo plaatst Duurkracht uw kunststof kozijnen","description":"Het montageproces van Duurkracht Kozijnen in vijf stappen, van eerste contact tot oplevering — met eigen monteurs op kunststof stelkozijnen.","totalTime":"P6W","tool":[{"@type":"HowToTool","name":"Kunststof stelkozijn"},{"@type":"HowToTool","name":"Schüco LivIng profiel"}],"step":[{"@type":"HowToStep","position":1,"name":"Contact & intake","text":"U vult het formulier in of belt. Binnen één werkdag bellen we terug om uw wensen te bespreken."},{"@type":"HowToStep","position":2,"name":"Adviesgesprek","text":"Een ervaren adviseur komt vrijblijvend bij u langs en denkt mee over kozijntype, glas en kleur."},{"@type":"HowToStep","position":3,"name":"Inmeting & offerte","text":"Bouwkundige opname op de millimeter. U ontvangt een vaste offerte zonder kleine letters."},{"@type":"HowToStep","position":4,"name":"Productie","text":"Uw Schüco LivIng kozijnen worden op maat geproduceerd. Doorlooptijd circa 4 tot 6 weken."},{"@type":"HowToStep","position":5,"name":"Montage & oplevering","text":"Eigen monteurs plaatsen de kozijnen op kunststof stelkozijnen in 1 à 2 dagen en leveren schoon op."}]}'''
+
+
 def build_page(slug, label, page):
     """Render een complete dienst-pagina."""
     schemas = [
@@ -417,6 +422,8 @@ def build_page(slug, label, page):
         service_jsonld(slug, page['service_name'], page['service_desc'], page.get('brand')),
         faq_jsonld(page['faq'])
     ]
+    if slug == 'montage':
+        schemas.append(howto_jsonld())
     schema_blocks = '\n'.join(f'<script type="application/ld+json">{s}</script>' for s in schemas)
 
     html = head(page['title'], page['description'], slug, page['hero_image']) + schema_blocks + '\n</head>\n<body>\n'

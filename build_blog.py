@@ -968,7 +968,7 @@ def render_article(post):
     # JSON-LD Article schema
     article_schema = {
         "@context": "https://schema.org",
-        "@type": "BlogPosting",
+        "@type": "Article",
         "@id": f"https://www.duurkrachtkozijnen.nl/blog/{slug}/#article",
         "headline": title,
         "description": meta_desc,
@@ -1173,7 +1173,7 @@ def render_landing():
         "name": "Duurkracht Kozijnen Blog",
         "description": "Praktisch advies over kunststof kozijnen, deuren, schuifpuien en gevelbekleding.",
         "publisher": {"@type":"Organization","name":"Duurkracht Kozijnen B.V.","@id":"https://www.duurkrachtkozijnen.nl/#organization"},
-        "blogPost": [{"@type":"BlogPosting","@id":f"https://www.duurkrachtkozijnen.nl/blog/{p['slug']}/#article","headline":p['title'],"datePublished":p['date']} for p in POSTS]
+        "blogPost": [{"@type":"Article","@id":f"https://www.duurkrachtkozijnen.nl/blog/{p['slug']}/#article","headline":p['title'],"datePublished":p['date']} for p in POSTS]
     }
 
     breadcrumb = {
