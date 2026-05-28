@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="nl-NL">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Stel uw kozijn samen — configurator | Duurkracht Kozijnen</title>
+<meta name="description" content="Stel zelf uw kunststof kozijn, deur of schuifpui samen: kies type, afmeting, glas, kleur en beslag en zie direct een prijsindicatie met ISDE-subsidie." />
+<link rel="canonical" href="https://www.duurkrachtkozijnen.nl/configurator/" />
+<link rel="icon" type="image/svg+xml" href="/design-assets/beelmerkje-klein.svg" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#0B5A2B" />
+
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="nl_NL" />
+<meta property="og:url" content="https://www.duurkrachtkozijnen.nl/configurator/" />
+<meta property="og:title" content="Stel uw kozijn samen — Duurkracht Kozijnen" />
+<meta property="og:description" content="Kies type, afmeting, glas, kleur en beslag — zie direct een prijsindicatie met ISDE-subsidie." />
+<meta property="og:image" content="https://www.duurkrachtkozijnen.nl/design-assets/images/Nieuwe-kozijnen-met-deur.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<meta name="geo.region" content="NL-OV" />
+<meta name="geo.placename" content="Hengelo" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/css/site.css" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Duurkracht Kozijnen configurator",
+  "url": "https://www.duurkrachtkozijnen.nl/configurator/",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "description": "Interactieve configurator om kunststof kozijnen, deuren en schuifpuien samen te stellen met directe prijsindicatie.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+  "provider": { "@type": "LocalBusiness", "@id": "https://www.duurkrachtkozijnen.nl/#business", "name": "Duurkracht Kozijnen B.V." }
+}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+  {"@type":"ListItem","position":1,"name":"Home","item":"https://www.duurkrachtkozijnen.nl/"},
+  {"@type":"ListItem","position":2,"name":"Kosten","item":"https://www.duurkrachtkozijnen.nl/kosten/"},
+  {"@type":"ListItem","position":3,"name":"Configurator","item":"https://www.duurkrachtkozijnen.nl/configurator/"}
+]}
+</script>
+
+<style>
+.cfg-section{ background: linear-gradient(180deg, var(--gray-50) 0%, #fff 100%); padding: clamp(50px,7vw,80px) 0; }
+.cfg-head{ text-align: center; max-width: 720px; margin: 0 auto 40px; }
+.cfg-head .eyebrow{ justify-content: center; color: var(--accent); }
+.cfg-head h1 .em-italic{ color: var(--green); }
+.cfg-head p{ margin-top: 14px; color: var(--ink-soft); font-size: 16px; }
+
+.cfg-grid{ display: grid; grid-template-columns: 1.25fr 1fr; gap: 32px; max-width: 1180px; margin: 0 auto; align-items: start; }
+
+/* OPTIES-KOLOM */
+.cfg-options{ background:#fff; border:1px solid var(--gray-200); border-radius:18px; padding: 30px; box-shadow: 0 4px 20px rgba(7,65,32,0.04); }
+.cfg-step{ margin-bottom: 30px; }
+.cfg-step:last-child{ margin-bottom: 0; }
+.cfg-step-label{ display:flex; align-items:center; gap:10px; font-weight:600; font-size:14.5px; color:var(--ink); margin-bottom:14px; }
+.cfg-num{ display:inline-flex; align-items:center; justify-content:center; width:26px; height:26px; border-radius:50%; background:var(--green); color:#fff; font-size:12px; font-weight:700; flex-shrink:0; }
+
+/* Producttegels */
+.cfg-tiles{ display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+.cfg-tile{ cursor:pointer; }
+.cfg-tile input{ position:absolute; opacity:0; pointer-events:none; }
+.cfg-tile-card{ display:flex; flex-direction:column; align-items:center; gap:8px; padding:14px 8px; border:1.5px solid var(--gray-200); border-radius:12px; background:#fff; transition:all .15s ease; text-align:center; }
+.cfg-tile-card svg{ width:34px; height:34px; color:var(--green); }
+.cfg-tile-card span{ font-size:12px; font-weight:600; color:var(--ink-soft); line-height:1.25; }
+.cfg-tile:hover .cfg-tile-card{ border-color:var(--green); }
+.cfg-tile input:checked + .cfg-tile-card{ border-color:var(--green); background:rgba(11,90,43,0.05); box-shadow:0 0 0 3px rgba(11,90,43,0.10); }
+.cfg-tile input:checked + .cfg-tile-card svg{ color:var(--accent); }
+.cfg-tile input:focus-visible + .cfg-tile-card{ outline:2px solid var(--accent); outline-offset:2px; }
+
+/* Indeling-varianten */
+.cfg-variants{ display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
+.cfg-variant{ cursor:pointer; }
+.cfg-variant input{ position:absolute; opacity:0; pointer-events:none; }
+.cfg-variant-card{ display:flex; flex-direction:column; align-items:center; gap:6px; padding:10px 6px; border:1.5px solid var(--gray-200); border-radius:10px; background:#fff; transition:all .15s ease; text-align:center; height:100%; }
+.cfg-variant-card svg{ width:100%; height:46px; }
+.cfg-variant-card span{ font-size:11px; font-weight:600; color:var(--ink-soft); line-height:1.2; }
+.cfg-variant:hover .cfg-variant-card{ border-color:var(--green); }
+.cfg-variant input:checked + .cfg-variant-card{ border-color:var(--green); background:rgba(11,90,43,0.05); box-shadow:0 0 0 3px rgba(11,90,43,0.10); }
+.cfg-variant input:focus-visible + .cfg-variant-card{ outline:2px solid var(--accent); outline-offset:2px; }
+
+/* Sliders */
+.cfg-dim{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+.cfg-dim-field label{ display:block; font-size:12.5px; color:var(--gray-500); margin-bottom:6px; font-weight:600; }
+.cfg-slider-row{ display:flex; align-items:center; gap:12px; }
+.cfg-slider-row input[type=range]{ flex:1; -webkit-appearance:none; appearance:none; height:6px; background:var(--gray-200); border-radius:3px; outline:none; cursor:pointer; }
+.cfg-slider-row input[type=range]::-webkit-slider-thumb{ -webkit-appearance:none; width:20px; height:20px; border-radius:50%; background:var(--accent); border:3px solid #fff; box-shadow:0 2px 6px rgba(237,107,6,.4); cursor:pointer; }
+.cfg-slider-row input[type=range]::-moz-range-thumb{ width:20px; height:20px; border-radius:50%; background:var(--accent); border:3px solid #fff; cursor:pointer; }
+.cfg-slider-row output{ min-width:64px; text-align:right; font-weight:600; font-size:14px; color:var(--green); }
+.cfg-m2{ margin-top:10px; font-size:12.5px; color:var(--gray-500); }
+.cfg-m2 strong{ color:var(--ink); }
+
+/* Pills */
+.cfg-pills{ display:flex; gap:8px; flex-wrap:wrap; }
+.cfg-pill{ position:relative; cursor:pointer; }
+.cfg-pill input{ position:absolute; opacity:0; pointer-events:none; }
+.cfg-pill > span{ display:inline-flex; flex-direction:column; gap:2px; padding:10px 16px; border:1.5px solid var(--gray-200); border-radius:12px; background:#fff; transition:all .15s ease; }
+.cfg-pill > span strong{ font-size:13.5px; color:var(--ink); font-weight:600; }
+.cfg-pill > span small{ font-size:11px; color:var(--gray-500); }
+.cfg-pill:hover > span{ border-color:var(--green); }
+.cfg-pill input:checked + span{ border-color:var(--green); background:rgba(11,90,43,0.05); box-shadow:0 0 0 3px rgba(11,90,43,0.10); }
+.cfg-pill input:focus-visible + span{ outline:2px solid var(--accent); outline-offset:2px; }
+
+/* Kleur-swatches */
+.cfg-swatches{ display:flex; gap:16px; flex-wrap:wrap; }
+.cfg-swatch{ cursor:pointer; text-align:center; flex:0 0 auto; }
+.cfg-swatch input{ position:absolute; opacity:0; pointer-events:none; }
+.cfg-swatch-dot{ width:48px; height:48px; border-radius:50%; border:3px solid #fff; box-shadow:0 0 0 1.5px var(--gray-200); transition:all .15s ease; margin:0 auto 6px; flex-shrink:0; display:block; }
+.cfg-swatch:hover .cfg-swatch-dot{ box-shadow:0 0 0 1.5px var(--green); }
+.cfg-swatch input:checked + .cfg-swatch-dot{ box-shadow:0 0 0 3px var(--green); transform:scale(1.06); }
+.cfg-swatch span{ font-size:11.5px; color:var(--ink-soft); font-weight:500; }
+
+/* PREVIEW + PRIJS KOLOM */
+.cfg-result{ position:sticky; top:100px; display:flex; flex-direction:column; gap:18px; }
+.cfg-preview{ background:#fff; border:1px solid var(--gray-200); border-radius:18px; padding:24px; }
+.cfg-preview-stage{ aspect-ratio:4/3; background:linear-gradient(160deg,#eef2ee,#dde7df); border-radius:12px; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+.cfg-preview-stage svg{ max-width:78%; max-height:82%; filter:drop-shadow(0 8px 18px rgba(0,0,0,.18)); }
+.cfg-preview-cap{ margin-top:12px; text-align:center; font-size:12.5px; color:var(--gray-500); }
+.cfg-preview-cap strong{ color:var(--ink); }
+
+.cfg-pricecard{ background:linear-gradient(135deg,var(--green) 0%,#0e6432 100%); color:#fff; border-radius:18px; padding:26px; box-shadow:0 8px 24px rgba(11,90,43,.22); }
+.cfg-price-eyebrow{ font-size:11.5px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--lime); }
+.cfg-price-value{ font-family:"Fraunces",serif; font-weight:500; font-size:clamp(30px,4vw,42px); line-height:1.05; margin:6px 0 2px; font-variation-settings:"opsz" 144; }
+.cfg-price-sub{ font-size:12.5px; opacity:.8; }
+.cfg-isde{ margin-top:16px; padding-top:16px; border-top:1px solid rgba(255,255,255,.18); font-size:13px; }
+.cfg-isde span{ opacity:.82; }
+.cfg-isde strong{ color:var(--lime); }
+.cfg-spec{ list-style:none; padding:0; margin:16px 0 0; font-size:12.5px; }
+.cfg-spec li{ display:flex; justify-content:space-between; gap:10px; padding:5px 0; border-bottom:1px solid rgba(255,255,255,.10); }
+.cfg-spec li:last-child{ border-bottom:0; }
+.cfg-spec li span:first-child{ opacity:.72; }
+.cfg-cta{ width:100%; justify-content:center; background:var(--accent); margin-top:20px; }
+.cfg-cta:hover{ background:#d05c00; }
+.cfg-disclaimer{ font-size:11px; opacity:.72; margin:12px 0 0; line-height:1.5; }
+.cfg-disclaimer a{ color:var(--lime); text-decoration:underline; }
+
+@media (max-width: 900px){
+  .cfg-grid{ grid-template-columns:1fr; }
+  .cfg-result{ position:static; }
+  .cfg-tiles{ grid-template-columns:repeat(2,1fr); }
+}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip">Direct naar inhoud</a>
+
+<div class="topbar"><div class="container">
+  <span class="live">Nu open — ma t/m vr 08:00 tot 17:00</span>
+  <span>Hassinkweg 1, 7556 BV Hengelo · KvK 90895312</span>
+  <span><a href="tel:+31850731660" rel="nofollow">085 073 1660</a> · <a href="mailto:info@duurkrachtkozijnen.nl">info@duurkrachtkozijnen.nl</a></span>
+</div></div>
+
+<header class="nav">
+  <div class="container">
+    <a href="/" class="nav-logo" aria-label="Duurkracht Kozijnen — homepage">
+      <img src="/design-assets/Logo-duurkracht-kozijnen.svg" alt="Duurkracht Kozijnen logo" width="150" height="44" />
+    </a>
+    <nav aria-label="Hoofdnavigatie">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/diensten/">Diensten</a></li>
+        <li><a href="/kosten/" class="active">Kosten</a></li>
+        <li><a href="/projecten/">Projecten</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/faq/">FAQ</a></li>
+        <li><a href="/over-ons/">Over ons</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a href="tel:+31850731660" class="phone" rel="nofollow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+        085 073 1660
+      </a>
+      <a href="/contact/" class="btn btn-primary">Gratis adviesgesprek <span class="arrow">→</span></a>
+    </div>
+    <button class="nav-mobile-toggle" type="button" aria-label="Open menu" onclick="document.querySelector('.nav ul').style.display = document.querySelector('.nav ul').style.display === 'flex' ? 'none' : 'flex'">
+      <img src="/design-assets/icons/menu-mobile.svg" alt="" />
+    </button>
+  </div>
+</header>
+
+<nav class="breadcrumb" aria-label="Kruimelpad">
+  <div class="container"><ol><li><a href="/">Home</a></li><li><a href="/kosten/">Kosten</a></li><li>Configurator</li></ol></div>
+</nav>
+
+<main id="main">
+<section class="cfg-section">
+  <div class="container">
+    <div class="cfg-head">
+      <span class="eyebrow">Configurator · prijs in 60 seconden</span>
+      <h1>Stel uw kozijn <span class="em-italic">zelf samen.</span></h1>
+      <p>Kies type, afmeting, glas, kleur en beslag — u ziet direct een prijsindicatie inclusief mogelijke ISDE-subsidie. Tevreden? Vraag in één klik een vaste offerte aan.</p>
+    </div>
+
+    <div class="cfg-grid">
+      <!-- OPTIES -->
+      <form class="cfg-options" id="cfg" novalidate>
+        <div class="cfg-step">
+          <div class="cfg-step-label"><span class="cfg-num">1</span> Kies uw product</div>
+          <div class="cfg-tiles" role="radiogroup" aria-label="Producttype">
+            <label class="cfg-tile"><input type="radio" name="product" value="raam" checked />
+              <span class="cfg-tile-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 3l18 18"/></svg><span>Raamkozijn</span></span></label>
+            <label class="cfg-tile"><input type="radio" name="product" value="voordeur" />
+              <span class="cfg-tile-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="2" width="14" height="20" rx="1"/><circle cx="15.5" cy="12" r="1" fill="currentColor"/></svg><span>Voordeur</span></span></label>
+            <label class="cfg-tile"><input type="radio" name="product" value="achterdeur" />
+              <span class="cfg-tile-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="2" width="14" height="20" rx="1"/><rect x="8" y="5" width="8" height="6"/><circle cx="15.5" cy="15" r="1" fill="currentColor"/></svg><span>Achterdeur</span></span></label>
+            <label class="cfg-tile"><input type="radio" name="product" value="schuifpui" />
+              <span class="cfg-tile-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="16" rx="1"/><path d="M12 4v16"/><path d="M7 12h3M14 12h3"/></svg><span>Schuifpui</span></span></label>
+            <label class="cfg-tile"><input type="radio" name="product" value="tuindeuren" />
+              <span class="cfg-tile-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M12 3v18"/><circle cx="10" cy="12" r="0.8" fill="currentColor"/><circle cx="14" cy="12" r="0.8" fill="currentColor"/></svg><span>Tuindeuren</span></span></label>
+          </div>
+        </div>
+
+        <div class="cfg-step">
+          <div class="cfg-step-label"><span class="cfg-num">2</span> <span id="indeling-label">Indeling</span></div>
+          <div class="cfg-variants" id="cfg-variants" role="radiogroup" aria-label="Indeling"></div>
+        </div>
+
+        <div class="cfg-step">
+          <div class="cfg-step-label"><span class="cfg-num">3</span> Afmetingen</div>
+          <div class="cfg-dim">
+            <div class="cfg-dim-field">
+              <label for="breedte">Breedte</label>
+              <div class="cfg-slider-row">
+                <input type="range" id="breedte" name="breedte" min="500" max="3000" step="50" value="1000" />
+                <output id="breedte-val">1000 mm</output>
+              </div>
+            </div>
+            <div class="cfg-dim-field">
+              <label for="hoogte">Hoogte</label>
+              <div class="cfg-slider-row">
+                <input type="range" id="hoogte" name="hoogte" min="500" max="2700" step="50" value="1200" />
+                <output id="hoogte-val">1200 mm</output>
+              </div>
+            </div>
+          </div>
+          <p class="cfg-m2">Oppervlakte: <strong id="m2-val">1,20 m²</strong></p>
+        </div>
+
+        <div class="cfg-step">
+          <div class="cfg-step-label"><span class="cfg-num">4</span> Glas</div>
+          <div class="cfg-pills" role="radiogroup" aria-label="Glastype">
+            <label class="cfg-pill"><input type="radio" name="glas" value="hrpp" checked /><span><strong>HR++</strong><small>U ≤ 1,1 · standaard</small></span></label>
+            <label class="cfg-pill"><input type="radio" name="glas" value="triple" /><span><strong>Triple</strong><small>U ≤ 0,7 · beste isolatie</small></span></label>
+          </div>
+        </div>
+
+        <div class="cfg-step">
+          <div class="cfg-step-label"><span class="cfg-num">5</span> Kleur</div>
+          <div class="cfg-swatches" role="radiogroup" aria-label="Kleur">
+            <label class="cfg-swatch"><input type="radio" name="kleur" value="wit" checked /><span class="cfg-swatch-dot" style="background:#f5f5f0"></span><span>Wit</span></label>
+            <label class="cfg-swatch"><input type="radio" name="kleur" value="antraciet" /><span class="cfg-swatch-dot" style="background:#383b3d"></span><span>Antraciet</span></label>
+            <label class="cfg-swatch"><input type="radio" name="kleur" value="houtnerf" /><span class="cfg-swatch-dot" style="background:#8a5a2b"></span><span>Houtnerf</span></label>
+            <label class="cfg-swatch"><input type="radio" name="kleur" value="creme" /><span class="cfg-swatch-dot" style="background:#e8e2d0"></span><span>Crème</span></label>
+          </div>
+        </div>
+
+        <div class="cfg-step">
+          <div class="cfg-step-label"><span class="cfg-num">6</span> Beslag &amp; veiligheid</div>
+          <div class="cfg-pills" role="radiogroup" aria-label="Beslag">
+            <label class="cfg-pill"><input type="radio" name="beslag" value="rc2" checked /><span><strong>RC2</strong><small>SKG-getest · standaard</small></span></label>
+            <label class="cfg-pill"><input type="radio" name="beslag" value="rc3" /><span><strong>RC3</strong><small>extra inbraakwerend</small></span></label>
+          </div>
+        </div>
+      </form>
+
+      <!-- PREVIEW + PRIJS -->
+      <aside class="cfg-result">
+        <div class="cfg-preview">
+          <div class="cfg-preview-stage">
+            <svg id="cfg-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Live voorbeeld van uw samengestelde kozijn"></svg>
+          </div>
+          <p class="cfg-preview-cap"><strong id="cap-product">Draai-kiepraam</strong> · <span id="cap-dim">100 × 120 cm</span> · <span id="cap-kleur">wit</span></p>
+        </div>
+
+        <div class="cfg-pricecard" aria-live="polite">
+          <span class="cfg-price-eyebrow">Prijsindicatie (incl. btw)</span>
+          <div class="cfg-price-value" id="price-val">€ 2.500</div>
+          <span class="cfg-price-sub">All-in: profiel, glas, stelkozijn, montage, 10 jaar garantie</span>
+          <div class="cfg-isde">
+            <span>Mogelijke ISDE-subsidie:</span> <strong id="isde-val">€ 28 – € 55</strong>
+          </div>
+          <ul class="cfg-spec" id="cfg-spec"></ul>
+          <a href="/contact/" class="btn btn-primary cfg-cta" id="cfg-cta">Vraag vaste offerte aan <span class="arrow" aria-hidden="true">→</span></a>
+          <p class="cfg-disclaimer">Indicatie op basis van standaard uitvoering en RVO ISDE-tarieven 2026. Definitieve prijs en subsidie volgen na gratis inmeting. <a href="https://www.rvo.nl/subsidies-financiering/isde" rel="external nofollow noopener">Bron: RVO</a>.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="ftr-grid">
+      <div class="ftr-brand">
+        <img src="/design-assets/icon-duurkracht-kozijnen-white.svg" alt="Duurkracht Kozijnen" width="180" height="52" />
+        <p>Specialist in kunststof kozijnen, deuren, schuifpuien en Keralit gevelbekleding. Vanuit Hengelo (Overijssel), in heel Nederland.</p>
+        <p><a href="tel:+31850731660" rel="nofollow">085 073 1660</a> · <a href="mailto:info@duurkrachtkozijnen.nl">info@duurkrachtkozijnen.nl</a></p>
+      </div>
+      <div><h5>Diensten</h5><ul>
+        <li><a href="/diensten/kunststof-kozijnen/">Kunststof kozijnen</a></li>
+        <li><a href="/diensten/kunststof-deuren/">Kunststof deuren</a></li>
+        <li><a href="/diensten/kunststof-schuifpuien/">Schuifpuien</a></li>
+        <li><a href="/diensten/kunststof-gevelbekleding/">Gevelbekleding</a></li>
+        <li><a href="/diensten/montage/">Montage</a></li>
+      </ul></div>
+      <div><h5>Handig</h5><ul>
+        <li><a href="/kosten/">Kosten-calculator</a></li>
+        <li><a href="/configurator/">Configurator</a></li>
+        <li><a href="/blog/">Blog &amp; advies</a></li>
+        <li><a href="/faq/">FAQ</a></li>
+      </ul></div>
+      <div><h5>Bedrijf</h5><ul>
+        <li><a href="/over-ons/">Over ons</a></li>
+        <li><a href="/eigenaren/">De eigenaren</a></li>
+        <li><a href="/projecten/">Projecten</a></li>
+        <li><a href="/contact/">Contact</a></li>
+        <li><a href="/privacybeleid/">Privacybeleid</a></li>
+      </ul></div>
+    </div>
+    <div class="ftr-bot">
+      <span>© 2026 Duurkracht Kozijnen B.V. · KvK 90895312 · BTW NL865480112B01</span>
+      <div class="socials">
+        <a href="https://www.facebook.com/duurkrachtkozijnen" rel="noopener" aria-label="Facebook"><img src="/design-assets/icons/icon-facebook.svg" alt="" /></a>
+        <a href="https://wa.me/31850731660" rel="noopener" aria-label="WhatsApp"><img src="/design-assets/icons/icon-whatsapp.svg" alt="" /></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="mobile-cta">
+  <a href="tel:+31850731660" class="btn-mob phone" rel="nofollow">Bel direct</a>
+  <a href="/contact/" class="btn-mob primary">Gratis advies</a>
+</div>
+
+<script>
+(function(){
+  // ── Productdata met indelingen (all-in stelposten, afgeleid van /kosten/) ──
+  // variant.mult = prijsfactor voor de indeling; kost dus méér bij meer vakken/vleugels.
+  var PRODUCTS = {
+    raam: {
+      label:'Raamkozijn', base:2500, stdM2:1.20, perM2:450, kind:'window',
+      wMin:500, wMax:3000, hMin:500, hMax:2400, wDef:1000, hDef:1200, indeling:'Raamindeling',
+      variants:[
+        { key:'draaikiep', label:'Draai-kiep',        mult:1.00, cols:['tiltturn'] },
+        { key:'vast',      label:'Vast glas',         mult:0.80, cols:['fixed'] },
+        { key:'draai',     label:'Draairaam',         mult:0.96, cols:['turnR'] },
+        { key:'valraam',   label:'Valraam',           mult:0.92, cols:['tilt'] },
+        { key:'vast_dk',   label:'Vast + draai-kiep', mult:1.55, cols:['fixed','tiltturn'] },
+        { key:'driedelig', label:'3-delig',           mult:2.15, cols:['fixed','tiltturn','fixed'] },
+        { key:'stolp',     label:'Stolpraam',         mult:1.55, cols:['turnR','turnL'] },
+        { key:'bovenlicht',label:'Met bovenlicht',    mult:1.30, cols:['tiltturn'], topLight:true }
+      ]
+    },
+    voordeur: {
+      label:'Voordeur', base:5500, stdM2:2.07, perM2:600, kind:'door',
+      wMin:800, wMax:1400, hMin:2000, hMax:2400, wDef:1000, hDef:2300, indeling:'Deurmodel',
+      variants:[
+        { key:'dicht',     label:'Dicht paneel',        mult:1.00, style:'panel' },
+        { key:'glasstrook',label:'Met glasstrook',      mult:1.10, style:'glassStrip' },
+        { key:'zijlicht',  label:'Met zijlicht',        mult:1.35, style:'sidelight' },
+        { key:'zijboven',  label:'Zijlicht + bovenlicht',mult:1.60, style:'sideTop' }
+      ]
+    },
+    achterdeur: {
+      label:'Achterdeur', base:4500, stdM2:1.89, perM2:560, kind:'door',
+      wMin:800, wMax:1300, hMin:2000, hMax:2300, wDef:900, hDef:2100, indeling:'Deurmodel',
+      variants:[
+        { key:'half',     label:'Half glas',     mult:1.00, style:'halfglass' },
+        { key:'vol',      label:'Vol glas',      mult:1.10, style:'fullglass' },
+        { key:'zijlicht', label:'Met zijlicht',  mult:1.30, style:'sidelight' }
+      ]
+    },
+    schuifpui: {
+      label:'Schuifpui', base:7500, stdM2:6.90, perM2:520, kind:'slider',
+      wMin:2000, wMax:6500, hMin:2000, hMax:2700, wDef:3000, hDef:2300, indeling:'Aantal delen',
+      variants:[
+        { key:'2delig', label:'2-delig', mult:1.00, panels:2 },
+        { key:'3delig', label:'3-delig', mult:1.45, panels:3 },
+        { key:'4delig', label:'4-delig', mult:1.85, panels:4 }
+      ]
+    },
+    tuindeuren: {
+      label:'Tuindeuren', base:8500, stdM2:3.50, perM2:600, kind:'french',
+      wMin:1200, wMax:3200, hMin:2000, hMax:2400, wDef:1600, hDef:2200, indeling:'Uitvoering',
+      variants:[
+        { key:'dubbel',     label:'Dubbele deuren', mult:1.00, leaves:2, sidelights:false },
+        { key:'dubbel_zij', label:'Met zijlichten', mult:1.40, leaves:2, sidelights:true }
+      ]
+    }
+  };
+  var GLASS = { hrpp:{label:'HR++ glas', mult:1.00, isdeLow:23, isdeHigh:46}, triple:{label:'Triple glas', mult:1.25, isdeLow:111, isdeHigh:222} };
+  var COLOR = { wit:{label:'Wit', mult:1.00, frame:'#f5f5f0', stroke:'#cfcfc6'}, antraciet:{label:'Antraciet', mult:1.15, frame:'#383b3d', stroke:'#26282a'}, houtnerf:{label:'Houtnerf', mult:1.18, frame:'#8a5a2b', stroke:'#6d4620'}, creme:{label:'Crème', mult:1.05, frame:'#e8e2d0', stroke:'#cdc6b0'} };
+  var BESLAG = { rc2:{label:'RC2 sluitwerk', mult:1.00}, rc3:{label:'RC3 sluitwerk', mult:1.10} };
+  var GLASSFILL = '#cfe0ea', GLASSO = 0.62, HANDLE = '#b9933f';
+
+  var form = document.getElementById('cfg');
+  if (!form) return;
+  var bEl = document.getElementById('breedte'), hEl = document.getElementById('hoogte');
+
+  function val(name){ var el=form.elements[name]; return el ? el.value : ''; }
+  function eur(n){ return '€ ' + (Math.round(n/10)*10).toLocaleString('nl-NL'); }
+  function esc(s){ return String(s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); }
+
+  // ── SVG bouwstenen ──
+  function r(x,y,w,h,fill,st,sw){ return '<rect x="'+x.toFixed(1)+'" y="'+y.toFixed(1)+'" width="'+w.toFixed(1)+'" height="'+h.toFixed(1)+'" fill="'+fill+'"'+(st?' stroke="'+st+'" stroke-width="'+(sw||1)+'"':'')+'/>'; }
+  function glass(x,y,w,h){ return '<rect x="'+x.toFixed(1)+'" y="'+y.toFixed(1)+'" width="'+w.toFixed(1)+'" height="'+h.toFixed(1)+'" fill="'+GLASSFILL+'" fill-opacity="'+GLASSO+'"/>'; }
+  function sym(t,x,y,w,h,c){ // opening-symbool per vaktype
+    var cx=x+w/2, cy=y+h/2, sw=1.3, o=0.5;
+    function L(x1,y1,x2,y2){ return '<line x1="'+x1.toFixed(1)+'" y1="'+y1.toFixed(1)+'" x2="'+x2.toFixed(1)+'" y2="'+y2.toFixed(1)+'" stroke="'+c+'" stroke-width="'+sw+'" opacity="'+o+'"/>'; }
+    if(t==='turnR') return L(x,y,x+w,cy)+L(x,y+h,x+w,cy);            // scharnier rechts (punt rechts)
+    if(t==='turnL') return L(x+w,y,x,cy)+L(x+w,y+h,x,cy);            // scharnier links
+    if(t==='tilt')  return L(x,y,cx,y+h)+L(x+w,y,cx,y+h);           // kiep/valraam (punt onder)
+    if(t==='tiltturn') return L(x+w,y,x,cy)+L(x+w,y+h,x,cy)+L(x,y,cx,y+h)+L(x+w,y,cx,y+h); // draai-kiep
+    return ''; // fixed → geen symbool
+  }
+
+  // Teken een raamindeling in box (bx,by,bw,bh)
+  function drawWindow(v, bx,by,bw,bh, col, fr){
+    var s = r(bx,by,bw,bh,col.frame,col.stroke,1.5);
+    var areaY=by, areaH=bh;
+    // bovenlicht: smalle vaste rij bovenaan
+    if(v.topLight){
+      var tlH = bh*0.22;
+      var tgx=bx+fr, tgy=by+fr, tgw=bw-2*fr, tgh=tlH-fr*1.5;
+      s += glass(tgx,tgy,tgw,tgh);
+      s += r(bx, by+tlH-fr*0.5, bw, fr, col.frame); // tussendorpel
+      areaY = by+tlH; areaH = bh-tlH;
+    }
+    var cols=v.cols, n=cols.length;
+    var gx=bx+fr, gy=areaY+fr, gw=bw-2*fr, gh=areaH-2*fr;
+    var cw=gw/n;
+    for(var i=0;i<n;i++){
+      var px=gx+i*cw, pw=cw;
+      // tussenstijl tussen vakken
+      var ix0=px+(i>0?fr*0.5:0), iw=pw-(i>0?fr*0.5:0)-(i<n-1?fr*0.5:0);
+      s += glass(ix0,gy,iw,gh);
+      s += sym(cols[i],ix0,gy,iw,gh,col.frame);
+      if(i<n-1){ s += r(px+cw-fr*0.5, areaY, fr, areaH, col.frame); }
+    }
+    return s;
+  }
+
+  function drawDoor(v, bx,by,bw,bh, col, fr){
+    var s = r(bx,by,bw,bh,col.frame,col.stroke,1.5);
+    var dx=bx, dw=bw, sideW=0, topH=0, style=v.style;
+    if(style==='sidelight' || style==='sideTop'){ sideW=bw*0.26; }
+    if(style==='sideTop'){ topH=bh*0.16; }
+    // zijlicht (links)
+    if(sideW>0){ s += glass(bx+fr, by+fr+topH, sideW-fr*1.5, bh-2*fr-topH); s += r(bx+sideW, by, fr, bh, col.frame); dx=bx+sideW; dw=bw-sideW; }
+    // bovenlicht
+    if(topH>0){ s += glass(bx+fr, by+fr, bw-2*fr, topH-fr*1.5); s += r(bx, by+topH, bw, fr, col.frame); }
+    // deurblad
+    var px=dx+fr, py=by+fr+topH, pw=dw-fr*2, ph=bh-2*fr-topH;
+    s += r(px,py,pw,ph,col.frame,col.stroke,0.8);
+    if(style==='glassStrip'){ s += glass(px+pw*0.60, py+ph*0.06, pw*0.30, ph*0.88); }
+    else if(style==='halfglass'){ s += glass(px+pw*0.12, py+ph*0.06, pw*0.76, ph*0.42); }
+    else if(style==='fullglass'){ s += glass(px+pw*0.12, py+ph*0.06, pw*0.76, ph*0.88); }
+    else if(style==='panel'){ s += r(px+pw*0.18, py+ph*0.10, pw*0.64, ph*0.36, 'none', col.stroke, 1); s += r(px+pw*0.18, py+ph*0.54, pw*0.64, ph*0.36, 'none', col.stroke, 1); }
+    else { /* sidelight/sideTop deurblad: glasstrook */ s += glass(px+pw*0.58, py+ph*0.06, pw*0.32, ph*0.88); }
+    // kruk
+    s += '<circle cx="'+(px+pw*0.14).toFixed(1)+'" cy="'+(py+ph*0.52).toFixed(1)+'" r="2.4" fill="'+HANDLE+'"/>';
+    return s;
+  }
+
+  function drawSlider(v, bx,by,bw,bh, col, fr){
+    var s = r(bx,by,bw,bh,col.frame,col.stroke,1.5);
+    var gx=bx+fr, gy=by+fr, gw=bw-2*fr, gh=bh-2*fr, n=v.panels||2;
+    s += glass(gx,gy,gw,gh);
+    var pw=gw/n;
+    for(var i=1;i<n;i++){ s += r(gx+i*pw-fr*0.4, by, fr*0.8, bh, col.frame); }
+    // grepen op de schuivende delen
+    for(var j=0;j<n;j++){ s += r(gx+j*pw+pw*0.5-1, gy+gh*0.45, 2, gh*0.10, col.frame); }
+    return s;
+  }
+
+  function drawFrench(v, bx,by,bw,bh, col, fr){
+    var s = r(bx,by,bw,bh,col.frame,col.stroke,1.5);
+    var dx=bx, dw=bw, sw=0;
+    if(v.sidelights){ sw=bw*0.18; s += glass(bx+fr, by+fr, sw-fr*1.5, bh-2*fr); s += glass(bx+bw-sw+fr*0.5, by+fr, sw-fr*1.5, bh-2*fr); s += r(bx+sw, by, fr,bh, col.frame); s += r(bx+bw-sw-fr, by, fr,bh, col.frame); dx=bx+sw; dw=bw-2*sw; }
+    var gx=dx+fr, gy=by+fr, gw=dw-2*fr, gh=bh-2*fr;
+    s += glass(gx,gy,gw,gh);
+    s += r(dx+dw/2-fr*0.5, by, fr, bh, col.frame); // middenstijl
+    s += '<circle cx="'+(dx+dw/2-fr*1.1).toFixed(1)+'" cy="'+(by+bh*0.52).toFixed(1)+'" r="2.2" fill="'+HANDLE+'"/>';
+    s += '<circle cx="'+(dx+dw/2+fr*1.1).toFixed(1)+'" cy="'+(by+bh*0.52).toFixed(1)+'" r="2.2" fill="'+HANDLE+'"/>';
+    return s;
+  }
+
+  // Render naar viewbox van 200x200 met opgegeven aspect (ratio = w/h)
+  function buildSVG(kind, v, ratio, col){
+    var maxW=172, maxH=172, vw, vh;
+    if(ratio>=1){ vw=maxW; vh=maxW/ratio; } else { vh=maxH; vw=maxH*ratio; }
+    if(vh>maxH){ vh=maxH; vw=maxH*ratio; }
+    if(vw>maxW){ vw=maxW; vh=maxW/ratio; }
+    var x=(200-vw)/2, y=(200-vh)/2, fr=Math.max(5, vw*0.055);
+    if(kind==='window') return drawWindow(v,x,y,vw,vh,col,fr);
+    if(kind==='door')   return drawDoor(v,x,y,vw,vh,col,fr);
+    if(kind==='slider') return drawSlider(v,x,y,vw,vh,col,fr);
+    if(kind==='french') return drawFrench(v,x,y,vw,vh,col,fr);
+    return '';
+  }
+
+  // Mini-SVG voor een variant-tegel (vaste representatieve verhouding)
+  function variantThumb(kind, v, col){
+    var ratio = (kind==='door') ? 0.5 : (kind==='slider') ? 1.9 : (kind==='french') ? 1.0 : 0.85;
+    return '<svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">'+buildSVG(kind,v,ratio,col)+'</svg>';
+  }
+
+  // ── State & rendering ──
+  var lastProduct = null, currentVariant = {};
+
+  function renderVariants(p, pKey, col){
+    var box = document.getElementById('cfg-variants');
+    document.getElementById('indeling-label').textContent = p.indeling || 'Indeling';
+    var sel = currentVariant[pKey] || p.variants[0].key;
+    var html = '';
+    p.variants.forEach(function(v){
+      var checked = v.key===sel ? ' checked' : '';
+      html += '<label class="cfg-variant"><input type="radio" name="variant" value="'+v.key+'"'+checked+' />'
+            + '<span class="cfg-variant-card">'+variantThumb(p.kind, v, col)+'<span>'+esc(v.label)+'</span></span></label>';
+    });
+    box.innerHTML = html;
+  }
+
+  function getVariant(p, pKey){
+    var key = currentVariant[pKey];
+    var found = p.variants.filter(function(v){ return v.key===key; })[0];
+    return found || p.variants[0];
+  }
+
+  function applyRanges(p, pKey){
+    if(pKey!==lastProduct){ bEl.value=p.wDef; hEl.value=p.hDef; lastProduct=pKey; }
+    bEl.min=p.wMin; bEl.max=p.wMax; hEl.min=p.hMin; hEl.max=p.hMax;
+    if(+bEl.value<p.wMin) bEl.value=p.wMin;
+    if(+bEl.value>p.wMax) bEl.value=p.wMax;
+    if(+hEl.value<p.hMin) hEl.value=p.hMin;
+    if(+hEl.value>p.hMax) hEl.value=p.hMax;
+  }
+
+  function update(opts){
+    opts = opts || {};
+    var pKey = val('product'), p = PRODUCTS[pKey];
+    var productChanged = (pKey!==lastProduct);
+    applyRanges(p, pKey);
+    var col = COLOR[val('kleur')];
+
+    // Bij productwissel: herbouw variant-tegels en kies eerste indeling
+    if(productChanged || opts.forceVariants){
+      if(!currentVariant[pKey]) currentVariant[pKey] = p.variants[0].key;
+      renderVariants(p, pKey, col);
+    }
+    // Onthoud gekozen variant
+    var vKey = val('variant');
+    if(vKey){ currentVariant[pKey] = vKey; }
+    var v = getVariant(p, pKey);
+
+    var w=+bEl.value, h=+hEl.value;
+    var glas=GLASS[val('glas')], bes=BESLAG[val('beslag')];
+    var m2=(w/1000)*(h/1000);
+
+    // prijs: (basis + meerprijs per m² boven standaard) × glas × kleur × beslag × indeling
+    var sub = (p.base + Math.max(0, m2-p.stdM2)*p.perM2) * glas.mult * col.mult * bes.mult * v.mult;
+    var price = Math.round(sub/10)*10;
+
+    var glasM2 = Math.max(0, m2*0.8);
+    var isdeLow = Math.round(glasM2*glas.isdeLow), isdeHigh = Math.round(glasM2*glas.isdeHigh);
+
+    document.getElementById('breedte-val').textContent = w+' mm';
+    document.getElementById('hoogte-val').textContent = h+' mm';
+    document.getElementById('m2-val').textContent = m2.toLocaleString('nl-NL',{minimumFractionDigits:2,maximumFractionDigits:2})+' m²';
+    document.getElementById('price-val').textContent = eur(price);
+    document.getElementById('isde-val').textContent = isdeLow>0 ? (eur(isdeLow)+' – '+eur(isdeHigh)) : '—';
+
+    document.getElementById('cap-product').textContent = p.label + ' · ' + v.label;
+    document.getElementById('cap-dim').textContent = Math.round(w/10)+' × '+Math.round(h/10)+' cm';
+    document.getElementById('cap-kleur').textContent = col.label.toLowerCase();
+
+    document.getElementById('cfg-spec').innerHTML =
+      '<li><span>Indeling</span><span>'+esc(v.label)+'</span></li>' +
+      '<li><span>Glas</span><span>'+glas.label+'</span></li>' +
+      '<li><span>Kleur</span><span>'+col.label+'</span></li>' +
+      '<li><span>Beslag</span><span>'+bes.label+'</span></li>' +
+      '<li><span>Oppervlakte</span><span>'+m2.toLocaleString('nl-NL',{minimumFractionDigits:2,maximumFractionDigits:2})+' m²</span></li>';
+
+    var cfgStr = p.label+' ('+v.label+') '+Math.round(w/10)+'x'+Math.round(h/10)+'cm, '+glas.label+', '+col.label+', '+bes.label+' ('+eur(price)+')';
+    document.getElementById('cfg-cta').href = '/contact/?config=' + encodeURIComponent(cfgStr);
+
+    // grote preview met echte verhouding
+    document.getElementById('cfg-svg').innerHTML = buildSVG(p.kind, v, w/h, col);
+
+    // bij kleurwissel ook de variant-thumbnails herkleuren (zonder selectie te verliezen)
+    if(opts.recolor){ renderVariants(p, pKey, col); }
+  }
+
+  // Events
+  form.addEventListener('input', function(e){
+    if(e.target && e.target.name==='kleur'){ update({recolor:true}); }
+    else { update(); }
+  });
+  form.addEventListener('change', function(e){
+    if(e.target && e.target.name==='product'){ update({forceVariants:true}); }
+    else if(e.target && e.target.name==='kleur'){ update({recolor:true}); }
+    else { update(); }
+  });
+
+  // init
+  update({forceVariants:true});
+})();
+</script>
+
+</body>
+</html>
