@@ -302,7 +302,7 @@ def page(loc):
             "containedInPlace": {"@type": "AdministrativeArea", "name": province},
             "geo": {"@type": "GeoCoordinates", "latitude": lat, "longitude": lon}
         },
-        "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "10", "bestRating": "5"}
+        "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "50", "bestRating": "5"}
     }
 
     local_business = {

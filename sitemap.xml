@@ -6,7 +6,7 @@
 
   <url>
     <loc>https://www.duurkrachtkozijnen.nl/</loc>
-    <lastmod>2026-05-24</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -16,67 +16,67 @@
   </url>
 
   <!-- Diensten -->
-  <url><loc>https://www.duurkrachtkozijnen.nl/diensten/</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.duurkrachtkozijnen.nl/diensten/kunststof-kozijnen/</loc><lastmod>2026-05-24</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.duurkrachtkozijnen.nl/diensten/kunststof-deuren/</loc><lastmod>2026-05-24</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.duurkrachtkozijnen.nl/diensten/kunststof-schuifpuien/</loc><lastmod>2026-05-24</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.duurkrachtkozijnen.nl/diensten/kunststof-gevelbekleding/</loc><lastmod>2026-05-24</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.duurkrachtkozijnen.nl/diensten/montage/</loc><lastmod>2026-05-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.duurkrachtkozijnen.nl/diensten/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.duurkrachtkozijnen.nl/diensten/kunststof-kozijnen/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.duurkrachtkozijnen.nl/diensten/kunststof-deuren/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.duurkrachtkozijnen.nl/diensten/kunststof-schuifpuien/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.duurkrachtkozijnen.nl/diensten/kunststof-gevelbekleding/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.duurkrachtkozijnen.nl/diensten/montage/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
   <!-- Bedrijfspagina's -->
-  <url><loc>https://www.duurkrachtkozijnen.nl/over-ons/</loc><lastmod>2026-05-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.duurkrachtkozijnen.nl/eigenaren/</loc><lastmod>2026-05-26</lastmod><changefreq>yearly</changefreq><priority>0.6</priority>
+  <url><loc>https://www.duurkrachtkozijnen.nl/over-ons/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.duurkrachtkozijnen.nl/eigenaren/</loc><lastmod>2026-06-02</lastmod><changefreq>yearly</changefreq><priority>0.6</priority>
     <image:image>
       <image:loc>https://www.duurkrachtkozijnen.nl/design-assets/images/eigenaren-duurkracht-kozijnen.jpg</image:loc>
       <image:title>Romin Ahmadi en Michael van Oostveen — eigenaren Duurkracht Kozijnen</image:title>
     </image:image>
   </url>
-  <url><loc>https://www.duurkrachtkozijnen.nl/projecten/</loc><lastmod>2026-05-24</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.duurkrachtkozijnen.nl/contact/</loc><lastmod>2026-05-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.duurkrachtkozijnen.nl/faq/</loc><lastmod>2026-05-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.duurkrachtkozijnen.nl/kosten/</loc><lastmod>2026-05-25</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.duurkrachtkozijnen.nl/configurator/</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.duurkrachtkozijnen.nl/projecten/</loc><lastmod>2026-06-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.duurkrachtkozijnen.nl/contact/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.duurkrachtkozijnen.nl/faq/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.duurkrachtkozijnen.nl/kosten/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.duurkrachtkozijnen.nl/configurator/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <!-- Blog -->
-  <url><loc>https://www.duurkrachtkozijnen.nl/blog/</loc><lastmod>2026-05-24</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.duurkrachtkozijnen.nl/blog/compriband-vs-kunststof-stelkozijn-montage/</loc><lastmod>2026-05-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.duurkrachtkozijnen.nl/blog/kunststof-kozijnen-kosten/</loc><lastmod>2026-05-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.duurkrachtkozijnen.nl/blog/hr-plus-plus-of-triple-glas/</loc><lastmod>2026-05-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.duurkrachtkozijnen.nl/blog/isde-subsidie-kozijnen-2026/</loc><lastmod>2026-05-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.duurkrachtkozijnen.nl/blog/schueco-living-82-review/</loc><lastmod>2026-05-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.duurkrachtkozijnen.nl/blog/inbraakwerend-kozijn-rc2-rc3/</loc><lastmod>2026-05-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.duurkrachtkozijnen.nl/blog/kunststof-kozijnen-onderhoud/</loc><lastmod>2026-05-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.duurkrachtkozijnen.nl/privacybeleid/</loc><lastmod>2026-05-24</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://www.duurkrachtkozijnen.nl/blog/</loc><lastmod>2026-06-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.duurkrachtkozijnen.nl/blog/compriband-vs-kunststof-stelkozijn-montage/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.duurkrachtkozijnen.nl/blog/kunststof-kozijnen-kosten/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.duurkrachtkozijnen.nl/blog/hr-plus-plus-of-triple-glas/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.duurkrachtkozijnen.nl/blog/isde-subsidie-kozijnen-2026/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.duurkrachtkozijnen.nl/blog/schueco-living-82-review/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.duurkrachtkozijnen.nl/blog/inbraakwerend-kozijn-rc2-rc3/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.duurkrachtkozijnen.nl/blog/kunststof-kozijnen-onderhoud/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.duurkrachtkozijnen.nl/privacybeleid/</loc><lastmod>2026-06-02</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
 
   <!-- Locatie-pagina's -->
-  <url><loc>https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-oldenzaal/</loc><lastmod>2026-05-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-borne/</loc><lastmod>2026-05-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-hengelo/</loc><lastmod>2026-05-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-enschede/</loc><lastmod>2026-05-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-almelo/</loc><lastmod>2026-05-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-deventer/</loc><lastmod>2026-05-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-zwolle/</loc><lastmod>2026-05-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-apeldoorn/</loc><lastmod>2026-05-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-arnhem/</loc><lastmod>2026-05-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-assen/</loc><lastmod>2026-05-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-emmen/</loc><lastmod>2026-05-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-hoogeveen/</loc><lastmod>2026-05-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-leeuwarden/</loc><lastmod>2026-05-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-heerenveen/</loc><lastmod>2026-05-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-drachten/</loc><lastmod>2026-05-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-lelystad/</loc><lastmod>2026-05-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-almere/</loc><lastmod>2026-05-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-utrecht/</loc><lastmod>2026-05-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-den-haag/</loc><lastmod>2026-05-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-rotterdam/</loc><lastmod>2026-05-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-nijmegen/</loc><lastmod>2026-05-25</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-groningen/</loc><lastmod>2026-05-25</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-amsterdam/</loc><lastmod>2026-05-25</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-eindhoven/</loc><lastmod>2026-05-25</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-breda/</loc><lastmod>2026-05-25</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-oldenzaal/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-borne/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-hengelo/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-enschede/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-almelo/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-deventer/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-zwolle/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-apeldoorn/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-arnhem/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-assen/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-emmen/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-hoogeveen/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-leeuwarden/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-heerenveen/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-drachten/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-lelystad/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-almere/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-utrecht/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-den-haag/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-rotterdam/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-nijmegen/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-groningen/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-amsterdam/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-eindhoven/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-breda/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
   <!-- Blog — nieuwe artikelen -->
-  <url><loc>https://www.duurkrachtkozijnen.nl/blog/kunststof-kozijnen-kleuren/</loc><lastmod>2026-05-25</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.duurkrachtkozijnen.nl/blog/kunststof-vs-houten-kozijnen/</loc><lastmod>2026-05-25</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.duurkrachtkozijnen.nl/blog/schueco-living-vs-andere-merken/</loc><lastmod>2026-05-25</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.duurkrachtkozijnen.nl/blog/kunststof-kozijnen-kleuren/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.duurkrachtkozijnen.nl/blog/kunststof-vs-houten-kozijnen/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.duurkrachtkozijnen.nl/blog/schueco-living-vs-andere-merken/</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
 </urlset>
