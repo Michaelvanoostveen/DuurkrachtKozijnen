@@ -852,7 +852,7 @@ footer{
   padding: 80px 0 24px; font-size: 14px;
 }
 .ftr-grid{ display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 50px; border-bottom: 1px solid #2a2a2a; }
-.ftr-grid h5{ font-size: 11px; letter-spacing: .18em; color: #777; margin: 0 0 18px; font-weight: 600; text-transform: uppercase; }
+.ftr-grid .ftr-nav-title{ font-size: 11px; letter-spacing: .18em; color: #777; margin: 0 0 18px; font-weight: 600; text-transform: uppercase; }
 .ftr-grid ul{ list-style: none; margin: 0; padding: 0; }
 .ftr-grid ul li{ margin-bottom: 10px; }
 .ftr-grid a{ color: #ccc; }

@@ -305,6 +305,37 @@ def page(loc):
         "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "10", "bestRating": "5"}
     }
 
+    local_business = {
+        "@context": "https://schema.org",
+        "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
+        "@id": "https://www.duurkrachtkozijnen.nl/#business",
+        "name": "Duurkracht Kozijnen B.V.",
+        "url": "https://www.duurkrachtkozijnen.nl/",
+        "telephone": "+31850731660",
+        "email": "info@duurkrachtkozijnen.nl",
+        "image": "https://www.duurkrachtkozijnen.nl/design-assets/Logo-duurkracht-kozijnen.svg",
+        "logo": "https://www.duurkrachtkozijnen.nl/design-assets/Logo-duurkracht-kozijnen.svg",
+        "priceRange": "€€",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Hassinkweg 1",
+            "addressLocality": "Hengelo",
+            "postalCode": "7556 BV",
+            "addressCountry": "NL"
+        },
+        "geo": {"@type": "GeoCoordinates", "latitude": 52.2660, "longitude": 6.7936},
+        "openingHoursSpecification": [
+            {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+             "opens": "08:00", "closes": "17:00"}
+        ],
+        "areaServed": {"@type": "City", "name": name, "containedInPlace": {"@type": "AdministrativeArea", "name": province}},
+        "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "50", "bestRating": "5"},
+        "sameAs": [
+            "https://www.facebook.com/duurkrachtkozijnen",
+            "https://wa.me/31850731660"
+        ]
+    }
+
     breadcrumb = {
         "@context": "https://schema.org", "@type": "BreadcrumbList",
         "itemListElement": [
@@ -328,7 +359,7 @@ def page(loc):
         ]
     }
 
-    schemas = '\n'.join(f'<script type="application/ld+json">{json.dumps(s, ensure_ascii=False)}</script>' for s in [business_schema, breadcrumb, faq])
+    schemas = '\n'.join(f'<script type="application/ld+json">{json.dumps(s, ensure_ascii=False)}</script>' for s in [business_schema, local_business, breadcrumb, faq])
 
     wijken_html = ''.join(f'<li>{w}</li>' for w in wijken)
 
@@ -587,14 +618,14 @@ def page(loc):
         <p>Specialist in kunststof kozijnen, deuren, schuifpuien en Keralit gevelbekleding. Vanuit Hengelo, in heel Nederland.</p>
         <p><a href="tel:+31850731660" rel="nofollow">085 073 1660</a> · <a href="mailto:info@duurkrachtkozijnen.nl">info@duurkrachtkozijnen.nl</a></p>
       </div>
-      <div><h5>Diensten</h5><ul>
+      <div><p class="ftr-nav-title">Diensten</p><ul>
         <li><a href="/diensten/kunststof-kozijnen/">Kunststof kozijnen</a></li>
         <li><a href="/diensten/kunststof-deuren/">Kunststof deuren</a></li>
         <li><a href="/diensten/kunststof-schuifpuien/">Schuifpuien</a></li>
         <li><a href="/diensten/kunststof-gevelbekleding/">Gevelbekleding</a></li>
         <li><a href="/diensten/montage/">Montage</a></li>
       </ul></div>
-      <div><h5>Werkgebied</h5><ul>
+      <div><p class="ftr-nav-title">Werkgebied</p><ul>
         <li><a href="/kunststof-kozijnen-hengelo/">Hengelo</a></li>
         <li><a href="/kunststof-kozijnen-enschede/">Enschede</a></li>
         <li><a href="/kunststof-kozijnen-almelo/">Almelo</a></li>
@@ -606,7 +637,7 @@ def page(loc):
         <li><a href="/kunststof-kozijnen-eindhoven/">Eindhoven</a></li>
         <li><a href="/kunststof-kozijnen-breda/">Breda</a></li>
       </ul></div>
-      <div><h5>Bedrijf</h5><ul>
+      <div><p class="ftr-nav-title">Bedrijf</p><ul>
         <li><a href="/over-ons/">Over ons</a></li>
         <li><a href="/projecten/">Projecten</a></li>
         <li><a href="/blog/">Blog &amp; advies</a></li>
