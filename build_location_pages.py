@@ -263,6 +263,264 @@ LOCATIONS = [
         'recent_project': 'complete gevelrenovatie met Keralit en 9 kozijnen in Teteringen',
         'inwoners': '185.000',
     },
+
+    # ===== Overijssel — extra steden >50.000 inwoners =====
+    {
+        'slug': 'kampen', 'name': 'Kampen', 'province': 'Overijssel', 'region': 'IJsseldelta',
+        'lat': 52.5550, 'lon': 5.9111,
+        'rijtijd': 60, 'afstand_km': 85,
+        'intro': 'Kampen heeft een historische binnenstad aan de IJssel én moderne uitbreidingen zoals Het Onderdijks. Wij plaatsen kunststof kozijnen die qua uitstraling aansluiten bij zowel de karakteristieke gevels als de nieuwbouw.',
+        'usp_extra': 'oog voor historische IJsselgevels én nieuwbouw',
+        'wijken': ['Brunnepe', 'IJsselmuiden', 'Hagenbroek', 'Cellesbroek', 'Onderdijks', 'Binnenstad'],
+        'recent_project': 'witte kozijnen met houtnerf in een jaren-30 woning in Brunnepe',
+        'inwoners': '54.000',
+    },
+
+    # ===== Gelderland — extra steden >50.000 inwoners =====
+    {
+        'slug': 'ede', 'name': 'Ede', 'province': 'Gelderland', 'region': 'Veluwe',
+        'lat': 52.0402, 'lon': 5.6648,
+        'rijtijd': 75, 'afstand_km': 95,
+        'intro': 'Ede ligt aan de rand van de Veluwe en kent veel ruime gezinswoningen en nieuwbouwwijken zoals Kernhem en Veldhuizen. Daar maken goed isolerende kunststof kozijnen direct verschil op comfort en energierekening.',
+        'usp_extra': 'specialist in energiezuinige beglazing en isolatie',
+        'wijken': ['Veldhuizen', 'Kernhem', 'Ede-Zuid', 'Rietkampen', 'Bennekom', 'Maandereng'],
+        'recent_project': 'triple glas en 9 kozijnen op een twee-onder-een-kap in Kernhem',
+        'inwoners': '73.000',
+    },
+    {
+        'slug': 'doetinchem', 'name': 'Doetinchem', 'province': 'Gelderland', 'region': 'Achterhoek',
+        'lat': 51.9650, 'lon': 6.2880,
+        'rijtijd': 55, 'afstand_km': 70,
+        'intro': 'Doetinchem is het centrum van de Achterhoek en heeft veel woningen uit de jaren 70 en 80 die toe zijn aan een isolatie-upgrade. Wij plaatsen kunststof kozijnen die tocht en warmteverlies merkbaar verminderen.',
+        'usp_extra': 'jaren-70/80 woningen — isolatie-upgrades',
+        'wijken': ['Overstegen', 'De Huet', 'Dichteren', 'Wijnbergen', 'Oosseld', 'Schöneveld'],
+        'recent_project': '10 kozijnen + antraciet voordeur in De Huet',
+        'inwoners': '57.000',
+    },
+
+    # ===== Noord-Holland — extra steden >50.000 inwoners =====
+    {
+        'slug': 'haarlem', 'name': 'Haarlem', 'province': 'Noord-Holland', 'region': 'Kennemerland',
+        'lat': 52.3874, 'lon': 4.6462,
+        'rijtijd': 110, 'afstand_km': 175,
+        'intro': 'Haarlem heeft een prachtige mix van monumentale binnenstadwoningen en wijken als Schalkwijk. Wij plaatsen Schüco LivIng kozijnen die het karakter van de gevel respecteren, met nette afwerking en minimale overlast.',
+        'usp_extra': 'oog voor monumentale gevels en strakke afwerking',
+        'wijken': ['Schalkwijk', 'Haarlem-Noord', 'Centrum', 'Zuidwest', 'Parkwijk', 'Vondelkwartier'],
+        'recent_project': 'witte kozijnen met roedeverdeling in een jaren-30 woning in Haarlem-Noord',
+        'inwoners': '162.000',
+    },
+    {
+        'slug': 'zaandam', 'name': 'Zaandam', 'province': 'Noord-Holland', 'region': 'Zaanstreek',
+        'lat': 52.4389, 'lon': 4.8260,
+        'rijtijd': 105, 'afstand_km': 165,
+        'intro': 'Zaandam combineert karakteristieke Zaanse architectuur met moderne nieuwbouw rond Inverdan. Wij plaatsen kunststof kozijnen die passen bij zowel klassieke als hedendaagse gevels.',
+        'usp_extra': 'ervaring met Zaanse en moderne woningtypen',
+        'wijken': ['Westerwatering', 'Poelenburg', 'Rosmolenwijk', 'Kogerveld', 'Inverdan', 'Pelderveld'],
+        'recent_project': 'antraciet kozijnen op een tussenwoning in Westerwatering',
+        'inwoners': '77.000',
+    },
+    {
+        'slug': 'hoofddorp', 'name': 'Hoofddorp', 'province': 'Noord-Holland', 'region': 'Haarlemmermeer',
+        'lat': 52.3061, 'lon': 4.6907,
+        'rijtijd': 110, 'afstand_km': 175,
+        'intro': 'Hoofddorp is een groene, ruim opgezette stad in de Haarlemmermeer met veel nieuwbouwwijken zoals Floriande en Toolenburg. Hier plaatsen wij vaak moderne kunststof kozijnen met goed isolerend glas.',
+        'usp_extra': 'specialist in moderne nieuwbouw',
+        'wijken': ['Bornholm', 'Toolenburg', 'Floriande', 'Graan voor Visch', 'Pax', 'Overbos'],
+        'recent_project': 'antraciet schuifpui 4m in Floriande',
+        'inwoners': '78.000',
+    },
+    {
+        'slug': 'alkmaar', 'name': 'Alkmaar', 'province': 'Noord-Holland', 'region': 'Noord-Kennemerland',
+        'lat': 52.6324, 'lon': 4.7534,
+        'rijtijd': 120, 'afstand_km': 190,
+        'intro': 'Alkmaar heeft een historische kaasstadkern en ruime naoorlogse wijken als De Mare en Huiswaard. Wij plaatsen kunststof kozijnen die het comfort verbeteren zonder het karakter van de woning aan te tasten.',
+        'usp_extra': 'ervaring met historische én naoorlogse woningen',
+        'wijken': ['Overdie', 'De Mare', 'Huiswaard', 'Daalmeer', 'Oudorp', 'Bergermeer'],
+        'recent_project': '8 kozijnen vervangen in Huiswaard — energielabel flink omhoog',
+        'inwoners': '110.000',
+    },
+    {
+        'slug': 'amstelveen', 'name': 'Amstelveen', 'province': 'Noord-Holland', 'region': 'Amstelland',
+        'lat': 52.3114, 'lon': 4.8701,
+        'rijtijd': 100, 'afstand_km': 155,
+        'intro': 'Amstelveen is een groene woonstad met veel ruime jaren-60/70 woningen en moderne villa\'s. Antraciet kunststof kozijnen en hefschuifpuien zijn hier een veelgevraagde combinatie.',
+        'usp_extra': 'hefschuifpuien en antraciet kozijnen populair',
+        'wijken': ['Westwijk', 'Groenelaan', 'Bankras', 'Keizer Karelpark', 'Middenhoven', 'Waardhuizen'],
+        'recent_project': 'hefschuif 5m + 6 kozijnen in Westwijk',
+        'inwoners': '92.000',
+    },
+    {
+        'slug': 'hilversum', 'name': 'Hilversum', 'province': 'Noord-Holland', 'region': 'Gooi',
+        'lat': 52.2292, 'lon': 5.1669,
+        'rijtijd': 90, 'afstand_km': 130,
+        'intro': 'Hilversum staat bekend om zijn karakteristieke jaren-30 architectuur en ruime villawijken in het Gooi. Wij plaatsen kunststof kozijnen die deze stijl respecteren, met houtnerf en fijne profielen waar gewenst.',
+        'usp_extra': 'oog voor jaren-30 en Gooise villa-architectuur',
+        'wijken': ['Kerkelanden', 'Hilversumse Meent', 'Zeeheldenbuurt', 'Bloemenbuurt', 'Trompenberg', 'Kleine Drift'],
+        'recent_project': 'kunststof kozijnen met houtnerf in een jaren-30 villa op de Trompenberg',
+        'inwoners': '92.000',
+    },
+    {
+        'slug': 'purmerend', 'name': 'Purmerend', 'province': 'Noord-Holland', 'region': 'Waterland',
+        'lat': 52.5050, 'lon': 4.9597,
+        'rijtijd': 115, 'afstand_km': 175,
+        'intro': 'Purmerend heeft uitgestrekte wijken uit de jaren 70-90 zoals Weidevenne en Purmer-Noord. Daar betekenen nieuwe kunststof kozijnen een flinke sprong in comfort en een lagere energierekening.',
+        'usp_extra': 'specialist in jaren-70/90 isolatie-upgrades',
+        'wijken': ['Weidevenne', 'Purmer-Noord', 'Purmer-Zuid', 'Wheermolen', 'Gors', 'Overwhere'],
+        'recent_project': '11 kozijnen + voordeur in Weidevenne',
+        'inwoners': '81.000',
+    },
+    {
+        'slug': 'hoorn', 'name': 'Hoorn', 'province': 'Noord-Holland', 'region': 'West-Friesland',
+        'lat': 52.6425, 'lon': 5.0597,
+        'rijtijd': 120, 'afstand_km': 180,
+        'intro': 'Hoorn combineert een historische havenstad met moderne nieuwbouw in Bangert en Oosterpolder. Wij plaatsen kunststof kozijnen die passen bij zowel de oude binnenstad als de nieuwere wijken.',
+        'usp_extra': 'ervaring met historische én nieuwbouwwoningen',
+        'wijken': ['Kersenboogerd', 'Risdam', 'Grote Waal', 'Bangert en Oosterpolder', 'Venenlaankwartier', 'Binnenstad'],
+        'recent_project': 'moderne kozijnen en schuifpui in Bangert en Oosterpolder',
+        'inwoners': '73.000',
+    },
+    {
+        'slug': 'den-helder', 'name': 'Den Helder', 'province': 'Noord-Holland', 'region': 'Kop van Noord-Holland',
+        'lat': 52.9563, 'lon': 4.7601,
+        'rijtijd': 140, 'afstand_km': 215,
+        'intro': 'Den Helder ligt aan de kust en kent woningen die flink te verduren krijgen van wind en zilte lucht. Onderhoudsarme kunststof kozijnen zijn hier een uitstekende keuze — nooit meer schilderen en bestand tegen het kustklimaat.',
+        'usp_extra': 'onderhoudsarm en bestand tegen kustklimaat',
+        'wijken': ['Nieuw Den Helder', 'De Schooten', 'Julianadorp', 'Stad Binnen de Linie', 'Visbuurt'],
+        'recent_project': '9 onderhoudsarme kozijnen op een hoekwoning in De Schooten',
+        'inwoners': '55.000',
+    },
+    {
+        'slug': 'heerhugowaard', 'name': 'Heerhugowaard', 'province': 'Noord-Holland', 'region': 'Noord-Kennemerland',
+        'lat': 52.6709, 'lon': 4.8290,
+        'rijtijd': 125, 'afstand_km': 195,
+        'intro': 'Heerhugowaard is een ruim opgezette woonstad met veel uniforme jaren-80/90 wijken, waaronder de bekende Stad van de Zon. Hier werken we vaak met standaard maatvoering, wat de doorlooptijd verkort.',
+        'usp_extra': 'standaard maatvoering, snelle doorlooptijd',
+        'wijken': ['Stad van de Zon', 'De Noord', 'Schilderswijk', 'Butterhuizen', 'Rivierenwijk', 'Centrumwaard'],
+        'recent_project': '8 kozijnen met antraciet voordeur in de Schilderswijk',
+        'inwoners': '52.000',
+    },
+
+    # ===== Zuid-Holland — extra steden >50.000 inwoners =====
+    {
+        'slug': 'zoetermeer', 'name': 'Zoetermeer', 'province': 'Zuid-Holland', 'region': 'Haaglanden',
+        'lat': 52.0575, 'lon': 4.4940,
+        'rijtijd': 115, 'afstand_km': 175,
+        'intro': 'Zoetermeer is grotendeels gebouwd vanaf de jaren 70 en heeft uitgestrekte, uniforme wijken als Rokkeveen en Oosterheem. Nieuwe kunststof kozijnen zorgen hier voor merkbaar minder tocht en een lagere energierekening.',
+        'usp_extra': 'specialist in groeikern-woningbouw uit de jaren 70-90',
+        'wijken': ['Rokkeveen', 'Oosterheem', 'Meerzicht', 'Buytenwegh', 'Seghwaert', 'De Leyens'],
+        'recent_project': '10 kozijnen + schuifpui in Rokkeveen',
+        'inwoners': '125.000',
+    },
+    {
+        'slug': 'leiden', 'name': 'Leiden', 'province': 'Zuid-Holland', 'region': 'Randstad',
+        'lat': 52.1601, 'lon': 4.4970,
+        'rijtijd': 120, 'afstand_km': 185,
+        'intro': 'Leiden heeft een rijke historische binnenstad en wijken als Stevenshof en Merenwijk. Wij plaatsen kunststof kozijnen die zorgvuldig worden afgewerkt om bij zowel monumentale als naoorlogse woningen te passen.',
+        'usp_extra': 'oog voor monumentale binnenstadgevels',
+        'wijken': ['Stevenshof', 'Merenwijk', 'Roodenburgerdistrict', 'Mors', 'Bos- en Gasthuisdistrict', 'Binnenstad'],
+        'recent_project': 'witte kozijnen met roedes in een vooroorlogse woning in de Mors',
+        'inwoners': '127.000',
+    },
+    {
+        'slug': 'dordrecht', 'name': 'Dordrecht', 'province': 'Zuid-Holland', 'region': 'Drechtsteden',
+        'lat': 51.8133, 'lon': 4.6901,
+        'rijtijd': 120, 'afstand_km': 190,
+        'intro': 'Dordrecht is de oudste stad van Holland en heeft naast de historische binnenstad ruime naoorlogse wijken als Sterrenburg en Stadspolders. Wij plaatsen kunststof kozijnen passend bij elk woningtype.',
+        'usp_extra': 'ervaring met historische én naoorlogse woningen',
+        'wijken': ['Sterrenburg', 'Dubbeldam', 'Stadspolders', 'Wielwijk', 'Crabbehof', 'Binnenstad'],
+        'recent_project': '12 kozijnen op een rijwoning in Sterrenburg',
+        'inwoners': '119.000',
+    },
+    {
+        'slug': 'delft', 'name': 'Delft', 'province': 'Zuid-Holland', 'region': 'Haaglanden',
+        'lat': 52.0116, 'lon': 4.3571,
+        'rijtijd': 125, 'afstand_km': 195,
+        'intro': 'Delft combineert een monumentale binnenstad met moderne wijken als Tanthof en Voorhof. Wij plaatsen Schüco LivIng kozijnen met aandacht voor detail, zodat ze naadloos aansluiten bij de bestaande gevel.',
+        'usp_extra': 'aandacht voor detail bij monumentale gevels',
+        'wijken': ['Tanthof', 'Voorhof', 'Buitenhof', 'Hof van Delft', 'Vrijenban', 'Wippolder'],
+        'recent_project': 'antraciet kozijnen op een eengezinswoning in Tanthof',
+        'inwoners': '104.000',
+    },
+    {
+        'slug': 'alphen-aan-den-rijn', 'name': 'Alphen aan den Rijn', 'province': 'Zuid-Holland', 'region': 'Groene Hart',
+        'lat': 52.1242, 'lon': 4.6630,
+        'rijtijd': 115, 'afstand_km': 175,
+        'intro': 'Alphen aan den Rijn ligt in het Groene Hart en heeft veel ruime gezinswoningen in wijken als Ridderveld en Kerk en Zanen. Hier maken goed isolerende kunststof kozijnen direct verschil op comfort en stookkosten.',
+        'usp_extra': 'specialist in energiezuinige gezinswoningen',
+        'wijken': ['Ridderveld', 'Kerk en Zanen', 'Zwammerdam', 'Boskoop', 'Hazerswoude', 'Centrum'],
+        'recent_project': '9 kozijnen + voordeur in Kerk en Zanen',
+        'inwoners': '74.000',
+    },
+    {
+        'slug': 'gouda', 'name': 'Gouda', 'province': 'Zuid-Holland', 'region': 'Groene Hart',
+        'lat': 52.0116, 'lon': 4.7105,
+        'rijtijd': 110, 'afstand_km': 165,
+        'intro': 'Gouda heeft een beroemde historische binnenstad en daaromheen ruime naoorlogse wijken als Bloemendaal en Goverwelle. Wij plaatsen kunststof kozijnen die het karakter van de woning respecteren.',
+        'usp_extra': 'oog voor historische binnenstad én naoorlogse wijken',
+        'wijken': ['Bloemendaal', 'Goverwelle', 'Plaswijck', 'Korte Akkeren', 'Achterwillens', 'Binnenstad'],
+        'recent_project': '8 kozijnen op een tussenwoning in Bloemendaal',
+        'inwoners': '74.000',
+    },
+    {
+        'slug': 'spijkenisse', 'name': 'Spijkenisse', 'province': 'Zuid-Holland', 'region': 'Voorne-Putten',
+        'lat': 51.8458, 'lon': 4.3294,
+        'rijtijd': 130, 'afstand_km': 205,
+        'intro': 'Spijkenisse groeide sterk vanaf de jaren 70 en heeft uitgestrekte, uniforme wijken als Maaswijk en Sterrenkwartier. Wij werken er vaak met standaard maatvoering, wat de doorlooptijd verkort.',
+        'usp_extra': 'standaard maatvoering, snelle doorlooptijd',
+        'wijken': ['Maaswijk', 'Sterrenkwartier', 'De Akkers', 'Gildenwijk', 'Vriesland', 'Schiekamp'],
+        'recent_project': '10 kozijnen met antraciet voordeur in Maaswijk',
+        'inwoners': '73.000',
+    },
+    {
+        'slug': 'schiedam', 'name': 'Schiedam', 'province': 'Zuid-Holland', 'region': 'Rijnmond',
+        'lat': 51.9192, 'lon': 4.3886,
+        'rijtijd': 125, 'afstand_km': 195,
+        'intro': 'Schiedam heeft een historische jeneverstadkern en naoorlogse wijken als Groenoord en Nieuwland. Wij plaatsen kunststof kozijnen die comfort en isolatie verbeteren, met nette afwerking.',
+        'usp_extra': 'ervaring met historische én naoorlogse woningbouw',
+        'wijken': ['Groenoord', 'Nieuwland', 'Kethel', 'Woudhoek', 'Spaland', 'Centrum'],
+        'recent_project': '9 kozijnen op een portiekwoning in Nieuwland',
+        'inwoners': '79.000',
+    },
+    {
+        'slug': 'vlaardingen', 'name': 'Vlaardingen', 'province': 'Zuid-Holland', 'region': 'Rijnmond',
+        'lat': 51.9123, 'lon': 4.3417,
+        'rijtijd': 130, 'afstand_km': 200,
+        'intro': 'Vlaardingen ligt aan de Nieuwe Maas en heeft ruime naoorlogse wijken als Holy en Westwijk. Nieuwe kunststof kozijnen verminderen hier tocht en geluid merkbaar — fijn zo dicht bij de drukke omgeving.',
+        'usp_extra': 'extra aandacht voor geluidwering en isolatie',
+        'wijken': ['Holy', 'Westwijk', 'Ambacht', 'Babberspolder', 'Vettenoordsepolder', 'Centrum'],
+        'recent_project': '8 kozijnen met geluidwerend glas in Holy',
+        'inwoners': '74.000',
+    },
+    {
+        'slug': 'capelle-aan-den-ijssel', 'name': 'Capelle aan den IJssel', 'province': 'Zuid-Holland', 'region': 'Rijnmond',
+        'lat': 51.9300, 'lon': 4.5772,
+        'rijtijd': 115, 'afstand_km': 185,
+        'intro': 'Capelle aan den IJssel is grotendeels gebouwd vanaf de jaren 70 en heeft uitgestrekte wijken als Schollevaar en Oostgaarde. Wij plaatsen er regelmatig moderne kunststof kozijnen met goed isolerend glas.',
+        'usp_extra': 'specialist in jaren-70/80 woningbouw',
+        'wijken': ['Schollevaar', 'Schenkel', 'Oostgaarde', 'Middelwatering', 'Fascinatio', 'Capelle-West'],
+        'recent_project': '11 kozijnen + schuifpui in Schollevaar',
+        'inwoners': '67.000',
+    },
+    {
+        'slug': 'katwijk', 'name': 'Katwijk', 'province': 'Zuid-Holland', 'region': 'Bollenstreek',
+        'lat': 52.2036, 'lon': 4.3998,
+        'rijtijd': 125, 'afstand_km': 190,
+        'intro': 'Katwijk ligt aan zee en kent woningen die flink te verduren krijgen van wind en zilte lucht. Onderhoudsarme kunststof kozijnen zijn hier ideaal — nooit meer schilderen en bestand tegen het kustklimaat.',
+        'usp_extra': 'onderhoudsarm en bestand tegen kustklimaat',
+        'wijken': ['Katwijk aan Zee', 'Katwijk aan den Rijn', 'Rijnsburg', 'Valkenburg', 'Hoornes', 'Cleyn Duin'],
+        'recent_project': '9 onderhoudsarme kozijnen op een woning in Katwijk aan Zee',
+        'inwoners': '66.000',
+    },
+    {
+        'slug': 'rijswijk', 'name': 'Rijswijk', 'province': 'Zuid-Holland', 'region': 'Haaglanden',
+        'lat': 52.0364, 'lon': 4.3247,
+        'rijtijd': 120, 'afstand_km': 185,
+        'intro': 'Rijswijk grenst aan Den Haag en combineert vooroorlogse wijken met moderne nieuwbouw in Rijswijk-Buiten. Wij plaatsen kunststof kozijnen passend bij elk woningtype, met minimale overlast.',
+        'usp_extra': 'ervaring met vooroorlogse én nieuwbouwwoningen',
+        'wijken': ['Rijswijk-Buiten', 'Steenvoorde', 'Te Werve', 'Muziekbuurt', 'Leeuwendaal', 'Oud-Rijswijk'],
+        'recent_project': 'antraciet kozijnen op een nieuwbouwwoning in Rijswijk-Buiten',
+        'inwoners': '54.000',
+    },
 ]
 
 
@@ -363,8 +621,8 @@ def page(loc):
 
     wijken_html = ''.join(f'<li>{w}</li>' for w in wijken)
 
-    title = f"Kunststof Kozijnen in {name} — Duurkracht Kozijnen"
-    description = f"Kunststof kozijnen in {name} ({province}) door Duurkracht: Schüco LivIng, eigen monteurs, 4,9★ Google, 10 jaar garantie en gratis advies aan huis."
+    title = f"Kunststof Kozijnen {name} — Prijs & Offerte | Duurkracht"
+    description = f"Kunststof kozijnen kopen in {name} ({province})? Schüco LivIng, scherpe prijzen, gratis offerte, eigen monteurs, 4,9★ Google en 10 jaar garantie."
 
     return f'''<!DOCTYPE html>
 <html lang="nl-NL">
@@ -374,7 +632,7 @@ def page(loc):
 
 <title>{title}</title>
 <meta name="description" content="{description}" />
-<meta name="keywords" content="kunststof kozijnen {name}, kozijnen vervangen {name}, kozijnen plaatsen {name}, kunststof deuren {name}, schuifpui {name}, gevelbekleding {name}, kozijnen {province}, kozijnen {region}" />
+<meta name="keywords" content="kunststof kozijnen {name}, kunststof kozijnen kopen {name}, kunststof kozijnen prijzen {name}, kunststof kozijnen offerte {name}, kunststof kozijnen kosten {name}, kozijnen vervangen {name}, kozijnen plaatsen {name}, kunststof deuren {name}, kunststof schuifpui {name}, kunststof gevelbekleding {name}, kozijnen {province}, kozijnen {region}" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 <link rel="canonical" href="https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-{slug}/" />
 <meta name="theme-color" content="#0B5A2B" />
@@ -521,7 +779,7 @@ def page(loc):
       <span class="eyebrow" style="color: var(--orange);">Onze ervaring in {name}</span>
       <h2>Kozijnen plaatsen <span class="em-italic">in {name},</span> in elke wijk.</h2>
       <p>{intro}</p>
-      <p>Onze adviseur komt vrijblijvend bij u langs voor een gratis adviesgesprek. Wij plaatsen alleen wat u nodig heeft — geen verkoopdruk, wel eerlijk advies.</p>
+      <p>Wilt u <strong>kunststof kozijnen kopen in {name}</strong>? Vraag vrijblijvend een offerte aan. Onze adviseur komt langs voor een gratis adviesgesprek met een heldere prijs — geen verkoopdruk, wel eerlijk advies. Wij plaatsen alleen wat u nodig heeft.</p>
       <ul class="checklist">
         <li><strong>{usp_extra}</strong></li>
         <li><strong>Geen voorrijkosten</strong> in {name}</li>
