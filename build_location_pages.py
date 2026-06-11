@@ -622,6 +622,8 @@ def page(loc):
     wijken_html = ''.join(f'<li>{w}</li>' for w in wijken)
 
     title = f"Kunststof Kozijnen {name} — Prijs & Offerte | Duurkracht"
+    if len(title) > 60:  # lange plaatsnamen: korter zodat Google niet afkapt
+        title = f"Kunststof Kozijnen {name} | Duurkracht"
     description = f"Kunststof kozijnen kopen in {name} ({province})? Schüco LivIng, scherpe prijzen, gratis offerte, eigen monteurs, 4,9★ Google en 10 jaar garantie."
 
     return f'''<!DOCTYPE html>
