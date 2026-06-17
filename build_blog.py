@@ -147,7 +147,7 @@ BLOG_CSS = '''<style>
 .blog-card .ph img{ width: 100%; height: 100%; object-fit: cover; }
 .blog-card .body{ padding: 24px; flex: 1; display: flex; flex-direction: column; }
 .blog-card .cat{ font-size: 11px; letter-spacing: .15em; text-transform: uppercase; color: var(--orange); font-weight: 600; margin-bottom: 10px; }
-.blog-card h3{ font-size: 19px; font-weight: 600; line-height: 1.3; margin: 0 0 10px; letter-spacing: -0.01em; }
+.blog-card h2, .blog-card h3{ font-size: 19px; font-weight: 600; line-height: 1.3; margin: 0 0 10px; letter-spacing: -0.01em; }
 .blog-card p{ font-size: 14px; color: var(--gray-700); margin: 0 0 16px; flex: 1; line-height: 1.55; }
 .blog-card .read{ font-size: 13px; color: var(--green); font-weight: 600; display: inline-flex; align-items: center; gap: 8px; }
 .blog-card .read .arrow{ transition: transform .25s; }
@@ -1160,7 +1160,7 @@ def render_landing():
         <div class="body">
           <div class="cat">{p["category"]}</div>
           <div class="date">{p["date"]} · {p["reading_time"]} min lezen</div>
-          <h3>{p["title"]}</h3>
+          <h2>{p["title"]}</h2>
           <p>{p["meta_desc"][:120]}...</p>
           <span class="read">Lees artikel <span class="arrow">→</span></span>
         </div>
