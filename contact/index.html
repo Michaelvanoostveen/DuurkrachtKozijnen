@@ -284,8 +284,8 @@ document.getElementById('adviesForm')?.addEventListener('submit', async function
       headers: { 'Accept': 'application/json' }
     });
     if (!res.ok) throw new Error('submit failed');
-    if (success) { success.classList.add('show'); }
-    form.reset();
+    window.location.href = '/bedankt';
+    return;
   } catch (e) {
     if (error) { error.classList.add('show'); }
     else { alert('Er ging iets mis met verzenden. Bel ons op 085 073 1660 of mail info@duurkrachtkozijnen.nl.'); }
