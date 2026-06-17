@@ -46,6 +46,7 @@
 
     { "source": "/diensten/kunststofkozijnen", "destination": "/diensten/kunststof-kozijnen", "permanent": true },
     { "source": "/diensten/voor-en-achterdeuren", "destination": "/diensten/kunststof-deuren", "permanent": true },
+    { "source": "/blog/kosten-kunststof-kozijnen", "destination": "/blog/kunststof-kozijnen-kosten", "permanent": true },
 
     { "source": "/nieuws", "destination": "/blog", "permanent": true },
     { "source": "/nieuws/hoe-lang-gaan-kunststof-kozijnen-gemiddeld-mee", "destination": "/blog/kunststof-kozijnen-onderhoud", "permanent": true },
