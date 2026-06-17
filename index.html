@@ -2037,7 +2037,8 @@
       </dl>
     </div>
 
-    <form aria-label="Aanvraagformulier gratis adviesgesprek" onsubmit="event.preventDefault(); alert('Bedankt — wij nemen binnen 4 uur contact op.');">
+    <form id="homeAdviesForm" aria-label="Aanvraagformulier gratis adviesgesprek" action="https://formspree.io/f/xpqezbjz" method="POST" novalidate>
+      <input type="hidden" name="_subject" value="Nieuwe adviesaanvraag via duurkrachtkozijnen.nl (homepage)" />
       <div class="row">
         <div>
           <label for="naam">Naam</label>
@@ -2079,6 +2080,8 @@
           <textarea id="bericht" name="bericht" placeholder="Vertel kort over uw project, woning of vraag…"></textarea>
         </div>
       </div>
+      <p class="form-success" role="status" aria-live="polite">Bedankt! Wij nemen binnen 4 uur contact met u op.</p>
+      <p class="form-error" role="alert" aria-live="assertive">Er ging iets mis met verzenden. Bel ons gerust op <a href="tel:+31850731660">085 073 1660</a> of mail <a href="mailto:info@duurkrachtkozijnen.nl">info@duurkrachtkozijnen.nl</a>.</p>
       <div class="submit">
         <button type="submit" class="btn btn-primary">Verstuur aanvraag <span class="arrow" aria-hidden="true">→</span></button>
         <p class="privacy">Door te versturen gaat u akkoord met onze <a href="/privacybeleid/">privacyverklaring</a>. Wij delen uw gegevens nooit met derden.</p>
@@ -2086,6 +2089,42 @@
     </form>
   </div>
 </section>
+
+<style>
+#homeAdviesForm .form-success{ display:none; margin: 16px 0 0; padding: 14px 16px; border-radius: 10px; background: var(--green-tint); color: var(--green-deep); font-weight: 600; }
+#homeAdviesForm .form-success.show{ display:block; }
+#homeAdviesForm .form-error{ display:none; margin: 16px 0 0; padding: 14px 16px; border-radius: 10px; background: #fdecec; color: #a12020; font-weight: 600; }
+#homeAdviesForm .form-error.show{ display:block; }
+#homeAdviesForm .form-error a{ color: #a12020; text-decoration: underline; }
+</style>
+<script>
+document.getElementById('homeAdviesForm')?.addEventListener('submit', async function (event) {
+  event.preventDefault();
+  var form = this;
+  var success = form.querySelector('.form-success');
+  var error = form.querySelector('.form-error');
+  var btn = form.querySelector('button[type="submit"]');
+  if (!form.checkValidity()) { form.reportValidity(); return; }
+  error && error.classList.remove('show');
+  var originalLabel = btn ? btn.innerHTML : '';
+  if (btn) { btn.disabled = true; btn.innerHTML = 'Versturen…'; }
+  try {
+    var res = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (!res.ok) throw new Error('submit failed');
+    if (success) { success.classList.add('show'); }
+    form.reset();
+  } catch (e) {
+    if (error) { error.classList.add('show'); }
+    else { alert('Er ging iets mis met verzenden. Bel ons op 085 073 1660 of mail info@duurkrachtkozijnen.nl.'); }
+  } finally {
+    if (btn) { btn.disabled = false; btn.innerHTML = originalLabel; }
+  }
+});
+</script>
 
 </main>
 
