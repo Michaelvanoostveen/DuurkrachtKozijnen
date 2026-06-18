@@ -464,7 +464,10 @@
         { key:'vast3',       label:'Vast glas (3 vakken)',     mult:1.90, cols:['fixed','fixed','fixed'] },
         { key:'dk_lr_vast',  label:'Draai-kiep (L&R) + vast',  mult:2.15, cols:['tiltturn','fixed','tiltturn'] },
         { key:'dk_l_vast3',  label:'Draai-kiep (L) + 2× vast', mult:2.10, cols:['tiltturn','fixed','fixed'] },
-        { key:'dk_l_boven',  label:'Draai-kiep (L) + bovenlicht + vast', mult:2.40, cols:['tiltturn','fixed','fixed'], topLight:true }
+        { key:'dk_l_boven',  label:'Draai-kiep (L) + bovenlicht + vast', mult:2.40, cols:['tiltturn','fixed','fixed'], topLight:true },
+        { key:'dk_b',        label:'Draai-kiep (B) + borstwering', mult:1.25, cols:['tiltturn'], bottomLight:true },
+        { key:'vast_stapel', label:'Vast glas gestapeld',          mult:1.35, stack:['fixed','fixed'] },
+        { key:'vast6',       label:'Vast glas (6 vakken)',         mult:3.55, grid:{r:2,c:3} }
       ]
     },
     voordeur: {
@@ -476,7 +479,12 @@
         { key:'bovenlicht',  label:'Met bovenlicht',       mult:1.20, blade:'panel', top:true },
         { key:'zijlicht',    label:'Met zijlicht',         mult:1.35, blade:'glassStrip', sideL:true },
         { key:'zijboven',    label:'Zijlicht + bovenlicht',mult:1.60, blade:'glassStrip', sideL:true, top:true },
-        { key:'tweezijlicht',label:'2 zijlichten',         mult:1.85, blade:'glassStrip', sideL:true, sideR:true }
+        { key:'tweezijlicht',label:'2 zijlichten',         mult:1.85, blade:'glassStrip', sideL:true, sideR:true },
+        { key:'zijborst_r',  label:'Zijlicht + borstwering (R)', mult:1.40, blade:'glassStrip', nR:1, sideBorst:true },
+        { key:'zijborst_l',  label:'Zijlicht + borstwering (L)', mult:1.40, blade:'glassStrip', nL:1, sideBorst:true },
+        { key:'dubbelzij_r', label:'Dubbel zijlicht (R)',   mult:1.70, blade:'glassStrip', nR:2 },
+        { key:'dubbelzij_l', label:'Dubbel zijlicht (L)',   mult:1.70, blade:'glassStrip', nL:2 },
+        { key:'tweezij_boven',label:'2 zijlichten + bovenlicht', mult:2.05, blade:'glassStrip', sideL:true, sideR:true, top:true }
       ]
     },
     achterdeur: {
@@ -554,6 +562,20 @@
   // Teken een raamindeling in box (bx,by,bw,bh)
   function drawWindow(v, bx,by,bw,bh, col, fr){
     var s = r(bx,by,bw,bh,col.frame,col.stroke,1.5);
+    // raster (bijv. 6-vaks vast glas)
+    if(v.grid){
+      var R=v.grid.r, C=v.grid.c, ggx=bx+fr, ggy=by+fr, ggw=bw-2*fr, ggh=bh-2*fr, cw2=ggw/C, ch2=ggh/R;
+      for(var ri=0;ri<R;ri++) for(var ci=0;ci<C;ci++){ s += glass(ggx+ci*cw2, ggy+ri*ch2, cw2, ch2); }
+      for(var cj=1;cj<C;cj++) s += r(ggx+cj*cw2-fr*0.4, by, fr*0.8, bh, col.frame);
+      for(var rj=1;rj<R;rj++) s += r(bx, ggy+rj*ch2-fr*0.4, bw, fr*0.8, col.frame);
+      return s;
+    }
+    // verticale stapel (gestapelde vakken)
+    if(v.stack){
+      var m=v.stack.length, sgx=bx+fr, sgy=by+fr, sgw=bw-2*fr, sgh=bh-2*fr, rh=sgh/m;
+      for(var k=0;k<m;k++){ var ry=sgy+k*rh; s += glass(sgx,ry,sgw,rh); s += sym(v.stack[k],sgx,ry,sgw,rh,col.frame); if(k<m-1) s += r(bx, sgy+(k+1)*rh-fr*0.5, bw, fr, col.frame); }
+      return s;
+    }
     var areaY=by, areaH=bh;
     // bovenlicht: smalle vaste rij bovenaan
     if(v.topLight){
@@ -561,7 +583,14 @@
       var tgx=bx+fr, tgy=by+fr, tgw=bw-2*fr, tgh=tlH-fr*1.5;
       s += glass(tgx,tgy,tgw,tgh);
       s += r(bx, by+tlH-fr*0.5, bw, fr, col.frame); // tussendorpel
-      areaY = by+tlH; areaH = bh-tlH;
+      areaY = by+tlH; areaH -= tlH;
+    }
+    // borstwering: vaste rij onderaan (B-variant)
+    if(v.bottomLight){
+      var blH = bh*0.26;
+      s += glass(bx+fr, by+bh-blH+fr*0.75, bw-2*fr, blH-fr*1.5);
+      s += r(bx, by+bh-blH, bw, fr, col.frame); // tussendorpel
+      areaH -= blH;
     }
     var cols=v.cols, n=cols.length;
     var gx=bx+fr, gy=areaY+fr, gw=bw-2*fr, gh=areaH-2*fr;
@@ -579,14 +608,23 @@
 
   function drawDoor(v, bx,by,bw,bh, col, fr){
     var s = r(bx,by,bw,bh,col.frame,col.stroke,1.5);
-    var sideL=!!v.sideL, sideR=!!v.sideR, top=!!v.top, blade=v.blade||'panel';
-    var sideW = (sideL||sideR) ? bw*0.20 : 0;
+    var nL = v.nL!=null ? v.nL : (v.sideL?1:0);
+    var nR = v.nR!=null ? v.nR : (v.sideR?1:0);
+    var top=!!v.top, blade=v.blade||'panel', borst=!!v.sideBorst;
+    var sideW = (nL>=2 || nR>=2) ? bw*0.15 : bw*0.20;   // smaller bij dubbele zijlichten
     var topH  = top ? bh*0.15 : 0;
-    var dx = bx + (sideL?sideW:0);
-    var dw = bw - (sideL?sideW:0) - (sideR?sideW:0);
-    // zijlichten
-    if(sideL){ s += glass(bx+fr, by+fr, sideW-fr*1.5, bh-2*fr); s += r(bx+sideW, by, fr, bh, col.frame); }
-    if(sideR){ s += glass(bx+bw-sideW+fr*0.5, by+fr, sideW-fr*1.5, bh-2*fr); s += r(bx+bw-sideW-fr, by, fr, bh, col.frame); }
+    var leftW=nL*sideW, rightW=nR*sideW;
+    var dx = bx + leftW, dw = bw - leftW - rightW;
+    // zijlicht-kolom (met optionele borstwering onderaan)
+    function sl(sx){
+      var gh = borst ? (bh-2*fr)*0.64 : (bh-2*fr);
+      s += glass(sx+fr*0.75, by+fr, sideW-fr*1.5, gh);
+      if(borst){ s += r(sx+fr*0.75, by+fr+gh+fr*0.5, sideW-fr*1.5, (bh-2*fr)-gh-fr*0.5, col.frame, col.stroke, 0.8); }
+    }
+    for(var li=0; li<nL; li++){ sl(bx+li*sideW); if(li<nL-1) s += r(bx+(li+1)*sideW-fr*0.4, by, fr*0.8, bh, col.frame); }
+    if(nL) s += r(bx+leftW-fr*0.5, by, fr, bh, col.frame);
+    for(var rii=0; rii<nR; rii++){ sl(bx+bw-rightW+rii*sideW); if(rii<nR-1) s += r(bx+bw-rightW+(rii+1)*sideW-fr*0.4, by, fr*0.8, bh, col.frame); }
+    if(nR) s += r(bx+bw-rightW, by, fr, bh, col.frame);
     // bovenlicht (alleen boven het deurblad, niet over zijlichten)
     if(top){ s += glass(dx+fr, by+fr, dw-2*fr, topH-fr*1.5); s += r(dx, by+topH, dw, fr, col.frame); }
     // deurblad
