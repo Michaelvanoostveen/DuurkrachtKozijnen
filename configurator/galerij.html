@@ -144,28 +144,28 @@ function slider(panels){
 
 /* ===== Productdata ===== */
 var DATA = {
-  kozijnen:{ label:'Kozijnen', filterable:true, items:[
-    {n:'Draai-kiepraam', sub:'1 vak · Schüco', vk:1, svg:win(['tiltturn'])},
-    {n:'Valraam', sub:'1 vak · Schüco', vk:1, svg:win(['tilt'])},
-    {n:'Vast glas', sub:'1 vak · Schüco', vk:1, svg:win(['fixed'])},
-    {n:'Draai-kiepraam', sub:'2 vakken · Schüco', vk:2, svg:win(['tiltturn','tiltturn'])},
-    {n:'Draai-kiepraam (L) en vast glas', sub:'2 vakken · Schüco', vk:2, svg:win(['tiltturn','fixed'])},
-    {n:'Draai-kiepraam (R) en vast glas', sub:'2 vakken · Schüco', vk:2, svg:win(['fixed','tiltturn'])},
-    {n:'Draai-kiepraam (B) en vast glas', sub:'2 vakken · Schüco', vk:2, svg:win({cols:['tiltturn'],bottom:true})},
-    {n:'Draai-kiepraam (O) en vast glas', sub:'2 vakken · Schüco', vk:2, svg:win({cols:['tiltturn'],top:true})},
-    {n:'Valraam (L) en vast glas', sub:'2 vakken · Schüco', vk:2, svg:win(['tilt','fixed'])},
-    {n:'Valraam (R) en vast glas', sub:'2 vakken · Schüco', vk:2, svg:win(['fixed','tilt'])},
-    {n:'Verhuisraam', sub:'2 vakken · Schüco', vk:2, svg:win(['turnR','turnL'])},
-    {n:'Vast glas', sub:'2 vakken · Schüco', vk:2, svg:win(['fixed','fixed'])},
-    {n:'Vast glas (gestapeld)', sub:'2 vakken · Schüco', vk:2, svg:win({stack:['fixed','fixed']})},
-    {n:'Draai-kiepraam (L) en vast glas', sub:'3 vakken · Schüco', vk:3, svg:win(['tiltturn','fixed','fixed'])},
-    {n:'Draai-kiepraam (M) en vast glas', sub:'3 vakken · Schüco', vk:3, svg:win(['fixed','tiltturn','fixed'])},
-    {n:'Draai-kiepraam (R) en vast glas', sub:'3 vakken · Schüco', vk:3, svg:win(['fixed','fixed','tiltturn'])},
-    {n:'Draai-kiepramen (L&R) en vast glas', sub:'3 vakken · Schüco', vk:3, svg:win(['tiltturn','fixed','tiltturn'])},
-    {n:'Draai-kiepraam (L) met bovenlicht en vast glas', sub:'3 vakken · Schüco', vk:3, svg:win({cols:['tiltturn','fixed','fixed'],top:true})},
-    {n:'Vast glas', sub:'3 vakken · Schüco', vk:3, svg:win(['fixed','fixed','fixed'])},
-    {n:'Draai-kiepramen en vast glas', sub:'4 vakken · Schüco', vk:4, svg:win(['fixed','tiltturn','tiltturn','fixed'])},
-    {n:'Vast glas', sub:'6 vakken · Schüco', vk:6, svg:win({grid:{r:2,c:3}})},
+  kozijnen:{ label:'Kozijnen', pk:'raam', filterable:true, items:[
+    {n:'Draai-kiepraam', sub:'1 vak · Schüco', vk:1, ck:'draaikiep', svg:win(['tiltturn'])},
+    {n:'Valraam', sub:'1 vak · Schüco', vk:1, ck:'valraam', svg:win(['tilt'])},
+    {n:'Vast glas', sub:'1 vak · Schüco', vk:1, ck:'vast', svg:win(['fixed'])},
+    {n:'Draai-kiepraam', sub:'2 vakken · Schüco', vk:2, ck:'draaikiep2', svg:win(['tiltturn','tiltturn'])},
+    {n:'Draai-kiepraam (L) en vast glas', sub:'2 vakken · Schüco', vk:2, ck:'draai_vast', svg:win(['tiltturn','fixed'])},
+    {n:'Draai-kiepraam (R) en vast glas', sub:'2 vakken · Schüco', vk:2, ck:'vast_dk', svg:win(['fixed','tiltturn'])},
+    {n:'Draai-kiepraam (B) en vast glas', sub:'2 vakken · Schüco', vk:2, ck:'dk_b', svg:win({cols:['tiltturn'],bottom:true})},
+    {n:'Draai-kiepraam (O) en vast glas', sub:'2 vakken · Schüco', vk:2, ck:'bovenlicht', svg:win({cols:['tiltturn'],top:true})},
+    {n:'Valraam (L) en vast glas', sub:'2 vakken · Schüco', vk:2, ck:'valraam_vast', svg:win(['tilt','fixed'])},
+    {n:'Valraam (R) en vast glas', sub:'2 vakken · Schüco', vk:2, ck:'vast_valraam', svg:win(['fixed','tilt'])},
+    {n:'Verhuisraam', sub:'2 vakken · Schüco', vk:2, ck:'stolp', svg:win(['turnR','turnL'])},
+    {n:'Vast glas', sub:'2 vakken · Schüco', vk:2, ck:'vast2', svg:win(['fixed','fixed'])},
+    {n:'Vast glas (gestapeld)', sub:'2 vakken · Schüco', vk:2, ck:'vast_stapel', svg:win({stack:['fixed','fixed']})},
+    {n:'Draai-kiepraam (L) en vast glas', sub:'3 vakken · Schüco', vk:3, ck:'dk_l_vast3', svg:win(['tiltturn','fixed','fixed'])},
+    {n:'Draai-kiepraam (M) en vast glas', sub:'3 vakken · Schüco', vk:3, ck:'driedelig', svg:win(['fixed','tiltturn','fixed'])},
+    {n:'Draai-kiepraam (R) en vast glas', sub:'3 vakken · Schüco', vk:3, ck:'driedelig', svg:win(['fixed','fixed','tiltturn'])},
+    {n:'Draai-kiepramen (L&R) en vast glas', sub:'3 vakken · Schüco', vk:3, ck:'dk_lr_vast', svg:win(['tiltturn','fixed','tiltturn'])},
+    {n:'Draai-kiepraam (L) met bovenlicht en vast glas', sub:'3 vakken · Schüco', vk:3, ck:'dk_l_boven', svg:win({cols:['tiltturn','fixed','fixed'],top:true})},
+    {n:'Vast glas', sub:'3 vakken · Schüco', vk:3, ck:'vast3', svg:win(['fixed','fixed','fixed'])},
+    {n:'Draai-kiepramen en vast glas', sub:'4 vakken · Schüco', vk:4, ck:'vierdelig', svg:win(['fixed','tiltturn','tiltturn','fixed'])},
+    {n:'Vast glas', sub:'6 vakken · Schüco', vk:6, ck:'vast6', svg:win({grid:{r:2,c:3}})},
   ]},
   voordeuren:{ label:'Voordeuren', filterable:false, items:[
     {n:'Voordeur', sub:'Schüco', svg:dr(['leaf'])},
@@ -213,11 +213,11 @@ var DATA = {
     {n:'Balkondeur (R) en vast glas met bovenlicht', sub:'Schüco', svg:dr({cols:['glasB','tilt'],top:true})},
     {n:'Balkondeur | 1 vak', sub:'Schüco', svg:dr(['tilt'])},
   ]},
-  schuifpuien:{ label:'Schuifpuien', filterable:false, items:[
-    {n:'Schuifpui 2-delig', sub:'Schüco', svg:slider(2)},
-    {n:'Schuifpui 3-delig', sub:'Schüco', svg:slider(3)},
-    {n:'Schuifpui 4-delig', sub:'Schüco', svg:slider(4)},
-    {n:'Hefschuifpui (premium)', sub:'Schüco', svg:slider(2)},
+  schuifpuien:{ label:'Schuifpuien', pk:'schuifpui', filterable:false, items:[
+    {n:'Schuifpui 2-delig', sub:'Schüco', ck:'2delig', svg:slider(2)},
+    {n:'Schuifpui 3-delig', sub:'Schüco', ck:'3delig', svg:slider(3)},
+    {n:'Schuifpui 4-delig', sub:'Schüco', ck:'4delig', svg:slider(4)},
+    {n:'Hefschuifpui (premium)', sub:'Schüco', ck:'hef', svg:slider(2)},
   ]},
 };
 
@@ -239,7 +239,8 @@ function render(){
   }
   gridEl.innerHTML='';
   cat.items.filter(function(it){ return !state.vk || (state.vk===5 ? it.vk>4 : it.vk===state.vk); }).forEach(function(it){
-    var a=document.createElement('a'); a.className='cfg-card'; a.href='/configurator/';
+    var a=document.createElement('a'); a.className='cfg-card';
+    a.href = (cat.pk && it.ck) ? ('/configurator/?type='+cat.pk+'&indeling='+encodeURIComponent(it.ck)) : '/configurator/';
     a.innerHTML='<div class="vis">'+it.svg+'</div><div class="nm">'+it.n+'</div><div class="mt">'+it.sub+'</div>';
     gridEl.appendChild(a);
   });

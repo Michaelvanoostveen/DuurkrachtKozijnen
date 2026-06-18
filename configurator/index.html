@@ -260,8 +260,20 @@
 
     <div class="cfg-grid">
       <!-- OPTIES -->
+      <style>
+        .cfg-options.from-gallery #cfg-step-product, .cfg-options.from-gallery #cfg-step-indeling{ display:none; }
+        .cfg-fg-bar{ display:flex; align-items:center; justify-content:space-between; gap:16px; padding:16px 18px; background:#eef5ef; border:1px solid #d7e6da; border-radius:12px; margin-bottom:24px; }
+        .cfg-fg-bar .cfg-fg-eyebrow{ display:block; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#7b857f; font-weight:600; margin-bottom:2px; }
+        .cfg-fg-bar strong{ font-size:16px; color:#1c2421; }
+        .cfg-fg-change{ color:#0B5A2B; font-weight:600; font-size:14px; text-decoration:none; white-space:nowrap; }
+        .cfg-fg-change:hover{ text-decoration:underline; }
+      </style>
       <form class="cfg-options" id="cfg" novalidate>
-        <div class="cfg-step">
+        <div class="cfg-fg-bar" id="cfg-from-gallery" hidden>
+          <div><span class="cfg-fg-eyebrow">Gekozen product</span><strong id="cfg-fg-label">—</strong></div>
+          <a href="/configurator/galerij" class="cfg-fg-change">← Andere keuze</a>
+        </div>
+        <div class="cfg-step" id="cfg-step-product">
           <div class="cfg-step-label"><span class="cfg-num">1</span> Kies uw product</div>
           <div class="cfg-tiles" role="radiogroup" aria-label="Producttype">
             <label class="cfg-tile"><input type="radio" name="product" value="raam" checked />
@@ -277,7 +289,7 @@
           </div>
         </div>
 
-        <div class="cfg-step">
+        <div class="cfg-step" id="cfg-step-indeling">
           <div class="cfg-step-label"><span class="cfg-num">2</span> <span id="indeling-label">Indeling</span></div>
           <div class="cfg-variants" id="cfg-variants" role="radiogroup" aria-label="Indeling"></div>
         </div>
@@ -900,6 +912,27 @@
     else if(e.target && e.target.name==='kleur'){ update({recolor:true}); }
     else { update(); }
   });
+
+  // ── Deep-link vanuit galerij: ?type=...&indeling=... ──
+  (function(){
+    var q = new URLSearchParams(location.search);
+    var t = q.get('type'), ind = q.get('indeling');
+    if(t && PRODUCTS[t]){
+      setRadio('product', t);
+      lastProduct = null;                         // forceer applyRanges naar dit product
+      if(ind && PRODUCTS[t].variants.some(function(v){return v.key===ind;})){
+        currentVariant[t] = ind;
+      }
+      form.classList.add('from-gallery');         // verberg stap 1 + 2
+      var bar = document.getElementById('cfg-from-gallery');
+      if(bar){
+        bar.hidden = false;
+        var p = PRODUCTS[t];
+        var v = (p.variants.filter(function(x){return x.key===currentVariant[t];})[0])||p.variants[0];
+        document.getElementById('cfg-fg-label').textContent = p.label + ' · ' + v.label;
+      }
+    }
+  })();
 
   // init
   update({forceVariants:true});
