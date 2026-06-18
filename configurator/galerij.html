@@ -12,13 +12,11 @@
   :root{
     --green:#0B5A2B; --green-deep:#08401f; --lime:#9ed649; --accent:#e8742c;
     --ink:#1c2421; --gray-700:#5a635e; --gray-500:#8b938e; --gray-200:#e3e6e4;
-    --card:#eef0f1; --card-sel:#e3e8e4; --frame:#2b2f33; --line:#2b2f33;
+    --card:#eef0f1; --frame:#2b2f33; --line:#2b2f33;
   }
   *{ box-sizing:border-box; }
   body{ margin:0; font-family:"Manrope",system-ui,sans-serif; color:var(--ink); background:#fff; }
   .wrap{ max-width:1240px; margin:0 auto; padding:0 28px; }
-
-  /* Header */
   .cfg-top{ border-bottom:1px solid var(--gray-200); position:sticky; top:0; background:#fff; z-index:20; }
   .cfg-top .wrap{ display:flex; align-items:center; gap:28px; height:68px; }
   .cfg-logo{ font-weight:800; font-size:20px; letter-spacing:-.02em; color:var(--ink); white-space:nowrap; }
@@ -28,28 +26,21 @@
   .cfg-cats button.active{ color:var(--ink); }
   .cfg-cats button.active::after{ content:""; position:absolute; left:0; right:0; bottom:-23px; height:3px; background:var(--green); border-radius:3px; }
   .cfg-overview{ background:var(--lime); color:var(--green-deep); border:none; font:inherit; font-weight:700; font-size:14px; padding:10px 20px; border-radius:30px; cursor:pointer; white-space:nowrap; }
-
-  /* Filter chips */
   .cfg-filters{ display:flex; gap:12px; flex-wrap:wrap; padding:30px 0 6px; }
   .cfg-chip{ background:#fff; border:1.5px solid var(--gray-200); border-radius:30px; padding:10px 20px; font:inherit; font-weight:600; font-size:14px; color:var(--gray-700); cursor:pointer; transition:.15s; }
   .cfg-chip:hover{ border-color:var(--green); color:var(--green); }
   .cfg-chip.active{ background:var(--green); border-color:var(--green); color:#fff; }
-
-  /* Grid */
   .cfg-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:22px; padding:26px 0 70px; }
   .cfg-card{ background:var(--card); border:2px solid transparent; border-radius:14px; padding:18px; cursor:pointer; transition:.18s; display:flex; flex-direction:column; text-decoration:none; color:inherit; }
   .cfg-card:hover{ border-color:var(--green); transform:translateY(-3px); box-shadow:0 16px 36px -18px rgba(11,90,43,.4); }
-  .cfg-card .vis{ background:#fff; border-radius:10px; aspect-ratio:1/1; display:flex; align-items:center; justify-content:center; padding:22px; }
+  .cfg-card .vis{ background:#fff; border-radius:10px; aspect-ratio:1/1; display:flex; align-items:center; justify-content:center; padding:20px; }
   .cfg-card .vis svg{ width:100%; height:100%; }
   .cfg-card .nm{ margin-top:14px; font-weight:600; font-size:14.5px; line-height:1.35; }
   .cfg-card .mt{ margin-top:4px; font-size:12.5px; color:var(--gray-500); }
-
-  /* Advies CTA card */
   .cfg-cta{ background:var(--green-deep); color:#fff; border-radius:14px; padding:30px; display:flex; flex-direction:column; justify-content:center; }
   .cfg-cta h3{ margin:0 0 12px; font-size:20px; line-height:1.25; }
   .cfg-cta p{ margin:0 0 20px; font-size:14px; color:#cfe0d3; line-height:1.5; }
   .cfg-cta a{ background:var(--lime); color:var(--green-deep); text-decoration:none; font-weight:700; font-size:14px; padding:13px 24px; border-radius:30px; align-self:flex-start; }
-
   .proto-note{ background:#fff7ed; border:1px solid #fcd9b6; color:#9a4a12; font-size:13px; padding:10px 16px; border-radius:10px; margin:18px 0 0; }
   @media(max-width:680px){ .cfg-cats{ display:none; } }
 </style>
@@ -71,86 +62,86 @@
 </main>
 
 <script>
-/* ---- SVG-tekenhelpers (eigen code) ---- */
-function win(spec){
-  if(Array.isArray(spec)) spec={cols:spec};
-  var W=200,H=160,pad=8,gap=4,i,r,c,x,y;
-  var s='<svg viewBox="0 0 '+W+' '+H+'" xmlns="http://www.w3.org/2000/svg">';
-  s+=rect(pad-3,pad-3,W-(pad-3)*2,H-(pad-3)*2,'none','var(--frame)',3,4);
-  if(spec.grid){
-    var R=spec.grid.r,C=spec.grid.c;
-    var cw=(W-pad*2-gap*(C-1))/C, ch=(H-pad*2-gap*(R-1))/R;
-    for(r=0;r<R;r++) for(c=0;c<C;c++){ s+=panel(pad+c*(cw+gap), pad+r*(ch+gap), cw, ch, 'fixed'); }
-    return s+'</svg>';
-  }
-  if(spec.stack){
-    var sn=spec.stack.length, ph=(H-pad*2-gap*(sn-1))/sn;
-    for(i=0;i<sn;i++){ s+=panel(pad, pad+i*(ph+gap), W-pad*2, ph, spec.stack[i]); }
-    return s+'</svg>';
-  }
-  var cols=spec.cols, topH=spec.top?22:0, botH=spec.bottom?28:0;
-  var iy=pad+topH+(topH?gap:0);
-  var ih=H-pad-iy-(botH?botH+gap:0);
-  if(topH) s+=panel(pad, pad, W-pad*2, topH, 'fixed');
-  if(botH) s+=panel(pad, H-pad-botH, W-pad*2, botH, 'fixed');
-  var n=cols.length, pw=(W-pad*2-gap*(n-1))/n;
-  for(i=0;i<n;i++){ s+=panel(pad+i*(pw+gap), iy, pw, ih, cols[i]); }
-  return s+'</svg>';
-}
+/* ===== Basis-SVG-helpers (eigen code) ===== */
+function rect(x,y,w,h,fill,stroke,sw,r){ return '<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="'+(r||0)+'" fill="'+fill+'" stroke="'+stroke+'" stroke-width="'+sw+'"/>'; }
+function glass(x,y,w,h){ return '<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="2" fill="url(#gl)"/>'; }
+function dash(pts){ return '<polyline points="'+pts+'" fill="none" stroke="var(--line)" stroke-width="1.1" stroke-dasharray="3 3" stroke-linejoin="round"/>'; }
+
+/* ===== Raamkozijnen ===== */
 function panel(x,y,w,h,type){
-  var s = glass(x,y,w,h);
-  s += rect(x,y,w,h,'none','var(--frame)',2.5,2);
-  var d='stroke="var(--line)" stroke-width="1.1" stroke-dasharray="3 3" fill="none" stroke-linejoin="round"';
+  var s=glass(x,y,w,h)+rect(x,y,w,h,'none','var(--frame)',2.5,2);
   var ix=x+5,iy=y+5,iw=w-10,ih=h-10;
-  function tri(ax,ay,bx,by,cx,cy){ return '<polyline points="'+ax+','+ay+' '+bx+','+by+' '+cx+','+cy+'" '+d+'/>'; }
+  function tri(a,b,c,d,e,f){ return dash(a+','+b+' '+c+','+d+' '+e+','+f); }
   if(type==='turnR') s+=tri(ix,iy, ix+iw,iy+ih/2, ix,iy+ih);
   else if(type==='turnL') s+=tri(ix+iw,iy, ix,iy+ih/2, ix+iw,iy+ih);
   else if(type==='tilt') s+=tri(ix,iy+ih, ix+iw/2,iy, ix+iw,iy+ih);
   else if(type==='tiltturn'){ s+=tri(ix,iy, ix+iw,iy+ih/2, ix,iy+ih); s+=tri(ix,iy+ih, ix+iw/2,iy, ix+iw,iy+ih); }
   return s;
 }
-function door(cfg){
-  var W=200,H=200,pad=10; var s='<svg viewBox="0 0 '+W+' '+H+'" xmlns="http://www.w3.org/2000/svg">';
-  var topH = cfg.boven?26:0;
-  var cols=[]; if(cfg.zL) cols.push('g'); cols.push('leaf'); if(cfg.zR) cols.push('g');
-  var n=cols.length, gap=4, innerY=pad+topH+(topH?gap:0), innerH=H-pad-innerY;
-  var leafW=70, glassW=34;
-  var totW = cols.reduce(function(a,c){return a+(c==='leaf'?leafW:glassW);},0)+gap*(n-1);
-  var x=(W-totW)/2;
-  s += rect(pad-3,pad-3,W-(pad-3)*2,H-(pad-3)*2,'none','var(--frame)',3,4);
-  if(topH) s+=glass(x, pad, totW, topH);
-  cols.forEach(function(c){
-    var w = c==='leaf'?leafW:glassW;
-    if(c==='leaf'){ s+=rect(x,innerY,w,innerH,'var(--frame)','var(--frame)',2,3);
-      // narrow vision strip + handle
-      s+=glass(x+w-12,innerY+14,6,innerH-28);
-      s+='<rect x="'+(x+8)+'" y="'+(innerY+innerH/2-12)+'" width="3" height="24" rx="1.5" fill="#cfd6d2"/>';
-    } else { s+=glass(x,innerY,w,innerH); s+=rect(x,innerY,w,innerH,'none','var(--frame)',2,2); }
-    x+=w+gap;
-  });
+function win(spec){
+  if(Array.isArray(spec)) spec={cols:spec};
+  var W=200,H=160,pad=8,gap=4,i,r,c;
+  var s='<svg viewBox="0 0 '+W+' '+H+'" xmlns="http://www.w3.org/2000/svg">'+rect(pad-3,pad-3,W-(pad-3)*2,H-(pad-3)*2,'none','var(--frame)',3,4);
+  if(spec.grid){ var R=spec.grid.r,C=spec.grid.c,cw=(W-pad*2-gap*(C-1))/C,ch=(H-pad*2-gap*(R-1))/R;
+    for(r=0;r<R;r++) for(c=0;c<C;c++) s+=panel(pad+c*(cw+gap),pad+r*(ch+gap),cw,ch,'fixed'); return s+'</svg>'; }
+  if(spec.stack){ var sn=spec.stack.length,ph=(H-pad*2-gap*(sn-1))/sn;
+    for(i=0;i<sn;i++) s+=panel(pad,pad+i*(ph+gap),W-pad*2,ph,spec.stack[i]); return s+'</svg>'; }
+  var cols=spec.cols,topH=spec.top?22:0,botH=spec.bottom?28:0,iy=pad+topH+(topH?gap:0),ih=H-pad-iy-(botH?botH+gap:0);
+  if(topH) s+=panel(pad,pad,W-pad*2,topH,'fixed');
+  if(botH) s+=panel(pad,H-pad-botH,W-pad*2,botH,'fixed');
+  var n=cols.length,pw=(W-pad*2-gap*(n-1))/n;
+  for(i=0;i<n;i++) s+=panel(pad+i*(pw+gap),iy,pw,ih,cols[i]);
   return s+'</svg>';
 }
-function slider(panels){
-  var W=220,H=150,pad=8,gap=3; var s='<svg viewBox="0 0 '+W+' '+H+'" xmlns="http://www.w3.org/2000/svg">';
-  var pw=(W-pad*2-gap*(panels-1))/panels;
-  s+=rect(pad-3,pad-3,W-(pad-3)*2,H-(pad-3)*2,'none','var(--frame)',3,4);
-  for(var i=0;i<panels;i++){ var x=pad+i*(pw+gap);
-    s+=glass(x,pad,pw,H-pad*2); s+=rect(x,pad,pw,H-pad*2,'none','var(--frame)',2.5,2);
-    if(i%2===0){ var cy=H/2; s+='<line x1="'+(x+pw*0.3)+'" y1="'+cy+'" x2="'+(x+pw*0.7)+'" y2="'+cy+'" stroke="var(--line)" stroke-width="1.4"/><polyline points="'+(x+pw*0.62)+','+(cy-5)+' '+(x+pw*0.72)+','+cy+' '+(x+pw*0.62)+','+(cy+5)+'" fill="none" stroke="var(--line)" stroke-width="1.4"/>'; }
-  }
-  return s+'</svg>';
-}
-function rect(x,y,w,h,fill,stroke,sw,r){ return '<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="'+(r||0)+'" fill="'+fill+'" stroke="'+stroke+'" stroke-width="'+sw+'"/>'; }
-function glass(x,y,w,h){ return '<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="2" fill="url(#gl)"/>'; }
 
-/* ---- Productdata (afgeleid van jullie configurator) ---- */
+/* ===== Deuren / combinaties =====
+   col-tokens: leaf(dichte deur) · half(half glas) · tilt(balkondeur draaikiep)
+   fdL/fdR(dubbele tuindeur, glas) · fdLb/fdRb(idem + borstwering)
+   side(zijlicht) · sideB(zijlicht+borstwering) · glas(vast) · glasB(vast+borstwering) */
+function drCol(x,y,w,h,t){
+  function handle(hx,cy){ return '<rect x="'+hx+'" y="'+(cy-11)+'" width="3" height="22" rx="1.5" fill="#cfd6d2"/>'; }
+  function diag(){ return dash((x+4)+','+(y+h-4)+' '+(x+w-4)+','+(y+4)); }
+  var s='';
+  if(t==='leaf'){ s+=rect(x,y,w,h,'var(--frame)','var(--frame)',2,3)+glass(x+w-13,y+12,7,h-24)+handle(x+8,y+h/2)+diag(); }
+  else if(t==='half'){ s+=rect(x,y,w,h,'var(--frame)','var(--frame)',2,3)+glass(x+5,y+5,w-10,h*0.45)+handle(x+8,y+h/2)+dash((x+5)+','+(y+5+h*0.45)+' '+(x+w-5)+','+(y+5)); }
+  else if(t==='tilt'){ s+=rect(x,y,w,h,'none','var(--frame)',2,3)+glass(x+3,y+3,w-6,h*0.80)+rect(x+3,y+h*0.83,w-6,h*0.14,'var(--frame)','var(--frame)',1,1);
+    var gx=x+6,gy=y+6,gw=w-12,gh=h*0.74; s+=dash(gx+','+gy+' '+(gx+gw)+','+(gy+gh/2)+' '+gx+','+(gy+gh))+dash(gx+','+(gy+gh)+' '+(gx+gw/2)+','+gy+' '+(gx+gw)+','+(gy+gh)); }
+  else if(t==='fdL'||t==='fdR'){ s+=rect(x,y,w,h,'none','var(--frame)',2,3)+glass(x+3,y+3,w-6,h-6); s+=diag(); s+=handle(t==='fdL'?x+w-9:x+6, y+h/2); }
+  else if(t==='fdLb'||t==='fdRb'){ s+=rect(x,y,w,h,'none','var(--frame)',2,3)+glass(x+3,y+3,w-6,h*0.66)+rect(x+3,y+h*0.69,w-6,h*0.28,'var(--frame)','var(--frame)',1,1); s+=dash((x+4)+','+(y+h*0.66)+' '+(x+w-4)+','+(y+4)); s+=handle(t==='fdLb'?x+w-9:x+6, y+h*0.34); }
+  else if(t==='side'){ s+=glass(x,y,w,h)+rect(x,y,w,h,'none','var(--frame)',2,2); }
+  else if(t==='sideB'){ s+=glass(x,y,w,h*0.68)+rect(x,y+h*0.70,w,h*0.30,'var(--frame)','var(--frame)',1,1)+rect(x,y,w,h,'none','var(--frame)',2,2); }
+  else if(t==='glas'){ s+=glass(x,y,w,h)+rect(x,y,w,h,'none','var(--frame)',2,2); }
+  else if(t==='glasB'){ s+=glass(x,y,w,h*0.74)+rect(x,y+h*0.76,w,h*0.24,'var(--frame)','var(--frame)',1,1)+rect(x,y,w,h,'none','var(--frame)',2,2); }
+  else { s+=glass(x,y,w,h)+rect(x,y,w,h,'none','var(--frame)',2,2); }
+  return s;
+}
+function dr(spec){
+  if(Array.isArray(spec)) spec={cols:spec};
+  var W=200,H=210,pad=10,gap=4,topH=spec.top?22:0;
+  var s='<svg viewBox="0 0 '+W+' '+H+'" xmlns="http://www.w3.org/2000/svg">'+rect(pad-3,pad-3,W-(pad-3)*2,H-(pad-3)*2,'none','var(--frame)',3,4);
+  var iy=pad+topH+(topH?gap:0),ih=H-pad-iy,cols=spec.cols;
+  if(topH) s+=panel(pad,pad,W-pad*2,topH,'fixed');
+  var wt=cols.map(function(c){ return /leaf|half|tilt|fd/.test(c)?2:1; });
+  var tot=wt.reduce(function(a,b){return a+b;},0),avail=W-pad*2-gap*(cols.length-1),x=pad;
+  for(var i=0;i<cols.length;i++){ var w=avail*wt[i]/tot; s+=drCol(x,iy,w,ih,cols[i]); x+=w+gap; }
+  return s+'</svg>';
+}
+
+/* ===== Schuifpuien ===== */
+function slider(panels){
+  var W=220,H=150,pad=8,gap=3,pw=(W-pad*2-gap*(panels-1))/panels;
+  var s='<svg viewBox="0 0 '+W+' '+H+'" xmlns="http://www.w3.org/2000/svg">'+rect(pad-3,pad-3,W-(pad-3)*2,H-(pad-3)*2,'none','var(--frame)',3,4);
+  for(var i=0;i<panels;i++){ var x=pad+i*(pw+gap); s+=glass(x,pad,pw,H-pad*2)+rect(x,pad,pw,H-pad*2,'none','var(--frame)',2.5,2);
+    if(i%2===0){ var cy=H/2; s+='<line x1="'+(x+pw*0.3)+'" y1="'+cy+'" x2="'+(x+pw*0.7)+'" y2="'+cy+'" stroke="var(--line)" stroke-width="1.4"/>'+dash((x+pw*0.62)+','+(cy-5)+' '+(x+pw*0.72)+','+cy+' '+(x+pw*0.62)+','+(cy+5)); } }
+  return s+'</svg>';
+}
+
+/* ===== Productdata ===== */
 var DATA = {
   kozijnen:{ label:'Kozijnen', filterable:true, items:[
-    /* 1 vak */
     {n:'Draai-kiepraam', sub:'1 vak · Schüco', vk:1, svg:win(['tiltturn'])},
     {n:'Valraam', sub:'1 vak · Schüco', vk:1, svg:win(['tilt'])},
     {n:'Vast glas', sub:'1 vak · Schüco', vk:1, svg:win(['fixed'])},
-    /* 2 vakken */
     {n:'Draai-kiepraam', sub:'2 vakken · Schüco', vk:2, svg:win(['tiltturn','tiltturn'])},
     {n:'Draai-kiepraam (L) en vast glas', sub:'2 vakken · Schüco', vk:2, svg:win(['tiltturn','fixed'])},
     {n:'Draai-kiepraam (R) en vast glas', sub:'2 vakken · Schüco', vk:2, svg:win(['fixed','tiltturn'])},
@@ -161,53 +152,78 @@ var DATA = {
     {n:'Verhuisraam', sub:'2 vakken · Schüco', vk:2, svg:win(['turnR','turnL'])},
     {n:'Vast glas', sub:'2 vakken · Schüco', vk:2, svg:win(['fixed','fixed'])},
     {n:'Vast glas (gestapeld)', sub:'2 vakken · Schüco', vk:2, svg:win({stack:['fixed','fixed']})},
-    /* 3 vakken */
     {n:'Draai-kiepraam (L) en vast glas', sub:'3 vakken · Schüco', vk:3, svg:win(['tiltturn','fixed','fixed'])},
     {n:'Draai-kiepraam (M) en vast glas', sub:'3 vakken · Schüco', vk:3, svg:win(['fixed','tiltturn','fixed'])},
     {n:'Draai-kiepraam (R) en vast glas', sub:'3 vakken · Schüco', vk:3, svg:win(['fixed','fixed','tiltturn'])},
     {n:'Draai-kiepramen (L&R) en vast glas', sub:'3 vakken · Schüco', vk:3, svg:win(['tiltturn','fixed','tiltturn'])},
     {n:'Draai-kiepraam (L) met bovenlicht en vast glas', sub:'3 vakken · Schüco', vk:3, svg:win({cols:['tiltturn','fixed','fixed'],top:true})},
     {n:'Vast glas', sub:'3 vakken · Schüco', vk:3, svg:win(['fixed','fixed','fixed'])},
-    /* 4 vakken */
     {n:'Draai-kiepramen en vast glas', sub:'4 vakken · Schüco', vk:4, svg:win(['fixed','tiltturn','tiltturn','fixed'])},
-    /* meer dan 4 */
     {n:'Vast glas', sub:'6 vakken · Schüco', vk:6, svg:win({grid:{r:2,c:3}})},
   ]},
   voordeuren:{ label:'Voordeuren', filterable:false, items:[
-    {n:'Voordeur', sub:'Schüco', svg:door({})},
-    {n:'Voordeur met zijlicht (R)', sub:'Schüco', svg:door({zR:1})},
-    {n:'Voordeur met zijlicht (L)', sub:'Schüco', svg:door({zL:1})},
-    {n:'Voordeur met bovenlicht', sub:'Schüco', svg:door({boven:1})},
-    {n:'Voordeur met 2 zijlichten', sub:'Schüco', svg:door({zL:1,zR:1})},
+    {n:'Voordeur', sub:'Schüco', svg:dr(['leaf'])},
+    {n:'Voordeur met zijlicht (R)', sub:'Schüco', svg:dr(['leaf','side'])},
+    {n:'Voordeur met zijlicht (L)', sub:'Schüco', svg:dr(['side','leaf'])},
+    {n:'Voordeur met zijlicht en borstwering (R)', sub:'Schüco', svg:dr(['leaf','sideB'])},
+    {n:'Voordeur met zijlicht en borstwering (L)', sub:'Schüco', svg:dr(['sideB','leaf'])},
+    {n:'Voordeur met bovenlicht', sub:'Schüco', svg:dr({cols:['leaf'],top:true})},
+    {n:'Voordeur met zijlicht en bovenlicht (L)', sub:'Schüco', svg:dr({cols:['side','leaf'],top:true})},
+    {n:'Voordeur met zijlicht en bovenlicht (R)', sub:'Schüco', svg:dr({cols:['leaf','side'],top:true})},
+    {n:'Voordeur met dubbel zijlicht (R)', sub:'Schüco', svg:dr(['leaf','side','side'])},
+    {n:'Voordeur met dubbel zijlicht (L)', sub:'Schüco', svg:dr(['side','side','leaf'])},
+    {n:'Voordeur met zijlichten (L&R)', sub:'Schüco', svg:dr(['side','leaf','side'])},
+    {n:'Voordeur met dubbele zijlichten en bovenlicht', sub:'Schüco', svg:dr({cols:['side','leaf','side'],top:true})},
+    {n:'Voordeur met zijlicht en borstwering en bovenlicht (R)', sub:'Schüco', svg:dr({cols:['leaf','sideB'],top:true})},
+    {n:'Voordeur met zijlicht en borstwering en bovenlicht (L)', sub:'Schüco', svg:dr({cols:['sideB','leaf'],top:true})},
   ]},
   achterdeuren:{ label:'Achterdeuren', filterable:false, items:[
-    {n:'Achterdeur half glas', sub:'Schüco', svg:door({})},
-    {n:'Achterdeur vol glas', sub:'Schüco', svg:door({zR:0,full:1})},
-    {n:'Achterdeur met zijlicht', sub:'Schüco', svg:door({zR:1})},
+    {n:'Achterdeur', sub:'Schüco', svg:dr(['half'])},
+    {n:'Achterdeur met zijlicht (R)', sub:'Schüco', svg:dr(['half','side'])},
+    {n:'Achterdeur met zijlicht (L)', sub:'Schüco', svg:dr(['side','half'])},
+    {n:'Achterdeur met zijlicht en borstwering (R)', sub:'Schüco', svg:dr(['half','sideB'])},
+    {n:'Achterdeur met zijlicht en borstwering (L)', sub:'Schüco', svg:dr(['sideB','half'])},
+    {n:'Achterdeur met bovenlicht', sub:'Schüco', svg:dr({cols:['half'],top:true})},
+    {n:'Achterdeur met bovenlicht en zijlicht (R)', sub:'Schüco', svg:dr({cols:['half','side'],top:true})},
+    {n:'Achterdeur met bovenlicht en zijlicht (L)', sub:'Schüco', svg:dr({cols:['side','half'],top:true})},
   ]},
   tuindeuren:{ label:'Tuindeuren', filterable:false, items:[
-    {n:'Dubbele tuindeuren', sub:'Schüco', svg:door({zL:0,zR:0,double:1,boven:0,leftleaf:1})},
-    {n:'Tuindeuren met zijlichten', sub:'Schüco', svg:door({zL:1,zR:1,double:1})},
+    {n:'Dubbele tuindeuren', sub:'Schüco', svg:dr(['fdL','fdR'])},
+    {n:'Dubbele tuindeuren met zijlichten', sub:'Schüco', svg:dr(['side','fdL','fdR','side'])},
+    {n:'Dubbele tuindeuren met bovenlicht', sub:'Schüco', svg:dr({cols:['fdL','fdR'],top:true})},
+    {n:'Dubbele tuindeuren met zijlichten en bovenlicht', sub:'Schüco', svg:dr({cols:['side','fdL','fdR','side'],top:true})},
+    {n:'Dubbele tuindeuren met borstwering', sub:'Schüco', svg:dr(['fdLb','fdRb'])},
+    {n:'Dubbele tuindeuren met zijlichten en borstwering', sub:'Schüco', svg:dr(['sideB','fdLb','fdRb','sideB'])},
+    {n:'Dubbele tuindeuren met bovenlicht en borstwering', sub:'Schüco', svg:dr({cols:['fdLb','fdRb'],top:true})},
+    {n:'Dubbele tuindeuren met bovenlicht en zijlichten met borstwering', sub:'Schüco', svg:dr({cols:['sideB','fdLb','fdRb','sideB'],top:true})},
+  ]},
+  balkondeuren:{ label:'Balkondeuren', filterable:false, items:[
+    {n:'Balkondeur', sub:'Schüco', svg:dr(['tilt'])},
+    {n:'Balkondeur met bovenlicht', sub:'Schüco', svg:dr({cols:['tilt'],top:true})},
+    {n:'Balkondeur (L) en vast glas', sub:'Schüco', svg:dr(['tilt','glasB'])},
+    {n:'Balkondeur (R) en vast glas', sub:'Schüco', svg:dr(['glasB','tilt'])},
+    {n:'Balkondeur (M) en vast glas', sub:'Schüco', svg:dr(['glasB','tilt','glasB'])},
+    {n:'Balkondeur (L) en vast glas met bovenlicht', sub:'Schüco', svg:dr({cols:['tilt','glasB'],top:true})},
+    {n:'Balkondeur (R) en vast glas met bovenlicht', sub:'Schüco', svg:dr({cols:['glasB','tilt'],top:true})},
+    {n:'Balkondeur | 1 vak', sub:'Schüco', svg:dr(['tilt'])},
   ]},
   schuifpuien:{ label:'Schuifpuien', filterable:false, items:[
     {n:'Schuifpui 2-delig', sub:'Schüco', svg:slider(2)},
     {n:'Schuifpui 3-delig', sub:'Schüco', svg:slider(3)},
     {n:'Schuifpui 4-delig', sub:'Schüco', svg:slider(4)},
+    {n:'Hefschuifpui (premium)', sub:'Schüco', svg:slider(2)},
   ]},
 };
 
 var state={ cat:'kozijnen', vk:0 };
 var catsEl=document.getElementById('cats'), filtersEl=document.getElementById('filters'), gridEl=document.getElementById('grid');
-
 Object.keys(DATA).forEach(function(k){
   var b=document.createElement('button'); b.textContent=DATA[k].label; b.dataset.k=k;
-  b.onclick=function(){ state.cat=k; state.vk=0; render(); };
-  catsEl.appendChild(b);
+  b.onclick=function(){ state.cat=k; state.vk=0; render(); }; catsEl.appendChild(b);
 });
 function render(){
   [].forEach.call(catsEl.children,function(b){ b.classList.toggle('active', b.dataset.k===state.cat); });
   var cat=DATA[state.cat];
-  // filters
   filtersEl.innerHTML='';
   if(cat.filterable){
     [['Alle producten',0],['1 vak',1],['2 vakken',2],['3 vakken',3],['4 vakken',4],['Meer dan 4',5]].forEach(function(f){
@@ -215,7 +231,6 @@ function render(){
       c.onclick=function(){ state.vk=f[1]; render(); }; filtersEl.appendChild(c);
     });
   }
-  // grid
   gridEl.innerHTML='';
   cat.items.filter(function(it){ return !state.vk || (state.vk===5 ? it.vk>4 : it.vk===state.vk); }).forEach(function(it){
     var a=document.createElement('a'); a.className='cfg-card'; a.href='/configurator/';
@@ -223,7 +238,7 @@ function render(){
     gridEl.appendChild(a);
   });
   var cta=document.createElement('div'); cta.className='cfg-cta';
-  cta.innerHTML='<h3>Niet zeker welk kozijn bij jouw situatie past?</h3><p>Onze experts helpen je graag met het samenstellen van een vrijblijvende offerte.</p><a href="/contact/">Advies aanvragen</a>';
+  cta.innerHTML='<h3>Niet zeker welk product bij jouw situatie past?</h3><p>Onze experts helpen je graag met het samenstellen van een vrijblijvende offerte.</p><a href="/contact/">Advies aanvragen</a>';
   gridEl.appendChild(cta);
 }
 render();
@@ -231,7 +246,7 @@ render();
 
 <svg width="0" height="0" style="position:absolute"><defs>
   <linearGradient id="gl" x1="0" y1="0" x2="1" y2="1">
-    <stop offset="0" stop-color="#dCECFB"/><stop offset="1" stop-color="#bcdaf4"/>
+    <stop offset="0" stop-color="#dcecfb"/><stop offset="1" stop-color="#bcdaf4"/>
   </linearGradient>
 </defs></svg>
 
