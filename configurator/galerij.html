@@ -117,13 +117,19 @@ function drCol(x,y,w,h,t){
 }
 function dr(spec){
   if(Array.isArray(spec)) spec={cols:spec};
-  var W=200,H=210,pad=10,gap=4,topH=spec.top?22:0;
-  var s='<svg viewBox="0 0 '+W+' '+H+'" xmlns="http://www.w3.org/2000/svg">'+rect(pad-3,pad-3,W-(pad-3)*2,H-(pad-3)*2,'none','var(--frame)',3,4);
-  var iy=pad+topH+(topH?gap:0),ih=H-pad-iy,cols=spec.cols;
-  if(topH) s+=panel(pad,pad,W-pad*2,topH,'fixed');
-  var wt=cols.map(function(c){ return /leaf|half|tilt|fd/.test(c)?2:1; });
-  var tot=wt.reduce(function(a,b){return a+b;},0),avail=W-pad*2-gap*(cols.length-1),x=pad;
-  for(var i=0;i<cols.length;i++){ var w=avail*wt[i]/tot; s+=drCol(x,iy,w,ih,cols[i]); x+=w+gap; }
+  var VB=200, gap=3, cols=spec.cols, topH=spec.top?18:0, i;
+  // natuurlijke breedte per element (deur smal/hoog, zijlicht smaller) -> juiste proportie
+  function natW(t){ return /^(leaf|half|tilt)$/.test(t)?60 : /^fd/.test(t)?54 : /^(glas|glasB)$/.test(t)?40 : 26; }
+  var ws=cols.map(natW);
+  var bodyW=ws.reduce(function(a,b){return a+b;},0)+gap*(cols.length-1);
+  var maxBody=176, sc=bodyW>maxBody?maxBody/bodyW:1;
+  ws=ws.map(function(w){return w*sc;}); bodyW*=sc;
+  var H=168, frameW=bodyW+10, fx=(VB-frameW)/2, fy=(VB-H)/2;
+  var s='<svg viewBox="0 0 '+VB+' '+VB+'" xmlns="http://www.w3.org/2000/svg">'+rect(fx,fy,frameW,H,'none','var(--frame)',3,4);
+  var innerX=fx+5, innerTop=fy+5, innerW=bodyW, innerH=H-10;
+  if(topH) s+=panel(innerX,innerTop,innerW,topH,'fixed');
+  var colY=innerTop+(topH?topH+gap:0), colH=innerH-(topH?topH+gap:0), x=innerX;
+  for(i=0;i<cols.length;i++){ s+=drCol(x,colY,ws[i],colH,cols[i]); x+=ws[i]+gap; }
   return s+'</svg>';
 }
 
