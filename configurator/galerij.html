@@ -240,7 +240,7 @@ function render(){
   gridEl.innerHTML='';
   cat.items.filter(function(it){ return !state.vk || (state.vk===5 ? it.vk>4 : it.vk===state.vk); }).forEach(function(it){
     var a=document.createElement('a'); a.className='cfg-card';
-    a.href = (cat.pk && it.ck) ? ('/configurator/?type='+cat.pk+'&indeling='+encodeURIComponent(it.ck)) : '/configurator/';
+    a.href = (cat.pk && it.ck) ? ('/configurator?type='+cat.pk+'&indeling='+encodeURIComponent(it.ck)) : '/configurator';
     a.innerHTML='<div class="vis">'+it.svg+'</div><div class="nm">'+it.n+'</div><div class="mt">'+it.sub+'</div>';
     gridEl.appendChild(a);
   });
