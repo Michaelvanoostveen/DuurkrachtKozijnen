@@ -345,13 +345,12 @@
         <div class="cfg-step">
           <div class="cfg-step-label"><span class="cfg-num">5</span> Kleur</div>
           <div class="cfg-swatches" role="radiogroup" aria-label="Kleur">
-            <label class="cfg-swatch"><input type="radio" name="kleur" value="wit" checked /><span class="cfg-swatch-dot" style="background:#f5f5f0"></span><span>Wit</span></label>
-            <label class="cfg-swatch"><input type="radio" name="kleur" value="creme" /><span class="cfg-swatch-dot" style="background:#e8e2d0"></span><span>Crème</span></label>
-            <label class="cfg-swatch"><input type="radio" name="kleur" value="antraciet" /><span class="cfg-swatch-dot" style="background:#383b3d"></span><span>Antraciet</span></label>
-            <label class="cfg-swatch"><input type="radio" name="kleur" value="zwart" /><span class="cfg-swatch-dot" style="background:#1c1c1c"></span><span>Zwart</span></label>
-            <label class="cfg-swatch"><input type="radio" name="kleur" value="kwartsgrijs" /><span class="cfg-swatch-dot" style="background:#6b6863"></span><span>Kwartsgrijs</span></label>
-            <label class="cfg-swatch"><input type="radio" name="kleur" value="dennengroen" /><span class="cfg-swatch-dot" style="background:#2e3b2e"></span><span>Dennengroen</span></label>
-            <label class="cfg-swatch"><input type="radio" name="kleur" value="houtnerf" /><span class="cfg-swatch-dot" style="background:#8a5a2b"></span><span>Houtnerf</span></label>
+            <label class="cfg-swatch"><input type="radio" name="kleur" value="wit" checked /><span class="cfg-swatch-dot" style="background:#f3f2ec"></span><span>Wit (9010)</span></label>
+            <label class="cfg-swatch"><input type="radio" name="kleur" value="creme" /><span class="cfg-swatch-dot" style="background:#e6ddc8"></span><span>Crème (9001)</span></label>
+            <label class="cfg-swatch"><input type="radio" name="kleur" value="antraciet" /><span class="cfg-swatch-dot" style="background:#383e42"></span><span>Antraciet (7016)</span></label>
+            <label class="cfg-swatch"><input type="radio" name="kleur" value="zwartgrijs" /><span class="cfg-swatch-dot" style="background:#2b2f31"></span><span>Zwart Grijs (7021)</span></label>
+            <label class="cfg-swatch"><input type="radio" name="kleur" value="staalblauw" /><span class="cfg-swatch-dot" style="background:#1c3040"></span><span>Staalblauw (5011)</span></label>
+            <label class="cfg-swatch"><input type="radio" name="kleur" value="dennengroen" /><span class="cfg-swatch-dot" style="background:#27352a"></span><span>Dennengroen (6009)</span></label>
           </div>
         </div>
 
@@ -549,13 +548,12 @@
   };
   var GLASS = { hrpp:{label:'HR++ glas', mult:1.00, isdeLow:23, isdeHigh:46}, triple:{label:'Triple glas', mult:1.25, isdeLow:111, isdeHigh:222} };
   var COLOR = {
-    wit:        {label:'Wit',          mult:1.00, frame:'#f5f5f0', stroke:'#cfcfc6'},
-    creme:      {label:'Crème',        mult:1.05, frame:'#e8e2d0', stroke:'#cdc6b0'},
-    antraciet:  {label:'Antraciet',    mult:1.15, frame:'#383b3d', stroke:'#26282a'},
-    zwart:      {label:'Zwart',        mult:1.15, frame:'#1c1c1c', stroke:'#000000'},
-    kwartsgrijs:{label:'Kwartsgrijs',  mult:1.15, frame:'#6b6863', stroke:'#54514c'},
-    dennengroen:{label:'Dennengroen',  mult:1.18, frame:'#2e3b2e', stroke:'#1f291f'},
-    houtnerf:   {label:'Houtnerf eiken',mult:1.18, frame:'#8a5a2b', stroke:'#6d4620'}
+    wit:        {label:'Wit · RAL 9010',          mult:1.00, frame:'#f3f2ec', stroke:'#d8d7cf'},
+    creme:      {label:'Crème · RAL 9001',        mult:1.05, frame:'#e6ddc8', stroke:'#ccc3ac'},
+    antraciet:  {label:'Antraciet · RAL 7016',    mult:1.15, frame:'#383e42', stroke:'#262b2e'},
+    zwartgrijs: {label:'Zwart Grijs · RAL 7021',  mult:1.15, frame:'#2b2f31', stroke:'#1a1d1f'},
+    staalblauw: {label:'Staalblauw · RAL 5011',   mult:1.18, frame:'#1c3040', stroke:'#11202b'},
+    dennengroen:{label:'Dennengroen · RAL 6009',  mult:1.18, frame:'#27352a', stroke:'#1a241d'}
   };
   var BESLAG = { rc2:{label:'RC2 sluitwerk', mult:1.00}, rc3:{label:'RC3 sluitwerk', mult:1.10} };
   var GLASSFILL = '#d4e3ec', GLASSO = 1, HANDLE = '#b9933f';
