@@ -263,7 +263,7 @@
       <style>
         .cfg-options.from-gallery #cfg-step-product, .cfg-options.from-gallery #cfg-step-indeling{ display:none; }
         .cfg-fg-bar{ display:flex; align-items:center; justify-content:space-between; gap:16px; padding:16px 18px; background:#eef5ef; border:1px solid #d7e6da; border-radius:12px; margin-bottom:24px; }
-        .cfg-fg-bar[hidden], #cfg-segw-wrap[hidden]{ display:none !important; }
+        .cfg-fg-bar[hidden], #cfg-segw-wrap[hidden], #cfg-segh-wrap[hidden]{ display:none !important; }
         .cfg-fg-bar .cfg-fg-eyebrow{ display:block; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#7b857f; font-weight:600; margin-bottom:2px; }
         .cfg-fg-bar strong{ font-size:16px; color:#1c2421; }
         .cfg-fg-change{ color:#0B5A2B; font-weight:600; font-size:14px; text-decoration:none; white-space:nowrap; }
@@ -318,12 +318,17 @@
               <div id="cfg-segw" class="cfg-segw-row"></div>
               <small class="cfg-segw-total">Totale breedte: <strong id="cfg-segw-totalval">—</strong></small>
             </div>
-            <div class="cfg-dim-field">
+            <div class="cfg-dim-field" id="cfg-bh-field">
               <label for="hoogte">Hoogte</label>
               <div class="cfg-slider-row">
                 <input type="range" id="hoogte" name="hoogte" min="500" max="2700" step="50" value="1200" />
                 <div class="cfg-num-wrap"><input type="number" class="cfg-dim-num" id="hoogte-val" inputmode="numeric" min="500" max="2700" step="50" value="1200" /><span class="cfg-unit">mm</span></div>
               </div>
+            </div>
+            <div class="cfg-dim-field cfg-segw-field" id="cfg-segh-wrap" hidden>
+              <label>Hoogte per rij <span class="cfg-segw-hint">(mm)</span></label>
+              <div id="cfg-segh" class="cfg-segw-row"></div>
+              <small class="cfg-segw-total">Totale hoogte: <strong id="cfg-segh-totalval">—</strong></small>
             </div>
           </div>
           <p class="cfg-m2">Oppervlakte: <strong id="m2-val">1,20 m²</strong></p>
@@ -560,10 +565,35 @@
   var bEl = document.getElementById('breedte'), hEl = document.getElementById('hoogte');
   var bNumEl = document.getElementById('breedte-val'), hNumEl = document.getElementById('hoogte-val');
   var bwField = document.getElementById('cfg-bw-field'), segwWrap = document.getElementById('cfg-segw-wrap'), segwBox = document.getElementById('cfg-segw');
-  var curSegW = null, lastVarKey = null, pendingSegW = null;
+  var bhField = document.getElementById('cfg-bh-field'), seghWrap = document.getElementById('cfg-segh-wrap'), seghBox = document.getElementById('cfg-segh');
+  var curSegW = null, curSegH = null, lastVarKey = null, pendingSegW = null, pendingSegH = null;
   function nColsOf(v){ return v.grid ? v.grid.c : v.stack ? 1 : (v.cols ? v.cols.length : 1); }
+  function nRowsOf(v){ return v.grid ? v.grid.r : v.stack ? v.stack.length : (1 + (v.topLight?1:0) + (v.bottomLight?1:0)); }
+  function rowLabels(v){
+    if(v.grid){ var a=[]; for(var i=0;i<v.grid.r;i++) a.push('rij '+(i+1)); return a; }
+    if(v.stack){ return v.stack.map(function(_,i){ return 'rij '+(i+1); }); }
+    var b=[]; if(v.topLight) b.push('bovenlicht'); b.push('hoofd'); if(v.bottomLight) b.push('borstwering'); return b;
+  }
   function segwTotal(){ return curSegW ? curSegW.reduce(function(a,b){return a+b;},0) : (+bEl.value||0); }
-  function updateSegTotalLabel(){ var el=document.getElementById('cfg-segw-totalval'); if(el) el.textContent = segwTotal()+' mm'; }
+  function seghTotal(){ return curSegH ? curSegH.reduce(function(a,b){return a+b;},0) : (+hEl.value||0); }
+  function updateSegTotalLabel(){ var el=document.getElementById('cfg-segw-totalval'); if(el) el.textContent = segwTotal()+' mm'; var el2=document.getElementById('cfg-segh-totalval'); if(el2) el2.textContent = seghTotal()+' mm'; }
+  function renderSegH(p, v){
+    var n = (p.kind==='window') ? nRowsOf(v) : 1;
+    if(n>1){
+      var src=(pendingSegH&&pendingSegH.length===n)?pendingSegH:null, labels=rowLabels(v), strips=!v.grid&&!v.stack, html='';
+      curSegH=[];
+      for(var i=0;i<n;i++){ var lbl=labels[i]||('rij '+(i+1));
+        var def = src ? src[i] : (strips ? (lbl==='hoofd' ? Math.max(700, p.hDef-450*(n-1)) : 450) : Math.round(p.hDef/n/10)*10);
+        curSegH.push(def);
+        html+='<div class="cfg-segw-cell"><input type="number" class="cfg-segh-in" data-i="'+i+'" inputmode="numeric" min="200" max="2700" step="10" value="'+def+'" /><span>'+lbl+'</span></div>'; }
+      seghBox.innerHTML=html;
+      hEl.value=seghTotal();
+      bhField.hidden=true; seghWrap.hidden=false;
+    } else {
+      curSegH=null; seghBox.innerHTML=''; bhField.hidden=false; seghWrap.hidden=true;
+    }
+    pendingSegH=null;
+  }
   function renderSegW(p, v){
     var n = (p.kind==='window') ? nColsOf(v) : 1;
     if(n>1){
@@ -576,7 +606,7 @@
       bEl.value=segwTotal();
       bwField.hidden=true; segwWrap.hidden=false;
     } else {
-      curSegW=null; bwField.hidden=false; segwWrap.hidden=true;
+      curSegW=null; segwBox.innerHTML=''; bwField.hidden=false; segwWrap.hidden=true;
     }
     pendingSegW=null;
     updateSegTotalLabel();
@@ -608,50 +638,49 @@
   }
 
   // Teken een raamindeling in box (bx,by,bw,bh)
-  function drawWindow(v, bx,by,bw,bh, col, fr, colW){
+  function drawWindow(v, bx,by,bw,bh, col, fr, colW, rowH){
     var s = r(bx,by,bw,bh,col.frame,col.stroke,1.5);
-    // raster (bijv. 6-vaks vast glas)
+    // teken een rij met vakken (content) in (rx,ry,rw,rh) volgens cols + colW
+    function contentRow(rx,ry,rw,rh,cols,cwArr){
+      var n=cols.length, gx=rx+fr, gy=ry+fr, gw=rw-2*fr, gh=rh-2*fr;
+      var ws=(cwArr&&cwArr.length===n)?cwArr:null, tot=ws?ws.reduce(function(a,b){return a+b;},0):n, px=gx, out='';
+      for(var i=0;i<n;i++){
+        var pw=ws?gw*ws[i]/tot:gw/n;
+        var ix0=px+(i>0?fr*0.5:0), iw=pw-(i>0?fr*0.5:0)-(i<n-1?fr*0.5:0);
+        out+=glass(ix0,gy,iw,gh)+sym(cols[i],ix0,gy,iw,gh,col.frame);
+        if(i<n-1) out+=r(px+pw-fr*0.5, ry, fr, rh, col.frame);
+        px+=pw;
+      }
+      return out;
+    }
+    // RASTER (bijv. 6-vaks vast glas)
     if(v.grid){
-      var R=v.grid.r, C=v.grid.c, ggx=bx+fr, ggy=by+fr, ggw=bw-2*fr, ggh=bh-2*fr, cw2=ggw/C, ch2=ggh/R;
-      for(var ri=0;ri<R;ri++) for(var ci=0;ci<C;ci++){ s += glass(ggx+ci*cw2, ggy+ri*ch2, cw2, ch2); }
-      for(var cj=1;cj<C;cj++) s += r(ggx+cj*cw2-fr*0.4, by, fr*0.8, bh, col.frame);
-      for(var rj=1;rj<R;rj++) s += r(bx, ggy+rj*ch2-fr*0.4, bw, fr*0.8, col.frame);
+      var R=v.grid.r, C=v.grid.c;
+      var rws=(rowH&&rowH.length===R)?rowH:null, rtot=rws?rws.reduce(function(a,b){return a+b;},0):R;
+      var cws=(colW&&colW.length===C)?colW:null, ctot=cws?cws.reduce(function(a,b){return a+b;},0):C;
+      var yy=by;
+      for(var ri=0;ri<R;ri++){ var rH=rws?rws[ri]/rtot*bh:bh/R, xx=bx;
+        for(var ci=0;ci<C;ci++){ var cW=cws?cws[ci]/ctot*bw:bw/C; s+=glass(xx+fr,yy+fr,cW-2*fr,rH-2*fr); xx+=cW; }
+        if(ri<R-1) s+=r(bx, yy+rH-fr*0.4, bw, fr*0.8, col.frame); yy+=rH; }
+      var xx2=bx; for(var cj=1;cj<C;cj++){ xx2+=(cws?cws[cj-1]/ctot*bw:bw/C); s+=r(xx2-fr*0.4, by, fr*0.8, bh, col.frame); }
       return s;
     }
-    // verticale stapel (gestapelde vakken)
+    // VERTICALE STAPEL
     if(v.stack){
-      var m=v.stack.length, sgx=bx+fr, sgy=by+fr, sgw=bw-2*fr, sgh=bh-2*fr, rh=sgh/m;
-      for(var k=0;k<m;k++){ var ry=sgy+k*rh; s += glass(sgx,ry,sgw,rh); s += sym(v.stack[k],sgx,ry,sgw,rh,col.frame); if(k<m-1) s += r(bx, sgy+(k+1)*rh-fr*0.5, bw, fr, col.frame); }
+      var m=v.stack.length, rws3=(rowH&&rowH.length===m)?rowH:null, rtot3=rws3?rws3.reduce(function(a,b){return a+b;},0):m, yy3=by;
+      for(var k=0;k<m;k++){ var rH3=rws3?rws3[k]/rtot3*bh:bh/m; s+=glass(bx+fr,yy3+fr,bw-2*fr,rH3-2*fr)+sym(v.stack[k],bx+fr,yy3+fr,bw-2*fr,rH3-2*fr,col.frame); if(k<m-1) s+=r(bx,yy3+rH3-fr*0.5,bw,fr,col.frame); yy3+=rH3; }
       return s;
     }
-    var areaY=by, areaH=bh;
-    // bovenlicht: smalle vaste rij bovenaan
-    if(v.topLight){
-      var tlH = bh*0.22;
-      var tgx=bx+fr, tgy=by+fr, tgw=bw-2*fr, tgh=tlH-fr*1.5;
-      s += glass(tgx,tgy,tgw,tgh);
-      s += r(bx, by+tlH-fr*0.5, bw, fr, col.frame); // tussendorpel
-      areaY = by+tlH; areaH -= tlH;
-    }
-    // borstwering: vaste rij onderaan (B-variant)
-    if(v.bottomLight){
-      var blH = bh*0.26;
-      s += glass(bx+fr, by+bh-blH+fr*0.75, bw-2*fr, blH-fr*1.5);
-      s += r(bx, by+bh-blH, bw, fr, col.frame); // tussendorpel
-      areaH -= blH;
-    }
-    var cols=v.cols, n=cols.length;
-    var gx=bx+fr, gy=areaY+fr, gw=bw-2*fr, gh=areaH-2*fr;
-    var ws=(colW && colW.length===n)?colW:null, tot=ws?ws.reduce(function(a,b){return a+b;},0):n;
-    var px=gx;
-    for(var i=0;i<n;i++){
-      var pw = ws ? gw*ws[i]/tot : gw/n;
-      // tussenstijl tussen vakken
-      var ix0=px+(i>0?fr*0.5:0), iw=pw-(i>0?fr*0.5:0)-(i<n-1?fr*0.5:0);
-      s += glass(ix0,gy,iw,gh);
-      s += sym(cols[i],ix0,gy,iw,gh,col.frame);
-      if(i<n-1){ s += r(px+pw-fr*0.5, areaY, fr, areaH, col.frame); }
-      px += pw;
+    // COLS + optionele strips (bovenlicht/borstwering)
+    var rowTypes=[]; if(v.topLight) rowTypes.push('top'); rowTypes.push('main'); if(v.bottomLight) rowTypes.push('bottom');
+    var nr=rowTypes.length;
+    var rprop=(rowH&&rowH.length===nr)?rowH:rowTypes.map(function(t){return t==='main'?3:(t==='top'?0.9:1.05);});
+    var rsum=rprop.reduce(function(a,b){return a+b;},0), yy4=by;
+    for(var ti=0;ti<nr;ti++){ var rH4=rprop[ti]/rsum*bh, t=rowTypes[ti];
+      if(t==='main'){ s+=contentRow(bx,yy4,bw,rH4,v.cols,colW); }
+      else { s+=glass(bx+fr, yy4+fr, bw-2*fr, rH4-2*fr); }
+      if(ti<nr-1) s+=r(bx, yy4+rH4-fr*0.5, bw, fr, col.frame);
+      yy4+=rH4;
     }
     return s;
   }
@@ -714,13 +743,13 @@
   }
 
   // Render naar viewbox van 200x200 met opgegeven aspect (ratio = w/h)
-  function buildSVG(kind, v, ratio, col, colW){
+  function buildSVG(kind, v, ratio, col, colW, rowH){
     var maxW=172, maxH=172, vw, vh;
     if(ratio>=1){ vw=maxW; vh=maxW/ratio; } else { vh=maxH; vw=maxH*ratio; }
     if(vh>maxH){ vh=maxH; vw=maxH*ratio; }
     if(vw>maxW){ vw=maxW; vh=maxW/ratio; }
     var x=(200-vw)/2, y=(200-vh)/2, fr=Math.max(5, vw*0.055);
-    if(kind==='window') return drawWindow(v,x,y,vw,vh,col,fr,colW);
+    if(kind==='window') return drawWindow(v,x,y,vw,vh,col,fr,colW,rowH);
     if(kind==='door')   return drawDoor(v,x,y,vw,vh,col,fr);
     if(kind==='slider') return drawSlider(v,x,y,vw,vh,col,fr);
     if(kind==='french') return drawFrench(v,x,y,vw,vh,col,fr);
@@ -782,11 +811,11 @@
     if(vKey){ currentVariant[pKey] = vKey; }
     var v = getVariant(p, pKey);
 
-    // per-vak breedtes (her)opbouwen bij indelingwissel
+    // per-vak breedtes + per-rij hoogtes (her)opbouwen bij indelingwissel
     var vKeyNow = pKey+'|'+v.key;
-    if(vKeyNow!==lastVarKey){ lastVarKey=vKeyNow; renderSegW(p, v); }
+    if(vKeyNow!==lastVarKey){ lastVarKey=vKeyNow; renderSegW(p, v); renderSegH(p, v); updateSegTotalLabel(); }
 
-    var w = curSegW ? segwTotal() : +bEl.value, h=+hEl.value;
+    var w = curSegW ? segwTotal() : +bEl.value, h = curSegH ? seghTotal() : +hEl.value;
     var glas=GLASS[val('glas')], bes=BESLAG[val('beslag')];
     var m2=(w/1000)*(h/1000);
 
@@ -811,6 +840,7 @@
     document.getElementById('cfg-spec').innerHTML =
       '<li><span>Indeling</span><span>'+esc(v.label)+'</span></li>' +
       (curSegW ? '<li><span>Vakbreedtes</span><span>'+curSegW.join(' · ')+' mm</span></li>' : '') +
+      (curSegH ? '<li><span>Rijhoogtes</span><span>'+curSegH.join(' · ')+' mm</span></li>' : '') +
       '<li><span>Glas</span><span>'+glas.label+'</span></li>' +
       '<li><span>Kleur</span><span>'+col.label+'</span></li>' +
       '<li><span>Beslag</span><span>'+bes.label+'</span></li>' +
@@ -818,10 +848,10 @@
 
     // huidige samenstelling onthouden voor "toevoegen aan project"
     var noteEl = document.getElementById('cfg-note-input');
-    curItem = { pKey:pKey, vKey:v.key, w:w, h:h, segW:(curSegW?curSegW.slice():null), glas:val('glas'), kleur:val('kleur'), beslag:val('beslag'), note:(noteEl?noteEl.value.trim():'') };
+    curItem = { pKey:pKey, vKey:v.key, w:w, h:h, segW:(curSegW?curSegW.slice():null), segH:(curSegH?curSegH.slice():null), glas:val('glas'), kleur:val('kleur'), beslag:val('beslag'), note:(noteEl?noteEl.value.trim():'') };
 
     // grote preview met echte verhouding (incl. vak-breedtes)
-    document.getElementById('cfg-svg').innerHTML = buildSVG(p.kind, v, w/h, col, (p.kind==='window'?curSegW:null));
+    document.getElementById('cfg-svg').innerHTML = buildSVG(p.kind, v, w/h, col, (p.kind==='window'?curSegW:null), (p.kind==='window'?curSegH:null));
 
     // bij kleurwissel ook de variant-thumbnails herkleuren (zonder selectie te verliezen)
     if(opts.recolor){ renderVariants(p, pKey, col); }
@@ -850,11 +880,11 @@
     if(!curItem.pKey) return;
     var noteEl=document.getElementById('cfg-note-input');
     var note=noteEl?noteEl.value.trim():'';
-    var key=[curItem.pKey,curItem.vKey,curItem.w,curItem.h,(curItem.segW?curItem.segW.join('-'):''),curItem.glas,curItem.kleur,curItem.beslag,note].join('|');
+    var key=[curItem.pKey,curItem.vKey,curItem.w,curItem.h,(curItem.segW?curItem.segW.join('-'):''),(curItem.segH?curItem.segH.join('-'):''),curItem.glas,curItem.kleur,curItem.beslag,note].join('|');
     var ex=project.filter(function(x){return x.key===key;})[0];
     if(ex){ ex.qty+=currentQty; }
     else { project.push({ id:Date.now().toString(36)+Math.random().toString(36).slice(2,6), key:key,
-            pKey:curItem.pKey, vKey:curItem.vKey, w:curItem.w, h:curItem.h, segW:curItem.segW,
+            pKey:curItem.pKey, vKey:curItem.vKey, w:curItem.w, h:curItem.h, segW:curItem.segW, segH:curItem.segH,
             glas:curItem.glas, kleur:curItem.kleur, beslag:curItem.beslag, note:note, qty:currentQty }); }
     saveProject(); renderProject();
     // reset aantal + notitie + feedback
@@ -877,7 +907,7 @@
     setRadio('glas',it.glas); setRadio('kleur',it.kleur); setRadio('beslag',it.beslag);
     lastProduct=it.pKey;                 // voorkom dat applyRanges de maten reset
     bEl.value=it.w; hEl.value=it.h;
-    pendingSegW = it.segW||null; lastVarKey=null;   // herstel vak-maten
+    pendingSegW = it.segW||null; pendingSegH = it.segH||null; lastVarKey=null;   // herstel vak-maten
     var noteEl=document.getElementById('cfg-note-input'); if(noteEl) noteEl.value=it.note||'';
     currentQty=it.qty; document.getElementById('qty-val').textContent=it.qty;
     project=project.filter(function(x){return x.id!==id;}); saveProject();
@@ -897,7 +927,7 @@
       var c=computeItem(it); if(!c) return;
       var line=c.price*it.qty; total+=line; isL+=c.isdeLow*it.qty; isH+=c.isdeHigh*it.qty;
       var ratio=c.p.kind==='door'?0.5:c.p.kind==='slider'?1.9:c.p.kind==='french'?1.0:(it.w/it.h);
-      var thumb='<svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">'+buildSVG(c.p.kind,c.v,ratio,c.col,(c.p.kind==='window'?it.segW:null))+'</svg>';
+      var thumb='<svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">'+buildSVG(c.p.kind,c.v,ratio,c.col,(c.p.kind==='window'?it.segW:null),(c.p.kind==='window'?it.segH:null))+'</svg>';
       var noteTag = it.note ? '<span class="cfg-pitem-note">'+esc(it.note)+'</span> ' : '';
       html+='<div class="cfg-pitem">'
         +'<div class="cfg-pitem-thumb">'+thumb+'</div>'
@@ -912,7 +942,7 @@
     list.innerHTML=html;
     document.getElementById('project-total').textContent=eur(total);
     document.getElementById('project-isde').textContent = isL>0 ? (eur(isL)+' – '+eur(isH)) : '—';
-    var lines=project.map(function(it){ var c=computeItem(it); return it.qty+'x '+c.p.label+' ('+c.v.label+') '+Math.round(it.w/10)+'x'+Math.round(it.h/10)+'cm'+(it.segW?(' [vakken '+it.segW.join('/')+'mm]'):'')+' '+c.glas.label+'/'+c.col.label+'/'+c.bes.label+' '+eur(c.price*it.qty); });
+    var lines=project.map(function(it){ var c=computeItem(it); return it.qty+'x '+c.p.label+' ('+c.v.label+') '+Math.round(it.w/10)+'x'+Math.round(it.h/10)+'cm'+(it.segW?(' [vakbr '+it.segW.join('/')+'mm]'):'')+(it.segH?(' [rijh '+it.segH.join('/')+'mm]'):'')+' '+c.glas.label+'/'+c.col.label+'/'+c.bes.label+' '+eur(c.price*it.qty); });
     var msg='Mijn project ('+totalItems+' onderdelen, indicatie '+eur(total)+'):\n'+lines.join('\n');
     document.getElementById('project-offerte').href='/contact/?project='+encodeURIComponent(msg);
   }
@@ -951,6 +981,15 @@
     var inputs=segwBox.querySelectorAll('.cfg-segw-in');
     curSegW=[].map.call(inputs,function(inp){ return parseInt(inp.value)||0; });
     bEl.value=segwTotal();
+    updateSegTotalLabel();
+    update();
+  });
+  // per-rij hoogte-invoer
+  seghBox.addEventListener('input', function(e){
+    if(!e.target.classList || !e.target.classList.contains('cfg-segh-in')) return;
+    var inputs=seghBox.querySelectorAll('.cfg-segh-in');
+    curSegH=[].map.call(inputs,function(inp){ return parseInt(inp.value)||0; });
+    hEl.value=seghTotal();
     updateSegTotalLabel();
     update();
   });
