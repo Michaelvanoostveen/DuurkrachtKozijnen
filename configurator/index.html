@@ -547,8 +547,14 @@
       label:'Tuindeuren', base:7500, stdM2:3.50, perM2:600, kind:'french', priceMax:12500,
       wMin:1200, wMax:3200, hMin:2000, hMax:2400, wDef:1600, hDef:2200, indeling:'Uitvoering',
       variants:[
-        { key:'dubbel',     label:'Dubbele deuren', mult:1.00, leaves:2, sidelights:false },
-        { key:'dubbel_zij', label:'Met zijlichten', mult:1.40, leaves:2, sidelights:true }
+        { key:'dubbel',           label:'Dubbele deuren',                  mult:1.00, leaves:2 },
+        { key:'dubbel_borst',     label:'Met borstwering',                 mult:1.10, leaves:2, borst:true },
+        { key:'dubbel_boven',     label:'Met bovenlicht',                  mult:1.20, leaves:2, top:true },
+        { key:'dubbel_boven_borst',label:'Bovenlicht + borstwering',       mult:1.30, leaves:2, top:true, borst:true },
+        { key:'dubbel_zij',       label:'Met zijlichten',                  mult:1.40, leaves:2, sidelights:true },
+        { key:'dubbel_zij_borst', label:'Zijlichten + borstwering',        mult:1.50, leaves:2, sidelights:true, borst:true },
+        { key:'dubbel_zij_boven', label:'Zijlichten + bovenlicht',         mult:1.60, leaves:2, sidelights:true, top:true },
+        { key:'dubbel_vol',       label:'Bovenlicht + zijlichten + borstwering', mult:1.70, leaves:2, sidelights:true, top:true, borst:true }
       ]
     },
     balkondeur: {
@@ -750,13 +756,24 @@
 
   function drawFrench(v, bx,by,bw,bh, col, fr){
     var s = r(bx,by,bw,bh,col.frame,col.stroke,1.5);
-    var dx=bx, dw=bw, sw=0;
-    if(v.sidelights){ sw=bw*0.18; s += glass(bx+fr, by+fr, sw-fr*1.5, bh-2*fr); s += glass(bx+bw-sw+fr*0.5, by+fr, sw-fr*1.5, bh-2*fr); s += r(bx+sw, by, fr,bh, col.frame); s += r(bx+bw-sw-fr, by, fr,bh, col.frame); dx=bx+sw; dw=bw-2*sw; }
-    var gx=dx+fr, gy=by+fr, gw=dw-2*fr, gh=bh-2*fr;
-    s += glass(gx,gy,gw,gh);
-    s += r(dx+dw/2-fr*0.5, by, fr, bh, col.frame); // middenstijl
-    s += '<circle cx="'+(dx+dw/2-fr*1.1).toFixed(1)+'" cy="'+(by+bh*0.52).toFixed(1)+'" r="2.2" fill="'+HANDLE+'"/>';
-    s += '<circle cx="'+(dx+dw/2+fr*1.1).toFixed(1)+'" cy="'+(by+bh*0.52).toFixed(1)+'" r="2.2" fill="'+HANDLE+'"/>';
+    var top=!!v.top, borst=!!v.borst, topH = top ? bh*0.13 : 0;
+    // bovenlicht over de volle breedte
+    if(top){ s += glass(bx+fr, by+fr, bw-2*fr, topH-fr*1.5); s += r(bx, by+topH, bw, fr, col.frame); }
+    var ay=by+topH, aH=bh-topH, dx=bx, dw=bw, sw=0;
+    // zijlichten (met optionele borstwering)
+    if(v.sidelights){ sw=bw*0.16;
+      if(borst){ s+=glass(bx+fr, ay+fr, sw-fr*1.5, aH*0.64)+r(bx+fr, ay+aH*0.67, sw-fr*1.5, aH*0.30, col.frame, col.stroke, 0.8);
+                 s+=glass(bx+bw-sw+fr*0.5, ay+fr, sw-fr*1.5, aH*0.64)+r(bx+bw-sw+fr*0.5, ay+aH*0.67, sw-fr*1.5, aH*0.30, col.frame, col.stroke, 0.8); }
+      else { s+=glass(bx+fr, ay+fr, sw-fr*1.5, aH-2*fr)+glass(bx+bw-sw+fr*0.5, ay+fr, sw-fr*1.5, aH-2*fr); }
+      s += r(bx+sw, ay, fr, aH, col.frame)+r(bx+bw-sw-fr, ay, fr, aH, col.frame); dx=bx+sw; dw=bw-2*sw; }
+    // deurbladen (glas, evt borstwering-paneel onderaan)
+    var gx=dx+fr, gy=ay+fr, gw=dw-2*fr, gh=aH-2*fr;
+    if(borst){ s += glass(gx,gy,gw,gh*0.72) + r(gx, gy+gh*0.75, gw, gh*0.25, col.frame, col.stroke, 0.8); }
+    else { s += glass(gx,gy,gw,gh); }
+    s += r(dx+dw/2-fr*0.5, ay, fr, aH, col.frame); // middenstijl
+    var cy=ay+aH*0.52;
+    s += '<circle cx="'+(dx+dw/2-fr*1.1).toFixed(1)+'" cy="'+cy.toFixed(1)+'" r="2.2" fill="'+HANDLE+'"/>';
+    s += '<circle cx="'+(dx+dw/2+fr*1.1).toFixed(1)+'" cy="'+cy.toFixed(1)+'" r="2.2" fill="'+HANDLE+'"/>';
     return s;
   }
 
