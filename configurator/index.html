@@ -622,9 +622,9 @@
         html+='<div class="cfg-segw-cell"><input type="number" class="cfg-segh-in" data-i="'+i+'" inputmode="numeric" min="200" max="2700" step="10" value="'+def+'" /><span>'+sp.labels[i]+'</span></div>'; }
       seghBox.innerHTML=html;
       hEl.value=seghTotal();
-      bhField.hidden=true; seghWrap.hidden=false;
+      setFieldLabel(bhField,'Totale hoogte'); seghWrap.hidden=false;
     } else {
-      curSegH=null; seghBox.innerHTML=''; bhField.hidden=false; seghWrap.hidden=true;
+      curSegH=null; seghBox.innerHTML=''; setFieldLabel(bhField,'Hoogte'); seghWrap.hidden=true;
     }
     pendingSegH=null;
   }
@@ -650,13 +650,17 @@
         html+='<div class="cfg-segw-cell"><input type="number" class="cfg-segw-in" data-i="'+i+'" inputmode="numeric" min="200" max="2000" step="10" value="'+x+'" /><span>'+sp.labels[i]+'</span></div>'; }
       segwBox.innerHTML=html;
       bEl.value=segwTotal();
-      bwField.hidden=true; segwWrap.hidden=false;
+      setFieldLabel(bwField,'Totale breedte'); segwWrap.hidden=false;
     } else {
-      curSegW=null; segwBox.innerHTML=''; bwField.hidden=false; segwWrap.hidden=true;
+      curSegW=null; segwBox.innerHTML=''; setFieldLabel(bwField,'Breedte'); segwWrap.hidden=true;
     }
     pendingSegW=null;
     updateSegTotalLabel();
   }
+  function setFieldLabel(field, txt){ var l=field.querySelector('label'); if(l) l.textContent=txt; }
+  function scaleSeg(arr, target){ var cur=arr.reduce(function(a,b){return a+b;},0); if(cur<=0||target<=0) return arr.slice(); var f=target/cur; return arr.map(function(x){ return Math.max(200, Math.round(x*f/10)*10); }); }
+  function applyTotalW(total){ if(!curSegW) return; curSegW=scaleSeg(curSegW,total); var ins=segwBox.querySelectorAll('.cfg-segw-in'); curSegW.forEach(function(x,i){ if(ins[i]) ins[i].value=x; }); updateSegTotalLabel(); }
+  function applyTotalH(total){ if(!curSegH) return; curSegH=scaleSeg(curSegH,total); var ins=seghBox.querySelectorAll('.cfg-segh-in'); curSegH.forEach(function(x,i){ if(ins[i]) ins[i].value=x; }); updateSegTotalLabel(); }
 
   function val(name){ var el=form.elements[name]; return el ? el.value : ''; }
   function eur(n){ return '€ ' + (Math.round(n/10)*10).toLocaleString('nl-NL'); }
@@ -1030,10 +1034,16 @@
   function syncNumToSlider(numEl, rangeEl){
     var v=parseInt(numEl.value)||0, mn=+rangeEl.min, mx=+rangeEl.max, st=+rangeEl.step||50;
     v=Math.max(mn,Math.min(mx,Math.round(v/st)*st));
-    numEl.value=v; rangeEl.value=v; update();
+    numEl.value=v; rangeEl.value=v;
+    if(rangeEl===bEl) applyTotalW(v);
+    if(rangeEl===hEl) applyTotalH(v);
+    update();
   }
   bNumEl.addEventListener('change', function(){ syncNumToSlider(bNumEl, bEl); });
   hNumEl.addEventListener('change', function(){ syncNumToSlider(hNumEl, hEl); });
+  // totaal-slider sleept de vakken proportioneel mee (bij per-vak/per-rij)
+  bEl.addEventListener('input', function(){ applyTotalW(+bEl.value); });
+  hEl.addEventListener('input', function(){ applyTotalH(+hEl.value); });
   bNumEl.addEventListener('keydown', function(e){ if(e.key==='Enter'){ e.preventDefault(); syncNumToSlider(bNumEl, bEl); } });
   hNumEl.addEventListener('keydown', function(e){ if(e.key==='Enter'){ e.preventDefault(); syncNumToSlider(hNumEl, hEl); } });
   // per-vak breedte-invoer
