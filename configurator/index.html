@@ -504,7 +504,7 @@
     },
     voordeur: {
       label:'Voordeur', base:5500, stdM2:2.07, perM2:600, kind:'door', priceMax:7500,
-      wMin:800, wMax:1400, hMin:2000, hMax:2400, wDef:1000, hDef:2300, indeling:'Deurmodel',
+      wMin:800, wMax:2800, hMin:2000, hMax:2400, wDef:1000, hDef:2300, indeling:'Deurmodel',
       variants:[
         { key:'dicht',       label:'Dicht paneel',         mult:1.00, blade:'panel' },
         { key:'glasstrook',  label:'Met glasstrook',       mult:1.10, blade:'glassStrip' },
@@ -521,7 +521,7 @@
     },
     achterdeur: {
       label:'Achterdeur', base:4500, stdM2:1.89, perM2:560, kind:'door', priceMax:7500,
-      wMin:800, wMax:1300, hMin:2000, hMax:2300, wDef:900, hDef:2100, indeling:'Deurmodel',
+      wMin:800, wMax:2800, hMin:2000, hMax:2300, wDef:900, hDef:2100, indeling:'Deurmodel',
       variants:[
         { key:'half',       label:'Half glas',      mult:1.00, blade:'halfglass' },
         { key:'vol',        label:'Vol glas',       mult:1.10, blade:'fullglass' },
@@ -601,15 +601,25 @@
   function segwTotal(){ return curSegW ? curSegW.reduce(function(a,b){return a+b;},0) : (+bEl.value||0); }
   function seghTotal(){ return curSegH ? curSegH.reduce(function(a,b){return a+b;},0) : (+hEl.value||0); }
   function updateSegTotalLabel(){ var el=document.getElementById('cfg-segw-totalval'); if(el) el.textContent = segwTotal()+' mm'; var el2=document.getElementById('cfg-segh-totalval'); if(el2) el2.textContent = seghTotal()+' mm'; }
+  function rowSpec(p, v){
+    if(p.kind==='door'){
+      var labels=[], defs=[]; if(v.top){ labels.push('bovenlicht'); defs.push(450); }
+      labels.push('deur'); defs.push((p.hDef||2300)-(v.top?450:0));
+      return {n:1+(v.top?1:0), labels:labels, defs:defs};
+    }
+    var n=nRowsOf(v), labels=rowLabels(v), strips=!v.grid&&!v.stack, defs=[], i;
+    for(i=0;i<n;i++){ var lbl=labels[i]; defs.push(strips ? (lbl==='hoofd'?Math.max(700,p.hDef-450*(n-1)):450) : Math.round(p.hDef/n/10)*10); }
+    return {n:n, labels:labels, defs:defs};
+  }
   function renderSegH(p, v){
-    var n = (p.kind==='window') ? nRowsOf(v) : 1;
+    var sp = (p.kind==='window'||p.kind==='door') ? rowSpec(p,v) : {n:1};
+    var n = sp.n;
     if(n>1){
-      var src=(pendingSegH&&pendingSegH.length===n)?pendingSegH:null, labels=rowLabels(v), strips=!v.grid&&!v.stack, html='';
+      var src=(pendingSegH&&pendingSegH.length===n)?pendingSegH:null, html='';
       curSegH=[];
-      for(var i=0;i<n;i++){ var lbl=labels[i]||('rij '+(i+1));
-        var def = src ? src[i] : (strips ? (lbl==='hoofd' ? Math.max(700, p.hDef-450*(n-1)) : 450) : Math.round(p.hDef/n/10)*10);
+      for(var i=0;i<n;i++){ var def = src ? src[i] : sp.defs[i];
         curSegH.push(def);
-        html+='<div class="cfg-segw-cell"><input type="number" class="cfg-segh-in" data-i="'+i+'" inputmode="numeric" min="200" max="2700" step="10" value="'+def+'" /><span>'+lbl+'</span></div>'; }
+        html+='<div class="cfg-segw-cell"><input type="number" class="cfg-segh-in" data-i="'+i+'" inputmode="numeric" min="200" max="2700" step="10" value="'+def+'" /><span>'+sp.labels[i]+'</span></div>'; }
       seghBox.innerHTML=html;
       hEl.value=seghTotal();
       bhField.hidden=true; seghWrap.hidden=false;
@@ -618,14 +628,26 @@
     }
     pendingSegH=null;
   }
+  function colSpec(p, v){
+    if(p.kind==='door'){
+      var nL=v.nL!=null?v.nL:(v.sideL?1:0), nR=v.nR!=null?v.nR:(v.sideR?1:0), labels=[], defs=[], a;
+      for(a=0;a<nL;a++){ labels.push('zijlicht'); defs.push(350); }
+      labels.push('deur'); defs.push(p.wDef||1000);
+      for(a=0;a<nR;a++){ labels.push('zijlicht'); defs.push(350); }
+      return {n:nL+1+nR, labels:labels, defs:defs};
+    }
+    var n=nColsOf(v), labels=[], defs=[], def=Math.min(700, Math.floor(p.wMax/n/10)*10), i;
+    for(i=0;i<n;i++){ labels.push('vak '+(i+1)); defs.push(def); }
+    return {n:n, labels:labels, defs:defs};
+  }
   function renderSegW(p, v){
-    var n = (p.kind==='window') ? nColsOf(v) : 1;
+    var sp = (p.kind==='window'||p.kind==='door') ? colSpec(p,v) : {n:1};
+    var n = sp.n;
     if(n>1){
-      var src = (pendingSegW && pendingSegW.length===n) ? pendingSegW : null;
-      var def = Math.min(700, Math.floor(p.wMax/n/10)*10), html='';
+      var src = (pendingSegW && pendingSegW.length===n) ? pendingSegW : null, html='';
       curSegW=[];
-      for(var i=0;i<n;i++){ var x = src ? src[i] : def; curSegW.push(x);
-        html+='<div class="cfg-segw-cell"><input type="number" class="cfg-segw-in" data-i="'+i+'" inputmode="numeric" min="300" max="2000" step="10" value="'+x+'" /><span>vak '+(i+1)+'</span></div>'; }
+      for(var i=0;i<n;i++){ var x = src ? src[i] : sp.defs[i]; curSegW.push(x);
+        html+='<div class="cfg-segw-cell"><input type="number" class="cfg-segw-in" data-i="'+i+'" inputmode="numeric" min="200" max="2000" step="10" value="'+x+'" /><span>'+sp.labels[i]+'</span></div>'; }
       segwBox.innerHTML=html;
       bEl.value=segwTotal();
       bwField.hidden=true; segwWrap.hidden=false;
@@ -709,36 +731,38 @@
     return s;
   }
 
-  function drawDoor(v, bx,by,bw,bh, col, fr){
+  function drawDoor(v, bx,by,bw,bh, col, fr, colW, rowH){
     var s = r(bx,by,bw,bh,col.frame,col.stroke,1.5);
     var nL = v.nL!=null ? v.nL : (v.sideL?1:0);
     var nR = v.nR!=null ? v.nR : (v.sideR?1:0);
     var top=!!v.top, blade=v.blade||'panel', borst=!!v.sideBorst;
-    var sideW = (nL>=2 || nR>=2) ? bw*0.15 : bw*0.20;   // smaller bij dubbele zijlichten
-    var topH  = top ? bh*0.15 : 0;
-    var leftW=nL*sideW, rightW=nR*sideW;
-    var dx = bx + leftW, dw = bw - leftW - rightW;
-    // zijlicht-kolom (met optionele borstwering onderaan)
-    function sl(sx){
-      var gh = borst ? (bh-2*fr)*0.64 : (bh-2*fr);
-      s += glass(sx+fr*0.75, by+fr, sideW-fr*1.5, gh);
-      if(borst){ s += r(sx+fr*0.75, by+fr+gh+fr*0.5, sideW-fr*1.5, (bh-2*fr)-gh-fr*0.5, col.frame, col.stroke, 0.8); }
+    var nCols=nL+1+nR, doorIdx=nL, i;
+    // kolombreedtes (px) — uit colW indien gegeven, anders exact als voorheen
+    var widths;
+    if(colW && colW.length===nCols){ var tot=colW.reduce(function(a,b){return a+b;},0); widths=colW.map(function(x){return bw*x/tot;}); }
+    else { var sideW=(nL>=2||nR>=2)?bw*0.15:bw*0.20; widths=[]; for(i=0;i<nCols;i++){ widths.push(i===doorIdx ? (bw-(nL+nR)*sideW) : sideW); } }
+    // bovenlicht-hoogte uit rowH indien gegeven
+    var topH = top ? ((rowH&&rowH.length===2) ? bh*rowH[0]/(rowH[0]+rowH[1]) : bh*0.15) : 0;
+    var x=bx;
+    for(i=0;i<nCols;i++){
+      var cw=widths[i];
+      if(i===doorIdx){
+        if(top){ s += glass(x+fr, by+fr, cw-2*fr, topH-fr*1.5); s += r(x, by+topH, cw, fr, col.frame); }
+        var px=x+fr, py=by+topH+fr, pw=cw-2*fr, ph=bh-topH-2*fr;
+        s += r(px,py,pw,ph,col.frame,col.stroke,0.8);
+        if(blade==='glassStrip'){ s += glass(px+pw*0.58, py+ph*0.06, pw*0.32, ph*0.88); }
+        else if(blade==='halfglass'){ s += glass(px+pw*0.12, py+ph*0.06, pw*0.76, ph*0.42); }
+        else if(blade==='fullglass'){ s += glass(px+pw*0.12, py+ph*0.06, pw*0.76, ph*0.88); }
+        else { s += r(px+pw*0.18, py+ph*0.10, pw*0.64, ph*0.34,'none',col.stroke,1); s += r(px+pw*0.18, py+ph*0.54, pw*0.64, ph*0.34,'none',col.stroke,1); }
+        s += '<circle cx="'+(px+pw*0.14).toFixed(1)+'" cy="'+(py+ph*0.52).toFixed(1)+'" r="2.4" fill="'+HANDLE+'"/>';
+      } else {
+        var gh = borst ? (bh-2*fr)*0.64 : (bh-2*fr);
+        s += glass(x+fr*0.75, by+fr, cw-fr*1.5, gh);
+        if(borst){ s += r(x+fr*0.75, by+fr+gh+fr*0.5, cw-fr*1.5, (bh-2*fr)-gh-fr*0.5, col.frame, col.stroke, 0.8); }
+      }
+      if(i<nCols-1) s += r(x+cw-fr*0.5, by, fr, bh, col.frame); // tussenstijl
+      x += cw;
     }
-    for(var li=0; li<nL; li++){ sl(bx+li*sideW); if(li<nL-1) s += r(bx+(li+1)*sideW-fr*0.4, by, fr*0.8, bh, col.frame); }
-    if(nL) s += r(bx+leftW-fr*0.5, by, fr, bh, col.frame);
-    for(var rii=0; rii<nR; rii++){ sl(bx+bw-rightW+rii*sideW); if(rii<nR-1) s += r(bx+bw-rightW+(rii+1)*sideW-fr*0.4, by, fr*0.8, bh, col.frame); }
-    if(nR) s += r(bx+bw-rightW, by, fr, bh, col.frame);
-    // bovenlicht (alleen boven het deurblad, niet over zijlichten)
-    if(top){ s += glass(dx+fr, by+fr, dw-2*fr, topH-fr*1.5); s += r(dx, by+topH, dw, fr, col.frame); }
-    // deurblad
-    var px=dx+fr, py=by+topH+fr, pw=dw-2*fr, ph=bh-topH-2*fr;
-    s += r(px,py,pw,ph,col.frame,col.stroke,0.8);
-    if(blade==='glassStrip'){ s += glass(px+pw*0.58, py+ph*0.06, pw*0.32, ph*0.88); }
-    else if(blade==='halfglass'){ s += glass(px+pw*0.12, py+ph*0.06, pw*0.76, ph*0.42); }
-    else if(blade==='fullglass'){ s += glass(px+pw*0.12, py+ph*0.06, pw*0.76, ph*0.88); }
-    else { /* panel */ s += r(px+pw*0.18, py+ph*0.10, pw*0.64, ph*0.34, 'none', col.stroke, 1); s += r(px+pw*0.18, py+ph*0.54, pw*0.64, ph*0.34, 'none', col.stroke, 1); }
-    // kruk
-    s += '<circle cx="'+(px+pw*0.14).toFixed(1)+'" cy="'+(py+ph*0.52).toFixed(1)+'" r="2.4" fill="'+HANDLE+'"/>';
     return s;
   }
 
@@ -785,7 +809,7 @@
     if(vw>maxW){ vw=maxW; vh=maxW/ratio; }
     var x=(200-vw)/2, y=(200-vh)/2, fr=Math.max(5, vw*0.055);
     if(kind==='window') return drawWindow(v,x,y,vw,vh,col,fr,colW,rowH);
-    if(kind==='door')   return drawDoor(v,x,y,vw,vh,col,fr);
+    if(kind==='door')   return drawDoor(v,x,y,vw,vh,col,fr,colW,rowH);
     if(kind==='slider') return drawSlider(v,x,y,vw,vh,col,fr);
     if(kind==='french') return drawFrench(v,x,y,vw,vh,col,fr);
     return '';
@@ -886,7 +910,8 @@
     curItem = { pKey:pKey, vKey:v.key, w:w, h:h, segW:(curSegW?curSegW.slice():null), segH:(curSegH?curSegH.slice():null), glas:val('glas'), kleur:val('kleur'), beslag:val('beslag'), note:(noteEl?noteEl.value.trim():'') };
 
     // grote preview met echte verhouding (incl. vak-breedtes)
-    document.getElementById('cfg-svg').innerHTML = buildSVG(p.kind, v, w/h, col, (p.kind==='window'?curSegW:null), (p.kind==='window'?curSegH:null));
+    var hasSeg = (p.kind==='window'||p.kind==='door');
+    document.getElementById('cfg-svg').innerHTML = buildSVG(p.kind, v, w/h, col, (hasSeg?curSegW:null), (hasSeg?curSegH:null));
 
     // bij kleurwissel ook de variant-thumbnails herkleuren (zonder selectie te verliezen)
     if(opts.recolor){ renderVariants(p, pKey, col); }
@@ -962,7 +987,8 @@
       var c=computeItem(it); if(!c) return;
       var line=c.price*it.qty; total+=line; isL+=c.isdeLow*it.qty; isH+=c.isdeHigh*it.qty;
       var ratio=c.p.kind==='door'?0.5:c.p.kind==='slider'?1.9:c.p.kind==='french'?1.0:(it.w/it.h);
-      var thumb='<svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">'+buildSVG(c.p.kind,c.v,ratio,c.col,(c.p.kind==='window'?it.segW:null),(c.p.kind==='window'?it.segH:null))+'</svg>';
+      var hasSeg2=(c.p.kind==='window'||c.p.kind==='door');
+      var thumb='<svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMid meet">'+buildSVG(c.p.kind,c.v,ratio,c.col,(hasSeg2?it.segW:null),(hasSeg2?it.segH:null))+'</svg>';
       var noteTag = it.note ? '<span class="cfg-pitem-note">'+esc(it.note)+'</span> ' : '';
       html+='<div class="cfg-pitem">'
         +'<div class="cfg-pitem-thumb">'+thumb+'</div>'
