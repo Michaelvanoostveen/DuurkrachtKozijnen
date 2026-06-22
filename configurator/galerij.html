@@ -3,8 +3,18 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="robots" content="noindex, nofollow" />
-<title>Configurator — kies je product (prototype)</title>
+<title>Configurator — kies uw kozijn of deur | Duurkracht Kozijnen</title>
+<meta name="description" content="Kies uw kunststof kozijn, deur, schuifpui of balkondeur uit onze indelingen en stel direct online samen — met prijsindicatie binnen 60 seconden." />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://www.duurkrachtkozijnen.nl/configurator/galerij" />
+<meta name="theme-color" content="#0B5A2B" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="nl_NL" />
+<meta property="og:title" content="Configurator — kies uw kozijn of deur | Duurkracht Kozijnen" />
+<meta property="og:description" content="Kies uw kunststof kozijn, deur, schuifpui of balkondeur uit onze indelingen en stel direct online samen." />
+<meta property="og:url" content="https://www.duurkrachtkozijnen.nl/configurator/galerij" />
+<meta property="og:image" content="https://www.duurkrachtkozijnen.nl/design-assets/images/Voorkant-huis-kozijnen.jpg" />
+<link rel="icon" type="image/svg+xml" href="/design-assets/beelmerkje-klein.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -50,6 +60,13 @@
   .cfg-catcard .ic{ width:46px; height:46px; flex-shrink:0; display:flex; align-items:center; justify-content:center; }
   .cfg-catcard .ic svg{ width:100%; height:100%; }
   .cfg-catcard .lb{ font-weight:700; font-size:15.5px; color:var(--ink); }
+  a.cfg-logo{ text-decoration:none; }
+  a.cfg-overview{ display:inline-flex; align-items:center; text-decoration:none; }
+  .cfg-intro{ padding:34px 0 4px; max-width:760px; }
+  .cfg-intro .cfg-eyebrow{ display:block; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--accent); font-weight:700; margin-bottom:12px; }
+  .cfg-intro h1{ font-size:clamp(28px,4vw,36px); line-height:1.1; letter-spacing:-.02em; margin:0 0 14px; }
+  .cfg-intro h1 .em{ font-style:italic; color:var(--green); }
+  .cfg-intro p{ font-size:16px; color:var(--gray-700); line-height:1.6; margin:0; }
   @media(max-width:680px){ .cfg-cats{ display:none; } }
 </style>
 </head>
@@ -57,14 +74,18 @@
 
 <header class="cfg-top">
   <div class="wrap">
-    <div class="cfg-logo">DUURKRACHT<small>CONFIGURATOR</small></div>
+    <a href="/" class="cfg-logo" aria-label="Duurkracht Kozijnen — home">DUURKRACHT<small>CONFIGURATOR</small></a>
     <nav class="cfg-cats" id="cats"></nav>
-    <button class="cfg-overview">Overzicht</button>
+    <a href="/contact/" class="cfg-overview">Gratis advies</a>
   </div>
 </header>
 
 <main class="wrap">
-  <div class="proto-note">Prototype-startscherm — kies een type om straks naar de configurator te gaan. Dit raakt de bestaande configurator niet.</div>
+  <div class="cfg-intro">
+    <span class="cfg-eyebrow">Configurator · prijs in 60 seconden</span>
+    <h1>Stel uw kozijn of deur <span class="em">zelf samen.</span></h1>
+    <p>Kies hieronder een categorie en de indeling die bij uw situatie past. U gaat direct door naar de configurator voor afmetingen, glas, kleur en een directe prijsindicatie — inclusief mogelijke ISDE-subsidie.</p>
+  </div>
   <h2 class="cfg-cats-title">Onze categorieën</h2>
   <div class="cfg-catrow" id="cfg-catrow"></div>
   <div class="cfg-filters" id="filters"></div>
