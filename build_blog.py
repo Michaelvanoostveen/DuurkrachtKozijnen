@@ -45,21 +45,21 @@ def footer():
         <p>Specialist in kunststof kozijnen, deuren, schuifpuien en Keralit gevelbekleding. Vanuit Hengelo, in heel Nederland.</p>
         <p><a href="tel:+31850731660" rel="nofollow">085 073 1660</a> · <a href="mailto:info@duurkrachtkozijnen.nl">info@duurkrachtkozijnen.nl</a></p>
       </div>
-      <div><h5>Diensten</h5><ul>
+      <div><p class="ftr-nav-title">Diensten</p><ul>
         <li><a href="/diensten/kunststof-kozijnen/">Kunststof kozijnen</a></li>
         <li><a href="/diensten/kunststof-deuren/">Kunststof deuren</a></li>
         <li><a href="/diensten/kunststof-schuifpuien/">Schuifpuien</a></li>
         <li><a href="/diensten/kunststof-gevelbekleding/">Gevelbekleding</a></li>
         <li><a href="/diensten/montage/">Montage</a></li>
       </ul></div>
-      <div><h5>Werkgebied</h5><ul>
+      <div><p class="ftr-nav-title">Werkgebied</p><ul>
         <li><a href="/kunststof-kozijnen-hengelo/">Hengelo</a></li>
         <li><a href="/kunststof-kozijnen-enschede/">Enschede</a></li>
         <li><a href="/kunststof-kozijnen-almelo/">Almelo</a></li>
         <li><a href="/kunststof-kozijnen-apeldoorn/">Apeldoorn</a></li>
         <li><a href="/kunststof-kozijnen-zwolle/">Zwolle</a></li>
       </ul></div>
-      <div><h5>Bedrijf</h5><ul>
+      <div><p class="ftr-nav-title">Bedrijf</p><ul>
         <li><a href="/over-ons/">Over ons</a></li>
         <li><a href="/eigenaren/">De eigenaren</a></li>
         <li><a href="/projecten/">Projecten</a></li>
@@ -104,7 +104,7 @@ BLOG_CSS = '''<style>
 @media (max-width: 980px){ .article-layout{ grid-template-columns: 1fr; gap: 30px; } .toc{ position: static !important; max-height: none !important; } }
 
 .toc{ position: sticky; top: 100px; max-height: calc(100vh - 120px); overflow-y: auto; background: var(--gray-50); padding: 24px; border-radius: var(--radius); border: 1px solid var(--gray-200); }
-.toc h4{ font-size: 11.5px; letter-spacing: .15em; text-transform: uppercase; color: var(--gray-500); margin: 0 0 14px; font-weight: 600; }
+.toc h2{ font-size: 11.5px; letter-spacing: .15em; text-transform: uppercase; color: var(--gray-500); margin: 0 0 14px; font-weight: 600; }
 .toc ul{ list-style: none; padding: 0; margin: 0; font-size: 14px; }
 .toc li{ margin-bottom: 8px; line-height: 1.4; }
 .toc a{ color: var(--gray-700); text-decoration: none; padding-left: 12px; border-left: 2px solid var(--gray-200); display: block; transition: all .2s; }
@@ -272,11 +272,10 @@ POSTS = [
 <p>Wat <em>niet</em> in onze standaardprijs zit: schilderwerk binnen (stucwerk repareren), nieuwe vensterbanken, jaloezieën of horren — die offreren we apart als u dat wenst. Steigerwerk bij hoge ramen rekenen we transparant per dag door, geen verborgen kostenposten achteraf.</p>
 """},
         {'id': 'betaling-btw', 'h2': 'Btw, aanbetaling en betaaltermijnen — hoe werkt het?', 'body': """
-<p>Bij Duurkracht werken we met transparante betaalmomenten zodat u nooit voor verrassingen komt te staan:</p>
+<p>Bij Duurkracht werken we met twee transparante betaalmomenten zodat u nooit voor verrassingen komt te staan:</p>
 <ol>
 <li><strong>Aanbetaling 30%</strong> bij ondertekening van de offerte — dit is nodig om uw maatwerk in productie te zetten.</li>
-<li><strong>40%</strong> bij start van de montage op de planningsdag.</li>
-<li><strong>Restbetaling 30%</strong> binnen 14 dagen na oplevering, als u tevreden bent en alles werkt naar wens.</li>
+<li><strong>Het restant (70%)</strong> voldoet u op de eerste montagedag, wanneer onze eigen monteurs met de plaatsing beginnen.</li>
 </ol>
 <p>Alle bedragen op uw offerte zijn <strong>inclusief 21% btw</strong>. Voor het isolatieglas zelf gold tot 2026 een verlaagd btw-tarief op de arbeid, maar dat is per 2026 vervallen. De ISDE-subsidie compenseert die verhoging echter ruimschoots — netto bent u meestal beter af dan vóór 2026.</p>
 <p>Heeft u behoefte aan financiering? Een renteloze lening via het <a href="https://www.warmtefonds.nl/" rel="external nofollow noopener">Nationaal Warmtefonds</a> is in veel gevallen mogelijk voor energiebesparende maatregelen.</p>
@@ -1105,7 +1104,7 @@ def render_article(post):
 <div class="article-layout">
 
   <aside class="toc" aria-label="Inhoudsopgave">
-    <h4>Inhoud</h4>
+    <h2>Inhoud</h2>
     <ul>{toc_items}</ul>
   </aside>
 
