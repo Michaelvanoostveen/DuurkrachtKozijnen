@@ -109,19 +109,33 @@ function panel(x,y,w,h,type){
   else if(type==='tiltturn'){ s+=tri(ix,iy, ix+iw,iy+ih/2, ix,iy+ih); s+=tri(ix,iy+ih, ix+iw/2,iy, ix+iw,iy+ih); }
   return s;
 }
+function symOf(type,x,y,w,h){
+  var ix=x+5,iy=y+5,iw=w-10,ih=h-10;
+  function tri(a,b,c,d,e,f){ return dash(a+','+b+' '+c+','+d+' '+e+','+f); }
+  if(type==='turnR') return tri(ix,iy, ix+iw,iy+ih/2, ix,iy+ih);
+  if(type==='turnL') return tri(ix+iw,iy, ix,iy+ih/2, ix+iw,iy+ih);
+  if(type==='tilt') return tri(ix,iy+ih, ix+iw/2,iy, ix+iw,iy+ih);
+  if(type==='tiltturn') return tri(ix,iy, ix+iw,iy+ih/2, ix,iy+ih)+tri(ix,iy+ih, ix+iw/2,iy, ix+iw,iy+ih);
+  return '';
+}
 function win(spec){
   if(Array.isArray(spec)) spec={cols:spec};
-  var W=200,H=160,pad=8,gap=4,i,r,c;
-  var s='<svg viewBox="0 0 '+W+' '+H+'" xmlns="http://www.w3.org/2000/svg">'+rect(pad-3,pad-3,W-(pad-3)*2,H-(pad-3)*2,'none','var(--frame)',3,4);
-  if(spec.grid){ var R=spec.grid.r,C=spec.grid.c,cw=(W-pad*2-gap*(C-1))/C,ch=(H-pad*2-gap*(R-1))/R;
-    for(r=0;r<R;r++) for(c=0;c<C;c++) s+=panel(pad+c*(cw+gap),pad+r*(ch+gap),cw,ch,'fixed'); return s+'</svg>'; }
-  if(spec.stack){ var sn=spec.stack.length,ph=(H-pad*2-gap*(sn-1))/sn;
-    for(i=0;i<sn;i++) s+=panel(pad,pad+i*(ph+gap),W-pad*2,ph,spec.stack[i]); return s+'</svg>'; }
-  var cols=spec.cols,topH=spec.top?22:0,botH=spec.bottom?28:0,iy=pad+topH+(topH?gap:0),ih=H-pad-iy-(botH?botH+gap:0);
-  if(topH) s+=panel(pad,pad,W-pad*2,topH,'fixed');
-  if(botH) s+=panel(pad,H-pad-botH,W-pad*2,botH,'fixed');
-  var n=cols.length,pw=(W-pad*2-gap*(n-1))/n;
-  for(i=0;i<n;i++) s+=panel(pad+i*(pw+gap),iy,pw,ih,cols[i]);
+  var W=200,H=160,i,r,c, fx=5,fy=5,fw=190,fh=150;
+  // buitenkozijn + glasvlak (vakken vullen strak, gedeelde stijlen)
+  var s='<svg viewBox="0 0 '+W+' '+H+'" xmlns="http://www.w3.org/2000/svg">'+rect(fx,fy,fw,fh,'none','var(--frame)',3,4);
+  var bx=fx+3, by=fy+3, bw=fw-6, bh=fh-6;
+  function mv(x){ return rect(x-1.5,by,3,bh,'var(--frame)','var(--frame)',0); }
+  function mh(y){ return rect(bx,y-1.5,bw,3,'var(--frame)','var(--frame)',0); }
+  if(spec.grid){ var R=spec.grid.r,C=spec.grid.c,cw=bw/C,ch=bh/R;
+    for(r=0;r<R;r++) for(c=0;c<C;c++) s+=glass(bx+c*cw,by+r*ch,cw,ch);
+    for(c=1;c<C;c++) s+=mv(bx+c*cw); for(r=1;r<R;r++) s+=mh(by+r*ch); return s+'</svg>'; }
+  if(spec.stack){ var sn=spec.stack.length,ph=bh/sn;
+    for(i=0;i<sn;i++){ s+=glass(bx,by+i*ph,bw,ph)+symOf(spec.stack[i],bx,by+i*ph,bw,ph); if(i<sn-1) s+=mh(by+(i+1)*ph); } return s+'</svg>'; }
+  var cols=spec.cols,topH=spec.top?bh*0.20:0,botH=spec.bottom?bh*0.24:0,ay=by+topH,ah=bh-topH-botH;
+  if(topH){ s+=glass(bx,by,bw,topH); s+=mh(by+topH); }
+  if(botH){ s+=glass(bx,by+bh-botH,bw,botH); s+=mh(by+bh-botH); }
+  var n=cols.length,cw2=bw/n;
+  for(i=0;i<n;i++){ var px=bx+i*cw2; s+=glass(px,ay,cw2,ah)+symOf(cols[i],px,ay,cw2,ah); if(i<n-1) s+=mv(bx+(i+1)*cw2); }
   return s+'</svg>';
 }
 
