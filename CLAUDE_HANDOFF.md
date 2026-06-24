@@ -1,243 +1,189 @@
-# Claude Code Handoff - Duurkracht Kozijnen
+# Duurkracht Kozijnen — AI Handoff / Project Context
 
-```yaml
-handoff_type: codex_to_claude_code
-project: Duurkracht Kozijnen
-cwd: /Users/michaelvanoostveen/Duurkracht Kozijnen
-date: 2026-05-24
-status: deployed_to_vercel_production
-live_url_requested: https://duurkracht-kozijnen.vercel.app
-live_url_auto_alias: https://duurkrachtkozijnen.vercel.app
-deployment_url: https://duurkrachtkozijnen-hoo13o3vd-michaelvanoostveen1985-s-projects.vercel.app
-deployment_id: dpl_6czHDLrtvEQ9yHX6GvnmaQVRWHRu
-vercel_project: duurkrachtkozijnen
-vercel_project_id: prj_VmroHJNqBgMLvcOFPCEztzoAQy3b
-vercel_org_id: team_N6hKf8FooSD2zO5MrycFtZmA
-```
+> **Living document.** Any AI agent picking up this project should read this first, then
+> **append a dated entry to the changelog (section 10) after each batch of edits** and bump
+> "Last updated" below. Keep the business facts in section 4 authoritative — they are the
+> single source of truth; do not invent prices, terms or product claims that contradict it.
 
-## Intent
+**Last updated:** 2026-06-24
 
-The user asked to continue from the existing Claude Code/Vercel setup and improve the website content for consumer readability. The content should remain technically credible, but not lead with jargon. Main communication strategy now:
+---
 
-- Lead with homeowner outcomes: warmer living, less draft, less noise, less maintenance, clear planning, neat installation.
-- Keep technical proof only where useful: A-brand materials, isolating glass, safe hardware, own installers, 10 year warranty.
-- Avoid prominent jargon in hero sections, service cards, stats and FAQs unless translated into practical value.
+## 1. Quick facts
 
-## Work Completed
+| | |
+|---|---|
+| Project | Duurkracht Kozijnen (kunststof kozijnen, deuren, schuifpuien, gevelbekleding) |
+| Type | **Static HTML site** (no framework, no build step except the Python generators below) |
+| cwd | `/Users/michaelvanoostveen/Duurkracht Kozijnen` |
+| Hosting | Vercel (project id `prj_VmroHJNqBgMLvcOFPCEztzoAQy3b`, linked in `.vercel/project.json`) |
+| Live (working) URL | https://duurkracht-kozijnen.vercel.app |
+| Custom domain | `duurkrachtkozijnen.nl` — **still on the old WordPress site**; DNS migration to Cloud86 is pending (user must execute, see section 9). All new work currently only lives on the Vercel URL. |
+| Repo | git, default branch `main` |
 
-### Latest visual update - werkwijze steps
+---
 
-The user provided a screenshot of the "Van eerste gesprek tot laatste schroef" process section and asked to make the process steps more graphical with matching photos/images.
+## 2. Deploy workflow (exact commands)
 
-Completed:
-
-- Reworked the step cards on `index.html` from icon-only cards into photo-led cards.
-- Added matching process visuals:
-  - Step 01 Contact & intake: `/design-assets/images/hero-contact.jpeg`
-  - Step 02 Adviesgesprek: `/design-assets/images/hero-over-ons.jpeg`
-  - Step 03 Inmeting & offerte: `/design-assets/images/kunststof-kozijnen-plaatsen.jpg`
-  - Step 04 Productie: `/design-assets/images/Nieuwe-kozijnen-met-deur.jpg`
-  - Step 05 Montage & oplevering: `/design-assets/images/Voorkant-huis-kozijnen.jpg`
-- Added `.step-visual`, `.step-photo`, `.step-content` styling in both:
-  - `index.html` inline CSS
-  - `css/site.css`
-- Applied the same updated werkwijze markup to reused service pages:
-  - `diensten/index.html`
-  - `diensten/kunststof-kozijnen/index.html`
-  - `diensten/kunststof-deuren/index.html`
-  - `diensten/kunststof-schuifpuien/index.html`
-  - `diensten/kunststof-gevelbekleding/index.html`
-  - `diensten/montage/index.html`
-- Browser-checked the homepage section locally at `http://localhost:4173/?steps=visual2#werkwijze`.
-- Verified all new process images resolve and all new image tags have alt text.
-
-### Content rewrite
-
-Updated consumer-facing text on:
-
-- `index.html`
-- `diensten/index.html`
-- `diensten/kunststof-kozijnen/index.html`
-- `diensten/kunststof-deuren/index.html`
-- `diensten/kunststof-schuifpuien/index.html`
-- `diensten/kunststof-gevelbekleding/index.html`
-- `diensten/montage/index.html`
-- `projecten/index.html`
-- `over-ons/index.html`
-- `blog/index.html`
-
-Main rewrite pattern:
-
-```text
-Before: Schüco LivIng, Uf 0,92, RC2, KOMO, stelkozijn as leading message.
-After: less draft, better closing, warmer home, safer feeling, neat delivery, own installers.
-Technical terms remain only in specification/proof contexts.
-```
-
-### Location pages
-
-Updated `build_location_pages.py` and regenerated all 20 generated location pages:
-
-- `kunststof-kozijnen-hengelo/index.html`
-- `kunststof-kozijnen-enschede/index.html`
-- `kunststof-kozijnen-almelo/index.html`
-- `kunststof-kozijnen-oldenzaal/index.html`
-- `kunststof-kozijnen-borne/index.html`
-- `kunststof-kozijnen-deventer/index.html`
-- `kunststof-kozijnen-zwolle/index.html`
-- `kunststof-kozijnen-apeldoorn/index.html`
-- `kunststof-kozijnen-arnhem/index.html`
-- `kunststof-kozijnen-assen/index.html`
-- `kunststof-kozijnen-emmen/index.html`
-- `kunststof-kozijnen-hoogeveen/index.html`
-- `kunststof-kozijnen-leeuwarden/index.html`
-- `kunststof-kozijnen-heerenveen/index.html`
-- `kunststof-kozijnen-drachten/index.html`
-- `kunststof-kozijnen-lelystad/index.html`
-- `kunststof-kozijnen-almere/index.html`
-- `kunststof-kozijnen-utrecht/index.html`
-- `kunststof-kozijnen-den-haag/index.html`
-- `kunststof-kozijnen-rotterdam/index.html`
-
-Generator command used:
-
-```bash
-python3 build_location_pages.py
-```
-
-### Compatibility route files
-
-The following lightweight redirect/noindex HTML compatibility pages exist as untracked files from the route compatibility work:
-
-- `blog/kosten-kunststof-kozijnen.html`
-- `diensten/gevelbekleding.html`
-- `diensten/kunststof-deuren.html`
-- `diensten/kunststof-kozijnen.html`
-- `diensten/montage.html`
-- `diensten/schuifpuien.html`
-
-These preserve old `.html` URL compatibility and redirect to the clean current URLs.
-
-### Vercel config
-
-`vercel.json` contains redirect aliases for older service/location paths and cache/security headers. It was already adjusted to support old URLs such as:
-
-- `/diensten/schuifpuien` -> `/diensten/kunststof-schuifpuien`
-- `/diensten/gevelbekleding` -> `/diensten/kunststof-gevelbekleding`
-- `/locaties/hengelo` -> `/kunststof-kozijnen-hengelo`
-
-## Validation Completed
-
-### Static validation
-
-Active HTML files, excluding `_extracted` and `preview.html`, were checked.
-
-Results:
-
-```yaml
-html_files_checked_for_schema_assets_alt: 51
-json_ld_parse_errors: 0
-missing_local_images: 0
-missing_img_alt_attributes: 0
-
-html_files_checked_for_internal_links: 50
-missing_internal_links: 0
-```
-
-Validation used Node one-liners that:
-
-- parse every `<script type="application/ld+json">`
-- verify local `/...` image paths exist
-- verify all `<img>` tags have `alt`
-- verify internal local links resolve to files, generated directories or `vercel.json` redirects
-
-### Browser/Vercel preview validation
-
-Local Vercel dev server was running at:
-
-```text
-http://localhost:4173/
-```
-
-Routes checked in browser:
-
-- `/`
-- `/diensten/`
-- `/diensten/montage/`
-- `/kunststof-kozijnen-hengelo/`
-- `/projecten/`
-- `/blog/`
-
-No browser console errors were found on the checked route.
-
-### Production deploy
-
-Production deploy command used:
+Deploys are **not** automatic on commit. After committing, deploy manually:
 
 ```bash
 vercel deploy --prod --yes
+# grab the printed https://duurkrachtkozijnen-XXXX...vercel.app deployment URL, then:
+vercel alias set <that-deployment-url> duurkracht-kozijnen.vercel.app
 ```
 
-Alias command used:
+The alias step is required — without it the friendly URL keeps pointing at the previous deploy.
+
+**Live verification** (CDN caches; always add a cache-buster and follow redirects):
 
 ```bash
-vercel alias set duurkrachtkozijnen-hoo13o3vd-michaelvanoostveen1985-s-projects.vercel.app duurkracht-kozijnen.vercel.app
+curl -sL -o /dev/null -w "%{http_code}\n" "https://duurkracht-kozijnen.vercel.app/blog/<slug>/?cb=$(date +%s)"
 ```
 
-Live check:
+Note: clean-URL paths 308-redirect to the trailing-slash version, so use `-L`.
+The shell here is **zsh** — unquoted `$var` does NOT word-split; use arrays `x=(a b c)` in loops.
 
-```bash
-curl -I https://duurkracht-kozijnen.vercel.app
-```
+---
 
-Result:
+## 3. Build system — generators (CRITICAL)
 
-```yaml
-http_status: 200
-server: Vercel
-content_type: text/html; charset=utf-8
-```
+Several page groups are **generated by Python scripts**. Edit the `.py` source, then regenerate;
+**never hand-edit the generated HTML for systemic changes** (it gets overwritten). Generated
+files can drift from the `.py` if someone patched HTML directly — watch for that.
 
-## Current Git State Notes
+| Generator | Produces |
+|---|---|
+| `build_blog.py` | `blog/index.html` + 11 article pages (see section 5) |
+| `build_location_pages.py` | the ~25 `kunststof-kozijnen-<stad>/index.html` city pages |
+| `build_service_pages.py` | service pages under `diensten/` |
+| `build_picture_tags.py` / `build_picture_tags`-helpers | image `<picture>` optimization |
 
-Expected modified files include:
+Run e.g. `python3 build_blog.py`. After regenerating, update `sitemap.xml` if URLs changed.
 
-- `blog/index.html`
-- `build_location_pages.py`
-- `contact/index.html`
-- `diensten/index.html`
-- all main service pages under `diensten/*/index.html`
-- generated `kunststof-kozijnen-* /index.html` pages
-- `index.html`
-- `over-ons/index.html`
-- `projecten/index.html`
-- `vercel.json`
+---
 
-Expected untracked compatibility files:
+## 4. Business facts — SINGLE SOURCE OF TRUTH
 
-- `blog/kosten-kunststof-kozijnen.html`
-- `diensten/gevelbekleding.html`
-- `diensten/kunststof-deuren.html`
-- `diensten/kunststof-kozijnen.html`
-- `diensten/montage.html`
-- `diensten/schuifpuien.html`
+Keep all copy consistent with these. They were explicitly confirmed by the owner.
 
-Do not delete these unless the user explicitly wants to remove old `.html` compatibility URLs.
+**Company**
+- Duurkracht Kozijnen B.V. — specialist sinds 2003, Hassinkweg 1, Hengelo.
+- Telefoon **085 073 1660** · e-mail **info@duurkrachtkozijnen.nl**.
+- Eigen monteurs in vaste dienst — **nooit onderaannemers**.
+- **10 jaar garantie** op profiel én montage.
+- Doorlooptijd: **6–8 weken** van akkoord tot oplevering.
 
-## Important Guidance For Next Agent
+**Payment terms (do not change without owner confirmation)**
+- **30% aanbetaling** bij ondertekening van de offerte (om maatwerk in productie te zetten).
+- **Restant (70%) op de eerste montagedag.**
+- (Historical note: an earlier 30/40/30 split was WRONG and has been corrected everywhere.)
 
-1. If editing location pages, edit `build_location_pages.py` first, then regenerate pages with `python3 build_location_pages.py`.
-2. Keep consumer readability as the default. Avoid making hero sections, cards and FAQs read like product spec sheets.
-3. Keep technical differentiation present, but mostly in proof/spec sections.
-4. Current product/montage positioning: Duurkracht works only with Schüco LivIng kozijnen and uses kunststof stelkozijnen as the fixed montage basis. Keep this wording consistent; avoid generic "A-merk" as the primary claim.
-5. Added SEO blog route: `/blog/compriband-vs-kunststof-stelkozijn-montage/`. Blog index and sitemap have been updated.
-6. If deploying again, use the linked Vercel project already present in `.vercel/project.json`.
-7. The requested public URL is `https://duurkracht-kozijnen.vercel.app`, but Vercel also has `https://duurkrachtkozijnen.vercel.app`.
+**Product / positioning**
+- Only profile sold: **Schüco LivIng** (82 mm bouwdiepte). Avoid generic "A-merk" as the primary claim.
+- Montage basis: **kunststof stelkozijn**.
+- Standard **RC2** inbraakwerendheid + SKG-cilinder (RC3 optional).
+- Glass: HR++ standard, triple optional; acoustic/geluidwerend glass available.
+- All prices are **all-in**: profiel, glas, stelkozijn, RC2-sluitwerk, montage, afvoer oude kozijnen, 21% btw.
 
-## Suggested Next Checks
+**Indicative base prices (all-in, incl. plaatsing & btw)** — from the configurator:
+- Raamkozijn vanaf **€2.500** (vast glas vanaf €2.000)
+- Voordeur vanaf **€5.500** · Achterdeur vanaf **€4.500**
+- Tuindeuren vanaf **€7.500** · Schuifpui vanaf **€7.000** · Balkondeur vanaf **€4.500**
 
-```bash
-git status --short
-vercel inspect duurkrachtkozijnen-hoo13o3vd-michaelvanoostveen1985-s-projects.vercel.app
-curl -I https://duurkracht-kozijnen.vercel.app
-```
+**Subsidy:** ISDE 2026 for isolatieglas (min. 8 m²), aanvraag ná plaatsing; Duurkracht helps free.
+
+**Forms:** all contact/offerte forms post to Formspree `https://formspree.io/f/xpqezbjz` and redirect to `/bedankt` (noindex thank-you page).
+
+---
+
+## 5. Blog system (`build_blog.py`)
+
+15 blogs total in the index: **11 generated** by `build_blog.py` (the `POSTS` list) + **4 standalone**
+legacy HTML articles that are NOT generated but shown as index cards via the `EXTRA_CARDS` list.
+
+**POST dict fields:** `slug, title, meta_desc, category, date, modified, reading_time, intro_image,
+lead, takeaways[], sections[{id,h2,body}], faq[(q,a)], related[], (optional) cta_inline_after_h2_index/cta_inline_text`.
+- `intro_image` resolves to `/design-assets/images/<value>.jpg` (the `.jpg` must exist).
+- `related` may only reference slugs that exist in `POSTS` (not EXTRA_CARDS) or the related-card lookup skips them.
+- `body` strings are triple-quoted; use plain `"` for inline HTML attrs. Single-quoted fields
+  (title/meta_desc/faq/takeaways) must avoid raw apostrophes.
+
+**Per-article layout / SEO / AI features** (in `render_article`):
+- **"In het kort"** key-takeaways box at the top (from `takeaways[]`) — for readers + featured snippets + AI extraction.
+- **Featured image** `<figure class="article-figure">` (fixed 16:9, `fetchpriority=high`, width/height vs CLS).
+- Sticky **table of contents**, reading time, Dutch human-readable dates via `nl_date()` + semantic `<time datetime>`.
+- **JSON-LD**: `Article` (incl. `speakable`), `BreadcrumbList`, `FAQPage`.
+- FAQ rendered as accessible `<details>` accordion; full OG/Twitter/canonical meta.
+- Styling lives in the `BLOG_CSS` string (reading column 720px, 17px body, 1.7 line-height).
+
+**Blog index** (`render_landing`): cards from `POSTS + EXTRA_CARDS` sorted by date desc; enriched
+contact CTA (phone, mail, configurator, payment line).
+
+**The 11 generated slugs:** kunststof-kozijnen-kosten, hr-plus-plus-of-triple-glas,
+isde-subsidie-kozijnen-2026, schueco-living-82-review, inbraakwerend-kozijn-rc2-rc3,
+kunststof-kozijnen-onderhoud, kunststof-kozijnen-laten-plaatsen, kunststof-deuren-kosten,
+schuifpui-of-tuindeuren, condens-op-kozijnen, geluidwerend-glas-kozijnen.
+**The 4 standalone (EXTRA_CARDS):** kunststof-vs-houten-kozijnen, schueco-living-vs-andere-merken,
+kunststof-kozijnen-kleuren, compriband-vs-kunststof-stelkozijn-montage.
+
+---
+
+## 6. Configurator status (complete)
+
+`configurator/galerij.html` is the **entry point** (indexable): a kozien.nl-style visual preset
+gallery (63 presets, 6 categories) that deep-links into `configurator/index.html`
+via `?type=<product>&indeling=<variant>`. The configurator itself (`configurator/index.html`)
+is a single-file SPA: 6 product types (raam, voordeur, achterdeur, schuifpui, tuindeuren,
+balkondeur), SVG renderers (drawWindow/drawDoor/drawSlider/drawFrench), per-vak/per-rij dimension
+inputs with a total slider, RAL color palette, price model `basis + m²×prijs/m²` with caps, and
+project/offerte submission via Formspree. Considered feature-complete. Homepage and `/kosten`
+CTAs point to the gallery.
+
+---
+
+## 7. Site structure (top level)
+
+`index.html` (home) · `diensten/` (service pages, generated) · `kunststof-kozijnen-<stad>/`
+(~25 city SEO pages, generated) · `blog/` (generated + standalone) · `configurator/` ·
+`kosten/` · `contact/` · `faq/` · `over-ons/` · `projecten/` · `bedankt/` (noindex) ·
+`css/site.css` (global styles) · `design-assets/images/` · `sitemap.xml` · `vercel.json`
+(redirects for legacy URLs + headers). See `SEO-SETUP.md` for the SEO/redirect details.
+
+---
+
+## 8. How to verify changes
+
+- Local preview: static server `python3 -m http.server 8000` (config in `.claude/launch.json`),
+  or the Claude Code preview tools. Body is the scroll container (`overflow:auto`), so scroll via
+  `element.scrollIntoView()` / `document.scrollingElement`, not `window.scrollTo`.
+- After deploy, curl each changed URL with a cache-buster (section 2) and grep for the expected markers.
+- Keep JSON-LD valid; keep every `<img>` with `alt`; keep internal links resolving.
+
+---
+
+## 9. Known pending / TODO
+
+1. **DNS migration** of `duurkrachtkozijnen.nl` from old WordPress to Vercel (via Cloud86),
+   **preserving Microsoft 365 email** (MX → `duurkrachtkozijnen-nl.mail.protection.outlook.com`).
+   This is guidance for the **user to execute** — not an automated step.
+2. The **5 newest blogs** are intentionally shorter (~250–300 words) than the older long-form
+   guides (~900). Layout is finished; deepening their content to match is an optional follow-up.
+
+---
+
+## 10. Status & changelog (newest first — append after each batch)
+
+- **2026-06-24** — Blog layout for readability + Google/AI indexing: added "In het kort"
+  takeaways box, featured `<figure>` image, `nl_date()` human dates + semantic `<time>`,
+  and `speakable` to the Article schema (all 11 generated articles). Commit `8f57354`. Deployed & live-verified.
+- **2026-06-24** — Blog expansion: 5 new articles (laten-plaatsen, deuren-kosten,
+  schuifpui-of-tuindeuren, condens, geluidwerend-glas) added to `POSTS`; 4 legacy blogs surfaced
+  in the index via `EXTRA_CARDS`; richer contact CTA; sitemap updated. Commit `9d0feb9`.
+- **2026-06-24** — Corrected payment terms to **30% aanbetaling + 70% op 1e montagedag**
+  in `build_blog.py` and `kosten/`. Commit `cbf0fb4`.
+- **earlier** — Configurator reworked to kozien.nl style (gallery entry, all products incl.
+  balkondeur, RAL palette, per-vak dimensions, deep-linking). 25 city SEO pages, site-wide SEO
+  audit, working Formspree contact forms, `/bedankt` page. (See git history before `60ba826`.)
+- **2026-05-24** — Original Codex→Claude handoff: consumer-readability content rewrite, photo-led
+  werkwijze step cards, location-page regeneration, Vercel redirect config.
