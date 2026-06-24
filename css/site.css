@@ -209,7 +209,7 @@ h3{ font-size: clamp(1.25rem, 1.8vw, 1.6rem); }
 /* KOMO: eigen dark-blue logokleur, witte achtergrond */
 .badge-logo-box--komo{ background: #fff; border: 1px solid #e2e8f0; }
 /* SKG: donkerblauwe paden (SVG omgezet) → lichtblauwe achtergrond */
-.badge-logo-box--skg{ background: #eef2fa; border: 1px solid #c8d4ee; }
+.badge-logo-box--skg{ background: #fff; border: 1px solid #d0d8ea; }
 /* Schüco: donkergrijze wordmark → witte achtergrond */
 .badge-logo-box--schuco{ background: #fff; border: 1px solid #e2e8f0; }
 /* Keralit: groen icoon → heel licht groen */
@@ -979,5 +979,23 @@ form .privacy a{ color: var(--green); text-decoration: underline; }
   .badge-shape{ width: 52px; height: 52px; }
   .badge-shape svg{ width: 36px; height: 36px; }
 }
+
+.wa-float{
+  position: fixed;
+  bottom: 28px; right: 28px;
+  width: 56px; height: 56px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,.45);
+  z-index: 900;
+  transition: transform .2s ease, box-shadow .2s ease;
+  text-decoration: none;
+}
+.wa-float:hover{
+  transform: scale(1.1);
+  box-shadow: 0 8px 32px rgba(37,211,102,.55);
+}
+@media (max-width: 899px){ .wa-float{ display: none; } }
 
 ::selection{ background: var(--orange); color: white; }
