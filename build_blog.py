@@ -946,6 +946,209 @@ POSTS = [
         'cta_inline_text': '<strong>Service nodig op bestaande Duurkracht-kozijnen?</strong><p>Bel ons op 085 073 1660. Binnen garantietermijn (10 jaar) komen wij kosteloos langs voor onderhoud of reparatie.</p>',
         'related': ['schueco-living-82-review', 'kunststof-kozijnen-kosten', 'inbraakwerend-kozijn-rc2-rc3'],
     },
+    {
+        'slug': 'kunststof-kozijnen-laten-plaatsen',
+        'title': 'Kunststof kozijnen laten plaatsen: zo verloopt het',
+        'meta_desc': 'Van eerste contact tot oplevering in 6 tot 8 weken. Onze werkwijze in 5 stappen, met eigen monteurs, een vaste offerte en heldere betaalafspraken.',
+        'category': 'Werkwijze',
+        'date': '2026-06-20', 'modified': '2026-06-20', 'reading_time': 5,
+        'intro_image': 'hero-raamkozijnen',
+        'lead': "Nieuwe kozijnen laten plaatsen voelt voor veel mensen als een grote stap. Bij Duurkracht houden we het overzichtelijk: van het eerste gesprek tot de oplevering bent u gemiddeld 6 tot 8 weken verder. Zo werkt het, stap voor stap.",
+        'sections': [
+            {'id': 'stappen', 'h2': 'Onze werkwijze in 5 stappen', 'body': """
+<p>Wij doen alles in eigen beheer — van advies tot montage. Geen onderaannemers, geen tussenpartijen. Het traject ziet er zo uit:</p>
+<ol>
+<li><strong>Contact en intake</strong> — u belt of vult het formulier in. Binnen een werkdag nemen we contact op.</li>
+<li><strong>Gratis adviesgesprek aan huis</strong> — een ervaren adviseur komt vrijblijvend langs, bekijkt uw situatie en denkt mee.</li>
+<li><strong>Bouwkundige inmeting en vaste offerte</strong> — we meten op de millimeter in en maken een vaste prijs zonder kleine lettertjes.</li>
+<li><strong>Productie op maat</strong> — uw Schüco LivIng kozijnen worden op maat geproduceerd, doorlooptijd 4 tot 6 weken.</li>
+<li><strong>Montage en oplevering</strong> — onze eigen monteurs plaatsen alles in 1 tot 2 werkdagen en leveren schoon op.</li>
+</ol>
+"""},
+            {'id': 'inmeting', 'h2': 'Waarom eerst een gratis inmeting?', 'body': """
+<p>Een prijs op basis van een paar foto's is altijd een indicatie. De definitieve, vaste offerte maken we pas na een <strong>bouwkundige inmeting</strong> bij u thuis. Dat heeft een reden: kozijnen worden op maat geproduceerd, en een paar millimeter verschil bepaalt of een kozijn straks strak en tochtvrij in de sponning valt.</p>
+<p>De inmeting is <strong>gratis en vrijblijvend</strong>. Onze adviseur controleert ook de staat van uw bestaande stelkozijnen: in veel gevallen plaatsen we de nieuwe kozijnen op een nieuw kunststof stelkozijn, wat zorgt voor een lange levensduur en een perfecte afdichting.</p>
+<p>Wilt u alvast een indicatie? Stel uw kozijn samen in onze <a href="/configurator/galerij">configurator</a> of bekijk de <a href="/kosten/">kostenpagina</a>.</p>
+"""},
+            {'id': 'betaling', 'h2': 'Betaling, garantie en doorlooptijd', 'body': """
+<p>We werken met heldere, eerlijke afspraken:</p>
+<ul>
+<li><strong>Betaling:</strong> 30% aanbetaling bij ondertekening van de offerte (om uw maatwerk in productie te zetten), het restant van 70% voldoet u op de eerste montagedag.</li>
+<li><strong>Garantie:</strong> 10 jaar op zowel het profiel als op onze montage.</li>
+<li><strong>Doorlooptijd:</strong> gemiddeld 6 tot 8 weken van akkoord tot oplevering — bijna twee keer sneller dan het sectorgemiddelde.</li>
+<li><strong>All-in prijs:</strong> profiel, glas, kunststof stelkozijn, RC2-sluitwerk, montage, afvoer van de oude kozijnen en 21% btw zitten in de prijs.</li>
+</ul>
+<p>Geen verborgen meerkosten achteraf: meerwerk doen we alleen na uw akkoord.</p>
+"""},
+        ],
+        'faq': [
+            ('Hoe lang duurt het van offerte tot plaatsing?', 'Gemiddeld 6 tot 8 weken. De productie van uw maatwerk kost 4 tot 6 weken, de montage zelf 1 tot 2 werkdagen voor een gemiddelde woning.'),
+            ('Werken jullie met eigen monteurs?', 'Ja. Al onze monteurs zijn in vaste dienst. We werken nooit met onderaannemers, zodat we de kwaliteit en planning volledig in eigen hand houden.'),
+            ('Wanneer betaal ik?', '30% aanbetaling bij ondertekening van de offerte en het restant van 70% op de eerste montagedag. Het adviesgesprek en de inmeting zijn gratis.'),
+            ('Moet ik zelf iets regelen voor de montagedag?', 'Zorg dat de ramen en deuren bereikbaar zijn en dat gordijnen of zonwering los zijn. Wij dekken vloeren af, plaatsen de kozijnen en voeren de oude kozijnen af.'),
+        ],
+        'related': ['kunststof-kozijnen-kosten', 'schueco-living-82-review', 'kunststof-kozijnen-onderhoud'],
+    },
+    {
+        'slug': 'kunststof-deuren-kosten',
+        'title': 'Wat kost een kunststof voor- of achterdeur?',
+        'meta_desc': 'Wat kost een kunststof voordeur of achterdeur in 2026? All-in richtprijzen, wat de prijs bepaalt en welke opties (zijlicht, bovenlicht, RC2) er zijn.',
+        'category': 'Prijzen',
+        'date': '2026-06-18', 'modified': '2026-06-18', 'reading_time': 4,
+        'intro_image': 'Nieuwe-voordeur-huis',
+        'lead': "Een nieuwe voordeur is uw visitekaartje én een belangrijk punt voor inbraakveiligheid en isolatie. Wat kost een kunststof deur eigenlijk? We zetten de all-in richtprijzen en de prijsbepalende keuzes op een rij.",
+        'sections': [
+            {'id': 'richtprijzen', 'h2': 'All-in richtprijzen 2026', 'body': """
+<p>Onze prijzen zijn all-in: Schüco LivIng profiel, glas, kunststof stelkozijn, meerpuntsluiting met RC2, montage door eigen monteurs, afvoer van de oude deur en 21% btw. Ruwe richtprijzen:</p>
+<ul>
+<li><strong>Kunststof voordeur</strong> — vanaf circa € 5.500, inclusief plaatsing.</li>
+<li><strong>Kunststof achterdeur</strong> — vanaf circa € 4.500, inclusief plaatsing.</li>
+</ul>
+<p>De exacte prijs hangt af van de afmeting, het model en de opties. Bereken uw eigen deur in de <a href="/configurator/galerij">configurator</a> — u ziet binnen een minuut een prijsindicatie.</p>
+"""},
+            {'id': 'prijsfactoren', 'h2': 'Wat bepaalt de prijs van een deur?', 'body': """
+<p>De belangrijkste prijsbepalende keuzes:</p>
+<ul>
+<li><strong>Zijlichten en bovenlicht</strong> — een deur met een of twee glazen zijlichten of een bovenlicht is breder en bevat meer glas, en is daardoor duurder dan een enkele deur.</li>
+<li><strong>Glas en vulling</strong> — een dicht paneel, een glasstrook of vol glas: meer glas betekent meer licht maar ook een hogere prijs.</li>
+<li><strong>Beslag en veiligheid</strong> — standaard leveren wij RC2-inbraakwerendheid met een meerpuntsluiting en SKG-cilinder. RC3 is mogelijk als optie.</li>
+<li><strong>Kleur</strong> — wit is standaard; een RAL-kleur zoals antraciet (7016) of staalblauw (5011) geeft een meerprijs.</li>
+</ul>
+"""},
+            {'id': 'veiligheid', 'h2': 'Veiligheid zit standaard in de prijs', 'body': """
+<p>Een goede voordeur houdt inbrekers tegen. Daarom leveren wij standaard met <strong>RC2-inbraakwerendheid</strong>: een meerpuntsluiting die op meerdere punten in het kozijn grijpt, in combinatie met een SKG-gekeurde cilinder. Dat houdt een gelegenheidsinbreker meestal lang genoeg tegen om af te haken.</p>
+<p>Meer weten over inbraakklassen? Lees ons artikel over <a href="/blog/inbraakwerend-kozijn-rc2-rc3/">RC2, RC3 en SKG</a>.</p>
+"""},
+        ],
+        'faq': [
+            ('Wat kost een kunststof voordeur inclusief plaatsing?', 'Een kunststof voordeur kost all-in vanaf circa € 5.500. De exacte prijs hangt af van de afmeting, het model en opties als zijlichten of een bovenlicht.'),
+            ('Is een kunststof achterdeur goedkoper dan een voordeur?', 'Meestal wel. Een achterdeur is doorgaans eenvoudiger uitgevoerd (vaak met half glas) en vanaf circa € 4.500 inclusief plaatsing.'),
+            ('Zit inbraakwerendheid standaard in de prijs?', 'Ja. Wij leveren standaard RC2 met een meerpuntsluiting en SKG-cilinder. RC3 is mogelijk als optie tegen meerprijs.'),
+            ('Kan ik mijn deur in een RAL-kleur krijgen?', 'Ja. Naast wit leveren we onder andere crème (9001), antraciet (7016), zwart grijs (7021), staalblauw (5011) en dennengroen (6009).'),
+        ],
+        'related': ['kunststof-kozijnen-kosten', 'schuifpui-of-tuindeuren', 'inbraakwerend-kozijn-rc2-rc3'],
+    },
+    {
+        'slug': 'schuifpui-of-tuindeuren',
+        'title': 'Schuifpui of tuindeuren: welke past bij uw woning?',
+        'meta_desc': 'Schuifpui of openslaande tuindeuren? We vergelijken licht, ruimte, bediening, ventilatie en prijs zodat u de juiste keuze maakt voor uw tuinkamer.',
+        'category': 'Productadvies',
+        'date': '2026-06-16', 'modified': '2026-06-16', 'reading_time': 4,
+        'intro_image': 'diensten-deuren',
+        'lead': "Meer licht en een vloeiende verbinding met de tuin: schuifpui of openslaande tuindeuren? Beide zijn prachtig, maar passen bij verschillende situaties. We zetten de verschillen op een rij.",
+        'sections': [
+            {'id': 'verschil', 'h2': 'Het belangrijkste verschil', 'body': """
+<p>Een <strong>schuifpui</strong> schuift opzij langs een vast deel en kost binnen geen enkele ruimte — ideaal als u meubels dicht bij de pui wilt zetten. De smalle profielen geven veel glas en dus veel daglicht.</p>
+<p><strong>Tuindeuren</strong> (openslaande deuren) draaien naar binnen of buiten open. Ze geven een brede, volledig vrije doorgang en een klassieke uitstraling, maar vragen wel ruimte om open te draaien.</p>
+"""},
+            {'id': 'kiezen', 'h2': 'Wanneer kies je wat?', 'body': """
+<p><strong>Kies een schuifpui als u:</strong></p>
+<ul>
+<li>veel daglicht en een strakke, moderne uitstraling wilt;</li>
+<li>binnen geen ruimte wilt verliezen aan opendraaiende deuren;</li>
+<li>een brede opening (tot wel 6 meter) wenst.</li>
+</ul>
+<p><strong>Kies tuindeuren als u:</strong></p>
+<ul>
+<li>een volledig vrije doorgang wilt, bijvoorbeeld om meubels naar buiten te dragen;</li>
+<li>een klassieke of landelijke stijl mooi vindt;</li>
+<li>een kleinere opening heeft en de kosten lager wilt houden.</li>
+</ul>
+"""},
+            {'id': 'prijs', 'h2': 'Prijs en bediening', 'body': """
+<p>Qua prijs liggen ze niet ver uiteen: een <strong>tuindeur</strong> begint all-in rond € 7.500, een <strong>schuifpui</strong> vanaf circa € 7.000 voor een 2-delige uitvoering. Een bredere 3- of 4-delige schuifpui loopt op naar gelang het aantal delen.</p>
+<p>Voor zware, brede puien adviseren we een <strong>hefschuif</strong>: bij het bedienen tilt het schuivende deel iets op, waardoor het ondanks het gewicht licht en soepel beweegt. Twijfelt u? Reken beide varianten door in de <a href="/configurator/galerij">configurator</a> of vraag een gratis adviesgesprek aan.</p>
+"""},
+        ],
+        'faq': [
+            ('Is een schuifpui duurder dan tuindeuren?', 'Niet per se. Een 2-delige schuifpui begint vanaf circa € 7.000 all-in, dubbele tuindeuren vanaf circa € 7.500. Brede schuifpuien met 3 of 4 delen lopen op met het aantal delen.'),
+            ('Hoe breed kan een schuifpui zijn?', 'Onze schuifpuien zijn leverbaar tot ongeveer 6 meter breed. Bij grote, zware puien adviseren we een hefschuif voor een soepele bediening.'),
+            ('Nemen tuindeuren binnen veel ruimte in?', 'Openslaande tuindeuren draaien naar binnen of buiten open en vragen daarvoor ruimte. Wilt u binnen geen ruimte verliezen, dan is een schuifpui handiger.'),
+            ('Is een schuifpui goed geïsoleerd?', 'Ja. Onze schuifpuien en hefschuiven worden uitgevoerd met HR++ of triple glas en goed isolerende profielen, zodat warmteverlies beperkt blijft.'),
+        ],
+        'related': ['kunststof-deuren-kosten', 'kunststof-kozijnen-kosten', 'hr-plus-plus-of-triple-glas'],
+    },
+    {
+        'slug': 'condens-op-kozijnen',
+        'title': 'Condens op kozijnen: oorzaak en oplossing',
+        'meta_desc': 'Condens op uw kozijnen? Soms een teken van goede isolatie, soms van te weinig ventilatie. We leggen de oorzaken uit en geven praktische oplossingen.',
+        'category': 'Onderhoud',
+        'date': '2026-06-14', 'modified': '2026-06-14', 'reading_time': 5,
+        'intro_image': 'Voorkant-huis-kozijnen',
+        'lead': "Beslagen ruiten in de ochtend: bijna iedereen kent het. Maar condens op kozijnen betekent niet altijd hetzelfde. Soms is het juist een teken dat uw isolatie goed werkt. We leggen uit waar het vandaan komt en wat u eraan doet.",
+        'sections': [
+            {'id': 'oorzaak', 'h2': 'Waar komt condens vandaan?', 'body': """
+<p>Condens ontstaat als warme, vochtige lucht afkoelt tegen een koud oppervlak. Het vocht in de lucht slaat dan neer als waterdruppels. In huis komt dat vocht van koken, douchen, drogen van was, planten en simpelweg ademhalen.</p>
+<p>Waar de condens zit, vertelt veel:</p>
+<ul>
+<li><strong>Aan de binnenkant van het glas</strong> — er is te veel vocht in huis en/of te weinig ventilatie.</li>
+<li><strong>Aan de buitenkant van het glas</strong> — juist een goed teken: het buitenblad blijft koud omdat de warmte binnenblijft. Dit komt vooral voor bij triple glas op heldere ochtenden.</li>
+<li><strong>Tussen de glasbladen</strong> — dit hoort niet en duidt op een lek in de beglazing. Hier is reparatie of vervanging nodig.</li>
+</ul>
+"""},
+            {'id': 'ventilatie', 'h2': 'De oplossing: ventileren', 'body': """
+<p>Condens aan de binnenkant los je niet op door de verwarming hoger te zetten, maar door <strong>vocht af te voeren</strong>. Praktische tips:</p>
+<ul>
+<li>Ventileer elke dag, ook in de winter — zet ramen even tegen elkaar open of gebruik ventilatieroosters.</li>
+<li>Gebruik de afzuigkap tijdens het koken en de badkamerventilatie tijdens en na het douchen.</li>
+<li>Droog was zo veel mogelijk buiten of in een geventileerde ruimte.</li>
+<li>Houd ventilatieroosters in de kozijnen open en stofvrij.</li>
+</ul>
+<p>Bij nieuwe kozijnen kunnen wij <strong>ventilatieroosters</strong> in het kozijn integreren, zodat uw woning gecontroleerd vocht afvoert zonder dat u op de kou let.</p>
+"""},
+            {'id': 'isolatie', 'h2': 'Nieuwe kozijnen en condens', 'body': """
+<p>Oude kozijnen met enkel glas zijn vaak zo koud dat condens niet op het glas maar tegen de muren slaat — met schimmel als gevolg. Goed isolerende kozijnen met HR++ of triple glas houden het glasoppervlak aan de binnenkant warmer, waardoor binnencondens juist afneemt.</p>
+<p>Ziet u na het plaatsen van triple glas wat vaker <em>buitencondens</em>? Dat is normaal en zelfs een bewijs dat het glas uitstekend isoleert. Meer over de keuze tussen <a href="/blog/hr-plus-plus-of-triple-glas/">HR++ en triple glas</a> leest u in ons vergelijkingsartikel.</p>
+"""},
+        ],
+        'faq': [
+            ('Is condens op kozijnen schadelijk?', 'Binnencondens op het glas is niet direct schadelijk, maar wijst op te veel vocht en te weinig ventilatie. Aanhoudend vocht kan op den duur schimmel veroorzaken. Buitencondens is juist onschuldig en een teken van goede isolatie.'),
+            ('Waarom heb ik condens aan de buitenkant van triple glas?', 'Omdat het buitenste glasblad koud blijft: de warmte uit huis komt niet meer door het glas. Dit komt vooral voor op heldere, koude ochtenden en is een bewijs dat het glas goed isoleert.'),
+            ('Help ventileren echt tegen condens?', 'Ja. Condens ontstaat door vocht in de lucht. Door dagelijks te ventileren en de afzuiging bij koken en douchen te gebruiken, voert u dat vocht af en verdwijnt de condens grotendeels.'),
+            ('Kunnen jullie ventilatieroosters in de kozijnen plaatsen?', 'Ja. Bij nieuwe kozijnen kunnen we ventilatieroosters integreren, zodat uw woning gecontroleerd vocht afvoert zonder tochtklachten.'),
+        ],
+        'related': ['kunststof-kozijnen-onderhoud', 'hr-plus-plus-of-triple-glas', 'geluidwerend-glas-kozijnen'],
+    },
+    {
+        'slug': 'geluidwerend-glas-kozijnen',
+        'title': 'Geluidwerend glas in kunststof kozijnen',
+        'meta_desc': 'Last van verkeers- of buurlawaai? Geluidwerend glas in kunststof kozijnen maakt het merkbaar rustiger. Zo werkt het en wanneer is het zinvol.',
+        'category': 'Productadvies',
+        'date': '2026-06-12', 'modified': '2026-06-12', 'reading_time': 4,
+        'intro_image': 'hero-raamkozijnen',
+        'lead': "Woont u aan een drukke weg, bij het spoor of in een levendige stadsbuurt? Dan is geluid vaak een grotere ergernis dan kou. Geluidwerend glas in goed afgedichte kunststof kozijnen maakt het binnen merkbaar rustiger.",
+        'sections': [
+            {'id': 'hoe', 'h2': 'Hoe werkt geluidwerend glas?', 'body': """
+<p>Geluid is trilling. Geluidwerend (akoestisch) glas dempt die trilling op een paar manieren:</p>
+<ul>
+<li><strong>Asymmetrische glasbladen</strong> — twee verschillende glasdiktes dempen verschillende geluidsfrequenties.</li>
+<li><strong>Een akoestische folie</strong> tussen de glasbladen (vergelijkbaar met gelaagd glas) absorbeert geluid.</li>
+<li><strong>Een bredere spouw</strong> met gasvulling tussen de bladen.</li>
+</ul>
+<p>Minstens zo belangrijk als het glas is de <strong>afdichting</strong>. Een goed kozijn met dichte rubbers laat geen kieren waardoor geluid lekt. De Schüco LivIng profielen die wij plaatsen hebben standaard een goede aansluiting en afdichting.</p>
+"""},
+            {'id': 'db', 'h2': 'Wat levert het op?', 'body': """
+<p>Geluidwering wordt uitgedrukt in decibel (dB). Standaard HR++ glas dempt al een flink deel van het buitengeluid; speciaal geluidwerend glas gaat daar nog overheen. Een paar decibel verschil klinkt klein, maar onze oren ervaren elke 10 dB ongeveer als een halvering van het waargenomen geluid.</p>
+<p>Het effect is het grootst wanneer u van oude, enkel- of dunglas kozijnen overstapt op goed afgedichte kunststof kozijnen met akoestisch glas. Veel klanten aan een drukke weg merken dat gesprekken en tv binnen ineens een stuk rustiger aanvoelen.</p>
+"""},
+            {'id': 'wanneer', 'h2': 'Wanneer is het zinvol?', 'body': """
+<p>Geluidwerend glas is een verstandige keuze als u:</p>
+<ul>
+<li>aan een drukke weg, doorgaande route of het spoor woont;</li>
+<li>in een levendige stadsbuurt of bij een uitgaansgebied woont;</li>
+<li>een slaapkamer of studeerkamer aan de geluidskant heeft.</li>
+</ul>
+<p>U hoeft het niet in elk kozijn te kiezen — vaak is het slim om akoestisch glas alleen aan de geluidsbelaste gevel te plaatsen en aan de rustige kant standaard HR++. Onze adviseur denkt bij de gratis inmeting met u mee. Meer over glaskeuze leest u in ons artikel over <a href="/blog/hr-plus-plus-of-triple-glas/">HR++ en triple glas</a>.</p>
+"""},
+        ],
+        'faq': [
+            ('Houdt geluidwerend glas alle geluid tegen?', 'Nee, geen enkel glas maakt het volledig stil. Maar akoestisch glas in goed afgedichte kozijnen dempt het buitengeluid merkbaar — zeker als u van oud enkel glas overstapt.'),
+            ('Is triple glas ook geluidwerend?', 'Triple glas isoleert vooral tegen warmteverlies. Voor geluid is asymmetrisch, akoestisch glas met een speciale folie effectiever. Soms wordt dit gecombineerd.'),
+            ('Moet ik in elk kozijn geluidwerend glas?', 'Niet per se. Vaak is het slim om akoestisch glas alleen aan de geluidsbelaste gevel te plaatsen en aan de rustige kant standaard HR++ te kiezen. Dat houdt de kosten in de hand.'),
+            ('Helpt een goed kozijn ook tegen geluid?', 'Zeker. Naast het glas bepaalt de afdichting hoeveel geluid er binnenkomt. Goed sluitende kunststof kozijnen met dichte rubbers voorkomen kieren waardoor geluid lekt.'),
+        ],
+        'related': ['hr-plus-plus-of-triple-glas', 'schueco-living-82-review', 'condens-op-kozijnen'],
+    },
 ]
 
 
@@ -1150,10 +1353,28 @@ def render_article(post):
 '''
 
 
+# Losse, al bestaande blogartikelen (eigen HTML, niet via deze generator gebouwd).
+# Verschijnen alleen als kaart in de blog-index zodat ze niet langer 'verweesd' zijn.
+EXTRA_CARDS = [
+    {'slug': 'kunststof-vs-houten-kozijnen', 'title': 'Kunststof vs houten kozijnen', 'category': 'Vergelijking',
+     'date': '2026-05-25', 'reading_time': 8, 'intro_image': 'hero-raamkozijnen',
+     'meta_desc': 'Kunststof of hout? Vergelijk isolatie, onderhoud, prijs, levensduur en uitstraling. Een eerlijk overzicht om de juiste keuze te maken.'},
+    {'slug': 'schueco-living-vs-andere-merken', 'title': 'Schüco LivIng vs andere merken', 'category': 'Productadvies',
+     'date': '2026-05-25', 'reading_time': 8, 'intro_image': 'hero-raamkozijnen',
+     'meta_desc': 'Schüco LivIng vs Kömmerling, Gealan, Rehau en Veka: welk kunststof kozijnprofiel wint op isolatie, sterkte en uitstraling?'},
+    {'slug': 'kunststof-kozijnen-kleuren', 'title': 'Kunststof kozijnen kleuren: wit, RAL en houtnerf', 'category': 'Productadvies',
+     'date': '2026-05-25', 'reading_time': 7, 'intro_image': 'Voorkant-huis-kozijnen',
+     'meta_desc': 'Welke kleuren zijn er voor kunststof kozijnen? Wit, antraciet RAL 7016, houtnerf-folie en meer — met advies over kleurvast blijven.'},
+    {'slug': 'compriband-vs-kunststof-stelkozijn-montage', 'title': 'Compriband vs kunststof stelkozijn', 'category': 'Montage',
+     'date': '2026-05-24', 'reading_time': 7, 'intro_image': 'Voorkant-huis-kozijnen',
+     'meta_desc': 'Compriband of een kunststof stelkozijn? Het verschil in montage, afdichting en levensduur — en waarom wij voor stelkozijnen kiezen.'},
+]
+
+
 def render_landing():
     """Blog overzicht pagina"""
     cards = ''
-    for p in sorted(POSTS, key=lambda x: x['date'], reverse=True):
+    for p in sorted(POSTS + EXTRA_CARDS, key=lambda x: x['date'], reverse=True):
         cards += f'''<a href="/blog/{p["slug"]}/" class="blog-card">
         <div class="ph"><img src="/design-assets/images/{p["intro_image"]}.jpg" alt="{p["title"]}" loading="lazy" /></div>
         <div class="body">
@@ -1232,7 +1453,7 @@ def render_landing():
     <span class="eyebrow">Blog &amp; Advies</span>
     <h1>Praktisch advies <span class="em-italic">over kozijnen,</span> glas en subsidies.</h1>
     <p class="lead">
-      Verdieping op {len(POSTS)} onderwerpen rond kunststof kozijnen — geschreven door onze vakmensen op basis van 20+ jaar ervaring en geverifieerde productinformatie van Schüco, Keralit en RVO.
+      Verdieping op {len(POSTS) + len(EXTRA_CARDS)} onderwerpen rond kunststof kozijnen — geschreven door onze vakmensen op basis van 20+ jaar ervaring en geverifieerde productinformatie van Schüco, Keralit en RVO.
     </p>
   </div>
 </section>
@@ -1248,12 +1469,17 @@ def render_landing():
 <section class="cta-banner">
   <div class="container">
     <div>
-      <span class="eyebrow">Mist u een onderwerp?</span>
-      <h2>Stel uw vraag <span class="em-italic">direct.</span></h2>
-      <p>Heeft u een specifieke vraag die u in een artikel zou willen lezen? Of wilt u persoonlijk advies? Bel ons of plan een gratis adviesgesprek.</p>
+      <span class="eyebrow">Liever persoonlijk advies?</span>
+      <h2>Plan een gratis <span class="em-italic">adviesgesprek aan huis.</span></h2>
+      <p>Onze eigen adviseur komt vrijblijvend langs, meet bouwkundig in en maakt een vaste, all-in offerte. Van akkoord tot oplevering bent u gemiddeld 6 tot 8 weken verder — met 30% aanbetaling en het restant pas op de eerste montagedag.</p>
+      <ul class="cta-contact-list">
+        <li>Bel <a href="tel:+31850731660">085 073 1660</a> (ma–vr, reactie meestal binnen 4 uur)</li>
+        <li>Mail <a href="mailto:info@duurkrachtkozijnen.nl">info@duurkrachtkozijnen.nl</a></li>
+        <li>Of bereken uw kozijn direct in de <a href="/configurator/galerij">configurator</a></li>
+      </ul>
     </div>
     <div class="cta-banner-actions">
-      <a href="/contact/" class="btn btn-primary">Stel uw vraag <span class="arrow">→</span></a>
+      <a href="/contact/" class="btn btn-primary">Plan gratis adviesgesprek <span class="arrow">→</span></a>
       <a href="tel:+31850731660" class="btn btn-ghost-white" rel="nofollow">Of bel: 085 073 1660</a>
     </div>
   </div>
