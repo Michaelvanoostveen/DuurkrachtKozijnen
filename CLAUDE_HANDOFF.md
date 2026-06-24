@@ -5,7 +5,7 @@
 > "Last updated" below. Keep the business facts in section 4 authoritative — they are the
 > single source of truth; do not invent prices, terms or product claims that contradict it.
 
-**Last updated:** 2026-06-24
+**Last updated:** 2026-06-24 (domein live)
 
 ---
 
@@ -17,8 +17,9 @@
 | Type | **Static HTML site** (no framework, no build step except the Python generators below) |
 | cwd | `/Users/michaelvanoostveen/Duurkracht Kozijnen` |
 | Hosting | Vercel (project id `prj_VmroHJNqBgMLvcOFPCEztzoAQy3b`, linked in `.vercel/project.json`) |
-| Live (working) URL | https://duurkracht-kozijnen.vercel.app |
-| Custom domain | `duurkrachtkozijnen.nl` — **still on the old WordPress site**; DNS migration to Cloud86 is pending (user must execute, see section 9). All new work currently only lives on the Vercel URL. |
+| Live URL | **https://www.duurkrachtkozijnen.nl** (eigen domein, live sinds 2026-06-24) |
+| Vercel alias | https://duurkracht-kozijnen.vercel.app (blijft werken als fallback) |
+| Hosting | Vercel — DNS via Cloud86 (A `@`→`76.76.21.21`, CNAME `www`→`cname.vercel-dns.com`). MX blijft op Microsoft 365. SSL: Let's Encrypt auto-renewed door Vercel. |
 | Repo | git, default branch `main` |
 
 ---
@@ -164,16 +165,18 @@ CTAs point to the gallery.
 
 ## 9. Known pending / TODO
 
-1. **DNS migration** of `duurkrachtkozijnen.nl` from old WordPress to Vercel (via Cloud86),
-   **preserving Microsoft 365 email** (MX → `duurkrachtkozijnen-nl.mail.protection.outlook.com`).
-   This is guidance for the **user to execute** — not an automated step.
-2. The **5 newest blogs** are intentionally shorter (~250–300 words) than the older long-form
+1. ~~**DNS migration**~~ — **DONE 2026-06-24.** `www.duurkrachtkozijnen.nl` is live on Vercel.
+   MX preserved on Microsoft 365. SSL auto-issued by Let's Encrypt.
+2. **Google Search Console** — new property for `duurkrachtkozijnen.nl` domain created; sitemap
+   submitted. GA4 (G-W45QZ8KED5) added to all 155 pages + all generators.
+3. The **5 newest blogs** are intentionally shorter (~250–300 words) than the older long-form
    guides (~900). Layout is finished; deepening their content to match is an optional follow-up.
 
 ---
 
 ## 10. Status & changelog (newest first — append after each batch)
 
+- **2026-06-24** — DNS live: `www.duurkrachtkozijnen.nl` actief op Vercel (A→76.76.21.21, CNAME www→cname.vercel-dns.com via Cloud86). SSL Let's Encrypt auto-issued. GA4 (G-W45QZ8KED5) toegevoegd aan 155 HTML-bestanden + alle 3 generators. Trust-badges: officiële logo's KOMO/SKG/Schüco/Keralit. WCAG-contrast fixes (6 problemen). GSC sitemap ingediend.
 - **2026-06-24** — Blog layout for readability + Google/AI indexing: added "In het kort"
   takeaways box, featured `<figure>` image, `nl_date()` human dates + semantic `<time>`,
   and `speakable` to the Article schema (all 11 generated articles). Commit `8f57354`. Deployed & live-verified.
