@@ -26,7 +26,7 @@
   --gray-100:    #F4F4F2;
   --gray-200:    #EAEAE6;
   --gray-300:    #D5D5CF;
-  --gray-500:    #8a8a82;
+  --gray-500:    #696960;
   --gray-700:    #4a4a44;
 
   --max:         1320px;
@@ -208,8 +208,8 @@ h3{ font-size: clamp(1.25rem, 1.8vw, 1.6rem); }
 
 /* KOMO: eigen dark-blue logokleur, witte achtergrond */
 .badge-logo-box--komo{ background: #fff; border: 1px solid #e2e8f0; }
-/* SKG: witte paden → donkerblauw merk-achtergrond */
-.badge-logo-box--skg{ background: #1a3560; }
+/* SKG: donkerblauwe paden (SVG omgezet) → lichtblauwe achtergrond */
+.badge-logo-box--skg{ background: #eef2fa; border: 1px solid #c8d4ee; }
 /* Schüco: donkergrijze wordmark → witte achtergrond */
 .badge-logo-box--schuco{ background: #fff; border: 1px solid #e2e8f0; }
 /* Keralit: groen icoon → heel licht groen */
@@ -864,14 +864,14 @@ h3{ font-size: clamp(1.25rem, 1.8vw, 1.6rem); }
   line-height: .8; pointer-events: none; font-weight: 400;
 }
 .cta-banner .container{ display: grid; grid-template-columns: 1.5fr 1fr; gap: 50px; align-items: center; position: relative; z-index: 2; }
-.cta-banner .eyebrow{ color: #ffe9c9; }
+.cta-banner .eyebrow{ color: rgba(255,255,255,0.85); }
 .cta-banner h2{ color: white; margin-bottom: 18px; }
 .cta-banner h2 .em-italic{ color: var(--lime); }
-.cta-banner p{ color: #fde9d6; max-width: 480px; }
+.cta-banner p{ color: rgba(255,255,255,0.92); max-width: 480px; }
 .cta-banner-actions{ display:flex; flex-direction: column; gap: 12px; align-items: flex-start; }
 .cta-banner .btn-primary{ background: white; color: var(--orange); }
 .cta-banner .btn-primary:hover{ background: var(--ink); color: white; }
-.cta-banner .meta-line{ font-size: 13.5px; color: #fde9d6; margin-top: 6px; }
+.cta-banner .meta-line{ font-size: 13.5px; color: rgba(255,255,255,0.85); margin-top: 6px; }
 .cta-banner .meta-line strong{ color: white; }
 
 /* FOOTER */
@@ -880,14 +880,14 @@ footer{
   padding: 80px 0 24px; font-size: 14px;
 }
 .ftr-grid{ display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 50px; border-bottom: 1px solid #2a2a2a; }
-.ftr-grid .ftr-nav-title{ font-size: 11px; letter-spacing: .18em; color: #777; margin: 0 0 18px; font-weight: 600; text-transform: uppercase; }
+.ftr-grid .ftr-nav-title{ font-size: 11px; letter-spacing: .18em; color: #999; margin: 0 0 18px; font-weight: 600; text-transform: uppercase; }
 .ftr-grid ul{ list-style: none; margin: 0; padding: 0; }
 .ftr-grid ul li{ margin-bottom: 10px; }
 .ftr-grid a{ color: #ccc; }
 .ftr-grid a:hover{ color: var(--lime); }
 .ftr-brand img{ height: 52px; margin-bottom: 18px; }
-.ftr-brand p{ color: #888; max-width: 320px; margin: 0 0 14px; }
-.ftr-bot{ padding-top: 24px; display:flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; font-size: 12.5px; color: #666; }
+.ftr-brand p{ color: #aaa; max-width: 320px; margin: 0 0 14px; }
+.ftr-bot{ padding-top: 24px; display:flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; font-size: 12.5px; color: #999; }
 .ftr-bot .socials{ display:flex; gap: 14px; align-items: center; }
 .ftr-bot .socials a{ width: 32px; height: 32px; border-radius: 50%; background: #2a2a2a; display:flex; align-items: center; justify-content: center; transition: background .25s; }
 .ftr-bot .socials a:hover{ background: var(--orange); }
