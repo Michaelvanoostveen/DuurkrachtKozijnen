@@ -156,6 +156,18 @@ BLOG_CSS = '''<style>
 
 .related-posts{ background: var(--gray-50); padding: 80px 0; margin-top: 60px; }
 .related-posts h3{ margin-bottom: 30px; }
+
+/* Uitgelichte afbeelding bovenaan het artikel */
+.article-figure{ margin: 0 0 32px; border-radius: var(--radius); overflow: hidden; }
+.article-figure img{ width: 100%; height: auto; aspect-ratio: 16/9; object-fit: cover; display: block; }
+
+/* "In het kort" samenvatting (lees-vriendelijk + AI/snippet-extractie) */
+.key-takeaways{ background: var(--green-tint); border: 1px solid var(--green-mid); border-radius: var(--radius); padding: 22px 26px; margin: 0 0 36px; }
+.key-takeaways h2{ font-size: 12.5px !important; letter-spacing: .12em; text-transform: uppercase; color: var(--green); margin: 0 0 14px !important; font-weight: 700; scroll-margin-top: 90px; }
+.key-takeaways ul{ list-style: none; padding: 0; margin: 0; }
+.key-takeaways li{ position: relative; padding-left: 30px; margin-bottom: 11px; font-size: 16px; line-height: 1.5; color: var(--ink); }
+.key-takeaways li:last-child{ margin-bottom: 0; }
+.key-takeaways li::before{ content: "✓"; position: absolute; left: 0; top: 1px; width: 19px; height: 19px; line-height: 19px; text-align: center; font-size: 11px; font-weight: 700; color: #fff; background: var(--green); border-radius: 50%; }
 </style>'''
 
 
@@ -166,6 +178,12 @@ BLOG_CSS = '''<style>
 POSTS = [
     {
         'slug': 'kunststof-kozijnen-kosten',
+        'takeaways': [
+            'Onze prijzen zijn all-in: profiel, glas, kunststof stelkozijn, montage, afvoer van de oude kozijnen en 21% btw.',
+            'De prijs hangt vooral af van de afmeting, de glassoort (HR++ of triple), de kleur en het model.',
+            'Betaling: 30% aanbetaling bij ondertekening, het restant van 70% op de eerste montagedag.',
+            'Met de ISDE-subsidie krijgt u in 2026 een deel van uw investering in isolatieglas terug.',
+        ],
         'title': 'Kunststof kozijnen kosten 2026',
         'meta_desc': 'Wat kosten kunststof kozijnen in 2026? Complete prijsgids: per kozijn, per huis, inclusief montage, glas en kleur. Plus ISDE-subsidie tips.',
         'category': 'Prijzen & advies',
@@ -299,6 +317,12 @@ POSTS = [
 
     {
         'slug': 'hr-plus-plus-of-triple-glas',
+        'takeaways': [
+            'HR++ glas is de standaard en voor de meeste woningen ruim voldoende.',
+            'Triple glas isoleert beter, maar verdient zich vooral terug in een goed geïsoleerde, gasloze woning.',
+            'Voor geluidsoverlast is niet triple, maar asymmetrisch akoestisch glas de beste keuze.',
+            'Beide glassoorten leveren wij standaard in onze Schüco LivIng kozijnen.',
+        ],
         'title': 'HR++ of triple glas — vergelijking',
         'meta_desc': 'HR++ of triple glas? Wij vergelijken U-waarde, prijs, geluidsdemping en ISDE-subsidie. Praktisch advies voor uw kozijnenkeuze.',
         'category': 'Productadvies',
@@ -437,6 +461,12 @@ POSTS = [
 
     {
         'slug': 'isde-subsidie-kozijnen-2026',
+        'takeaways': [
+            'De ISDE-subsidie vergoedt in 2026 een vast bedrag per m² nieuw isolatieglas.',
+            'U heeft minimaal 8 m² HR++ of triple glas nodig om in aanmerking te komen.',
+            'Vraag de subsidie pas ná de plaatsing aan, binnen de gestelde termijn na de werkzaamheden.',
+            'Wij helpen u kosteloos met de aanvraag en de benodigde documenten.',
+        ],
         'title': 'ISDE-subsidie kozijnen 2026',
         'meta_desc': 'Krijg in 2026 tot €222 per m² ISDE-subsidie op triple glas. Voorwaarden, aanvraag-stappen en valkuilen — alles in één gids.',
         'category': 'Subsidie',
@@ -571,6 +601,12 @@ POSTS = [
 
     {
         'slug': 'schueco-living-82-review',
+        'takeaways': [
+            'Schüco LivIng is ons enige profiel: Duitse kwaliteit met een bouwdiepte van 82 mm.',
+            'Sterke punten: zeer goede isolatie, een stevige kern en een strakke uitstraling.',
+            'Eerlijk nadeel: het is geen budgetprofiel — u betaalt voor kwaliteit en levensduur.',
+            'Standaard geschikt voor HR++ én triple glas en voor RC2-inbraakwerendheid.',
+        ],
         'title': 'Schüco LivIng review 2026',
         'meta_desc': 'Onafhankelijke review van Schüco LivIng: 7-kamer, Uf 0,92, RC2. Specs, voor- en nadelen, vergelijking met concurrenten.',
         'category': 'Product review',
@@ -688,6 +724,12 @@ POSTS = [
 
     {
         'slug': 'inbraakwerend-kozijn-rc2-rc3',
+        'takeaways': [
+            'RC2 houdt een gelegenheidsinbreker minimaal 3 minuten tegen — voor de meeste woningen voldoende.',
+            'RC3 is zwaarder en zinvol bij een hoger risico of een afgelegen ligging.',
+            'SKG-sterren keuren het hang- en sluitwerk; PKVW is het Politiekeurmerk Veilig Wonen.',
+            'Onze kozijnen worden standaard met RC2 en een SKG-cilinder geleverd.',
+        ],
         'title': 'Inbraakwerend kozijn — RC2, RC3, SKG',
         'meta_desc': 'Wat betekenen RC2, RC3, SKG** en PKVW? Inbraakwerendheid van kunststof kozijnen uitgelegd, plus tips voor maximale veiligheid.',
         'category': 'Veiligheid',
@@ -820,6 +862,12 @@ POSTS = [
 
     {
         'slug': 'kunststof-kozijnen-onderhoud',
+        'takeaways': [
+            'Kunststof kozijnen zijn onderhoudsarm, maar niet onderhoudsvrij.',
+            'Maak ze 1x per jaar schoon met water en een pH-neutraal middel — nooit schuren of schilderen.',
+            'Vet de rubbers en het sluitwerk jaarlijks in voor een soepele werking en lange levensduur.',
+            'Goed onderhouden gaan kunststof kozijnen 40 jaar of langer mee.',
+        ],
         'title': 'Kunststof kozijnen onderhouden',
         'meta_desc': 'Hoe onderhoudt u kunststof kozijnen? Stap-voor-stap gids: schoonmaken, scharnieren, rubbers, kleine reparaties. Niets schilderen, niets schuren.',
         'category': 'Onderhoud',
@@ -948,6 +996,12 @@ POSTS = [
     },
     {
         'slug': 'kunststof-kozijnen-laten-plaatsen',
+        'takeaways': [
+            'Van akkoord tot oplevering bent u gemiddeld 6 tot 8 weken verder.',
+            'Wij werken in 5 stappen, volledig met eigen monteurs en zonder onderaannemers.',
+            'Het adviesgesprek aan huis en de bouwkundige inmeting zijn gratis en vrijblijvend.',
+            'Betaling: 30% aanbetaling bij ondertekening, het restant van 70% op de eerste montagedag.',
+        ],
         'title': 'Kunststof kozijnen laten plaatsen: zo verloopt het',
         'meta_desc': 'Van eerste contact tot oplevering in 6 tot 8 weken. Onze werkwijze in 5 stappen, met eigen monteurs, een vaste offerte en heldere betaalafspraken.',
         'category': 'Werkwijze',
@@ -991,6 +1045,12 @@ POSTS = [
     },
     {
         'slug': 'kunststof-deuren-kosten',
+        'takeaways': [
+            'Een kunststof voordeur kost all-in vanaf circa € 5.500, een achterdeur vanaf circa € 4.500.',
+            'De prijs hangt af van de afmeting, zijlichten of een bovenlicht, het glas en de kleur.',
+            'RC2-inbraakwerendheid met meerpuntsluiting en SKG-cilinder zit standaard in de prijs.',
+            'Alle prijzen zijn inclusief plaatsing, afvoer van de oude deur en 21% btw.',
+        ],
         'title': 'Wat kost een kunststof voor- of achterdeur?',
         'meta_desc': 'Wat kost een kunststof voordeur of achterdeur in 2026? All-in richtprijzen, wat de prijs bepaalt en welke opties (zijlicht, bovenlicht, RC2) er zijn.',
         'category': 'Prijzen',
@@ -1030,6 +1090,12 @@ POSTS = [
     },
     {
         'slug': 'schuifpui-of-tuindeuren',
+        'takeaways': [
+            'Een schuifpui kost binnen geen ruimte en geeft veel daglicht; tuindeuren geven een volledig vrije doorgang.',
+            'Tuindeuren beginnen all-in rond € 7.500, een 2-delige schuifpui vanaf circa € 7.000.',
+            'Schuifpuien zijn leverbaar tot ongeveer 6 meter breed; kies bij zware puien een hefschuif.',
+            'Beide worden uitgevoerd met HR++ of triple glas en goed isolerende profielen.',
+        ],
         'title': 'Schuifpui of tuindeuren: welke past bij uw woning?',
         'meta_desc': 'Schuifpui of openslaande tuindeuren? We vergelijken licht, ruimte, bediening, ventilatie en prijs zodat u de juiste keuze maakt voor uw tuinkamer.',
         'category': 'Productadvies',
@@ -1070,6 +1136,12 @@ POSTS = [
     },
     {
         'slug': 'condens-op-kozijnen',
+        'takeaways': [
+            'Condens binnen op het glas wijst op te veel vocht in huis en te weinig ventilatie.',
+            'Condens aan de buitenkant is juist een teken van uitstekende isolatie.',
+            'Condens tussen de glasbladen hoort niet en betekent een lek in de beglazing.',
+            'De oplossing is vocht afvoeren: dagelijks ventileren en de afzuiging gebruiken.',
+        ],
         'title': 'Condens op kozijnen: oorzaak en oplossing',
         'meta_desc': 'Condens op uw kozijnen? Soms een teken van goede isolatie, soms van te weinig ventilatie. We leggen de oorzaken uit en geven praktische oplossingen.',
         'category': 'Onderhoud',
@@ -1111,6 +1183,12 @@ POSTS = [
     },
     {
         'slug': 'geluidwerend-glas-kozijnen',
+        'takeaways': [
+            'Geluidwerend glas gebruikt asymmetrische glasbladen en een akoestische folie om geluid te dempen.',
+            'Naast het glas bepaalt de afdichting van het kozijn hoeveel geluid er binnenkomt.',
+            'Elke 10 dB minder voelt ongeveer als een halvering van het waargenomen geluid.',
+            'Vaak volstaat akoestisch glas alleen aan de geluidsbelaste gevel.',
+        ],
         'title': 'Geluidwerend glas in kunststof kozijnen',
         'meta_desc': 'Last van verkeers- of buurlawaai? Geluidwerend glas in kunststof kozijnen maakt het merkbaar rustiger. Zo werkt het en wanneer is het zinvol.',
         'category': 'Productadvies',
@@ -1156,6 +1234,16 @@ POSTS = [
 # RENDER ARTIKEL
 # ============================================================
 
+_NL_MONTHS = ['', 'januari', 'februari', 'maart', 'april', 'mei', 'juni',
+              'juli', 'augustus', 'september', 'oktober', 'november', 'december']
+
+
+def nl_date(iso):
+    """ISO-datum (2026-06-20) -> leesbaar Nederlands (20 juni 2026)."""
+    y, m, d = iso.split('-')
+    return f"{int(d)} {_NL_MONTHS[int(m)]} {y}"
+
+
 def render_article(post):
     slug = post['slug']
     title = post['title']
@@ -1182,6 +1270,7 @@ def render_article(post):
         "mainEntityOfPage": {"@type":"WebPage","@id":f"https://www.duurkrachtkozijnen.nl/blog/{slug}/"},
         "articleSection": cat,
         "inLanguage": "nl-NL",
+        "speakable": {"@type": "SpeakableSpecification", "cssSelector": [".blog-hero h1", ".key-takeaways"]},
         "wordCount": sum(len(s['body'].split()) for s in post['sections'])
     }
 
@@ -1223,6 +1312,22 @@ def render_article(post):
         opn = ' open' if i == 0 else ''
         faq_html += f'<details class="faq-item"{opn}><summary>{q}</summary><div class="answer"><p>{a}</p></div></details>\n'
     faq_html += '</div>'
+
+    # Uitgelichte afbeelding (verbetert leesbaarheid + afbeelding-indexering, met vaste
+    # verhouding tegen layout-shift en hoge laadprioriteit voor de LCP).
+    figure_html = f'''<figure class="article-figure">
+      <img src="/design-assets/images/{intro_img}.jpg" alt="{title}" width="1200" height="675" fetchpriority="high" decoding="async" />
+    </figure>'''
+
+    # "In het kort" — beknopte samenvatting bovenaan voor lezers én AI/Google-extractie.
+    takeaways = post.get('takeaways')
+    takeaways_html = ''
+    if takeaways:
+        items = ''.join(f'<li>{t}</li>' for t in takeaways)
+        takeaways_html = f'''<div class="key-takeaways">
+      <h2>In het kort</h2>
+      <ul>{items}</ul>
+    </div>'''
 
     # Related posts
     related_html = ''
@@ -1286,8 +1391,8 @@ def render_article(post):
   <div class="container">
     <span class="crumb"><a href="/" style="color:var(--green);">Home</a> › <a href="/blog/" style="color:var(--green);">Blog</a> › {cat}</span>
     <div class="meta-right">
-      <span>Gepubliceerd: {date}</span>
-      <span>Laatst bijgewerkt: {modified}</span>
+      <span>Gepubliceerd: <time datetime="{date}">{nl_date(date)}</time></span>
+      <span>Laatst bijgewerkt: <time datetime="{modified}">{nl_date(modified)}</time></span>
       <span>{reading_time} min lezen</span>
     </div>
   </div>
@@ -1312,6 +1417,8 @@ def render_article(post):
   </aside>
 
   <article class="article-body">
+    {figure_html}
+    {takeaways_html}
     {body_html}
     {faq_html}
 
@@ -1379,7 +1486,7 @@ def render_landing():
         <div class="ph"><img src="/design-assets/images/{p["intro_image"]}.jpg" alt="{p["title"]}" loading="lazy" /></div>
         <div class="body">
           <div class="cat">{p["category"]}</div>
-          <div class="date">{p["date"]} · {p["reading_time"]} min lezen</div>
+          <div class="date"><time datetime="{p["date"]}">{nl_date(p["date"])}</time> · {p["reading_time"]} min lezen</div>
           <h2>{p["title"]}</h2>
           <p>{p["meta_desc"][:120]}...</p>
           <span class="read">Lees artikel <span class="arrow">→</span></span>
