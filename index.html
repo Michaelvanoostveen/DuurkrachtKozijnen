@@ -1376,15 +1376,15 @@
     <div class="tools-head">
       <span class="eyebrow eyebrow--lime">Slimme tools · direct antwoord</span>
       <h2 id="tools-titel">Wat kost het<br>en <span class="em-italic em-italic--orange">komen wij langs?</span></h2>
-      <p class="tools-intro">Bereken in 10 seconden een indicatie van uw ISDE-subsidie, of check of we in uw regio plaatsen. Geen mailadres, geen registratie.</p>
+      <p class="tools-intro">Stel uw project samen en zie direct een budget-indicatie, of check of we in uw regio plaatsen. Geen mailadres, geen registratie.</p>
       <p style="margin-top:18px;"><a href="/configurator/galerij" class="btn btn-primary">Of stel uw kozijn samen in de configurator <span class="arrow" aria-hidden="true">→</span></a></p>
     </div>
 
     <div class="tools-widget" role="region" aria-label="Slimme tools">
       <div class="tools-tabs" role="tablist" aria-label="Selecteer een tool">
-        <button type="button" class="tools-tab is-active" role="tab" aria-selected="true" aria-controls="panel-subsidie" id="tab-subsidie" data-tab="subsidie">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h12M4 14h9M19 6a7.7 7.7 0 0 0-5.2-2A7.9 7.9 0 0 0 6 12c0 4.4 3.5 8 7.8 8 2 0 3.8-.8 5.2-2"/></svg>
-          <span>ISDE-subsidie</span>
+        <button type="button" class="tools-tab is-active" role="tab" aria-selected="true" aria-controls="panel-kosten" id="tab-kosten" data-tab="kosten">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 10h2m4 0h2M7 14h4"/></svg>
+          <span>Kosten-calculator</span>
         </button>
         <button type="button" class="tools-tab" role="tab" aria-selected="false" aria-controls="panel-postcode" id="tab-postcode" data-tab="postcode" tabindex="-1">
           <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -1392,43 +1392,90 @@
         </button>
       </div>
 
-      <!-- TAB PANEL: SUBSIDIE -->
-      <div class="tools-panel is-active" id="panel-subsidie" role="tabpanel" aria-labelledby="tab-subsidie">
-        <form class="calc-form" id="isde-calc" novalidate>
+      <!-- TAB PANEL: KOSTEN-CALCULATOR -->
+      <div class="tools-panel is-active" id="panel-kosten" role="tabpanel" aria-labelledby="tab-kosten">
+        <form class="calc-form" id="kosten-calc" novalidate>
+
           <div class="calc-row">
-            <label for="m2" class="calc-row-label"><span class="calc-num">01</span> M² isolatieglas</label>
+            <label for="kozijn" class="calc-row-label">
+              <span class="calc-num">01</span>
+              <span>Raamkozijnen <span class="calc-unit-price">€ 2.500 / stuk</span></span>
+            </label>
             <div class="calc-slider-wrap">
-              <input type="range" id="m2" name="m2" min="3" max="40" step="1" value="12" aria-describedby="m2-value m2-hint" />
-              <output id="m2-value" for="m2"><strong>12</strong> m²</output>
-            </div>
-            <p id="m2-hint" class="calc-mini-hint">Min. 3 m² (RVO-eis)</p>
-          </div>
-
-          <div class="calc-row">
-            <span class="calc-row-label"><span class="calc-num">02</span> Glastype</span>
-            <div class="calc-pill-row">
-              <label class="calc-pill"><input type="radio" name="glas" value="hrpp" checked /><span>HR++</span></label>
-              <label class="calc-pill"><input type="radio" name="glas" value="triple" /><span>Triple</span></label>
+              <input type="range" id="kozijn" name="kozijn" min="0" max="20" step="1" value="6" aria-describedby="kozijn-value" />
+              <output id="kozijn-value" for="kozijn"><strong>6</strong></output>
             </div>
           </div>
 
-          <div class="calc-row">
-            <span class="calc-row-label"><span class="calc-num">03</span> Combineren met andere maatregel?</span>
-            <div class="calc-pill-row">
-              <label class="calc-pill"><input type="radio" name="combi" value="nee" checked /><span>Nee</span></label>
-              <label class="calc-pill"><input type="radio" name="combi" value="ja" /><span>Ja (bonus)</span></label>
+          <div class="calc-row" style="display:flex;align-items:center;gap:10px;">
+            <span class="calc-row-label" style="flex:1;min-width:0;">
+              <span class="calc-num">02</span>
+              <span>Achterdeur <span class="calc-unit-price">€ 4.500 / stuk</span></span>
+            </span>
+            <span class="calc-item-count" id="achterdeur-count" style="flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:12px;background:#deded8;color:#555;font-family:Fraunces,serif;font-size:22px;font-weight:600;">0</span>
+            <div class="calc-stepper" data-name="achterdeur" data-price="4500">
+              <button type="button" class="step-btn" data-act="minus" aria-label="Minder achterdeuren">−</button>
+              <span class="step-val" id="achterdeur-val">0</span>
+              <button type="button" class="step-btn" data-act="plus" aria-label="Meer achterdeuren">+</button>
+            </div>
+          </div>
+
+          <div class="calc-row" style="display:flex;align-items:center;gap:10px;">
+            <span class="calc-row-label" style="flex:1;min-width:0;">
+              <span class="calc-num">03</span>
+              <span>Voordeur <span class="calc-unit-price">€ 5.500 / stuk</span></span>
+            </span>
+            <span class="calc-item-count" id="voordeur-count" style="flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:12px;background:#deded8;color:#555;font-family:Fraunces,serif;font-size:22px;font-weight:600;">0</span>
+            <div class="calc-stepper" data-name="voordeur" data-price="5500">
+              <button type="button" class="step-btn" data-act="minus" aria-label="Minder voordeuren">−</button>
+              <span class="step-val" id="voordeur-val">0</span>
+              <button type="button" class="step-btn" data-act="plus" aria-label="Meer voordeuren">+</button>
+            </div>
+          </div>
+
+          <div class="calc-row" style="display:flex;align-items:center;gap:10px;">
+            <span class="calc-row-label" style="flex:1;min-width:0;">
+              <span class="calc-num">04</span>
+              <span>Schuifpui <span class="calc-unit-price">€ 7.500 / stuk</span></span>
+            </span>
+            <span class="calc-item-count" id="schuifpui-count" style="flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:12px;background:#deded8;color:#555;font-family:Fraunces,serif;font-size:22px;font-weight:600;">0</span>
+            <div class="calc-stepper" data-name="schuifpui" data-price="7500">
+              <button type="button" class="step-btn" data-act="minus" aria-label="Minder schuifpuien">−</button>
+              <span class="step-val" id="schuifpui-val">0</span>
+              <button type="button" class="step-btn" data-act="plus" aria-label="Meer schuifpuien">+</button>
+            </div>
+          </div>
+
+          <div class="calc-row" style="display:flex;align-items:center;gap:10px;">
+            <span class="calc-row-label" style="flex:1;min-width:0;">
+              <span class="calc-num">05</span>
+              <span>Tuindeuren <span class="calc-unit-price">€ 8.500 / stuk</span></span>
+            </span>
+            <span class="calc-item-count" id="tuindeuren-count" style="flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:12px;background:#deded8;color:#555;font-family:Fraunces,serif;font-size:22px;font-weight:600;">0</span>
+            <div class="calc-stepper" data-name="tuindeuren" data-price="8500">
+              <button type="button" class="step-btn" data-act="minus" aria-label="Minder tuindeuren">−</button>
+              <span class="step-val" id="tuindeuren-val">0</span>
+              <button type="button" class="step-btn" data-act="plus" aria-label="Meer tuindeuren">+</button>
             </div>
           </div>
         </form>
 
         <div class="calc-result-bar" aria-live="polite">
           <div class="calc-result-text">
-            <span class="calc-result-label">Indicatie ISDE-subsidie</span>
-            <strong class="calc-result-value" id="result-value">€ 276 – € 552</strong>
+            <span class="calc-result-label">Indicatie totale investering</span>
+            <strong class="calc-result-value" id="kosten-result">€ 15.000</strong>
           </div>
-          <a href="#contact" class="btn btn-primary calc-result-cta">Vraag offerte aan <span class="arrow" aria-hidden="true">→</span></a>
+          <a href="/contact/" class="btn btn-primary calc-result-cta">Vraag vaste offerte aan <span class="arrow" aria-hidden="true">→</span></a>
         </div>
-        <p class="calc-disclaimer">RVO ISDE-tarieven 2026: HR++ € 23-46/m², triple € 111-222/m². Definitieve subsidie hangt af van U-waarde en aanvraagvolgorde. <a href="https://www.rvo.nl/subsidies-financiering/isde" rel="external nofollow noopener">Bron: RVO</a>.</p>
+
+        <details class="calc-breakdown-toggle">
+          <summary>Bekijk specificatie</summary>
+          <ul class="calc-breakdown-list" id="kosten-breakdown"></ul>
+        </details>
+
+        <p class="calc-disclaimer">
+          <strong>Indicatie</strong> — definitieve prijs hangt af van afmeting, glaskeuze, kleur en bereikbaarheid. <a href="/kosten/">Meer over onze prijsopbouw</a>.
+        </p>
       </div>
 
       <!-- TAB PANEL: POSTCODE -->
@@ -1458,56 +1505,64 @@
 
 <script>
 (function(){
-  // ISDE 2026 indicatieve tarieven per m² (laag–hoog range)
-  // HR++ glas (U ≤ 1.2): standaard € 23/m², met combi-bonus € 46/m²
-  // Triple glas (U ≤ 0.7): standaard € 111/m², met combi-bonus € 222/m²
-  var TARIEVEN = {
-    hrpp:   { laag: 23,  hoog: 46  },
-    triple: { laag: 111, hoog: 222 }
-  };
-  var GLAS_LABEL = {
-    hrpp:   'HR++ (€ 23/m²)',
-    triple: 'Triple glas (€ 111/m²)'
-  };
+  var PRICES = { kozijn: 2500, achterdeur: 4500, voordeur: 5500, schuifpui: 7500, tuindeuren: 8500 };
+  var LABELS = { kozijn: 'Raamkozijnen', achterdeur: 'Achterdeur', voordeur: 'Voordeur', schuifpui: 'Schuifpui', tuindeuren: 'Tuindeuren' };
+  var state = { kozijn: 6, achterdeur: 0, voordeur: 0, schuifpui: 0, tuindeuren: 0 };
 
-  var m2El      = document.getElementById('m2');
-  var m2Val     = document.getElementById('m2-value');
-  var resVal    = document.getElementById('result-value');
-  var rbGlas    = document.getElementById('rb-glas');
-  var rbM2      = document.getElementById('rb-m2');
-  var rbCombi   = document.getElementById('rb-combi');
-  var form      = document.getElementById('isde-calc');
+  var resultEl    = document.getElementById('kosten-result');
+  var breakdownEl = document.getElementById('kosten-breakdown');
+  var kozijnEl    = document.getElementById('kozijn');
+  var kozijnValEl = document.getElementById('kozijn-value');
 
-  if (!form || !m2El) return;
+  if (!resultEl || !kozijnEl) return;
 
-  function fmt(n){ return '€ ' + n.toLocaleString('nl-NL'); }
+  function fmt(n){ return '€ ' + Math.round(n).toLocaleString('nl-NL'); }
 
   function update(){
-    var m2     = parseInt(m2El.value, 10);
-    var glas   = (form.elements['glas'].value || 'hrpp');
-    var combi  = (form.elements['combi'].value || 'nee') === 'ja';
-    var tarief = TARIEVEN[glas];
-
-    var laag = m2 * tarief.laag;
-    var hoog = m2 * tarief.hoog;
-
-    // Combi-bonus: gebruik de "hoge" waarde als basis en toon enkel hoog
-    if (combi) {
-      resVal.textContent = fmt(hoog) + ' (met combi-bonus)';
-    } else {
-      resVal.textContent = fmt(laag) + ' – ' + fmt(hoog);
-    }
-
-    m2Val.innerHTML = '<strong>' + m2 + '</strong> m²';
-    rbGlas  && (rbGlas.textContent  = GLAS_LABEL[glas]);
-    rbM2    && (rbM2.textContent    = m2 + ' m²');
-    rbCombi && (rbCombi.textContent = combi
-      ? 'Ja · subsidie verdubbeld'
-      : 'Nee · standaardtarief');
+    var total = 0;
+    var rows = [];
+    Object.keys(state).forEach(function(k){
+      var n = state[k];
+      var sub = n * PRICES[k];
+      total += sub;
+      if (n > 0) rows.push('<li><span>' + LABELS[k] + ' × ' + n + '</span><span>' + fmt(sub) + '</span></li>');
+    });
+    resultEl.textContent = total > 0 ? fmt(total) : '€ 0';
+    if (breakdownEl) breakdownEl.innerHTML = rows.length
+      ? rows.join('') + '<li class="bd-total"><span>Totaal indicatie</span><span>' + fmt(total) + '</span></li>'
+      : '<li class="bd-empty">Selecteer onderdelen om de specificatie te zien.</li>';
   }
 
-  m2El.addEventListener('input', update);
-  form.addEventListener('change', update);
+  kozijnEl.addEventListener('input', function(){
+    state.kozijn = parseInt(kozijnEl.value, 10);
+    kozijnValEl.innerHTML = '<strong>' + state.kozijn + '</strong>';
+    update();
+  });
+
+  document.querySelectorAll('#panel-kosten .calc-stepper').forEach(function(stepper){
+    var name  = stepper.dataset.name;
+    var valEl = stepper.querySelector('.step-val');
+    var minus = stepper.querySelector('[data-act="minus"]');
+    var plus  = stepper.querySelector('[data-act="plus"]');
+    var max   = name === 'voordeur' ? 2 : (name === 'schuifpui' || name === 'tuindeuren' ? 4 : 5);
+    var countEl = document.getElementById(name + '-count');
+    function render(){
+      var n = state[name];
+      valEl.textContent = n;
+      minus.disabled = n <= 0;
+      plus.disabled  = n >= max;
+      if (countEl){
+        countEl.textContent = n;
+        countEl.style.background  = n > 0 ? '#ED6B06' : '#deded8';
+        countEl.style.color       = n > 0 ? '#fff'    : '#555';
+        countEl.style.boxShadow   = n > 0 ? '0 4px 14px rgba(237,107,6,0.40)' : 'none';
+      }
+    }
+    minus.addEventListener('click', function(){ if (state[name] > 0){ state[name]--; render(); update(); } });
+    plus.addEventListener('click',  function(){ if (state[name] < max){ state[name]++; render(); update(); } });
+    render();
+  });
+
   update();
 })();
 
@@ -1544,10 +1599,10 @@
     });
   });
 
-  // Diepelink naar /#subsidie of /#postcode opent juiste tab + scrolt naar widget
+  // Diepelink naar /#kosten of /#postcode opent juiste tab + scrolt naar widget
   function openFromHash(){
     var h = (location.hash || '').replace('#','');
-    if (h === 'subsidie' || h === 'postcode'){
+    if (h === 'kosten' || h === 'postcode'){
       activate(h);
       var section = document.getElementById('tools');
       if (section) section.scrollIntoView({behavior: 'smooth', block: 'start'});
