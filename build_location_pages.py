@@ -560,7 +560,6 @@ def page(loc):
             "containedInPlace": {"@type": "AdministrativeArea", "name": province},
             "geo": {"@type": "GeoCoordinates", "latitude": lat, "longitude": lon}
         },
-        "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "50", "bestRating": "5"}
     }
 
     local_business = {
@@ -587,7 +586,7 @@ def page(loc):
              "opens": "08:00", "closes": "17:00"}
         ],
         "areaServed": {"@type": "City", "name": name, "containedInPlace": {"@type": "AdministrativeArea", "name": province}},
-        "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "50", "bestRating": "5"},
+        "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "10", "bestRating": "5"},
         "sameAs": [
             "https://www.facebook.com/duurkrachtkozijnen",
             "https://wa.me/31850731660"
