@@ -105,6 +105,9 @@ h3{ font-size: clamp(1.25rem, 1.8vw, 1.6rem); }
   content: ""; width: 8px; height: 8px; border-radius: 50%;
   background: var(--lime); box-shadow: 0 0 0 4px rgba(211,207,41,.18);
 }
+.topbar .live.gesloten::before{
+  background: #e05252; box-shadow: 0 0 0 4px rgba(224,82,82,.18);
+}
 .topbar a:hover{ color: white; }
 
 /* NAV */
