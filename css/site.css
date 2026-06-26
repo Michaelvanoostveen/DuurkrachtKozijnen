@@ -217,6 +217,8 @@ h3{ font-size: clamp(1.25rem, 1.8vw, 1.6rem); }
 .badge-logo-box--schuco{ background: #fff; border: 1px solid #e2e8f0; }
 /* Keralit: groen icoon → heel licht groen */
 .badge-logo-box--keralit{ background: #f0faf5; border: 1px solid #c8eada; }
+/* Google: wit met lichte border */
+.badge-logo-box--google{ background: #fff; border: 1px solid #e8eaed; }
 
 /* Google reviews — behoudt de ster-icoon stijl */
 .badge-shape{
