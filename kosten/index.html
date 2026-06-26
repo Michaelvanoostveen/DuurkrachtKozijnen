@@ -44,54 +44,98 @@
 </script>
 
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "OfferCatalog",
-  "name": "All-in stelposten Duurkracht Kozijnen",
-  "provider": { "@type": "LocalBusiness", "@id": "https://www.duurkrachtkozijnen.nl/#business", "name": "Duurkracht Kozijnen B.V." },
-  "itemListElement": [
-    {
-      "@type": "Offer",
-      "itemOffered": { "@type": "Product", "name": "Kunststof raamkozijn (Schüco LivIng)" },
-      "priceCurrency": "EUR", "price": "2500", "highPrice": "3500", "priceSpecification": {"@type":"PriceSpecification","minPrice":"2500","maxPrice":"3500","priceCurrency":"EUR"},
-      "valueAddedTaxIncluded": true,
-      "description": "All-in stelpost per raamkozijn: Schüco LivIng profiel, HR++ glas, kunststof stelkozijn, RC2 sluitwerk, montage en 10 jaar garantie.",
-      "availability": "https://schema.org/InStock"
-    },
-    {
-      "@type": "Offer",
-      "itemOffered": { "@type": "Product", "name": "Kunststof achterdeur" },
-      "priceCurrency": "EUR", "price": "4500", "highPrice": "7500", "priceSpecification": {"@type":"PriceSpecification","minPrice":"4500","maxPrice":"7500","priceCurrency":"EUR"},
-      "valueAddedTaxIncluded": true,
-      "description": "All-in stelpost kunststof achterdeur met meerpuntssluiting in RC2-klasse, inclusief montage.",
-      "availability": "https://schema.org/InStock"
-    },
-    {
-      "@type": "Offer",
-      "itemOffered": { "@type": "Product", "name": "Kunststof voordeur" },
-      "priceCurrency": "EUR", "price": "5500", "highPrice": "7500", "priceSpecification": {"@type":"PriceSpecification","minPrice":"5500","maxPrice":"7500","priceCurrency":"EUR"},
-      "valueAddedTaxIncluded": true,
-      "description": "All-in stelpost kunststof voordeur met SKG-getest cilinder en RC2-pakket, inclusief montage.",
-      "availability": "https://schema.org/InStock"
-    },
-    {
-      "@type": "Offer",
-      "itemOffered": { "@type": "Product", "name": "Kunststof schuifpui" },
-      "priceCurrency": "EUR", "price": "7500", "highPrice": "12500", "priceSpecification": {"@type":"PriceSpecification","minPrice":"7500","maxPrice":"12500","priceCurrency":"EUR"},
-      "valueAddedTaxIncluded": true,
-      "description": "All-in stelpost schuifpui tot 3 meter met HR++ glas, inclusief montage.",
-      "availability": "https://schema.org/InStock"
-    },
-    {
-      "@type": "Offer",
-      "itemOffered": { "@type": "Product", "name": "Kunststof tuindeuren (set)" },
-      "priceCurrency": "EUR", "price": "8500", "highPrice": "12500", "priceSpecification": {"@type":"PriceSpecification","minPrice":"8500","maxPrice":"12500","priceCurrency":"EUR"},
-      "valueAddedTaxIncluded": true,
-      "description": "All-in stelpost dubbele openslaande tuindeuren met zijlichten en HR++ glas, inclusief montage.",
-      "availability": "https://schema.org/InStock"
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Kunststof raamkozijn (Schüco LivIng)",
+    "description": "All-in stelpost per raamkozijn: Schüco LivIng profiel, HR++ glas, kunststof stelkozijn, RC2 sluitwerk, montage en 10 jaar garantie.",
+    "brand": { "@type": "Brand", "name": "Schüco" },
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "EUR",
+      "lowPrice": "2500",
+      "highPrice": "3500",
+      "offerCount": "1",
+      "seller": { "@type": "LocalBusiness", "@id": "https://www.duurkrachtkozijnen.nl/#business" },
+      "availability": "https://schema.org/InStock",
+      "priceValidUntil": "2026-12-31",
+      "valueAddedTaxIncluded": true
     }
-  ]
-}
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Kunststof achterdeur",
+    "description": "All-in stelpost kunststof achterdeur met meerpuntssluiting in RC2-klasse, inclusief montage.",
+    "brand": { "@type": "Brand", "name": "Schüco" },
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "EUR",
+      "lowPrice": "4500",
+      "highPrice": "7500",
+      "offerCount": "1",
+      "seller": { "@type": "LocalBusiness", "@id": "https://www.duurkrachtkozijnen.nl/#business" },
+      "availability": "https://schema.org/InStock",
+      "priceValidUntil": "2026-12-31",
+      "valueAddedTaxIncluded": true
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Kunststof voordeur",
+    "description": "All-in stelpost kunststof voordeur met SKG-getest cilinder en RC2-pakket, inclusief montage.",
+    "brand": { "@type": "Brand", "name": "Schüco" },
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "EUR",
+      "lowPrice": "5500",
+      "highPrice": "7500",
+      "offerCount": "1",
+      "seller": { "@type": "LocalBusiness", "@id": "https://www.duurkrachtkozijnen.nl/#business" },
+      "availability": "https://schema.org/InStock",
+      "priceValidUntil": "2026-12-31",
+      "valueAddedTaxIncluded": true
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Kunststof schuifpui",
+    "description": "All-in stelpost schuifpui tot 3 meter met HR++ glas, inclusief montage.",
+    "brand": { "@type": "Brand", "name": "Schüco" },
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "EUR",
+      "lowPrice": "7500",
+      "highPrice": "12500",
+      "offerCount": "1",
+      "seller": { "@type": "LocalBusiness", "@id": "https://www.duurkrachtkozijnen.nl/#business" },
+      "availability": "https://schema.org/InStock",
+      "priceValidUntil": "2026-12-31",
+      "valueAddedTaxIncluded": true
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Kunststof tuindeuren (set)",
+    "description": "All-in stelpost dubbele openslaande tuindeuren met zijlichten en HR++ glas, inclusief montage.",
+    "brand": { "@type": "Brand", "name": "Schüco" },
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "EUR",
+      "lowPrice": "8500",
+      "highPrice": "12500",
+      "offerCount": "1",
+      "seller": { "@type": "LocalBusiness", "@id": "https://www.duurkrachtkozijnen.nl/#business" },
+      "availability": "https://schema.org/InStock",
+      "priceValidUntil": "2026-12-31",
+      "valueAddedTaxIncluded": true
+    }
+  }
+]
 </script>
 
 <script type="application/ld+json">
