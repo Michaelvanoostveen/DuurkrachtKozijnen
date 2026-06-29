@@ -48,4 +48,25 @@
     topbarEl.textContent = (open ? 'Nu open' : 'Nu gesloten') + ' — ma t/m vr 08:00–17:00';
     if (!open) topbarEl.classList.add('gesloten');
   }
+
+  // Mobile nav toggle
+  var navToggle = document.querySelector('.nav-toggle');
+  var mobileNav = document.querySelector('.mobile-nav');
+  if (navToggle && mobileNav) {
+    navToggle.addEventListener('click', function () {
+      var isOpen = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', String(!isOpen));
+      if (isOpen) {
+        mobileNav.setAttribute('hidden', '');
+      } else {
+        mobileNav.removeAttribute('hidden');
+      }
+    });
+    mobileNav.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        navToggle.setAttribute('aria-expanded', 'false');
+        mobileNav.setAttribute('hidden', '');
+      });
+    });
+  }
 })();

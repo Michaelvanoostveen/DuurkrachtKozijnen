@@ -7,6 +7,7 @@ Disallow: /preview
 Disallow: /index-original*
 Disallow: /design-comp*
 Disallow: /_extracted/
+Disallow: /locaties/
 Crawl-delay: 1
 
 # Google
