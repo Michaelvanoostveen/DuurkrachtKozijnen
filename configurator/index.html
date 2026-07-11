@@ -212,6 +212,13 @@
   .cfg-tiles{ grid-template-columns:repeat(2,1fr); }
 }
 </style>
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xkjrl7c4vw");
+</script>
 </head>
 <body>
 
@@ -385,7 +392,7 @@
 
         <div class="cfg-pricecard" aria-live="polite">
           <span class="cfg-price-eyebrow">Prijsindicatie (incl. btw)</span>
-          <div class="cfg-price-value" id="price-val">€ 2.500</div>
+          <div class="cfg-price-value" id="price-val">€ 2.100</div>
           <span class="cfg-price-sub">All-in: profiel, glas, stelkozijn, montage, 10 jaar garantie</span>
           <div class="cfg-isde">
             <span>Mogelijke ISDE-subsidie:</span> <strong id="isde-val">€ 28 – € 55</strong>
@@ -486,7 +493,7 @@
   // variant.mult = prijsfactor voor de indeling; kost dus méér bij meer vakken/vleugels.
   var PRODUCTS = {
     raam: {
-      label:'Raamkozijn', base:2500, stdM2:1.20, perM2:450, kind:'window', priceMax:3500,
+      label:'Raamkozijn', base:2100, stdM2:1.20, perM2:385, kind:'window', priceMax:3000,
       wMin:500, wMax:3000, hMin:500, hMax:2400, wDef:1000, hDef:1200, indeling:'Raamindeling',
       variants:[
         { key:'draaikiep', label:'Draai-kiep',        mult:1.00, cols:['tiltturn'] },
@@ -513,7 +520,7 @@
       ]
     },
     voordeur: {
-      label:'Voordeur', base:5500, stdM2:2.07, perM2:600, kind:'door', priceMax:7500,
+      label:'Voordeur', base:4700, stdM2:2.07, perM2:510, kind:'door', priceMax:6400,
       wMin:800, wMax:2800, hMin:2000, hMax:2400, wDef:1000, hDef:2300, indeling:'Deurmodel',
       variants:[
         { key:'dicht',       label:'Dicht paneel',         mult:1.00, blade:'panel' },
@@ -530,7 +537,7 @@
       ]
     },
     achterdeur: {
-      label:'Achterdeur', base:4500, stdM2:1.89, perM2:560, kind:'door', priceMax:7500,
+      label:'Achterdeur', base:3800, stdM2:1.89, perM2:475, kind:'door', priceMax:6400,
       wMin:800, wMax:2800, hMin:2000, hMax:2300, wDef:900, hDef:2100, indeling:'Deurmodel',
       variants:[
         { key:'half',       label:'Half glas',      mult:1.00, blade:'halfglass' },
@@ -544,7 +551,7 @@
       ]
     },
     schuifpui: {
-      label:'Schuifpui', base:7000, stdM2:6.90, perM2:520, kind:'slider', priceMax:12500,
+      label:'Schuifpui', base:6000, stdM2:6.90, perM2:440, kind:'slider', priceMax:10600,
       wMin:2000, wMax:6500, hMin:2000, hMax:2700, wDef:3000, hDef:2300, indeling:'Aantal delen',
       variants:[
         { key:'2delig', label:'2-delig',          mult:1.00, panels:2 },
@@ -554,7 +561,7 @@
       ]
     },
     tuindeuren: {
-      label:'Tuindeuren', base:7500, stdM2:3.50, perM2:600, kind:'french', priceMax:12500,
+      label:'Tuindeuren', base:6400, stdM2:3.50, perM2:510, kind:'french', priceMax:10600,
       wMin:1200, wMax:3200, hMin:2000, hMax:2400, wDef:1600, hDef:2200, indeling:'Uitvoering',
       variants:[
         { key:'dubbel',           label:'Dubbele deuren',                  mult:1.00, leaves:2 },
@@ -568,7 +575,7 @@
       ]
     },
     balkondeur: {
-      label:'Balkondeur', base:4500, stdM2:2.30, perM2:550, kind:'window', priceMax:7500,
+      label:'Balkondeur', base:3800, stdM2:2.30, perM2:465, kind:'window', priceMax:6400,
       wMin:700, wMax:3000, hMin:2000, hMax:2500, wDef:1000, hDef:2300, indeling:'Uitvoering',
       variants:[
         { key:'enkel',   label:'Balkondeur',              mult:1.00, cols:['tiltturn'], bottomLight:true },
@@ -1114,5 +1121,6 @@
 </script>
 
 <script src="/js/tracking.js" defer></script>
+<script src="/js/exit-intent.js" defer></script>
 </body>
 </html>

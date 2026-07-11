@@ -633,6 +633,28 @@ h3{ font-size: clamp(1.25rem, 1.8vw, 1.6rem); }
   font-size: 14px;
 }
 .calc-result-cta:hover{ background: #d05c00; }
+.calc-result-ctas{ display:flex; gap:10px; flex-shrink:0; flex-wrap:wrap; }
+.btn-wa{
+  display:inline-flex; align-items:center; gap:8px;
+  background:#25D366; color:#fff;
+  border-radius:10px; padding:12px 16px;
+  font-weight:700; font-size:14px;
+  text-decoration:none; flex-shrink:0;
+  transition:background .2s;
+}
+.btn-wa:hover{ background:#1db955; }
+.btn-wa svg{ flex-shrink:0; }
+.hero-reviews{ display:flex; flex-direction:column; gap:5px; margin-top:14px; }
+.hero-review{ display:flex; align-items:baseline; gap:7px; font-size:12.5px; color:rgba(255,255,255,.75); flex-wrap:wrap; }
+.hero-review-stars{ color:#FFD700; letter-spacing:1px; }
+.hero-review-text{ font-style:italic; }
+.hero-review-name{ color:rgba(255,255,255,.5); }
+.pc-lead-form{ margin-top:16px; padding:16px 18px; background:rgba(11,90,43,.06); border-radius:12px; border:1px solid rgba(11,90,43,.12); }
+.pc-lead-label{ font-size:14px; color:var(--ink); margin:0 0 10px; }
+.pc-lead-row{ display:flex; gap:8px; flex-wrap:wrap; }
+.pc-lead-input{ flex:1; min-width:160px; padding:12px 14px; border:2px solid #d0d5cc; border-radius:10px; font-size:15px; font-family:inherit; outline:none; transition:border-color .2s; }
+.pc-lead-input:focus{ border-color:var(--green); }
+.pc-lead-or{ font-size:12.5px; color:var(--gray-500); margin:10px 0 0; }
 .calc-disclaimer{
   margin: 14px 0 0;
   font-size: 11.5px; color: var(--gray-500);
@@ -924,6 +946,8 @@ footer{
 }
 .mobile-cta .m-call{ background: var(--orange); color: white; }
 .mobile-cta .m-wa{ background: #25D366; color: white; }
+.mobile-cta .btn-mob.phone{ background: var(--orange); color: white; }
+.mobile-cta .btn-mob.primary{ background: var(--green); color: white; }
 .mobile-cta a img{ width: 18px; height: 18px; filter: brightness(0) invert(1); }
 
 /* FORM */
@@ -960,7 +984,8 @@ form .privacy a{ color: var(--green); text-decoration: underline; }
   .trust-badge:nth-child(4) .badge-label{ text-align: left; }
   .tools-tab span{ font-size: 13.5px; }
   .calc-result-bar{ flex-direction: column; align-items: stretch; text-align: center; gap: 12px; padding: 16px 18px; }
-  .calc-result-cta{ width: 100%; justify-content: center; }
+  .calc-result-ctas{ flex-direction: column; width: 100%; }
+  .calc-result-cta, .btn-wa.calc-wa-cta{ width: 100%; justify-content: center; }
   .pc-input-row{ flex-direction: column; gap: 8px; }
   .pc-input-row .btn{ width: 100%; justify-content: center; }
   .deco-blob{ width: 280px; height: 280px; }

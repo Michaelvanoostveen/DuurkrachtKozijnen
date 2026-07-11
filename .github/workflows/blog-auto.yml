@@ -1,0 +1,54 @@
+name: Auto Blog Post
+
+# Elke 14 dagen: op de 1e en 15e van de maand om 09:17 (UTC = 11:17 NL tijd zomer)
+on:
+  schedule:
+    - cron: '17 9 1,15 * *'
+  workflow_dispatch:          # ook handmatig te starten via GitHub UI
+
+jobs:
+  genereer-blogpost:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Python setup
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Installeer dependencies
+        run: pip install anthropic
+
+      - name: Genereer nieuwe blogpost
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python .github/scripts/gen_blog.py
+
+      - name: Commit en push naar main
+        run: |
+          git config user.name  "Duurkracht Blog Bot"
+          git config user.email "bot@duurkrachtkozijnen.nl"
+          git add -A
+          if git diff --staged --quiet; then
+            echo "Geen wijzigingen — stap over."
+          else
+            git commit -m "Auto: nieuwe blogpost $(date +%Y-%m-%d)"
+            git push
+          fi
+
+      - name: Deploy naar Vercel
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: team_N6hKf8FooSD2zO5MrycFtZmA
+          VERCEL_PROJECT_ID: prj_VmroHJNqBgMLvcOFPCEztzoAQy3b
+        run: |
+          npm install -g vercel --silent
+          vercel pull --yes --environment=production --token=$VERCEL_TOKEN
+          vercel deploy --prod --yes --token=$VERCEL_TOKEN
