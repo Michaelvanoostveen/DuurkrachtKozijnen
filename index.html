@@ -2177,17 +2177,17 @@
       </div>
       <div class="row">
         <div class="full">
-          <label for="interesse">Waarvoor heeft u interesse?</label>
-          <select id="interesse" name="interesse" required>
-            <option value="">Maak een keuze…</option>
-            <option>Kunststof kozijnen</option>
-            <option>Kunststof voordeuren</option>
-            <option>Kunststof achterdeuren</option>
-            <option>Schuifpui of hefschuifdeur</option>
-            <option>Keralit gevelbekleding</option>
-            <option>Complete renovatie</option>
-            <option>Anders / nog niet zeker</option>
-          </select>
+          <label>Waarvoor heeft u interesse?</label>
+          <input type="hidden" id="interesse" name="interesse" required />
+          <div class="interesse-chips" role="group" aria-label="Kies uw interesse">
+            <button type="button" class="chip" data-value="Kunststof kozijnen">Kozijnen</button>
+            <button type="button" class="chip" data-value="Kunststof voordeuren">Voordeur</button>
+            <button type="button" class="chip" data-value="Kunststof achterdeuren">Achterdeur</button>
+            <button type="button" class="chip" data-value="Schuifpui of hefschuifdeur">Schuifpui</button>
+            <button type="button" class="chip" data-value="Keralit gevelbekleding">Gevelbekleding</button>
+            <button type="button" class="chip" data-value="Complete renovatie">Complete renovatie</button>
+            <button type="button" class="chip" data-value="Anders / nog niet zeker">Anders</button>
+          </div>
         </div>
       </div>
       <div class="row">
@@ -2212,8 +2212,21 @@
 #homeAdviesForm .form-error{ display:none; margin: 16px 0 0; padding: 14px 16px; border-radius: 10px; background: #fdecec; color: #a12020; font-weight: 600; }
 #homeAdviesForm .form-error.show{ display:block; }
 #homeAdviesForm .form-error a{ color: #a12020; text-decoration: underline; }
+.interesse-chips{ display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
+.interesse-chips .chip{ padding:10px 16px; border:2px solid #d0d5cc; border-radius:8px; background:#fff; color:var(--ink); font-size:0.9rem; font-family:inherit; cursor:pointer; transition:border-color .15s, background .15s, color .15s; line-height:1.2; }
+.interesse-chips .chip:hover{ border-color:var(--green); }
+.interesse-chips .chip.selected{ border-color:var(--green); background:var(--green); color:#fff; font-weight:600; }
+@media(max-width:480px){ .interesse-chips .chip{ padding:12px 14px; font-size:0.95rem; } }
 </style>
 <script>
+document.querySelectorAll('.interesse-chips .chip').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    document.querySelectorAll('.interesse-chips .chip').forEach(function(b){ b.classList.remove('selected'); });
+    btn.classList.add('selected');
+    document.getElementById('interesse').value = btn.dataset.value;
+  });
+});
+
 document.getElementById('homeAdviesForm')?.addEventListener('submit', async function (event) {
   event.preventDefault();
   var form = this;
