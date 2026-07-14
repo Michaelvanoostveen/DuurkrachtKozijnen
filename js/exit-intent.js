@@ -82,9 +82,9 @@
     if (e.clientY <= 10) show();
   });
 
-  // Mobiel: na 50 seconden inactiviteit
+  // Mobiel: na 20 seconden (gem. sessieduur is 32s, 50s was te laat)
   var mobileDelay = setTimeout(function () {
     if (/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)) show();
-  }, 50000);
+  }, 20000);
 
 })();
