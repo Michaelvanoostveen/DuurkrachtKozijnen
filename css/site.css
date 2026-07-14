@@ -700,7 +700,7 @@ h3{ font-size: clamp(1.25rem, 1.8vw, 1.6rem); }
   width: fit-content;
 }
 .step-btn{
-  width: 36px; height: 36px;
+  width: 44px; height: 44px;
   border-radius: 50%;
   border: none;
   background: #fff;
