@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="nl-NL">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W45QZ8KED5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-W45QZ8KED5');
+</script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Configurator — kies uw kozijn of deur | Duurkracht Kozijnen</title>
+<meta name="description" content="Kies uw kunststof kozijn, deur, schuifpui of balkondeur uit onze indelingen en stel direct online samen — met prijsindicatie binnen 60 seconden." />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://www.duurkrachtkozijnen.nl/configurator/galerij/" />
+<meta name="theme-color" content="#0B5A2B" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="nl_NL" />
+<meta property="og:title" content="Configurator — kies uw kozijn of deur | Duurkracht Kozijnen" />
+<meta property="og:description" content="Kies uw kunststof kozijn, deur, schuifpui of balkondeur uit onze indelingen en stel direct online samen." />
+<meta property="og:url" content="https://www.duurkrachtkozijnen.nl/configurator/galerij/" />
+<meta property="og:image" content="https://www.duurkrachtkozijnen.nl/design-assets/images/Voorkant-huis-kozijnen.jpg" />
+<link rel="icon" type="image/svg+xml" href="/design-assets/beelmerkje-klein.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --green:#0B5A2B; --green-deep:#08401f; --lime:#9ed649; --accent:#e8742c;
+    --ink:#1c2421; --gray-700:#5a635e; --gray-500:#8b938e; --gray-200:#e3e6e4;
+    --card:#eef0f1; --frame:#2b2f33; --line:#2b2f33;
+  }
+  *{ box-sizing:border-box; }
+  body{ margin:0; font-family:"Manrope",system-ui,sans-serif; color:var(--ink); background:#fff; }
+  .wrap{ max-width:1240px; margin:0 auto; padding:0 28px; }
+  .cfg-top{ border-bottom:1px solid var(--gray-200); position:sticky; top:0; background:#fff; z-index:20; }
+  .cfg-top .wrap{ display:flex; align-items:center; gap:28px; height:68px; }
+  .cfg-logo{ font-weight:800; font-size:20px; letter-spacing:-.02em; color:var(--ink); white-space:nowrap; }
+  .cfg-logo small{ display:block; font-size:10px; letter-spacing:.18em; color:var(--accent); font-weight:700; margin-top:-2px; }
+  .cfg-cats{ display:flex; gap:22px; flex:1; flex-wrap:wrap; }
+  .cfg-cats button{ background:none; border:none; font:inherit; font-weight:600; font-size:15px; color:var(--gray-700); cursor:pointer; padding:6px 2px; position:relative; }
+  .cfg-cats button.active{ color:var(--ink); }
+  .cfg-cats button.active::after{ content:""; position:absolute; left:0; right:0; bottom:-23px; height:3px; background:var(--green); border-radius:3px; }
+  .cfg-overview{ background:var(--lime); color:var(--green-deep); border:none; font:inherit; font-weight:700; font-size:14px; padding:10px 20px; border-radius:30px; cursor:pointer; white-space:nowrap; }
+  .cfg-filters{ display:flex; gap:12px; flex-wrap:wrap; padding:30px 0 6px; }
+  .cfg-chip{ background:#fff; border:1.5px solid var(--gray-200); border-radius:30px; padding:10px 20px; font:inherit; font-weight:600; font-size:14px; color:var(--gray-700); cursor:pointer; transition:.15s; }
+  .cfg-chip:hover{ border-color:var(--green); color:var(--green); }
+  .cfg-chip.active{ background:var(--green); border-color:var(--green); color:#fff; }
+  .cfg-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:22px; padding:26px 0 70px; }
+  .cfg-card{ background:var(--card); border:2px solid transparent; border-radius:14px; padding:18px; cursor:pointer; transition:.18s; display:flex; flex-direction:column; text-decoration:none; color:inherit; }
+  .cfg-card:hover{ border-color:var(--green); transform:translateY(-3px); box-shadow:0 16px 36px -18px rgba(11,90,43,.4); }
+  .cfg-card .vis{ background:#fff; border-radius:10px; aspect-ratio:1/1; display:flex; align-items:center; justify-content:center; padding:20px; }
+  .cfg-card .vis svg{ width:100%; height:100%; }
+  .cfg-card .nm{ margin-top:14px; font-weight:600; font-size:14.5px; line-height:1.35; }
+  .cfg-card .mt{ margin-top:4px; font-size:12.5px; color:var(--gray-500); }
+  .cfg-cta{ background:var(--green-deep); color:#fff; border-radius:14px; padding:30px; display:flex; flex-direction:column; justify-content:center; }
+  .cfg-cta h3{ margin:0 0 12px; font-size:20px; line-height:1.25; }
+  .cfg-cta p{ margin:0 0 20px; font-size:14px; color:#cfe0d3; line-height:1.5; }
+  .cfg-cta a{ background:var(--lime); color:var(--green-deep); text-decoration:none; font-weight:700; font-size:14px; padding:13px 24px; border-radius:30px; align-self:flex-start; }
+  .proto-note{ background:#fff7ed; border:1px solid #fcd9b6; color:#9a4a12; font-size:13px; padding:10px 16px; border-radius:10px; margin:18px 0 0; }
+  .cfg-cats-title{ font-size:20px; font-weight:800; letter-spacing:-.01em; margin:30px 0 14px; }
+  .cfg-catrow{ display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:14px; background:#eef0f1; padding:16px; border-radius:16px; }
+  .cfg-catcard{ display:flex; align-items:center; gap:12px; background:#fff; border:2px solid transparent; border-radius:11px; padding:12px 16px; cursor:pointer; transition:.15s; font:inherit; text-align:left; }
+  .cfg-catcard:hover{ border-color:var(--green); transform:translateY(-2px); }
+  .cfg-catcard.active{ border-color:var(--green); box-shadow:inset 0 0 0 1px var(--green); }
+  .cfg-catcard .ic{ width:46px; height:46px; flex-shrink:0; display:flex; align-items:center; justify-content:center; }
+  .cfg-catcard .ic svg{ width:100%; height:100%; }
+  .cfg-catcard .lb{ font-weight:700; font-size:15.5px; color:var(--ink); }
+  a.cfg-logo{ text-decoration:none; }
+  a.cfg-overview{ display:inline-flex; align-items:center; text-decoration:none; }
+  .cfg-intro{ padding:34px 0 4px; max-width:760px; }
+  .cfg-intro .cfg-eyebrow{ display:block; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--accent); font-weight:700; margin-bottom:12px; }
+  .cfg-intro h1{ font-size:clamp(28px,4vw,36px); line-height:1.1; letter-spacing:-.02em; margin:0 0 14px; }
+  .cfg-intro h1 .em{ font-style:italic; color:var(--green); }
+  .cfg-intro p{ font-size:16px; color:var(--gray-700); line-height:1.6; margin:0; }
+  @media(max-width:680px){ .cfg-cats{ display:none; } }
+</style>
+</head>
+<body>
+
+<header class="cfg-top">
+  <div class="wrap">
+    <a href="/" class="cfg-logo" aria-label="Duurkracht Kozijnen — home">DUURKRACHT<small>CONFIGURATOR</small></a>
+    <nav class="cfg-cats" id="cats"></nav>
+    <a href="/contact/" class="cfg-overview">Gratis advies</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="cfg-intro">
+    <span class="cfg-eyebrow">Configurator · prijs in 60 seconden</span>
+    <h1>Stel uw kozijn of deur <span class="em">zelf samen.</span></h1>
+    <p>Kies hieronder een categorie en de indeling die bij uw situatie past. U gaat direct door naar de configurator voor afmetingen, glas, kleur en een directe prijsindicatie — inclusief mogelijke ISDE-subsidie.</p>
+  </div>
+  <h2 class="cfg-cats-title">Onze categorieën</h2>
+  <div class="cfg-catrow" id="cfg-catrow"></div>
+  <div class="cfg-filters" id="filters"></div>
+  <div class="cfg-grid" id="grid"></div>
+</main>
+
+<script>
+/* ===== Basis-SVG-helpers (eigen code) ===== */
+function rect(x,y,w,h,fill,stroke,sw,r){ return '<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="'+(r||0)+'" fill="'+fill+'" stroke="'+stroke+'" stroke-width="'+sw+'"/>'; }
+function glass(x,y,w,h){ return '<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="2" fill="url(#gl)"/>'; }
+function dash(pts){ return '<polyline points="'+pts+'" fill="none" stroke="var(--line)" stroke-width="1.1" stroke-dasharray="3 3" stroke-linejoin="round"/>'; }
+
+/* ===== Raamkozijnen ===== */
+function panel(x,y,w,h,type){
+  var s=glass(x,y,w,h)+rect(x,y,w,h,'none','var(--frame)',2.5,2);
+  var ix=x+5,iy=y+5,iw=w-10,ih=h-10;
+  function tri(a,b,c,d,e,f){ return dash(a+','+b+' '+c+','+d+' '+e+','+f); }
+  if(type==='turnR') s+=tri(ix,iy, ix+iw,iy+ih/2, ix,iy+ih);
+  else if(type==='turnL') s+=tri(ix+iw,iy, ix,iy+ih/2, ix+iw,iy+ih);
+  else if(type==='tilt') s+=tri(ix,iy+ih, ix+iw/2,iy, ix+iw,iy+ih);
+  else if(type==='tiltturn'){ s+=tri(ix,iy, ix+iw,iy+ih/2, ix,iy+ih); s+=tri(ix,iy+ih, ix+iw/2,iy, ix+iw,iy+ih); }
+  return s;
+}
+function symOf(type,x,y,w,h){
+  var ix=x+5,iy=y+5,iw=w-10,ih=h-10;
+  function tri(a,b,c,d,e,f){ return dash(a+','+b+' '+c+','+d+' '+e+','+f); }
+  if(type==='turnR') return tri(ix,iy, ix+iw,iy+ih/2, ix,iy+ih);
+  if(type==='turnL') return tri(ix+iw,iy, ix,iy+ih/2, ix+iw,iy+ih);
+  if(type==='tilt') return tri(ix,iy+ih, ix+iw/2,iy, ix+iw,iy+ih);
+  if(type==='tiltturn') return tri(ix,iy, ix+iw,iy+ih/2, ix,iy+ih)+tri(ix,iy+ih, ix+iw/2,iy, ix+iw,iy+ih);
+  return '';
+}
+function win(spec){
+  if(Array.isArray(spec)) spec={cols:spec};
+  var W=200,H=160,i,r,c, fx=5,fy=5,fw=190,fh=150;
+  // buitenkozijn + glasvlak (vakken vullen strak, gedeelde stijlen)
+  var s='<svg viewBox="0 0 '+W+' '+H+'" xmlns="http://www.w3.org/2000/svg">'+rect(fx,fy,fw,fh,'none','var(--frame)',3,4);
+  var bx=fx+3, by=fy+3, bw=fw-6, bh=fh-6;
+  function mv(x){ return rect(x-1.5,by,3,bh,'var(--frame)','var(--frame)',0); }
+  function mh(y){ return rect(bx,y-1.5,bw,3,'var(--frame)','var(--frame)',0); }
+  if(spec.grid){ var R=spec.grid.r,C=spec.grid.c,cw=bw/C,ch=bh/R;
+    for(r=0;r<R;r++) for(c=0;c<C;c++) s+=glass(bx+c*cw,by+r*ch,cw,ch);
+    for(c=1;c<C;c++) s+=mv(bx+c*cw); for(r=1;r<R;r++) s+=mh(by+r*ch); return s+'</svg>'; }
+  if(spec.stack){ var sn=spec.stack.length,ph=bh/sn;
+    for(i=0;i<sn;i++){ s+=glass(bx,by+i*ph,bw,ph)+symOf(spec.stack[i],bx,by+i*ph,bw,ph); if(i<sn-1) s+=mh(by+(i+1)*ph); } return s+'</svg>'; }
+  var cols=spec.cols,topH=spec.top?bh*0.20:0,botH=spec.bottom?bh*0.24:0,ay=by+topH,ah=bh-topH-botH;
+  if(topH){ s+=glass(bx,by,bw,topH); s+=mh(by+topH); }
+  if(botH){ s+=glass(bx,by+bh-botH,bw,botH); s+=mh(by+bh-botH); }
+  var n=cols.length,cw2=bw/n;
+  for(i=0;i<n;i++){ var px=bx+i*cw2; s+=glass(px,ay,cw2,ah)+symOf(cols[i],px,ay,cw2,ah); if(i<n-1) s+=mv(bx+(i+1)*cw2); }
+  return s+'</svg>';
+}
+
+/* ===== Deuren / combinaties =====
+   col-tokens: leaf(dichte deur) · half(half glas) · tilt(balkondeur draaikiep)
+   fdL/fdR(dubbele tuindeur, glas) · fdLb/fdRb(idem + borstwering)
+   side(zijlicht) · sideB(zijlicht+borstwering) · glas(vast) · glasB(vast+borstwering) */
+function drCol(x,y,w,h,t){
+  function handle(hx,cy){ return '<rect x="'+hx+'" y="'+(cy-11)+'" width="3" height="22" rx="1.5" fill="#cfd6d2"/>'; }
+  function diag(){ return dash((x+4)+','+(y+h-4)+' '+(x+w-4)+','+(y+4)); }
+  var s='';
+  if(t==='leaf'){ s+=rect(x,y,w,h,'var(--frame)','var(--frame)',2,3)+glass(x+w-13,y+12,7,h-24)+handle(x+8,y+h/2)+diag(); }
+  else if(t==='half'){ s+=rect(x,y,w,h,'var(--frame)','var(--frame)',2,3)+glass(x+5,y+5,w-10,h*0.45)+handle(x+8,y+h/2)+dash((x+5)+','+(y+5+h*0.45)+' '+(x+w-5)+','+(y+5)); }
+  else if(t==='tilt'){ s+=rect(x,y,w,h,'none','var(--frame)',2,3)+glass(x+3,y+3,w-6,h*0.80)+rect(x+3,y+h*0.83,w-6,h*0.14,'var(--frame)','var(--frame)',1,1);
+    var gx=x+6,gy=y+6,gw=w-12,gh=h*0.74; s+=dash(gx+','+gy+' '+(gx+gw)+','+(gy+gh/2)+' '+gx+','+(gy+gh))+dash(gx+','+(gy+gh)+' '+(gx+gw/2)+','+gy+' '+(gx+gw)+','+(gy+gh)); }
+  else if(t==='fdL'||t==='fdR'){ s+=rect(x,y,w,h,'none','var(--frame)',2,3)+glass(x+3,y+3,w-6,h-6); s+=diag(); s+=handle(t==='fdL'?x+w-9:x+6, y+h/2); }
+  else if(t==='fdLb'||t==='fdRb'){ s+=rect(x,y,w,h,'none','var(--frame)',2,3)+glass(x+3,y+3,w-6,h*0.66)+rect(x+3,y+h*0.69,w-6,h*0.28,'var(--frame)','var(--frame)',1,1); s+=dash((x+4)+','+(y+h*0.66)+' '+(x+w-4)+','+(y+4)); s+=handle(t==='fdLb'?x+w-9:x+6, y+h*0.34); }
+  else if(t==='side'){ s+=glass(x,y,w,h)+rect(x,y,w,h,'none','var(--frame)',2,2); }
+  else if(t==='sideB'){ s+=glass(x,y,w,h*0.68)+rect(x,y+h*0.70,w,h*0.30,'var(--frame)','var(--frame)',1,1)+rect(x,y,w,h,'none','var(--frame)',2,2); }
+  else if(t==='glas'){ s+=glass(x,y,w,h)+rect(x,y,w,h,'none','var(--frame)',2,2); }
+  else if(t==='glasB'){ s+=glass(x,y,w,h*0.74)+rect(x,y+h*0.76,w,h*0.24,'var(--frame)','var(--frame)',1,1)+rect(x,y,w,h,'none','var(--frame)',2,2); }
+  else { s+=glass(x,y,w,h)+rect(x,y,w,h,'none','var(--frame)',2,2); }
+  return s;
+}
+function dr(spec){
+  if(Array.isArray(spec)) spec={cols:spec};
+  var VB=200, gap=3, cols=spec.cols, topH=spec.top?18:0, i;
+  // natuurlijke breedte per element (deur smal/hoog, zijlicht smaller) -> juiste proportie
+  function natW(t){ return /^(leaf|half|tilt)$/.test(t)?60 : /^fd/.test(t)?54 : /^(glas|glasB)$/.test(t)?40 : 26; }
+  var ws=cols.map(natW);
+  var bodyW=ws.reduce(function(a,b){return a+b;},0)+gap*(cols.length-1);
+  var maxBody=176, sc=bodyW>maxBody?maxBody/bodyW:1;
+  ws=ws.map(function(w){return w*sc;}); bodyW*=sc;
+  var H=168, frameW=bodyW+10, fx=(VB-frameW)/2, fy=(VB-H)/2;
+  var s='<svg viewBox="0 0 '+VB+' '+VB+'" xmlns="http://www.w3.org/2000/svg">'+rect(fx,fy,frameW,H,'none','var(--frame)',3,4);
+  var innerX=fx+5, innerTop=fy+5, innerW=bodyW, innerH=H-10;
+  if(topH) s+=panel(innerX,innerTop,innerW,topH,'fixed');
+  var colY=innerTop+(topH?topH+gap:0), colH=innerH-(topH?topH+gap:0), x=innerX;
+  for(i=0;i<cols.length;i++){ s+=drCol(x,colY,ws[i],colH,cols[i]); x+=ws[i]+gap; }
+  return s+'</svg>';
+}
+
+/* ===== Schuifpuien ===== */
+function slider(panels){
+  var W=220,H=150,pad=8,gap=3,pw=(W-pad*2-gap*(panels-1))/panels;
+  var s='<svg viewBox="0 0 '+W+' '+H+'" xmlns="http://www.w3.org/2000/svg">'+rect(pad-3,pad-3,W-(pad-3)*2,H-(pad-3)*2,'none','var(--frame)',3,4);
+  for(var i=0;i<panels;i++){ var x=pad+i*(pw+gap); s+=glass(x,pad,pw,H-pad*2)+rect(x,pad,pw,H-pad*2,'none','var(--frame)',2.5,2);
+    if(i%2===0){ var cy=H/2; s+='<line x1="'+(x+pw*0.3)+'" y1="'+cy+'" x2="'+(x+pw*0.7)+'" y2="'+cy+'" stroke="var(--line)" stroke-width="1.4"/>'+dash((x+pw*0.62)+','+(cy-5)+' '+(x+pw*0.72)+','+cy+' '+(x+pw*0.62)+','+(cy+5)); } }
+  return s+'</svg>';
+}
+
+/* ===== Productdata ===== */
+var DATA = {
+  kozijnen:{ label:'Kozijnen', pk:'raam', filterable:true, items:[
+    {n:'Draai-kiepraam', sub:'1 vak · Schüco', vk:1, ck:'draaikiep', svg:win(['tiltturn'])},
+    {n:'Valraam', sub:'1 vak · Schüco', vk:1, ck:'valraam', svg:win(['tilt'])},
+    {n:'Vast glas', sub:'1 vak · Schüco', vk:1, ck:'vast', svg:win(['fixed'])},
+    {n:'Draai-kiepraam', sub:'2 vakken · Schüco', vk:2, ck:'draaikiep2', svg:win(['tiltturn','tiltturn'])},
+    {n:'Draai-kiepraam (L) en vast glas', sub:'2 vakken · Schüco', vk:2, ck:'draai_vast', svg:win(['tiltturn','fixed'])},
+    {n:'Draai-kiepraam (R) en vast glas', sub:'2 vakken · Schüco', vk:2, ck:'vast_dk', svg:win(['fixed','tiltturn'])},
+    {n:'Draai-kiepraam (B) en vast glas', sub:'2 vakken · Schüco', vk:2, ck:'dk_b', svg:win({cols:['tiltturn'],bottom:true})},
+    {n:'Draai-kiepraam (O) en vast glas', sub:'2 vakken · Schüco', vk:2, ck:'bovenlicht', svg:win({cols:['tiltturn'],top:true})},
+    {n:'Valraam (L) en vast glas', sub:'2 vakken · Schüco', vk:2, ck:'valraam_vast', svg:win(['tilt','fixed'])},
+    {n:'Valraam (R) en vast glas', sub:'2 vakken · Schüco', vk:2, ck:'vast_valraam', svg:win(['fixed','tilt'])},
+    {n:'Verhuisraam', sub:'2 vakken · Schüco', vk:2, ck:'stolp', svg:win(['turnR','turnL'])},
+    {n:'Vast glas', sub:'2 vakken · Schüco', vk:2, ck:'vast2', svg:win(['fixed','fixed'])},
+    {n:'Vast glas (gestapeld)', sub:'2 vakken · Schüco', vk:2, ck:'vast_stapel', svg:win({stack:['fixed','fixed']})},
+    {n:'Draai-kiepraam (L) en vast glas', sub:'3 vakken · Schüco', vk:3, ck:'dk_l_vast3', svg:win(['tiltturn','fixed','fixed'])},
+    {n:'Draai-kiepraam (M) en vast glas', sub:'3 vakken · Schüco', vk:3, ck:'driedelig', svg:win(['fixed','tiltturn','fixed'])},
+    {n:'Draai-kiepraam (R) en vast glas', sub:'3 vakken · Schüco', vk:3, ck:'driedelig', svg:win(['fixed','fixed','tiltturn'])},
+    {n:'Draai-kiepramen (L&R) en vast glas', sub:'3 vakken · Schüco', vk:3, ck:'dk_lr_vast', svg:win(['tiltturn','fixed','tiltturn'])},
+    {n:'Draai-kiepraam (L) met bovenlicht en vast glas', sub:'3 vakken · Schüco', vk:3, ck:'dk_l_boven', svg:win({cols:['tiltturn','fixed','fixed'],top:true})},
+    {n:'Vast glas', sub:'3 vakken · Schüco', vk:3, ck:'vast3', svg:win(['fixed','fixed','fixed'])},
+    {n:'Draai-kiepramen en vast glas', sub:'4 vakken · Schüco', vk:4, ck:'vierdelig', svg:win(['fixed','tiltturn','tiltturn','fixed'])},
+    {n:'Vast glas', sub:'6 vakken · Schüco', vk:6, ck:'vast6', svg:win({grid:{r:2,c:3}})},
+  ]},
+  voordeuren:{ label:'Voordeuren', pk:'voordeur', filterable:false, items:[
+    {n:'Voordeur', sub:'Schüco', ck:'dicht', svg:dr(['leaf'])},
+    {n:'Voordeur met zijlicht (R)', sub:'Schüco', ck:'zijlicht', svg:dr(['leaf','side'])},
+    {n:'Voordeur met zijlicht (L)', sub:'Schüco', ck:'zijlicht', svg:dr(['side','leaf'])},
+    {n:'Voordeur met zijlicht en borstwering (R)', sub:'Schüco', ck:'zijborst_r', svg:dr(['leaf','sideB'])},
+    {n:'Voordeur met zijlicht en borstwering (L)', sub:'Schüco', ck:'zijborst_l', svg:dr(['sideB','leaf'])},
+    {n:'Voordeur met bovenlicht', sub:'Schüco', ck:'bovenlicht', svg:dr({cols:['leaf'],top:true})},
+    {n:'Voordeur met zijlicht en bovenlicht (L)', sub:'Schüco', ck:'zijboven', svg:dr({cols:['side','leaf'],top:true})},
+    {n:'Voordeur met zijlicht en bovenlicht (R)', sub:'Schüco', ck:'zijboven', svg:dr({cols:['leaf','side'],top:true})},
+    {n:'Voordeur met dubbel zijlicht (R)', sub:'Schüco', ck:'dubbelzij_r', svg:dr(['leaf','side','side'])},
+    {n:'Voordeur met dubbel zijlicht (L)', sub:'Schüco', ck:'dubbelzij_l', svg:dr(['side','side','leaf'])},
+    {n:'Voordeur met zijlichten (L&R)', sub:'Schüco', ck:'tweezijlicht', svg:dr(['side','leaf','side'])},
+    {n:'Voordeur met dubbele zijlichten en bovenlicht', sub:'Schüco', ck:'tweezij_boven', svg:dr({cols:['side','leaf','side'],top:true})},
+    {n:'Voordeur met zijlicht en borstwering en bovenlicht (R)', sub:'Schüco', ck:'zijborst_r', svg:dr({cols:['leaf','sideB'],top:true})},
+    {n:'Voordeur met zijlicht en borstwering en bovenlicht (L)', sub:'Schüco', ck:'zijborst_l', svg:dr({cols:['sideB','leaf'],top:true})},
+  ]},
+  achterdeuren:{ label:'Achterdeuren', pk:'achterdeur', filterable:false, items:[
+    {n:'Achterdeur', sub:'Schüco', ck:'half', svg:dr(['half'])},
+    {n:'Achterdeur met zijlicht (R)', sub:'Schüco', ck:'zijlicht_r', svg:dr(['half','side'])},
+    {n:'Achterdeur met zijlicht (L)', sub:'Schüco', ck:'zijlicht', svg:dr(['side','half'])},
+    {n:'Achterdeur met zijlicht en borstwering (R)', sub:'Schüco', ck:'zijborst_r', svg:dr(['half','sideB'])},
+    {n:'Achterdeur met zijlicht en borstwering (L)', sub:'Schüco', ck:'zijborst_l', svg:dr(['sideB','half'])},
+    {n:'Achterdeur met bovenlicht', sub:'Schüco', ck:'bovenlicht', svg:dr({cols:['half'],top:true})},
+    {n:'Achterdeur met bovenlicht en zijlicht (R)', sub:'Schüco', ck:'boven_zij', svg:dr({cols:['half','side'],top:true})},
+    {n:'Achterdeur met bovenlicht en zijlicht (L)', sub:'Schüco', ck:'boven_zij', svg:dr({cols:['side','half'],top:true})},
+  ]},
+  tuindeuren:{ label:'Tuindeuren', pk:'tuindeuren', filterable:false, items:[
+    {n:'Dubbele tuindeuren', sub:'Schüco', ck:'dubbel', svg:dr(['fdL','fdR'])},
+    {n:'Dubbele tuindeuren met zijlichten', sub:'Schüco', ck:'dubbel_zij', svg:dr(['side','fdL','fdR','side'])},
+    {n:'Dubbele tuindeuren met bovenlicht', sub:'Schüco', ck:'dubbel_boven', svg:dr({cols:['fdL','fdR'],top:true})},
+    {n:'Dubbele tuindeuren met zijlichten en bovenlicht', sub:'Schüco', ck:'dubbel_zij_boven', svg:dr({cols:['side','fdL','fdR','side'],top:true})},
+    {n:'Dubbele tuindeuren met borstwering', sub:'Schüco', ck:'dubbel_borst', svg:dr(['fdLb','fdRb'])},
+    {n:'Dubbele tuindeuren met zijlichten en borstwering', sub:'Schüco', ck:'dubbel_zij_borst', svg:dr(['sideB','fdLb','fdRb','sideB'])},
+    {n:'Dubbele tuindeuren met bovenlicht en borstwering', sub:'Schüco', ck:'dubbel_boven_borst', svg:dr({cols:['fdLb','fdRb'],top:true})},
+    {n:'Dubbele tuindeuren met bovenlicht en zijlichten met borstwering', sub:'Schüco', ck:'dubbel_vol', svg:dr({cols:['sideB','fdLb','fdRb','sideB'],top:true})},
+  ]},
+  balkondeuren:{ label:'Balkondeuren', pk:'balkondeur', filterable:false, items:[
+    {n:'Balkondeur', sub:'Schüco', ck:'enkel', svg:dr(['tilt'])},
+    {n:'Balkondeur met bovenlicht', sub:'Schüco', ck:'boven', svg:dr({cols:['tilt'],top:true})},
+    {n:'Balkondeur (L) en vast glas', sub:'Schüco', ck:'l_vast', svg:dr(['tilt','glasB'])},
+    {n:'Balkondeur (R) en vast glas', sub:'Schüco', ck:'r_vast', svg:dr(['glasB','tilt'])},
+    {n:'Balkondeur (M) en vast glas', sub:'Schüco', ck:'m_vast', svg:dr(['glasB','tilt','glasB'])},
+    {n:'Balkondeur (L) en vast glas met bovenlicht', sub:'Schüco', ck:'l_boven', svg:dr({cols:['tilt','glasB'],top:true})},
+    {n:'Balkondeur (R) en vast glas met bovenlicht', sub:'Schüco', ck:'r_boven', svg:dr({cols:['glasB','tilt'],top:true})},
+    {n:'Balkondeur | 1 vak', sub:'Schüco', ck:'vak1', svg:dr(['tilt'])},
+  ]},
+  schuifpuien:{ label:'Schuifpuien', pk:'schuifpui', filterable:false, items:[
+    {n:'Schuifpui 2-delig', sub:'Schüco', ck:'2delig', svg:slider(2)},
+    {n:'Schuifpui 3-delig', sub:'Schüco', ck:'3delig', svg:slider(3)},
+    {n:'Schuifpui 4-delig', sub:'Schüco', ck:'4delig', svg:slider(4)},
+    {n:'Hefschuifpui (premium)', sub:'Schüco', ck:'hef', svg:slider(2)},
+  ]},
+};
+
+var state={ cat:'kozijnen', vk:0 };
+var catsEl=document.getElementById('cats'), filtersEl=document.getElementById('filters'), gridEl=document.getElementById('grid'), catrowEl=document.getElementById('cfg-catrow');
+// representatief icoon per categorie (eigen renderers)
+var CAT_ICONS={
+  kozijnen: win(['tiltturn']),
+  voordeuren: dr(['leaf','side']),
+  achterdeuren: dr(['half','side']),
+  tuindeuren: dr(['fdL','fdR']),
+  balkondeuren: dr(['tilt']),
+  schuifpuien: slider(3)
+};
+Object.keys(DATA).forEach(function(k){
+  var b=document.createElement('button'); b.textContent=DATA[k].label; b.dataset.k=k;
+  b.onclick=function(){ state.cat=k; state.vk=0; render(); }; catsEl.appendChild(b);
+  var c=document.createElement('button'); c.type='button'; c.className='cfg-catcard'; c.dataset.k=k;
+  c.innerHTML='<span class="ic">'+(CAT_ICONS[k]||'')+'</span><span class="lb">'+DATA[k].label+'</span>';
+  c.onclick=function(){ state.cat=k; state.vk=0; render(); window.scrollTo({top:0,behavior:'smooth'}); }; catrowEl.appendChild(c);
+});
+function render(){
+  [].forEach.call(catsEl.children,function(b){ b.classList.toggle('active', b.dataset.k===state.cat); });
+  [].forEach.call(catrowEl.children,function(c){ c.classList.toggle('active', c.dataset.k===state.cat); });
+  var cat=DATA[state.cat];
+  filtersEl.innerHTML='';
+  if(cat.filterable){
+    [['Alle producten',0],['1 vak',1],['2 vakken',2],['3 vakken',3],['4 vakken',4],['Meer dan 4',5]].forEach(function(f){
+      var c=document.createElement('button'); c.className='cfg-chip'+(state.vk===f[1]?' active':''); c.textContent=f[0];
+      c.onclick=function(){ state.vk=f[1]; render(); }; filtersEl.appendChild(c);
+    });
+  }
+  gridEl.innerHTML='';
+  cat.items.filter(function(it){ return !state.vk || (state.vk===5 ? it.vk>4 : it.vk===state.vk); }).forEach(function(it){
+    var a=document.createElement('a'); a.className='cfg-card';
+    a.href = (cat.pk && it.ck) ? ('/configurator?type='+cat.pk+'&indeling='+encodeURIComponent(it.ck)) : '/configurator';
+    a.innerHTML='<div class="vis">'+it.svg+'</div><div class="nm">'+it.n+'</div><div class="mt">'+it.sub+'</div>';
+    gridEl.appendChild(a);
+  });
+  var cta=document.createElement('div'); cta.className='cfg-cta';
+  cta.innerHTML='<h3>Niet zeker welk product bij jouw situatie past?</h3><p>Onze experts helpen je graag met het samenstellen van een vrijblijvende offerte.</p><a href="/contact/">Advies aanvragen</a>';
+  gridEl.appendChild(cta);
+}
+render();
+</script>
+
+<svg width="0" height="0" style="position:absolute"><defs>
+  <linearGradient id="gl" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#dcecfb"/><stop offset="1" stop-color="#bcdaf4"/>
+  </linearGradient>
+</defs></svg>
+
+<script src="/js/tracking.js" defer></script>
+<script src="/js/exit-intent.js" defer></script>
+</body>
+</html>
