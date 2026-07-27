@@ -49,23 +49,23 @@
     if (!open) topbarEl.classList.add('gesloten');
   }
 
-  // Mobile nav toggle
-  var navToggle = document.querySelector('.nav-toggle');
-  var mobileNav = document.querySelector('.mobile-nav');
-  if (navToggle && mobileNav) {
-    navToggle.addEventListener('click', function () {
-      var isOpen = navToggle.getAttribute('aria-expanded') === 'true';
-      navToggle.setAttribute('aria-expanded', String(!isOpen));
-      if (isOpen) {
-        mobileNav.setAttribute('hidden', '');
-      } else {
-        mobileNav.removeAttribute('hidden');
-      }
+  // Mobile nav toggle — accessible aria-expanded handling
+  var mobileToggle = document.querySelector('.nav-mobile-toggle');
+  var navUl = document.querySelector('.nav ul');
+  if (mobileToggle && navUl) {
+    mobileToggle.setAttribute('aria-expanded', 'false');
+    mobileToggle.onclick = null;
+    mobileToggle.addEventListener('click', function () {
+      var isOpen = navUl.style.display === 'flex';
+      navUl.style.display = isOpen ? 'none' : 'flex';
+      mobileToggle.setAttribute('aria-expanded', String(!isOpen));
+      mobileToggle.setAttribute('aria-label', isOpen ? 'Open menu' : 'Sluit menu');
     });
-    mobileNav.querySelectorAll('a').forEach(function (link) {
+    navUl.querySelectorAll('a').forEach(function (link) {
       link.addEventListener('click', function () {
-        navToggle.setAttribute('aria-expanded', 'false');
-        mobileNav.setAttribute('hidden', '');
+        navUl.style.display = 'none';
+        mobileToggle.setAttribute('aria-expanded', 'false');
+        mobileToggle.setAttribute('aria-label', 'Open menu');
       });
     });
   }
