@@ -1027,7 +1027,8 @@
     .nav ul, .nav-cta .phone, .nav-cta .btn { display: none; }
     .nav-mobile-toggle{ display: block; }
     .topbar{ font-size: 11.5px; }
-    .topbar .container > :nth-child(2){ display: none; }
+    .topbar .container > :nth-child(2),
+    .topbar .container > :nth-child(3){ display: none; }
     .hero-grid, .reviews-head, .cta-banner .container, .project .container, .contact .container, .area .container, .section-head{
       grid-template-columns: 1fr; gap: 40px;
     }
@@ -1050,6 +1051,14 @@
     form .full{ grid-column: span 1; }
     .partner-row{ gap: 30px; }
     .cta-banner::before{ font-size: 12rem; }
+    /* Topbar: alleen de openingstijd tonen op mobiel is voldoende */
+    /* Contact: KVK/BTW weglaten op mobiel (niet relevant voor bezoekers) */
+    .contact-info dl dt:last-of-type,
+    .contact-info dl dd:last-of-type{ display: none; }
+    /* Contact-kaart rand-tot-rand op mobiel */
+    .contact-card{ margin-left: -24px; margin-right: -24px; border-radius: 0; }
+    .contact-card-head{ border-radius: 0; }
+    .contact-card-body{ padding: 24px 24px 28px; }
   }
   @media (max-width: 520px){
     .ftr-grid{ grid-template-columns: 1fr; }
