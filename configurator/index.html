@@ -408,7 +408,7 @@
         </div>
 
         <div class="cfg-step">
-          <div class="cfg-step-label"><span class="cfg-num">5</span> Kleur</div>
+          <div class="cfg-step-label"><span class="cfg-num">5</span> Kleur &amp; afwerking</div>
           <p class="cfg-sublabel">Kozijn <span>(het vaste kader)</span></p>
           <div class="cfg-swatches" role="radiogroup" aria-label="Kleur kozijn">
             <label class="cfg-swatch"><input type="radio" name="kleur" value="wit" checked /><span class="cfg-swatch-dot" style="background:#f3f2ec"></span><span>Wit (9010)</span></label>
@@ -428,7 +428,13 @@
             <label class="cfg-swatch"><input type="radio" name="kleurvleugel" value="staalblauw" /><span class="cfg-swatch-dot" style="background:#1c3040"></span><span>Staalblauw (5011)</span></label>
             <label class="cfg-swatch"><input type="radio" name="kleurvleugel" value="dennengroen" /><span class="cfg-swatch-dot" style="background:#27352a"></span><span>Dennengroen (6009)</span></label>
           </div>
-          <p class="cfg-bicolor-note" id="bicolor-note" hidden>Tweekleurig: kozijn en vleugel in een andere RAL. Meerprijs is in de indicatie verwerkt.</p>
+          <p class="cfg-bicolor-note" id="bicolor-note" hidden>Kozijn en vleugel in een andere RAL: geen meerprijs.</p>
+          <p class="cfg-sublabel">Binnenzijde <span>(afwerking aan de binnenkant)</span></p>
+          <div class="cfg-pills" role="radiogroup" aria-label="Afwerking binnenzijde">
+            <label class="cfg-pill"><input type="radio" name="binnen" value="witglad" checked /><span><strong>Wit glad</strong><small>standaard · inbegrepen</small></span></label>
+            <label class="cfg-pill"><input type="radio" name="binnen" value="cremeglad" /><span><strong>Crème glad</strong><small>inbegrepen</small></span></label>
+            <label class="cfg-pill"><input type="radio" name="binnen" value="structuur" /><span><strong>Houtnerf of kleur</strong><small>+ 15%</small></span></label>
+          </div>
         </div>
 
         <div class="cfg-step">
@@ -664,16 +670,20 @@
     dennengroen:{label:'Dennengroen · RAL 6009',  mult:1.18, frame:'#27352a', stroke:'#1a241d'}
   };
   var BESLAG = { rc2:{label:'RC2 sluitwerk', mult:1.00}, rc3:{label:'RC3 sluitwerk', mult:1.10} };
-  // Tweekleurig (kozijn en vleugel in een andere RAL) vraagt een extra foliegang.
-  // Toeslag komt bovenop de duurste van de twee kleuren. Pas dit aan als jullie
-  // een ander percentage hanteren.
-  var BICOLOR_MULT = 1.05;
-  // Kaderkleur + vleugelkleur + de prijsfactor die daarbij hoort
+  // Binnenzijde. Standaard wit of crème in gladde uitvoering: inbegrepen.
+  // Elke andere afwerking binnen (houtnerf of een kleur) vraagt een extra folie.
+  var BINNEN = {
+    witglad:   { label:'Wit glad',          mult:1.00 },
+    cremeglad: { label:'Crème glad',        mult:1.00 },
+    structuur: { label:'Houtnerf of kleur', mult:1.15 }
+  };
+  // Kaderkleur + vleugelkleur. Kozijn en vleugel in een andere RAL kost niets
+  // extra; er geldt simpelweg de duurste van de twee kleurfactoren.
   function kleurPaar(kKey, vKey){
     var k = COLOR[kKey] || COLOR.wit;
     var bi = !!(vKey && vKey!=='zelfde' && vKey!==kKey && COLOR[vKey]);
     var v = bi ? COLOR[vKey] : k;
-    return { k:k, v:v, bi:bi, mult: bi ? Math.max(k.mult, v.mult)*BICOLOR_MULT : k.mult,
+    return { k:k, v:v, bi:bi, mult: bi ? Math.max(k.mult, v.mult) : k.mult,
              label: bi ? ('kozijn '+k.label+' · vleugel '+v.label) : k.label };
   }
   var GLASSFILL = '#d4e3ec', GLASSO = 1, HANDLE = '#b9933f';
@@ -1127,11 +1137,11 @@
     if(vKeyNow!==lastVarKey){ lastVarKey=vKeyNow; renderSegW(p, v); renderSegH(p, v); updateSegTotalLabel(); }
 
     var w = curSegW ? segwTotal() : +bEl.value, h = curSegH ? seghTotal() : +hEl.value;
-    var glas=GLASS[val('glas')], bes=BESLAG[val('beslag')];
+    var glas=GLASS[val('glas')], bes=BESLAG[val('beslag')], bin=BINNEN[val('binnen')]||BINNEN.witglad;
     var m2=(w/1000)*(h/1000);
 
     // prijs: (basis + meerprijs per m² boven standaard) × glas × kleur × beslag × indeling
-    var sub = (p.base + Math.max(0, m2-p.stdM2)*p.perM2) * glas.mult * kp.mult * bes.mult * v.mult;
+    var sub = (p.base + Math.max(0, m2-p.stdM2)*p.perM2) * glas.mult * kp.mult * bes.mult * v.mult * bin.mult;
     sub = softCap(sub, p.priceMax);
     var price = Math.round(sub/10)*10;
 
@@ -1159,12 +1169,13 @@
       (kp.bi ? '<li><span>Kleur kozijn</span><span>'+kp.k.label+'</span></li>'
              + '<li><span>Kleur vleugel</span><span>'+kp.v.label+'</span></li>'
              : '<li><span>Kleur</span><span>'+kp.k.label+'</span></li>') +
+      '<li><span>Binnenzijde</span><span>'+bin.label+'</span></li>' +
       '<li><span>Beslag</span><span>'+bes.label+'</span></li>' +
       '<li><span>Oppervlakte</span><span>'+m2.toLocaleString('nl-NL',{minimumFractionDigits:2,maximumFractionDigits:2})+' m²</span></li>';
 
     // huidige samenstelling onthouden voor "toevoegen aan project"
     var noteEl = document.getElementById('cfg-note-input');
-    curItem = { pKey:pKey, vKey:v.key, w:w, h:h, segW:(curSegW?curSegW.slice():null), segH:(curSegH?curSegH.slice():null), glas:val('glas'), kleur:val('kleur'), kleurV:val('kleurvleugel'), beslag:val('beslag'), note:(noteEl?noteEl.value.trim():'') };
+    curItem = { pKey:pKey, vKey:v.key, w:w, h:h, segW:(curSegW?curSegW.slice():null), segH:(curSegH?curSegH.slice():null), glas:val('glas'), kleur:val('kleur'), kleurV:val('kleurvleugel'), binnen:val('binnen'), beslag:val('beslag'), note:(noteEl?noteEl.value.trim():'') };
 
     // grote preview met echte verhouding (incl. vak-breedtes)
     var hasSeg = (p.kind==='window'||p.kind==='door');
@@ -1187,12 +1198,12 @@
   function computeItem(it){
     var p=PRODUCTS[it.pKey]; if(!p) return null;
     var v=(p.variants.filter(function(x){return x.key===it.vKey;})[0])||p.variants[0];
-    var glas=GLASS[it.glas]||GLASS.hrpp, kp=kleurPaar(it.kleur, it.kleurV), col=kp.k, bes=BESLAG[it.beslag]||BESLAG.rc2;
+    var glas=GLASS[it.glas]||GLASS.hrpp, kp=kleurPaar(it.kleur, it.kleurV), col=kp.k, bes=BESLAG[it.beslag]||BESLAG.rc2, bin=BINNEN[it.binnen]||BINNEN.witglad;
     var m2=(it.w/1000)*(it.h/1000);
-    var sub=(p.base+Math.max(0,m2-p.stdM2)*p.perM2)*glas.mult*kp.mult*bes.mult*v.mult;
+    var sub=(p.base+Math.max(0,m2-p.stdM2)*p.perM2)*glas.mult*kp.mult*bes.mult*v.mult*bin.mult;
     sub=softCap(sub,p.priceMax);
     var price=Math.round(sub/10)*10, glasM2=Math.max(0,m2*0.8);
-    return { p:p,v:v,glas:glas,col:col,kp:kp,bes:bes,m2:m2,price:price,
+    return { p:p,v:v,glas:glas,col:col,kp:kp,bes:bes,bin:bin,m2:m2,price:price,
              isdeLow:Math.round(glasM2*glas.isdeLow), isdeHigh:Math.round(glasM2*glas.isdeHigh) };
   }
 
@@ -1200,12 +1211,12 @@
     if(!curItem.pKey) return;
     var noteEl=document.getElementById('cfg-note-input');
     var note=noteEl?noteEl.value.trim():'';
-    var key=[curItem.pKey,curItem.vKey,curItem.w,curItem.h,(curItem.segW?curItem.segW.join('-'):''),(curItem.segH?curItem.segH.join('-'):''),curItem.glas,curItem.kleur,curItem.kleurV,curItem.beslag,note].join('|');
+    var key=[curItem.pKey,curItem.vKey,curItem.w,curItem.h,(curItem.segW?curItem.segW.join('-'):''),(curItem.segH?curItem.segH.join('-'):''),curItem.glas,curItem.kleur,curItem.kleurV,curItem.binnen,curItem.beslag,note].join('|');
     var ex=project.filter(function(x){return x.key===key;})[0];
     if(ex){ ex.qty+=currentQty; }
     else { project.push({ id:Date.now().toString(36)+Math.random().toString(36).slice(2,6), key:key,
             pKey:curItem.pKey, vKey:curItem.vKey, w:curItem.w, h:curItem.h, segW:curItem.segW, segH:curItem.segH,
-            glas:curItem.glas, kleur:curItem.kleur, kleurV:curItem.kleurV, beslag:curItem.beslag, note:note, qty:currentQty }); }
+            glas:curItem.glas, kleur:curItem.kleur, kleurV:curItem.kleurV, binnen:curItem.binnen, beslag:curItem.beslag, note:note, qty:currentQty }); }
     saveProject(); renderProject();
     // reset aantal + notitie + feedback
     currentQty=1; document.getElementById('qty-val').textContent='1';
@@ -1224,7 +1235,7 @@
     var it=project.filter(function(x){return x.id===id;})[0]; if(!it) return;
     setRadio('product', it.pKey);
     currentVariant[it.pKey]=it.vKey;
-    setRadio('glas',it.glas); setRadio('kleur',it.kleur); setRadio('kleurvleugel',it.kleurV||'zelfde'); setRadio('beslag',it.beslag);
+    setRadio('glas',it.glas); setRadio('kleur',it.kleur); setRadio('kleurvleugel',it.kleurV||'zelfde'); setRadio('binnen',it.binnen||'witglad'); setRadio('beslag',it.beslag);
     lastProduct=it.pKey;                 // voorkom dat applyRanges de maten reset
     bEl.value=it.w; hEl.value=it.h;
     pendingSegW = it.segW||null; pendingSegH = it.segH||null; lastVarKey=null;   // herstel vak-maten
@@ -1253,7 +1264,7 @@
       html+='<div class="cfg-pitem">'
         +'<div class="cfg-pitem-thumb">'+thumb+'</div>'
         +'<div class="cfg-pitem-info">'+noteTag+'<strong>'+esc(c.p.label)+' · '+esc(c.v.label)+'</strong>'
-          +'<span>'+Math.round(it.w/10)+'×'+Math.round(it.h/10)+' cm · '+esc(c.glas.label)+' · '+esc(c.kp.label)+' · '+esc(c.bes.label)+'</span></div>'
+          +'<span>'+Math.round(it.w/10)+'×'+Math.round(it.h/10)+' cm · '+esc(c.glas.label)+' · '+esc(c.kp.label)+' · binnen '+esc(c.bin.label.toLowerCase())+' · '+esc(c.bes.label)+'</span></div>'
         +'<div class="cfg-pitem-qty"><button type="button" data-act="dec" data-id="'+it.id+'" aria-label="Minder">−</button><span>'+it.qty+'</span><button type="button" data-act="inc" data-id="'+it.id+'" aria-label="Meer">+</button></div>'
         +'<div class="cfg-pitem-price"><strong>'+eur(line)+'</strong>'
           +'<div><button type="button" class="cfg-pitem-edit" data-act="edit" data-id="'+it.id+'">bewerk</button>'
@@ -1263,7 +1274,7 @@
     list.innerHTML=html;
     document.getElementById('project-total').textContent=eur(total);
     document.getElementById('project-isde').textContent = isL>0 ? (eur(isL)+' – '+eur(isH)) : '—';
-    var lines=project.map(function(it){ var c=computeItem(it); return it.qty+'x '+c.p.label+' ('+c.v.label+') '+Math.round(it.w/10)+'x'+Math.round(it.h/10)+'cm'+(it.segW?(' [vakbr '+it.segW.join('/')+'mm]'):'')+(it.segH?(' [rijh '+it.segH.join('/')+'mm]'):'')+' '+c.glas.label+'/'+c.kp.label+'/'+c.bes.label+' '+eur(c.price*it.qty); });
+    var lines=project.map(function(it){ var c=computeItem(it); return it.qty+'x '+c.p.label+' ('+c.v.label+') '+Math.round(it.w/10)+'x'+Math.round(it.h/10)+'cm'+(it.segW?(' [vakbr '+it.segW.join('/')+'mm]'):'')+(it.segH?(' [rijh '+it.segH.join('/')+'mm]'):'')+' '+c.glas.label+'/'+c.kp.label+'/binnen '+c.bin.label.toLowerCase()+'/'+c.bes.label+' '+eur(c.price*it.qty); });
     var msg='Mijn project ('+totalItems+' onderdelen, indicatie '+eur(total)+'):\n'+lines.join('\n');
     document.getElementById('project-offerte').href='/contact/?project='+encodeURIComponent(msg);
   }
