@@ -768,6 +768,11 @@
     function m(c){ return Math.max(0,Math.min(255, Math.round(f<0 ? c*(1+f) : c+(255-c)*f))); }
     return '#'+((1<<24)+(m(R)<<16)+(m(G)<<8)+m(B)).toString(16).slice(1);
   }
+  function lum(hex){ var n=parseInt(hex.slice(1),16); return 0.299*((n>>16)&255)+0.587*((n>>8)&255)+0.114*(n&255); }
+  // Tint die áltijd afsteekt tegen de basiskleur: donkerder bij lichte RAL's,
+  // lichter bij donkere RAL's. Zonder dit verdween de dagopening in antraciet/
+  // dennengroen volledig tegen het profiel.
+  function contrastTint(hex, amount){ return shade(hex, lum(hex)>96 ? -amount : amount*0.85); }
 
   // ── SVG bouwstenen ──
   function r(x,y,w,h,fill,st,sw){ return '<rect x="'+x.toFixed(1)+'" y="'+y.toFixed(1)+'" width="'+w.toFixed(1)+'" height="'+h.toFixed(1)+'" fill="'+fill+'"'+(st?' stroke="'+st+'" stroke-width="'+(sw||1)+'"':'')+'/>'; }
@@ -787,7 +792,7 @@
 
   // Glasvlak mét glaslat eromheen (voor deurbladen en schuifvleugels)
   function beadGlass(x,y,w,h,col,P){
-    var s = rr(x,y,w,h, shade(col.frame,-0.12), null, 0, P.rad*0.7), b=P.bead;
+    var s = rr(x,y,w,h, contrastTint(col.frame,0.12), null, 0, P.rad*0.7), b=P.bead;
     x+=b; y+=b; w-=2*b; h-=2*b;
     return (w<=0.5||h<=0.5) ? s : s + glass(x,y,w,h);
   }
@@ -801,7 +806,7 @@
       if(w<=0.5||h<=0.5) return s;
     }
     var bd = open ? P.bead : P.fixedBead;
-    s += rr(x,y,w,h, shade(col.frame,-0.12), null, 0, P.rad*0.7); // glaslat
+    s += rr(x,y,w,h, contrastTint(col.frame,0.12), null, 0, P.rad*0.7); // glaslat
     x+=bd; y+=bd; w-=2*bd; h-=2*bd;
     if(w<=0.5||h<=0.5) return s;
     return s + glass(x,y,w,h) + sym(t, x,y,w,h);
@@ -815,12 +820,12 @@
   // Dunne omtrek zodat het bewegende vleugelprofiel zichtbaar blijft tijdens het openen
   function sashEdge(x,y,w,h,col){ return r(x,y,w,h,'none',col.stroke,0.9); }
   // Donkere "dagopening" achter een bewegend deel — hierdoor lees je dat het écht open gaat
-  function gap(x,y,w,h){ return '<rect x="'+x.toFixed(1)+'" y="'+y.toFixed(1)+'" width="'+w.toFixed(1)+'" height="'+h.toFixed(1)+'" fill="#2c3a33" fill-opacity="0.45"/>'; }
+  function gap(x,y,w,h,col){ return '<rect x="'+x.toFixed(1)+'" y="'+y.toFixed(1)+'" width="'+w.toFixed(1)+'" height="'+h.toFixed(1)+'" fill="'+contrastTint(col.frame,0.58)+'"/>'; }
   // Vak → bewegende vleugel op basis van het vaktype (turnR/turnL/tilt/tiltturn)
   function sash(t, x,y,w,h, inner, col){
     if(!t || t==='fixed') return inner;
     inner += sashEdge(x,y,w,h,col);
-    var bg = gap(x,y,w,h);
+    var bg = gap(x,y,w,h,col);
     if(t==='turnR')    return bg + mv('dkm-draaiR', x+w, y+h/2, inner);
     if(t==='turnL')    return bg + mv('dkm-draaiL', x,   y+h/2, inner);
     if(t==='tilt')     return bg + mv('dkm-kiep',   x+w/2, y+h, inner);
@@ -911,7 +916,7 @@
         else { bl += rr(px+pw*0.18, py+ph*0.10, pw*0.64, ph*0.34,'none',col.stroke,1,P.rad); bl += rr(px+pw*0.18, py+ph*0.54, pw*0.64, ph*0.34,'none',col.stroke,1,P.rad); }
         bl += '<circle cx="'+(px+pw*0.14).toFixed(1)+'" cy="'+(py+ph*0.52).toFixed(1)+'" r="2.4" fill="'+HANDLE+'"/>';
         // greep zit links → scharnier rechts: het blad draait naar de kijker open
-        s += anim ? (gap(px,py,pw,ph) + mv('dkm-doorR', px+pw, py+ph/2, bl)) : bl;
+        s += anim ? (gap(px,py,pw,ph,col) + mv('dkm-doorR', px+pw, py+ph/2, bl)) : bl;
       } else {
         // zijlicht = vast glas rechtstreeks in het kozijn (smaller aanzicht dan een vleugel)
         var oy=by+P.frame, oh=bh-2*P.frame, gh = borst ? oh*0.64 : oh;
@@ -929,7 +934,7 @@
     var gx=bx+P.frame, gy=by+P.frame, gw=bw-2*P.frame, gh=bh-2*P.frame, n=v.panels||2;
     var pw=gw/n;
     var hh = v.hef ? gh*0.22 : gh*0.10, hw = v.hef ? 3.2 : 2; // hefschuif = forsere stang-greep
-    if(anim){ for(var k=1;k<n;k++){ s += gap(gx+k*pw, gy, pw, gh); } } // dagopening achter de schuivende delen
+    if(anim){ for(var k=1;k<n;k++){ s += gap(gx+k*pw, gy, pw, gh, col); } } // dagopening achter de schuivende delen
     // elk vak is een schuifvleugel: vleugelprofiel → glaslat → glas
     for(var i=0;i<n;i++){
       var lx=gx+i*pw;
@@ -970,7 +975,7 @@
     var hL=gx+lw-P.sash*1.3, hR=gx+lw+P.sash*1.3;                            // grepen aan weerszijden van de stolpnaad
     if(!anim) return s + leaf(gx,hL) + leaf(gx+lw,hR);
     // Geanimeerd: beide bladen draaien naar buiten open (scharnier aan de buitenzijde)
-    s += gap(gx,gy,gw,gh);                                     // dagopening achter beide bladen
+    s += gap(gx,gy,gw,gh,col);                                     // dagopening achter beide bladen
     s += mv('dkm-doorL', gx,    gy+gh/2, leaf(gx,    hL));     // linkerblad, scharnier links
     s += mv('dkm-doorR', gx+gw, gy+gh/2, leaf(gx+lw, hR));     // rechterblad, scharnier rechts
     return s;
