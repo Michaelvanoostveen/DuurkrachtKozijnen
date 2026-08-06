@@ -137,6 +137,46 @@
 .cfg-preview-cap{ margin-top:12px; text-align:center; font-size:12.5px; color:var(--gray-500); }
 .cfg-preview-cap strong{ color:var(--ink); }
 
+/* ── WERKING-ANIMATIE: bewegende delen in de preview ── */
+.cfg-anim-bar{ display:flex; align-items:center; justify-content:center; gap:10px; margin-top:10px; flex-wrap:wrap; }
+.cfg-anim-btn{ display:inline-flex; align-items:center; gap:7px; border:1px solid var(--gray-200); background:#fff; color:var(--ink);
+  font:600 12.5px/1 "Manrope",system-ui,sans-serif; padding:9px 14px; border-radius:999px; cursor:pointer; transition:border-color .18s,color .18s; }
+.cfg-anim-btn:hover{ border-color:var(--green); color:var(--green); }
+.cfg-anim-btn .dot{ width:8px; height:8px; border-radius:50%; background:var(--gray-300,#cbd0cc); transition:background .18s; }
+.cfg-anim-btn[aria-pressed="true"]{ border-color:var(--green); color:var(--green); background:#f2f8f4; }
+.cfg-anim-btn[aria-pressed="true"] .dot{ background:var(--accent); animation:dkPulse 2s ease-in-out infinite; }
+.cfg-anim-hint{ font-size:11.5px; color:var(--gray-500); }
+@keyframes dkPulse{ 0%,100%{ opacity:1; transform:scale(1); } 50%{ opacity:.45; transform:scale(.75); } }
+
+.cfg-preview-stage svg .dkm{ transform-box:view-box; }
+/* slagschaduw op het bewegende deel → leest als "komt naar je toe" */
+.cfg-preview-stage svg.dk-anim .dkm{ filter:drop-shadow(0 1.5px 3px rgba(0,0,0,.35)); }
+.cfg-preview-stage svg.dk-anim .dkm .dkm{ filter:none; }
+
+/* draai om verticaal scharnier — rechts (dkm-draaiR) of links (dkm-draaiL) */
+@keyframes dkDraaiR{ 0%,10%{ transform:perspective(560px) rotateY(0deg); } 32%,62%{ transform:perspective(560px) rotateY(54deg); } 86%,100%{ transform:perspective(560px) rotateY(0deg); } }
+@keyframes dkDraaiL{ 0%,10%{ transform:perspective(560px) rotateY(0deg); } 32%,62%{ transform:perspective(560px) rotateY(-54deg); } 86%,100%{ transform:perspective(560px) rotateY(0deg); } }
+/* kiep/valraam — scharnier onder */
+@keyframes dkKiep{ 0%,12%{ transform:perspective(560px) rotateX(0deg); } 34%,66%{ transform:perspective(560px) rotateX(-24deg); } 88%,100%{ transform:perspective(560px) rotateX(0deg); } }
+/* draai-kiep — eerst kiepen, daarna volledig opendraaien */
+@keyframes dkTKkiep{ 0%,5%{ transform:perspective(560px) rotateX(0deg); } 15%,28%{ transform:perspective(560px) rotateX(-24deg); } 38%,100%{ transform:perspective(560px) rotateX(0deg); } }
+@keyframes dkTKdraai{ 0%,46%{ transform:perspective(560px) rotateY(0deg); } 62%,82%{ transform:perspective(560px) rotateY(54deg); } 96%,100%{ transform:perspective(560px) rotateY(0deg); } }
+/* schuifpui — horizontaal schuiven */
+@keyframes dkSlide{ 0%,12%{ transform:translateX(0); } 36%,66%{ transform:translateX(var(--dkx,-30px)); } 90%,100%{ transform:translateX(0); } }
+/* deurbladen — grotere opening */
+@keyframes dkDoorR{ 0%,10%{ transform:perspective(640px) rotateY(0deg); } 32%,62%{ transform:perspective(640px) rotateY(64deg); } 86%,100%{ transform:perspective(640px) rotateY(0deg); } }
+@keyframes dkDoorL{ 0%,10%{ transform:perspective(640px) rotateY(0deg); } 32%,62%{ transform:perspective(640px) rotateY(-64deg); } 86%,100%{ transform:perspective(640px) rotateY(0deg); } }
+
+.dk-anim .dkm-draaiR{ animation:dkDraaiR 6s ease-in-out infinite; }
+.dk-anim .dkm-draaiL{ animation:dkDraaiL 6s ease-in-out infinite; }
+.dk-anim .dkm-kiep{ animation:dkKiep 6s ease-in-out infinite; }
+.dk-anim .dkm-tkKiep{ animation:dkTKkiep 7s ease-in-out infinite; }
+.dk-anim .dkm-tkDraai{ animation:dkTKdraai 7s ease-in-out infinite; }
+.dk-anim .dkm-slide{ animation:dkSlide 6s ease-in-out infinite; }
+.dk-anim .dkm-doorR{ animation:dkDoorR 6s ease-in-out infinite; }
+.dk-anim .dkm-doorL{ animation:dkDoorL 6s ease-in-out infinite; }
+@media (prefers-reduced-motion:reduce){ .dk-anim .dkm{ animation:none !important; } }
+
 .cfg-pricecard{ background:linear-gradient(135deg,var(--green) 0%,#0e6432 100%); color:#fff; border-radius:18px; padding:26px; box-shadow:0 8px 24px rgba(11,90,43,.22); }
 .cfg-price-eyebrow{ font-size:11.5px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--lime); }
 .cfg-price-value{ font-family:"Fraunces",serif; font-weight:500; font-size:clamp(30px,4vw,42px); line-height:1.05; margin:6px 0 2px; font-variation-settings:"opsz" 144; }
@@ -388,6 +428,12 @@
             <svg id="cfg-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Live voorbeeld van uw samengestelde kozijn"></svg>
           </div>
           <p class="cfg-preview-cap"><strong id="cap-product">Draai-kiepraam</strong> · <span id="cap-dim">100 × 120 cm</span> · <span id="cap-kleur">wit</span></p>
+          <div class="cfg-anim-bar">
+            <button type="button" class="cfg-anim-btn" id="cfg-anim-toggle" aria-pressed="true" aria-controls="cfg-svg">
+              <span class="dot" aria-hidden="true"></span><span id="cfg-anim-label">Werking wordt getoond</span>
+            </button>
+            <span class="cfg-anim-hint" id="cfg-anim-hint">Zie hoe uw kozijn opent</span>
+          </div>
         </div>
 
         <div class="cfg-pricecard" aria-live="polite">
@@ -704,8 +750,29 @@
     return ''; // fixed → geen symbool
   }
 
+  // ── Bewegende delen (werking-animatie) ──
+  // Wikkelt SVG-inhoud in een <g> dat via CSS om een scharnierpunt draait/schuift.
+  function mv(cls, ox, oy, inner, extra){
+    return '<g class="dkm '+cls+'" style="transform-origin:'+ox.toFixed(1)+'px '+oy.toFixed(1)+'px'+(extra||'')+'">'+inner+'</g>';
+  }
+  // Dunne omtrek zodat het bewegende vleugelprofiel zichtbaar blijft tijdens het openen
+  function sashEdge(x,y,w,h,col){ return r(x,y,w,h,'none',col.stroke,0.9); }
+  // Donkere "dagopening" achter een bewegend deel — hierdoor lees je dat het écht open gaat
+  function gap(x,y,w,h){ return '<rect x="'+x.toFixed(1)+'" y="'+y.toFixed(1)+'" width="'+w.toFixed(1)+'" height="'+h.toFixed(1)+'" fill="#2c3a33" fill-opacity="0.45"/>'; }
+  // Vak → bewegende vleugel op basis van het vaktype (turnR/turnL/tilt/tiltturn)
+  function sash(t, x,y,w,h, inner, col){
+    if(!t || t==='fixed') return inner;
+    inner += sashEdge(x,y,w,h,col);
+    var bg = gap(x,y,w,h);
+    if(t==='turnR')    return bg + mv('dkm-draaiR', x+w, y+h/2, inner);
+    if(t==='turnL')    return bg + mv('dkm-draaiL', x,   y+h/2, inner);
+    if(t==='tilt')     return bg + mv('dkm-kiep',   x+w/2, y+h, inner);
+    if(t==='tiltturn') return bg + mv('dkm-tkKiep', x+w/2, y+h, mv('dkm-tkDraai', x+w, y+h/2, inner));
+    return inner;
+  }
+
   // Teken een raamindeling in box (bx,by,bw,bh)
-  function drawWindow(v, bx,by,bw,bh, col, fr, colW, rowH){
+  function drawWindow(v, bx,by,bw,bh, col, fr, colW, rowH, anim){
     var s = r(bx,by,bw,bh,col.frame,col.stroke,1.5);
     // teken een rij met vakken (content) in (rx,ry,rw,rh) volgens cols + colW
     function contentRow(rx,ry,rw,rh,cols,cwArr){
@@ -714,7 +781,8 @@
       for(var i=0;i<n;i++){
         var pw=ws?gw*ws[i]/tot:gw/n;
         var ix0=px+(i>0?fr*0.5:0), iw=pw-(i>0?fr*0.5:0)-(i<n-1?fr*0.5:0);
-        out+=glass(ix0,gy,iw,gh)+sym(cols[i],ix0,gy,iw,gh,col.frame);
+        var pane = glass(ix0,gy,iw,gh)+sym(cols[i],ix0,gy,iw,gh,col.frame);
+        out += anim ? sash(cols[i], ix0,gy,iw,gh, pane, col) : pane;
         if(i<n-1) out+=r(px+pw-fr*0.5, ry, fr, rh, col.frame);
         px+=pw;
       }
@@ -735,7 +803,11 @@
     // VERTICALE STAPEL
     if(v.stack){
       var m=v.stack.length, rws3=(rowH&&rowH.length===m)?rowH:null, rtot3=rws3?rws3.reduce(function(a,b){return a+b;},0):m, yy3=by;
-      for(var k=0;k<m;k++){ var rH3=rws3?rws3[k]/rtot3*bh:bh/m; s+=glass(bx+fr,yy3+fr,bw-2*fr,rH3-2*fr)+sym(v.stack[k],bx+fr,yy3+fr,bw-2*fr,rH3-2*fr,col.frame); if(k<m-1) s+=r(bx,yy3+rH3-fr*0.5,bw,fr,col.frame); yy3+=rH3; }
+      for(var k=0;k<m;k++){ var rH3=rws3?rws3[k]/rtot3*bh:bh/m;
+        var px3=bx+fr, py3=yy3+fr, pw3=bw-2*fr, ph3=rH3-2*fr;
+        var pane3 = glass(px3,py3,pw3,ph3)+sym(v.stack[k],px3,py3,pw3,ph3,col.frame);
+        s += anim ? sash(v.stack[k], px3,py3,pw3,ph3, pane3, col) : pane3;
+        if(k<m-1) s+=r(bx,yy3+rH3-fr*0.5,bw,fr,col.frame); yy3+=rH3; }
       return s;
     }
     // COLS + optionele strips (bovenlicht/borstwering)
@@ -752,7 +824,7 @@
     return s;
   }
 
-  function drawDoor(v, bx,by,bw,bh, col, fr, colW, rowH){
+  function drawDoor(v, bx,by,bw,bh, col, fr, colW, rowH, anim){
     var s = r(bx,by,bw,bh,col.frame,col.stroke,1.5);
     var nL = v.nL!=null ? v.nL : (v.sideL?1:0);
     var nR = v.nR!=null ? v.nR : (v.sideR?1:0);
@@ -770,12 +842,14 @@
       if(i===doorIdx){
         if(top){ s += glass(x+fr, by+fr, cw-2*fr, topH-fr*1.5); s += r(x, by+topH, cw, fr, col.frame); }
         var px=x+fr, py=by+topH+fr, pw=cw-2*fr, ph=bh-topH-2*fr;
-        s += r(px,py,pw,ph,col.frame,col.stroke,0.8);
-        if(blade==='glassStrip'){ s += glass(px+pw*0.58, py+ph*0.06, pw*0.32, ph*0.88); }
-        else if(blade==='halfglass'){ s += glass(px+pw*0.12, py+ph*0.06, pw*0.76, ph*0.42); }
-        else if(blade==='fullglass'){ s += glass(px+pw*0.12, py+ph*0.06, pw*0.76, ph*0.88); }
-        else { s += r(px+pw*0.18, py+ph*0.10, pw*0.64, ph*0.34,'none',col.stroke,1); s += r(px+pw*0.18, py+ph*0.54, pw*0.64, ph*0.34,'none',col.stroke,1); }
-        s += '<circle cx="'+(px+pw*0.14).toFixed(1)+'" cy="'+(py+ph*0.52).toFixed(1)+'" r="2.4" fill="'+HANDLE+'"/>';
+        var bl = r(px,py,pw,ph,col.frame,col.stroke,0.8);
+        if(blade==='glassStrip'){ bl += glass(px+pw*0.58, py+ph*0.06, pw*0.32, ph*0.88); }
+        else if(blade==='halfglass'){ bl += glass(px+pw*0.12, py+ph*0.06, pw*0.76, ph*0.42); }
+        else if(blade==='fullglass'){ bl += glass(px+pw*0.12, py+ph*0.06, pw*0.76, ph*0.88); }
+        else { bl += r(px+pw*0.18, py+ph*0.10, pw*0.64, ph*0.34,'none',col.stroke,1); bl += r(px+pw*0.18, py+ph*0.54, pw*0.64, ph*0.34,'none',col.stroke,1); }
+        bl += '<circle cx="'+(px+pw*0.14).toFixed(1)+'" cy="'+(py+ph*0.52).toFixed(1)+'" r="2.4" fill="'+HANDLE+'"/>';
+        // greep zit links → scharnier rechts: het blad draait naar de kijker open
+        s += anim ? (gap(px,py,pw,ph) + mv('dkm-doorR', px+pw, py+ph/2, bl)) : bl;
       } else {
         var gh = borst ? (bh-2*fr)*0.64 : (bh-2*fr);
         s += glass(x+fr*0.75, by+fr, cw-fr*1.5, gh);
@@ -787,19 +861,29 @@
     return s;
   }
 
-  function drawSlider(v, bx,by,bw,bh, col, fr){
+  function drawSlider(v, bx,by,bw,bh, col, fr, anim){
     var s = r(bx,by,bw,bh,col.frame,col.stroke,1.5);
     var gx=bx+fr, gy=by+fr, gw=bw-2*fr, gh=bh-2*fr, n=v.panels||2;
-    s += glass(gx,gy,gw,gh);
     var pw=gw/n;
-    for(var i=1;i<n;i++){ s += r(gx+i*pw-fr*0.4, by, fr*0.8, bh, col.frame); }
-    // grepen op de schuivende delen (hefschuif = forsere stang-greep)
-    var hh = v.hef ? gh*0.22 : gh*0.10, hw = v.hef ? 3.2 : 2;
-    for(var j=0;j<n;j++){ s += r(gx+j*pw+pw*0.5-hw/2, gy+gh*0.42, hw, hh, col.frame); }
+    var hh = v.hef ? gh*0.22 : gh*0.10, hw = v.hef ? 3.2 : 2; // hefschuif = forsere stang-greep
+    if(!anim){
+      s += glass(gx,gy,gw,gh);
+      for(var i=1;i<n;i++){ s += r(gx+i*pw-fr*0.4, by, fr*0.8, bh, col.frame); }
+      for(var j=0;j<n;j++){ s += r(gx+j*pw+pw*0.5-hw/2, gy+gh*0.42, hw, hh, col.frame); }
+      return s;
+    }
+    // Geanimeerd: vak 0 is het vaste deel, de overige vakken schuiven er langs naar links
+    for(var k=1;k<n;k++){ s += gap(gx+k*pw, gy, pw, gh); } // dagopening achter de schuivende delen
+    for(var k2=0;k2<n;k2++){
+      var lx=gx+k2*pw;
+      var pane = glass(lx,gy,pw,gh) + sashEdge(lx,gy,pw,gh,col) + r(lx+pw*0.5-hw/2, gy+gh*0.42, hw, hh, col.frame);
+      if(k2===0){ s += pane; }
+      else { s += mv('dkm-slide', lx, gy+gh/2, pane, ';--dkx:'+(-(pw*0.9)).toFixed(1)+'px'); }
+    }
     return s;
   }
 
-  function drawFrench(v, bx,by,bw,bh, col, fr){
+  function drawFrench(v, bx,by,bw,bh, col, fr, anim){
     var s = r(bx,by,bw,bh,col.frame,col.stroke,1.5);
     var top=!!v.top, borst=!!v.borst, topH = top ? bh*0.13 : 0;
     // bovenlicht over de volle breedte
@@ -813,26 +897,43 @@
       s += r(bx+sw, ay, fr, aH, col.frame)+r(bx+bw-sw-fr, ay, fr, aH, col.frame); dx=bx+sw; dw=bw-2*sw; }
     // deurbladen (glas, evt borstwering-paneel onderaan)
     var gx=dx+fr, gy=ay+fr, gw=dw-2*fr, gh=aH-2*fr;
-    if(borst){ s += glass(gx,gy,gw,gh*0.72) + r(gx, gy+gh*0.75, gw, gh*0.25, col.frame, col.stroke, 0.8); }
-    else { s += glass(gx,gy,gw,gh); }
-    s += r(dx+dw/2-fr*0.5, ay, fr, aH, col.frame); // middenstijl
     var cy=ay+aH*0.52;
-    s += '<circle cx="'+(dx+dw/2-fr*1.1).toFixed(1)+'" cy="'+cy.toFixed(1)+'" r="2.2" fill="'+HANDLE+'"/>';
-    s += '<circle cx="'+(dx+dw/2+fr*1.1).toFixed(1)+'" cy="'+cy.toFixed(1)+'" r="2.2" fill="'+HANDLE+'"/>';
+    if(!anim){
+      if(borst){ s += glass(gx,gy,gw,gh*0.72) + r(gx, gy+gh*0.75, gw, gh*0.25, col.frame, col.stroke, 0.8); }
+      else { s += glass(gx,gy,gw,gh); }
+      s += r(dx+dw/2-fr*0.5, ay, fr, aH, col.frame); // middenstijl
+      s += '<circle cx="'+(dx+dw/2-fr*1.1).toFixed(1)+'" cy="'+cy.toFixed(1)+'" r="2.2" fill="'+HANDLE+'"/>';
+      s += '<circle cx="'+(dx+dw/2+fr*1.1).toFixed(1)+'" cy="'+cy.toFixed(1)+'" r="2.2" fill="'+HANDLE+'"/>';
+      return s;
+    }
+    // Geanimeerd: twee losse deurbladen die naar buiten opendraaien (scharnier aan de buitenzijde)
+    var lw=gw/2;
+    function leaf(lx, hx){
+      var out='';
+      if(borst){ out += glass(lx,gy,lw,gh*0.72) + r(lx, gy+gh*0.75, lw, gh*0.25, col.frame, col.stroke, 0.8); }
+      else { out += glass(lx,gy,lw,gh); }
+      out += sashEdge(lx,gy,lw,gh,col);
+      out += '<circle cx="'+hx.toFixed(1)+'" cy="'+cy.toFixed(1)+'" r="2.2" fill="'+HANDLE+'"/>';
+      return out;
+    }
+    s += gap(gx,gy,gw,gh);                                                 // dagopening achter beide bladen
+    s += mv('dkm-doorL', gx,      gy+gh/2, leaf(gx,      dx+dw/2-fr*1.1)); // linkerblad, scharnier links
+    s += mv('dkm-doorR', gx+gw,   gy+gh/2, leaf(gx+lw,   dx+dw/2+fr*1.1)); // rechterblad, scharnier rechts
     return s;
   }
 
   // Render naar viewbox van 200x200 met opgegeven aspect (ratio = w/h)
-  function buildSVG(kind, v, ratio, col, colW, rowH){
-    var maxW=172, maxH=172, vw, vh;
+  function buildSVG(kind, v, ratio, col, colW, rowH, anim){
+    // bij animatie iets kleiner tekenen zodat opendraaiende delen niet tegen de viewBox-rand lopen
+    var maxW=anim?150:172, maxH=anim?150:172, vw, vh;
     if(ratio>=1){ vw=maxW; vh=maxW/ratio; } else { vh=maxH; vw=maxH*ratio; }
     if(vh>maxH){ vh=maxH; vw=maxH*ratio; }
     if(vw>maxW){ vw=maxW; vh=maxW/ratio; }
     var x=(200-vw)/2, y=(200-vh)/2, fr=Math.max(5, vw*0.055);
-    if(kind==='window') return drawWindow(v,x,y,vw,vh,col,fr,colW,rowH);
-    if(kind==='door')   return drawDoor(v,x,y,vw,vh,col,fr,colW,rowH);
-    if(kind==='slider') return drawSlider(v,x,y,vw,vh,col,fr);
-    if(kind==='french') return drawFrench(v,x,y,vw,vh,col,fr);
+    if(kind==='window') return drawWindow(v,x,y,vw,vh,col,fr,colW,rowH,anim);
+    if(kind==='door')   return drawDoor(v,x,y,vw,vh,col,fr,colW,rowH,anim);
+    if(kind==='slider') return drawSlider(v,x,y,vw,vh,col,fr,anim);
+    if(kind==='french') return drawFrench(v,x,y,vw,vh,col,fr,anim);
     return '';
   }
 
@@ -844,6 +945,13 @@
 
   // ── State & rendering ──
   var lastProduct = null, currentVariant = {};
+  // Werking-animatie: standaard aan, keuze onthouden, respecteert prefers-reduced-motion
+  var ANIM = true;
+  try{
+    var stored = localStorage.getItem('dk_anim');
+    if(stored!==null) ANIM = (stored==='1');
+    else if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) ANIM = false;
+  }catch(e){}
 
   function renderVariants(p, pKey, col){
     var box = document.getElementById('cfg-variants');
@@ -872,6 +980,32 @@
     if(+bEl.value>p.wMax) bEl.value=p.wMax;
     if(+hEl.value<p.hMin) hEl.value=p.hMin;
     if(+hEl.value>p.hMax) hEl.value=p.hMax;
+  }
+
+  // ── Werking-animatie: uitleg + knopstatus ──
+  function animTypes(v){
+    var t=[]; (v.cols||[]).concat(v.stack||[]).forEach(function(x){ if(x && x!=='fixed' && t.indexOf(x)<0) t.push(x); }); return t;
+  }
+  function animHint(p, v){
+    if(p.kind==='slider') return v.hef ? 'Het hefschuifdeel schuift opzij' : 'Het schuifdeel schuift opzij';
+    if(p.kind==='french') return 'Beide deurbladen draaien open';
+    if(p.kind==='door')   return 'Het deurblad draait open';
+    var t=animTypes(v);
+    if(!t.length) return 'Vast glas — geen opengaand deel';
+    var parts=[];
+    if(t.indexOf('tiltturn')>=0) parts.push('Draai-kiep: eerst kiepen, daarna opendraaien');
+    if(t.indexOf('tilt')>=0)     parts.push('Kiept open aan de bovenzijde');
+    if(t.indexOf('turnR')>=0 || t.indexOf('turnL')>=0) parts.push('Draait naar binnen open');
+    return parts.join(' · ');
+  }
+  function syncAnimUI(p, v){
+    var btn=document.getElementById('cfg-anim-toggle');
+    var lab=document.getElementById('cfg-anim-label');
+    var hint=document.getElementById('cfg-anim-hint');
+    if(!btn) return;
+    btn.setAttribute('aria-pressed', ANIM ? 'true' : 'false');
+    if(lab)  lab.textContent = ANIM ? 'Werking wordt getoond' : 'Toon de werking';
+    if(hint) hint.textContent = ANIM ? animHint(p, v) : 'Zie hoe uw kozijn opent';
   }
 
   function update(opts){
@@ -932,7 +1066,10 @@
 
     // grote preview met echte verhouding (incl. vak-breedtes)
     var hasSeg = (p.kind==='window'||p.kind==='door');
-    document.getElementById('cfg-svg').innerHTML = buildSVG(p.kind, v, w/h, col, (hasSeg?curSegW:null), (hasSeg?curSegH:null));
+    var svgEl = document.getElementById('cfg-svg');
+    svgEl.innerHTML = buildSVG(p.kind, v, w/h, col, (hasSeg?curSegW:null), (hasSeg?curSegH:null), ANIM);
+    svgEl.classList.toggle('dk-anim', ANIM);
+    syncAnimUI(p, v);
 
     // bij kleurwissel ook de variant-thumbnails herkleuren (zonder selectie te verliezen)
     if(opts.recolor){ renderVariants(p, pKey, col); }
@@ -1091,6 +1228,14 @@
     if(e.target && e.target.name==='product'){ update({forceVariants:true}); }
     else if(e.target && e.target.name==='kleur'){ update({recolor:true}); }
     else { update(); }
+  });
+
+  // Werking-animatie aan/uit
+  document.getElementById('cfg-anim-toggle').addEventListener('click', function(){
+    ANIM = !ANIM;
+    try{ localStorage.setItem('dk_anim', ANIM ? '1' : '0'); }catch(e){}
+    update();
+    if(window.gtag){ gtag('event','configurator_animatie',{ status: ANIM?'aan':'uit' }); }
   });
 
   // ── Deep-link vanuit galerij: ?type=...&indeling=... ──
