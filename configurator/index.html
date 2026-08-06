@@ -548,7 +548,7 @@
         { key:'valraam',   label:'Valraam',           mult:0.92, cols:['tilt'] },
         { key:'draai_vast',label:'Draai + vast',      mult:1.50, cols:['turnL','fixed'] },
         { key:'vast_dk',   label:'Vast + draai-kiep', mult:1.55, cols:['fixed','tiltturn'] },
-        { key:'stolp',     label:'Stolpraam',         mult:1.55, cols:['turnR','turnL'] },
+        { key:'stolp',     label:'Stolpraam',         mult:1.55, cols:['turnR','turnL'], stolp:true },
         { key:'driedelig', label:'3-delig',           mult:2.15, cols:['fixed','tiltturn','fixed'] },
         { key:'vierdelig', label:'4-delig',           mult:2.70, cols:['fixed','tiltturn','tiltturn','fixed'] },
         { key:'bovenlicht',label:'Met bovenlicht',    mult:1.30, cols:['tiltturn'], topLight:true },
@@ -737,17 +737,74 @@
     return knee + head*(1-Math.exp(-(sub-knee)/head));
   }
 
+  // ── Profielgeometrie: Schüco LivIng 82 (AS) ──
+  // Zichtbare aanzichtbreedtes in mm. Kozijn + vleugel + glaslat = 117 mm bij een
+  // draai-kiepraam; bouwdiepte 82 mm, 7-kamer. Pas deze getallen aan zodra de
+  // leverancier afwijkende aanzichtmaten opgeeft — de hele preview schaalt mee.
+  var PROFILE = {
+    system:    'Schüco LivIng 82',
+    depth:     82,   // bouwdiepte
+    frameFace: 48,   // kozijn, zichtbaar
+    sashFace:  53,   // vleugel, zichtbaar (excl. glaslat)
+    bead:      16,   // glaslat op de vleugel
+    fixedBead: 20,   // glaslat bij vast glas rechtstreeks in het kozijn
+    post:      94,   // tussenstijl tussen twee vakken
+    radius:     2    // licht afgeronde LivIng-contour
+  };
+  // mm → px voor de huidige tekening; ondergrenzen houden dunne profielen zichtbaar
+  function profilePx(pxPerMm){
+    function q(mm,min){ return Math.max(min, mm*pxPerMm); }
+    var f=q(PROFILE.frameFace,2.2), sa=q(PROFILE.sashFace,1.8), be=q(PROFILE.bead,0.9);
+    return { frame:f, sash:sa, bead:be, fixedBead:q(PROFILE.fixedBead,1.2),
+             post:q(PROFILE.post,2.6), rad:q(PROFILE.radius,0.4), fr:f+sa+be };
+  }
+  // Terugval als de echte maten onbekend zijn (variant-thumbnails): oude vaste verhouding
+  function profileFallback(fr){
+    return { frame:fr*0.41, sash:fr*0.45, bead:fr*0.14, fixedBead:fr*0.30,
+             post:fr, rad:fr*0.06, fr:fr };
+  }
+  function shade(hex,f){ // f<0 donkerder, f>0 lichter
+    var n=parseInt(hex.slice(1),16), R=(n>>16)&255, G=(n>>8)&255, B=n&255;
+    function m(c){ return Math.max(0,Math.min(255, Math.round(f<0 ? c*(1+f) : c+(255-c)*f))); }
+    return '#'+((1<<24)+(m(R)<<16)+(m(G)<<8)+m(B)).toString(16).slice(1);
+  }
+
   // ── SVG bouwstenen ──
   function r(x,y,w,h,fill,st,sw){ return '<rect x="'+x.toFixed(1)+'" y="'+y.toFixed(1)+'" width="'+w.toFixed(1)+'" height="'+h.toFixed(1)+'" fill="'+fill+'"'+(st?' stroke="'+st+'" stroke-width="'+(sw||1)+'"':'')+'/>'; }
+  function rr(x,y,w,h,fill,st,sw,rad){ return '<rect x="'+x.toFixed(1)+'" y="'+y.toFixed(1)+'" width="'+w.toFixed(1)+'" height="'+h.toFixed(1)+'" rx="'+(rad||0).toFixed(2)+'" fill="'+fill+'"'+(st?' stroke="'+st+'" stroke-width="'+(sw||1)+'"':'')+'/>'; }
   function glass(x,y,w,h){ return '<rect x="'+x.toFixed(1)+'" y="'+y.toFixed(1)+'" width="'+w.toFixed(1)+'" height="'+h.toFixed(1)+'" fill="'+GLASSFILL+'" fill-opacity="'+GLASSO+'"/>'; }
-  function sym(t,x,y,w,h,c){ // opening-symbool per vaktype
-    var cx=x+w/2, cy=y+h/2, sw=1.3, o=0.5;
-    function L(x1,y1,x2,y2){ return '<line x1="'+x1.toFixed(1)+'" y1="'+y1.toFixed(1)+'" x2="'+x2.toFixed(1)+'" y2="'+y2.toFixed(1)+'" stroke="'+c+'" stroke-width="'+sw+'" opacity="'+o+'"/>'; }
+  // Opening-symbool per vaktype. Lijnkleur is bewust NIET de kozijnkleur: op glas
+  // moet het symbool bij elke RAL leesbaar blijven (wit-op-glas verdween anders).
+  function sym(t,x,y,w,h){
+    var cx=x+w/2, cy=y+h/2, sw=Math.max(0.7, Math.min(w,h)*0.013), o=0.7, c='#4a6172';
+    function L(x1,y1,x2,y2){ return '<line x1="'+x1.toFixed(1)+'" y1="'+y1.toFixed(1)+'" x2="'+x2.toFixed(1)+'" y2="'+y2.toFixed(1)+'" stroke="'+c+'" stroke-width="'+sw.toFixed(2)+'" opacity="'+o+'"/>'; }
     if(t==='turnR') return L(x,y,x+w,cy)+L(x,y+h,x+w,cy);            // scharnier rechts (punt rechts)
     if(t==='turnL') return L(x+w,y,x,cy)+L(x+w,y+h,x,cy);            // scharnier links
     if(t==='tilt')  return L(x,y,cx,y+h)+L(x+w,y,cx,y+h);           // kiep/valraam (punt onder)
     if(t==='tiltturn') return L(x+w,y,x,cy)+L(x+w,y+h,x,cy)+L(x,y,cx,y+h)+L(x+w,y,cx,y+h); // draai-kiep
     return ''; // fixed → geen symbool
+  }
+
+  // Glasvlak mét glaslat eromheen (voor deurbladen en schuifvleugels)
+  function beadGlass(x,y,w,h,col,P){
+    var s = rr(x,y,w,h, shade(col.frame,-0.12), null, 0, P.rad*0.7), b=P.bead;
+    x+=b; y+=b; w-=2*b; h-=2*b;
+    return (w<=0.5||h<=0.5) ? s : s + glass(x,y,w,h);
+  }
+  // Eén vak volgens de LivIng-opbouw: vleugel → glaslat → glas.
+  // (x,y,w,h) is de kozijnopening; een vast vak heeft géén vleugel en dus meer glas.
+  function livPane(t, x,y,w,h, col, P){
+    var open = !!(t && t!=='fixed'), s='';
+    if(open){
+      s += rr(x,y,w,h, col.frame, col.stroke, 0.7, P.rad);   // vleugelprofiel
+      x+=P.sash; y+=P.sash; w-=2*P.sash; h-=2*P.sash;
+      if(w<=0.5||h<=0.5) return s;
+    }
+    var bd = open ? P.bead : P.fixedBead;
+    s += rr(x,y,w,h, shade(col.frame,-0.12), null, 0, P.rad*0.7); // glaslat
+    x+=bd; y+=bd; w-=2*bd; h-=2*bd;
+    if(w<=0.5||h<=0.5) return s;
+    return s + glass(x,y,w,h) + sym(t, x,y,w,h);
   }
 
   // ── Bewegende delen (werking-animatie) ──
@@ -772,18 +829,20 @@
   }
 
   // Teken een raamindeling in box (bx,by,bw,bh)
-  function drawWindow(v, bx,by,bw,bh, col, fr, colW, rowH, anim){
+  function drawWindow(v, bx,by,bw,bh, col, colW, rowH, anim, P){
     var s = r(bx,by,bw,bh,col.frame,col.stroke,1.5);
     // teken een rij met vakken (content) in (rx,ry,rw,rh) volgens cols + colW
     function contentRow(rx,ry,rw,rh,cols,cwArr){
-      var n=cols.length, gx=rx+fr, gy=ry+fr, gw=rw-2*fr, gh=rh-2*fr;
+      var n=cols.length, gx=rx+P.frame, gy=ry+P.frame, gw=rw-2*P.frame, gh=rh-2*P.frame;
+      // Stolpraam: de twee vleugels sluiten op elkaar aan (stolpnaad), dus géén vaste tussenstijl
+      var half = v.stolp ? 0 : P.post*0.5;
       var ws=(cwArr&&cwArr.length===n)?cwArr:null, tot=ws?ws.reduce(function(a,b){return a+b;},0):n, px=gx, out='';
       for(var i=0;i<n;i++){
         var pw=ws?gw*ws[i]/tot:gw/n;
-        var ix0=px+(i>0?fr*0.5:0), iw=pw-(i>0?fr*0.5:0)-(i<n-1?fr*0.5:0);
-        var pane = glass(ix0,gy,iw,gh)+sym(cols[i],ix0,gy,iw,gh,col.frame);
+        var ix0=px+(i>0?half:0), iw=pw-(i>0?half:0)-(i<n-1?half:0);
+        var pane = livPane(cols[i], ix0,gy,iw,gh, col, P);
         out += anim ? sash(cols[i], ix0,gy,iw,gh, pane, col) : pane;
-        if(i<n-1) out+=r(px+pw-fr*0.5, ry, fr, rh, col.frame);
+        if(i<n-1 && !v.stolp) out+=r(px+pw-half, ry, P.post, rh, col.frame);
         px+=pw;
       }
       return out;
@@ -795,19 +854,20 @@
       var cws=(colW&&colW.length===C)?colW:null, ctot=cws?cws.reduce(function(a,b){return a+b;},0):C;
       var yy=by;
       for(var ri=0;ri<R;ri++){ var rH=rws?rws[ri]/rtot*bh:bh/R, xx=bx;
-        for(var ci=0;ci<C;ci++){ var cW=cws?cws[ci]/ctot*bw:bw/C; s+=glass(xx+fr,yy+fr,cW-2*fr,rH-2*fr); xx+=cW; }
-        if(ri<R-1) s+=r(bx, yy+rH-fr*0.4, bw, fr*0.8, col.frame); yy+=rH; }
-      var xx2=bx; for(var cj=1;cj<C;cj++){ xx2+=(cws?cws[cj-1]/ctot*bw:bw/C); s+=r(xx2-fr*0.4, by, fr*0.8, bh, col.frame); }
+        for(var ci=0;ci<C;ci++){ var cW=cws?cws[ci]/ctot*bw:bw/C;
+          s+=livPane('fixed', xx+P.frame, yy+P.frame, cW-2*P.frame, rH-2*P.frame, col, P); xx+=cW; }
+        if(ri<R-1) s+=r(bx, yy+rH-P.post*0.4, bw, P.post*0.8, col.frame); yy+=rH; }
+      var xx2=bx; for(var cj=1;cj<C;cj++){ xx2+=(cws?cws[cj-1]/ctot*bw:bw/C); s+=r(xx2-P.post*0.4, by, P.post*0.8, bh, col.frame); }
       return s;
     }
     // VERTICALE STAPEL
     if(v.stack){
       var m=v.stack.length, rws3=(rowH&&rowH.length===m)?rowH:null, rtot3=rws3?rws3.reduce(function(a,b){return a+b;},0):m, yy3=by;
       for(var k=0;k<m;k++){ var rH3=rws3?rws3[k]/rtot3*bh:bh/m;
-        var px3=bx+fr, py3=yy3+fr, pw3=bw-2*fr, ph3=rH3-2*fr;
-        var pane3 = glass(px3,py3,pw3,ph3)+sym(v.stack[k],px3,py3,pw3,ph3,col.frame);
+        var px3=bx+P.frame, py3=yy3+P.frame, pw3=bw-2*P.frame, ph3=rH3-2*P.frame;
+        var pane3 = livPane(v.stack[k], px3,py3,pw3,ph3, col, P);
         s += anim ? sash(v.stack[k], px3,py3,pw3,ph3, pane3, col) : pane3;
-        if(k<m-1) s+=r(bx,yy3+rH3-fr*0.5,bw,fr,col.frame); yy3+=rH3; }
+        if(k<m-1) s+=r(bx,yy3+rH3-P.post*0.5,bw,P.post,col.frame); yy3+=rH3; }
       return s;
     }
     // COLS + optionele strips (bovenlicht/borstwering)
@@ -817,14 +877,14 @@
     var rsum=rprop.reduce(function(a,b){return a+b;},0), yy4=by;
     for(var ti=0;ti<nr;ti++){ var rH4=rprop[ti]/rsum*bh, t=rowTypes[ti];
       if(t==='main'){ s+=contentRow(bx,yy4,bw,rH4,v.cols,colW); }
-      else { s+=glass(bx+fr, yy4+fr, bw-2*fr, rH4-2*fr); }
-      if(ti<nr-1) s+=r(bx, yy4+rH4-fr*0.5, bw, fr, col.frame);
+      else { s+=livPane('fixed', bx+P.frame, yy4+P.frame, bw-2*P.frame, rH4-2*P.frame, col, P); } // bovenlicht/borstwering: vast glas
+      if(ti<nr-1) s+=r(bx, yy4+rH4-P.post*0.5, bw, P.post, col.frame);
       yy4+=rH4;
     }
     return s;
   }
 
-  function drawDoor(v, bx,by,bw,bh, col, fr, colW, rowH, anim){
+  function drawDoor(v, bx,by,bw,bh, col, colW, rowH, anim, P){
     var s = r(bx,by,bw,bh,col.frame,col.stroke,1.5);
     var nL = v.nL!=null ? v.nL : (v.sideL?1:0);
     var nR = v.nR!=null ? v.nR : (v.sideR?1:0);
@@ -840,100 +900,97 @@
     for(i=0;i<nCols;i++){
       var cw=widths[i];
       if(i===doorIdx){
-        if(top){ s += glass(x+fr, by+fr, cw-2*fr, topH-fr*1.5); s += r(x, by+topH, cw, fr, col.frame); }
-        var px=x+fr, py=by+topH+fr, pw=cw-2*fr, ph=bh-topH-2*fr;
-        var bl = r(px,py,pw,ph,col.frame,col.stroke,0.8);
-        if(blade==='glassStrip'){ bl += glass(px+pw*0.58, py+ph*0.06, pw*0.32, ph*0.88); }
-        else if(blade==='halfglass'){ bl += glass(px+pw*0.12, py+ph*0.06, pw*0.76, ph*0.42); }
-        else if(blade==='fullglass'){ bl += glass(px+pw*0.12, py+ph*0.06, pw*0.76, ph*0.88); }
-        else { bl += r(px+pw*0.18, py+ph*0.10, pw*0.64, ph*0.34,'none',col.stroke,1); bl += r(px+pw*0.18, py+ph*0.54, pw*0.64, ph*0.34,'none',col.stroke,1); }
+        // bovenlicht = vast glas rechtstreeks in het kozijn
+        if(top){ s += livPane('fixed', x+P.frame, by+P.frame, cw-2*P.frame, topH-P.frame-P.post*0.5, col, P);
+                 s += r(x, by+topH-P.post*0.5, cw, P.post, col.frame); }
+        var px=x+P.frame, py=by+topH+P.frame, pw=cw-2*P.frame, ph=bh-topH-2*P.frame;
+        var bl = rr(px,py,pw,ph,col.frame,col.stroke,0.8,P.rad);   // deurvleugel
+        if(blade==='glassStrip'){ bl += beadGlass(px+pw*0.58, py+ph*0.06, pw*0.32, ph*0.88, col, P); }
+        else if(blade==='halfglass'){ bl += beadGlass(px+pw*0.12, py+ph*0.06, pw*0.76, ph*0.42, col, P); }
+        else if(blade==='fullglass'){ bl += beadGlass(px+pw*0.12, py+ph*0.06, pw*0.76, ph*0.88, col, P); }
+        else { bl += rr(px+pw*0.18, py+ph*0.10, pw*0.64, ph*0.34,'none',col.stroke,1,P.rad); bl += rr(px+pw*0.18, py+ph*0.54, pw*0.64, ph*0.34,'none',col.stroke,1,P.rad); }
         bl += '<circle cx="'+(px+pw*0.14).toFixed(1)+'" cy="'+(py+ph*0.52).toFixed(1)+'" r="2.4" fill="'+HANDLE+'"/>';
         // greep zit links → scharnier rechts: het blad draait naar de kijker open
         s += anim ? (gap(px,py,pw,ph) + mv('dkm-doorR', px+pw, py+ph/2, bl)) : bl;
       } else {
-        var gh = borst ? (bh-2*fr)*0.64 : (bh-2*fr);
-        s += glass(x+fr*0.75, by+fr, cw-fr*1.5, gh);
-        if(borst){ s += r(x+fr*0.75, by+fr+gh+fr*0.5, cw-fr*1.5, (bh-2*fr)-gh-fr*0.5, col.frame, col.stroke, 0.8); }
+        // zijlicht = vast glas rechtstreeks in het kozijn (smaller aanzicht dan een vleugel)
+        var oy=by+P.frame, oh=bh-2*P.frame, gh = borst ? oh*0.64 : oh;
+        s += livPane('fixed', x+P.frame*0.5, oy, cw-P.frame, gh, col, P);
+        if(borst){ s += rr(x+P.frame*0.5, oy+gh+P.post*0.4, cw-P.frame, oh-gh-P.post*0.4, col.frame, col.stroke, 0.8, P.rad); }
       }
-      if(i<nCols-1) s += r(x+cw-fr*0.5, by, fr, bh, col.frame); // tussenstijl
+      if(i<nCols-1) s += r(x+cw-P.post*0.5, by, P.post, bh, col.frame); // tussenstijl
       x += cw;
     }
     return s;
   }
 
-  function drawSlider(v, bx,by,bw,bh, col, fr, anim){
+  function drawSlider(v, bx,by,bw,bh, col, anim, P){
     var s = r(bx,by,bw,bh,col.frame,col.stroke,1.5);
-    var gx=bx+fr, gy=by+fr, gw=bw-2*fr, gh=bh-2*fr, n=v.panels||2;
+    var gx=bx+P.frame, gy=by+P.frame, gw=bw-2*P.frame, gh=bh-2*P.frame, n=v.panels||2;
     var pw=gw/n;
     var hh = v.hef ? gh*0.22 : gh*0.10, hw = v.hef ? 3.2 : 2; // hefschuif = forsere stang-greep
-    if(!anim){
-      s += glass(gx,gy,gw,gh);
-      for(var i=1;i<n;i++){ s += r(gx+i*pw-fr*0.4, by, fr*0.8, bh, col.frame); }
-      for(var j=0;j<n;j++){ s += r(gx+j*pw+pw*0.5-hw/2, gy+gh*0.42, hw, hh, col.frame); }
-      return s;
-    }
-    // Geanimeerd: vak 0 is het vaste deel, de overige vakken schuiven er langs naar links
-    for(var k=1;k<n;k++){ s += gap(gx+k*pw, gy, pw, gh); } // dagopening achter de schuivende delen
-    for(var k2=0;k2<n;k2++){
-      var lx=gx+k2*pw;
-      var pane = glass(lx,gy,pw,gh) + sashEdge(lx,gy,pw,gh,col) + r(lx+pw*0.5-hw/2, gy+gh*0.42, hw, hh, col.frame);
-      if(k2===0){ s += pane; }
-      else { s += mv('dkm-slide', lx, gy+gh/2, pane, ';--dkx:'+(-(pw*0.9)).toFixed(1)+'px'); }
+    if(anim){ for(var k=1;k<n;k++){ s += gap(gx+k*pw, gy, pw, gh); } } // dagopening achter de schuivende delen
+    // elk vak is een schuifvleugel: vleugelprofiel → glaslat → glas
+    for(var i=0;i<n;i++){
+      var lx=gx+i*pw;
+      var leaf = livPane('slide', lx,gy,pw,gh, col, P) + r(lx+pw*0.5-hw/2, gy+gh*0.42, hw, hh, col.frame);
+      // vak 0 is het vaste deel, de overige vakken schuiven er langs naar links
+      s += (anim && i>0) ? mv('dkm-slide', lx, gy+gh/2, leaf, ';--dkx:'+(-(pw*0.9)).toFixed(1)+'px') : leaf;
     }
     return s;
   }
 
-  function drawFrench(v, bx,by,bw,bh, col, fr, anim){
+  function drawFrench(v, bx,by,bw,bh, col, anim, P){
     var s = r(bx,by,bw,bh,col.frame,col.stroke,1.5);
     var top=!!v.top, borst=!!v.borst, topH = top ? bh*0.13 : 0;
-    // bovenlicht over de volle breedte
-    if(top){ s += glass(bx+fr, by+fr, bw-2*fr, topH-fr*1.5); s += r(bx, by+topH, bw, fr, col.frame); }
+    // bovenlicht over de volle breedte — vast glas rechtstreeks in het kozijn
+    if(top){ s += livPane('fixed', bx+P.frame, by+P.frame, bw-2*P.frame, topH-P.frame-P.post*0.5, col, P);
+             s += r(bx, by+topH-P.post*0.5, bw, P.post, col.frame); }
     var ay=by+topH, aH=bh-topH, dx=bx, dw=bw, sw=0;
-    // zijlichten (met optionele borstwering)
+    // zijlichten (vast glas, met optionele borstwering)
     if(v.sidelights){ sw=bw*0.16;
-      if(borst){ s+=glass(bx+fr, ay+fr, sw-fr*1.5, aH*0.64)+r(bx+fr, ay+aH*0.67, sw-fr*1.5, aH*0.30, col.frame, col.stroke, 0.8);
-                 s+=glass(bx+bw-sw+fr*0.5, ay+fr, sw-fr*1.5, aH*0.64)+r(bx+bw-sw+fr*0.5, ay+aH*0.67, sw-fr*1.5, aH*0.30, col.frame, col.stroke, 0.8); }
-      else { s+=glass(bx+fr, ay+fr, sw-fr*1.5, aH-2*fr)+glass(bx+bw-sw+fr*0.5, ay+fr, sw-fr*1.5, aH-2*fr); }
-      s += r(bx+sw, ay, fr, aH, col.frame)+r(bx+bw-sw-fr, ay, fr, aH, col.frame); dx=bx+sw; dw=bw-2*sw; }
-    // deurbladen (glas, evt borstwering-paneel onderaan)
-    var gx=dx+fr, gy=ay+fr, gw=dw-2*fr, gh=aH-2*fr;
+      var sy=ay+P.frame, sh0=aH-2*P.frame, sgh = borst ? sh0*0.64 : sh0;
+      [bx+P.frame*0.5, bx+bw-sw+P.frame*0.25].forEach(function(lx0){
+        s += livPane('fixed', lx0, sy, sw-P.frame*0.75, sgh, col, P);
+        if(borst){ s += rr(lx0, sy+sgh+P.post*0.35, sw-P.frame*0.75, sh0-sgh-P.post*0.35, col.frame, col.stroke, 0.8, P.rad); }
+      });
+      s += r(bx+sw, ay, P.post, aH, col.frame)+r(bx+bw-sw-P.post, ay, P.post, aH, col.frame); dx=bx+sw; dw=bw-2*sw; }
+    // twee deurbladen: vleugelprofiel → glaslat → glas (evt. borstweringpaneel onderaan)
+    var gx=dx+P.frame, gy=ay+P.frame, gw=dw-2*P.frame, gh=aH-2*P.frame, lw=gw/2;
     var cy=ay+aH*0.52;
-    if(!anim){
-      if(borst){ s += glass(gx,gy,gw,gh*0.72) + r(gx, gy+gh*0.75, gw, gh*0.25, col.frame, col.stroke, 0.8); }
-      else { s += glass(gx,gy,gw,gh); }
-      s += r(dx+dw/2-fr*0.5, ay, fr, aH, col.frame); // middenstijl
-      s += '<circle cx="'+(dx+dw/2-fr*1.1).toFixed(1)+'" cy="'+cy.toFixed(1)+'" r="2.2" fill="'+HANDLE+'"/>';
-      s += '<circle cx="'+(dx+dw/2+fr*1.1).toFixed(1)+'" cy="'+cy.toFixed(1)+'" r="2.2" fill="'+HANDLE+'"/>';
-      return s;
-    }
-    // Geanimeerd: twee losse deurbladen die naar buiten opendraaien (scharnier aan de buitenzijde)
-    var lw=gw/2;
     function leaf(lx, hx){
-      var out='';
-      if(borst){ out += glass(lx,gy,lw,gh*0.72) + r(lx, gy+gh*0.75, lw, gh*0.25, col.frame, col.stroke, 0.8); }
-      else { out += glass(lx,gy,lw,gh); }
-      out += sashEdge(lx,gy,lw,gh,col);
-      out += '<circle cx="'+hx.toFixed(1)+'" cy="'+cy.toFixed(1)+'" r="2.2" fill="'+HANDLE+'"/>';
-      return out;
+      var out = rr(lx,gy,lw,gh, col.frame, col.stroke, 0.7, P.rad);           // deurvleugel
+      var ix=lx+P.sash, iy=gy+P.sash, iw=lw-2*P.sash, ih=gh-2*P.sash;
+      if(iw>0.5 && ih>0.5){
+        if(borst){ out += beadGlass(ix,iy,iw,ih*0.70,col,P) + rr(ix, iy+ih*0.74, iw, ih*0.26, col.frame, col.stroke, 0.8, P.rad); }
+        else { out += beadGlass(ix,iy,iw,ih,col,P); }
+      }
+      return out + '<circle cx="'+hx.toFixed(1)+'" cy="'+cy.toFixed(1)+'" r="2.2" fill="'+HANDLE+'"/>';
     }
-    s += gap(gx,gy,gw,gh);                                                 // dagopening achter beide bladen
-    s += mv('dkm-doorL', gx,      gy+gh/2, leaf(gx,      dx+dw/2-fr*1.1)); // linkerblad, scharnier links
-    s += mv('dkm-doorR', gx+gw,   gy+gh/2, leaf(gx+lw,   dx+dw/2+fr*1.1)); // rechterblad, scharnier rechts
+    var hL=gx+lw-P.sash*1.3, hR=gx+lw+P.sash*1.3;                            // grepen aan weerszijden van de stolpnaad
+    if(!anim) return s + leaf(gx,hL) + leaf(gx+lw,hR);
+    // Geanimeerd: beide bladen draaien naar buiten open (scharnier aan de buitenzijde)
+    s += gap(gx,gy,gw,gh);                                     // dagopening achter beide bladen
+    s += mv('dkm-doorL', gx,    gy+gh/2, leaf(gx,    hL));     // linkerblad, scharnier links
+    s += mv('dkm-doorR', gx+gw, gy+gh/2, leaf(gx+lw, hR));     // rechterblad, scharnier rechts
     return s;
   }
 
   // Render naar viewbox van 200x200 met opgegeven aspect (ratio = w/h)
-  function buildSVG(kind, v, ratio, col, colW, rowH, anim){
+  function buildSVG(kind, v, ratio, col, colW, rowH, anim, wMm){
     // bij animatie iets kleiner tekenen zodat opendraaiende delen niet tegen de viewBox-rand lopen
     var maxW=anim?150:172, maxH=anim?150:172, vw, vh;
     if(ratio>=1){ vw=maxW; vh=maxW/ratio; } else { vh=maxH; vw=maxH*ratio; }
     if(vh>maxH){ vh=maxH; vw=maxH*ratio; }
     if(vw>maxW){ vw=maxW; vh=maxW/ratio; }
-    var x=(200-vw)/2, y=(200-vh)/2, fr=Math.max(5, vw*0.055);
-    if(kind==='window') return drawWindow(v,x,y,vw,vh,col,fr,colW,rowH,anim);
-    if(kind==='door')   return drawDoor(v,x,y,vw,vh,col,fr,colW,rowH,anim);
-    if(kind==='slider') return drawSlider(v,x,y,vw,vh,col,fr,anim);
-    if(kind==='french') return drawFrench(v,x,y,vw,vh,col,fr,anim);
+    var x=(200-vw)/2, y=(200-vh)/2;
+    // Bekende breedte in mm → profielen op ware schaal (Schüco LivIng 82).
+    // Zonder mm-maat (variant-thumbnails) valt hij terug op de vaste verhouding.
+    var P = wMm ? profilePx(vw/wMm) : profileFallback(Math.max(5, vw*0.055));
+    if(kind==='window') return drawWindow(v,x,y,vw,vh,col,colW,rowH,anim,P);
+    if(kind==='door')   return drawDoor(v,x,y,vw,vh,col,colW,rowH,anim,P);
+    if(kind==='slider') return drawSlider(v,x,y,vw,vh,col,anim,P);
+    if(kind==='french') return drawFrench(v,x,y,vw,vh,col,anim,P);
     return '';
   }
 
@@ -1052,6 +1109,7 @@
     document.getElementById('cap-kleur').textContent = col.label.toLowerCase();
 
     document.getElementById('cfg-spec').innerHTML =
+      '<li><span>Profiel</span><span>'+PROFILE.system+' · 7-kamer</span></li>' +
       '<li><span>Indeling</span><span>'+esc(v.label)+'</span></li>' +
       (curSegW ? '<li><span>Vakbreedtes</span><span>'+curSegW.join(' · ')+' mm</span></li>' : '') +
       (curSegH ? '<li><span>Rijhoogtes</span><span>'+curSegH.join(' · ')+' mm</span></li>' : '') +
@@ -1067,7 +1125,7 @@
     // grote preview met echte verhouding (incl. vak-breedtes)
     var hasSeg = (p.kind==='window'||p.kind==='door');
     var svgEl = document.getElementById('cfg-svg');
-    svgEl.innerHTML = buildSVG(p.kind, v, w/h, col, (hasSeg?curSegW:null), (hasSeg?curSegH:null), ANIM);
+    svgEl.innerHTML = buildSVG(p.kind, v, w/h, col, (hasSeg?curSegW:null), (hasSeg?curSegH:null), ANIM, w);
     svgEl.classList.toggle('dk-anim', ANIM);
     syncAnimUI(p, v);
 
