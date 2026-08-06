@@ -167,7 +167,7 @@
 @keyframes dkKiep{ 0%,12%{ transform:perspective(560px) rotateX(0deg); } 34%,66%{ transform:perspective(560px) rotateX(-24deg); } 88%,100%{ transform:perspective(560px) rotateX(0deg); } }
 /* draai-kiep — eerst kiepen, daarna volledig opendraaien */
 @keyframes dkTKkiep{ 0%,5%{ transform:perspective(560px) rotateX(0deg); } 15%,28%{ transform:perspective(560px) rotateX(-24deg); } 38%,100%{ transform:perspective(560px) rotateX(0deg); } }
-@keyframes dkTKdraai{ 0%,46%{ transform:perspective(560px) rotateY(0deg); } 62%,82%{ transform:perspective(560px) rotateY(-54deg); } 96%,100%{ transform:perspective(560px) rotateY(0deg); } }
+@keyframes dkTKdraai{ 0%,46%{ transform:perspective(560px) rotateY(0deg); } 62%,82%{ transform:perspective(560px) rotateY(54deg); } 96%,100%{ transform:perspective(560px) rotateY(0deg); } }
 /* schuifpui — horizontaal schuiven */
 @keyframes dkSlide{ 0%,12%{ transform:translateX(0); } 36%,66%{ transform:translateX(var(--dkx,-30px)); } 90%,100%{ transform:translateX(0); } }
 /* deurbladen — grotere opening */
@@ -819,8 +819,10 @@
   function r(x,y,w,h,fill,st,sw){ return '<rect x="'+x.toFixed(1)+'" y="'+y.toFixed(1)+'" width="'+w.toFixed(1)+'" height="'+h.toFixed(1)+'" fill="'+fill+'"'+(st?' stroke="'+st+'" stroke-width="'+(sw||1)+'"':'')+'/>'; }
   function rr(x,y,w,h,fill,st,sw,rad){ return '<rect x="'+x.toFixed(1)+'" y="'+y.toFixed(1)+'" width="'+w.toFixed(1)+'" height="'+h.toFixed(1)+'" rx="'+(rad||0).toFixed(2)+'" fill="'+fill+'"'+(st?' stroke="'+st+'" stroke-width="'+(sw||1)+'"':'')+'/>'; }
   function glass(x,y,w,h){ return '<rect x="'+x.toFixed(1)+'" y="'+y.toFixed(1)+'" width="'+w.toFixed(1)+'" height="'+h.toFixed(1)+'" fill="'+GLASSFILL+'" fill-opacity="'+GLASSO+'"/>'; }
-  // Opening-symbool per vaktype. Lijnkleur is bewust NIET de kozijnkleur: op glas
-  // moet het symbool bij elke RAL leesbaar blijven (wit-op-glas verdween anders).
+  // Opening-symbool per vaktype. De punt van de driehoek is de kruk (handgreep) —
+  // het scharnier zit aan de tegenoverliggende kant (de basis, waar de lijnen
+  // vandaan komen). Lijnkleur is bewust NIET de kozijnkleur: op glas moet het
+  // symbool bij elke RAL leesbaar blijven (wit-op-glas verdween anders).
   function sym(t,x,y,w,h){
     var cx=x+w/2, cy=y+h/2, sw=Math.max(0.7, Math.min(w,h)*0.013), o=0.7, c='#4a6172';
     function L(x1,y1,x2,y2){ return '<line x1="'+x1.toFixed(1)+'" y1="'+y1.toFixed(1)+'" x2="'+x2.toFixed(1)+'" y2="'+y2.toFixed(1)+'" stroke="'+c+'" stroke-width="'+sw.toFixed(2)+'" opacity="'+o+'"/>'; }
@@ -865,15 +867,17 @@
   function sashEdge(x,y,w,h,col){ return r(x,y,w,h,'none',col.stroke,0.9); }
   // Donkere "dagopening" achter een bewegend deel — hierdoor lees je dat het écht open gaat
   function gap(x,y,w,h,col){ return '<rect x="'+x.toFixed(1)+'" y="'+y.toFixed(1)+'" width="'+w.toFixed(1)+'" height="'+h.toFixed(1)+'" fill="'+contrastTint(col.frame,0.58)+'"/>'; }
-  // Vak → bewegende vleugel op basis van het vaktype (turnR/turnL/tilt/tiltturn)
+  // Vak → bewegende vleugel op basis van het vaktype (turnR/turnL/tilt/tiltturn).
+  // Het scharnier ligt tegenover de kruk (de punt van het symbool in sym()):
+  // turnR toont de kruk rechts, dus het scharnier — en dus de animatiepivot — zit links.
   function sash(t, x,y,w,h, inner, col, cv){
     if(!t || t==='fixed') return inner;
     inner += sashEdge(x,y,w,h,(cv||col));   // omtrek in de vleugelkleur
     var bg = gap(x,y,w,h,col);
-    if(t==='turnR')    return bg + mv('dkm-draaiR', x+w, y+h/2, inner);
-    if(t==='turnL')    return bg + mv('dkm-draaiL', x,   y+h/2, inner);
+    if(t==='turnR')    return bg + mv('dkm-draaiL', x,   y+h/2, inner);  // kruk rechts → scharnier links
+    if(t==='turnL')    return bg + mv('dkm-draaiR', x+w, y+h/2, inner);  // kruk links → scharnier rechts
     if(t==='tilt')     return bg + mv('dkm-kiep',   x+w/2, y+h, inner);
-    if(t==='tiltturn') return bg + mv('dkm-tkKiep', x+w/2, y+h, mv('dkm-tkDraai', x,   y+h/2, inner));  // scharnier links, zoals het symbool
+    if(t==='tiltturn') return bg + mv('dkm-tkKiep', x+w/2, y+h, mv('dkm-tkDraai', x+w, y+h/2, inner));  // kruk links → scharnier rechts
     return inner;
   }
 
