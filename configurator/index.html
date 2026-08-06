@@ -167,7 +167,7 @@
 @keyframes dkKiep{ 0%,12%{ transform:perspective(560px) rotateX(0deg); } 34%,66%{ transform:perspective(560px) rotateX(-24deg); } 88%,100%{ transform:perspective(560px) rotateX(0deg); } }
 /* draai-kiep — eerst kiepen, daarna volledig opendraaien */
 @keyframes dkTKkiep{ 0%,5%{ transform:perspective(560px) rotateX(0deg); } 15%,28%{ transform:perspective(560px) rotateX(-24deg); } 38%,100%{ transform:perspective(560px) rotateX(0deg); } }
-@keyframes dkTKdraai{ 0%,46%{ transform:perspective(560px) rotateY(0deg); } 62%,82%{ transform:perspective(560px) rotateY(54deg); } 96%,100%{ transform:perspective(560px) rotateY(0deg); } }
+@keyframes dkTKdraai{ 0%,46%{ transform:perspective(560px) rotateY(0deg); } 62%,82%{ transform:perspective(560px) rotateY(-54deg); } 96%,100%{ transform:perspective(560px) rotateY(0deg); } }
 /* schuifpui — horizontaal schuiven */
 @keyframes dkSlide{ 0%,12%{ transform:translateX(0); } 36%,66%{ transform:translateX(var(--dkx,-30px)); } 90%,100%{ transform:translateX(0); } }
 /* deurbladen — grotere opening */
@@ -873,7 +873,7 @@
     if(t==='turnR')    return bg + mv('dkm-draaiR', x+w, y+h/2, inner);
     if(t==='turnL')    return bg + mv('dkm-draaiL', x,   y+h/2, inner);
     if(t==='tilt')     return bg + mv('dkm-kiep',   x+w/2, y+h, inner);
-    if(t==='tiltturn') return bg + mv('dkm-tkKiep', x+w/2, y+h, mv('dkm-tkDraai', x+w, y+h/2, inner));
+    if(t==='tiltturn') return bg + mv('dkm-tkKiep', x+w/2, y+h, mv('dkm-tkDraai', x,   y+h/2, inner));  // scharnier links, zoals het symbool
     return inner;
   }
 
