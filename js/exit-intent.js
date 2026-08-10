@@ -4,10 +4,6 @@
   // Niet tonen op bedankt-, contact- en offerte-pagina's
   if (/\/(bedankt|contact|offerte)/.test(window.location.pathname)) return;
 
-  // Niet tonen tijdens de bouwvak: die melding heeft voorrang, en "Ben belt u
-  // terug" beloven terwijl er niemand bereikbaar is klopt niet.
-  if (window.DKK_BOUWVAK && window.DKK_BOUWVAK.loopt) return;
-
   var triggered = false;
 
   var WA = 'https://wa.me/31850731660';

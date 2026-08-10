@@ -45,16 +45,8 @@
     var min  = parseInt(parts.find(function(p){ return p.type === 'minute'; }).value);
     var mins = hour * 60 + min;
     var open = ['Mon','Tue','Wed','Thu','Fri'].indexOf(day) !== -1 && mins >= 480 && mins < 1020;
-    // Tijdens een sluitingsperiode (bouwvak) wint die melding — anders zou hier
-    // "Nu open" staan terwijl er niemand bereikbaar is.
-    var bv = window.DKK_BOUWVAK;
-    if (bv && bv.loopt) {
-      topbarEl.textContent = 'Bouwvak — vanaf ' + bv.tot + ' weer open';
-      topbarEl.classList.add('gesloten');
-    } else {
-      topbarEl.textContent = (open ? 'Nu open' : 'Nu gesloten') + ' — ma t/m vr 08:00–17:00';
-      if (!open) topbarEl.classList.add('gesloten');
-    }
+    topbarEl.textContent = (open ? 'Nu open' : 'Nu gesloten') + ' — ma t/m vr 08:00–17:00';
+    if (!open) topbarEl.classList.add('gesloten');
   }
 
   // Mobile nav toggle — accessible aria-expanded handling
