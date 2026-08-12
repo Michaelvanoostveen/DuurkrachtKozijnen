@@ -85,6 +85,22 @@
 
 /* Indeling-varianten */
 .cfg-variants{ display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
+.cfg-vak-wrap{ margin-top:18px; padding-top:16px; border-top:1px solid var(--gray-200); }
+.cfg-vak-wrap[hidden]{ display:none !important; }
+.cfg-vak-kop{ font-size:13px; font-weight:700; color:var(--ink); margin:0 0 10px; }
+.cfg-vak-kop span{ font-weight:500; color:var(--gray-500); }
+.cfg-vak-row{ display:grid; gap:8px; }
+.cfg-vak-cell{ display:grid; grid-template-columns:64px minmax(0,1fr); align-items:center; gap:10px; }
+.cfg-vak-cell > span{ font-size:12px; font-weight:700; color:var(--gray-500); }
+.cfg-vak-cell select{ width:100%; font-family:inherit; font-size:14px; font-weight:600; color:var(--green,#0B5A2B);
+  border:1.5px solid #e3e6e4; border-radius:8px; padding:9px 30px 9px 11px; background:#fff; cursor:pointer;
+  appearance:none; -webkit-appearance:none; outline:none;
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%230B5A2B' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat; background-position:right 11px center; }
+.cfg-vak-cell select:focus{ border-color:var(--green,#0B5A2B); }
+.cfg-vak-reset{ margin-top:10px; background:none; border:none; padding:0; font-family:inherit; font-size:12.5px;
+  font-weight:600; color:var(--accent,#ED6B06); cursor:pointer; text-decoration:underline; }
+.cfg-vak-reset[hidden]{ display:none !important; }
 .cfg-variant{ cursor:pointer; }
 .cfg-variant input{ position:absolute; opacity:0; pointer-events:none; }
 .cfg-variant-card{ display:flex; flex-direction:column; align-items:center; gap:6px; padding:10px 6px; border:1.5px solid var(--gray-200); border-radius:10px; background:#fff; transition:all .15s ease; text-align:center; height:100%; }
@@ -168,6 +184,7 @@
 /* draai-kiep — eerst kiepen, daarna volledig opendraaien */
 @keyframes dkTKkiep{ 0%,5%{ transform:perspective(560px) rotateX(0deg); } 15%,28%{ transform:perspective(560px) rotateX(-24deg); } 38%,100%{ transform:perspective(560px) rotateX(0deg); } }
 @keyframes dkTKdraai{ 0%,46%{ transform:perspective(560px) rotateY(0deg); } 62%,82%{ transform:perspective(560px) rotateY(54deg); } 96%,100%{ transform:perspective(560px) rotateY(0deg); } }
+@keyframes dkTKdraaiL{ 0%,46%{ transform:perspective(560px) rotateY(0deg); } 62%,82%{ transform:perspective(560px) rotateY(-54deg); } 96%,100%{ transform:perspective(560px) rotateY(0deg); } }
 /* schuifpui — horizontaal schuiven */
 @keyframes dkSlide{ 0%,12%{ transform:translateX(0); } 36%,66%{ transform:translateX(var(--dkx,-30px)); } 90%,100%{ transform:translateX(0); } }
 /* deurbladen — grotere opening */
@@ -179,6 +196,7 @@
 .dk-anim .dkm-kiep{ animation:dkKiep 6s ease-in-out infinite; }
 .dk-anim .dkm-tkKiep{ animation:dkTKkiep 7s ease-in-out infinite; }
 .dk-anim .dkm-tkDraai{ animation:dkTKdraai 7s ease-in-out infinite; }
+.dk-anim .dkm-tkDraaiL{ animation:dkTKdraaiL 7s ease-in-out infinite; }
 .dk-anim .dkm-slide{ animation:dkSlide 6s ease-in-out infinite; }
 .dk-anim .dkm-doorR{ animation:dkDoorR 6s ease-in-out infinite; }
 .dk-anim .dkm-doorL{ animation:dkDoorL 6s ease-in-out infinite; }
@@ -366,6 +384,11 @@
         <div class="cfg-step" id="cfg-step-indeling">
           <div class="cfg-step-label"><span class="cfg-num">2</span> <span id="indeling-label">Indeling</span></div>
           <div class="cfg-variants" id="cfg-variants" role="radiogroup" aria-label="Indeling"></div>
+          <div class="cfg-vak-wrap" id="cfg-vak-wrap" hidden>
+            <p class="cfg-vak-kop">Indeling per vak <span>— kies per vak het type en de draairichting</span></p>
+            <div id="cfg-vak" class="cfg-vak-row"></div>
+            <button type="button" class="cfg-vak-reset" id="cfg-vak-reset" hidden>Terug naar de standaardindeling</button>
+          </div>
         </div>
 
         <div class="cfg-step">
@@ -670,6 +693,36 @@
     dennengroen:{label:'Dennengroen · RAL 6009',  mult:1.18, frame:'#27352a', stroke:'#1a241d'}
   };
   var BESLAG = { rc2:{label:'RC2 sluitwerk', mult:1.00}, rc3:{label:'RC3 sluitwerk', mult:1.10} };
+
+  // Alle indelingen die per vak gekozen kunnen worden. De volgorde hier is ook
+  // de volgorde in de keuzelijst. "Scharnier links" betekent dat het raam aan de
+  // linkerkant vastzit en dus naar rechts opendraait; de greep zit dan rechts.
+  // f = prijsfactor van dat vak. Alleen het verschil met de gekozen indeling
+  // telt mee, dus een ongewijzigde indeling houdt exact zijn eigen prijs.
+  var VAK = {
+    fixed:     { label:'Vast glas',                        kort:'vast glas',              f:0.80 },
+    tiltturnR: { label:'Draai-kiep — scharnier links',     kort:'draai-kiep (scharnier L)', f:1.00 },
+    tiltturn:  { label:'Draai-kiep — scharnier rechts',    kort:'draai-kiep (scharnier R)', f:1.00 },
+    turnR:     { label:'Draairaam — scharnier links',      kort:'draairaam (scharnier L)',  f:0.96 },
+    turnL:     { label:'Draairaam — scharnier rechts',     kort:'draairaam (scharnier R)',  f:0.96 },
+    tilt:      { label:'Valraam — kiept open',             kort:'valraam',                f:0.92 }
+  };
+  var VAK_VOLGORDE = ['fixed','tiltturnR','tiltturn','turnR','turnL','tilt'];
+  // Een tweede opengaand vak in hetzelfde kozijn kost minder dan het eerste
+  // (één kozijn, één montage). Deze demping bepaalt hoe zwaar een wijziging
+  // meetelt; verlaag of verhoog naar wat jullie in de praktijk rekenen.
+  var VAK_DEMPING = 0.80;
+
+  // Prijsfactor van de indeling, inclusief eventuele wijzigingen per vak
+  function indelingMult(v, cols){
+    if(!cols || !v.cols || cols.length!==v.cols.length) return v.mult;
+    var d = 0;
+    for(var i=0;i<cols.length;i++){
+      var oud = VAK[v.cols[i]], nw = VAK[cols[i]];
+      if(oud && nw) d += (nw.f - oud.f);
+    }
+    return Math.max(0.5, v.mult + d * VAK_DEMPING);
+  }
   // Binnenzijde. Standaard wit of crème in gladde uitvoering: inbegrepen.
   // Elke andere afwerking binnen (houtnerf of een kleur) vraagt een extra folie.
   var BINNEN = {
@@ -695,6 +748,7 @@
   var bwField = document.getElementById('cfg-bw-field'), segwWrap = document.getElementById('cfg-segw-wrap'), segwBox = document.getElementById('cfg-segw');
   var bhField = document.getElementById('cfg-bh-field'), seghWrap = document.getElementById('cfg-segh-wrap'), seghBox = document.getElementById('cfg-segh');
   var curSegW = null, curSegH = null, lastVarKey = null, pendingSegW = null, pendingSegH = null;
+  var curCols = null, pendingCols = null;   // per-vak indeling; null = de standaard van de gekozen variant
   function nColsOf(v){ return v.grid ? v.grid.c : v.stack ? 1 : (v.cols ? v.cols.length : 1); }
   function nRowsOf(v){ return v.grid ? v.grid.r : v.stack ? v.stack.length : (1 + (v.topLight?1:0) + (v.bottomLight?1:0)); }
   function rowLabels(v){
@@ -744,6 +798,59 @@
     for(i=0;i<n;i++){ labels.push('vak '+(i+1)); defs.push(def); }
     return {n:n, labels:labels, defs:defs};
   }
+  // Keuzelijst per vak. Alleen zinvol bij een indeling met losse vakken (cols)
+  // of gestapelde vakken (stack) — een raster is altijd vast glas.
+  function vakBron(v){ return v.cols ? 'cols' : (v.stack ? 'stack' : null); }
+  function renderVak(p, v){
+    var wrap = document.getElementById('cfg-vak-wrap'), box = document.getElementById('cfg-vak');
+    var reset = document.getElementById('cfg-vak-reset');
+    var bron = (p.kind==='window') ? vakBron(v) : null;
+    if(!bron){ curCols=null; pendingCols=null; wrap.hidden=true; box.innerHTML=''; return; }
+
+    var basis = v[bron];
+    var src = (pendingCols && pendingCols.length===basis.length) ? pendingCols : null;
+    curCols = src ? src.slice() : basis.slice();
+    pendingCols = null;
+
+    var meerdere = basis.length > 1;
+    var html = '';
+    for(var i=0;i<curCols.length;i++){
+      var opts = '';
+      for(var j=0;j<VAK_VOLGORDE.length;j++){
+        var k = VAK_VOLGORDE[j];
+        opts += '<option value="'+k+'"'+(curCols[i]===k?' selected':'')+'>'+esc(VAK[k].label)+'</option>';
+      }
+      var label = meerdere ? (bron==='stack' ? 'rij '+(i+1) : 'vak '+(i+1)) : 'indeling';
+      html += '<div class="cfg-vak-cell"><span>'+label+'</span>'
+            + '<select class="cfg-vak-in" data-i="'+i+'" aria-label="Indeling '+label+'">'+opts+'</select></div>';
+    }
+    box.innerHTML = html;
+    wrap.hidden = false;
+    reset.hidden = !afwijkendVanStandaard(v);
+  }
+  function afwijkendVanStandaard(v){
+    var bron = vakBron(v);
+    if(!bron || !curCols) return false;
+    var basis = v[bron];
+    if(curCols.length !== basis.length) return false;
+    for(var i=0;i<curCols.length;i++) if(curCols[i]!==basis[i]) return true;
+    return false;
+  }
+  // De variant zoals hij nu getekend/geprijsd moet worden, inclusief per-vak keuzes
+  function effVariant(p, v){
+    var bron = (p.kind==='window') ? vakBron(v) : null;
+    if(!bron || !curCols || curCols.length!==v[bron].length) return v;
+    var kopie = {};
+    for(var k in v) if(Object.prototype.hasOwnProperty.call(v,k)) kopie[k]=v[k];
+    kopie[bron] = curCols.slice();
+    // een stolpraam zonder twee draaiende vleugels heeft geen stolpnaad meer
+    if(kopie.stolp){
+      var beide = curCols.length===2 && curCols.every(function(t){ return t!=='fixed'; });
+      if(!beide) kopie.stolp = false;
+    }
+    return kopie;
+  }
+
   function renderSegW(p, v){
     var sp = (p.kind==='window'||p.kind==='door') ? colSpec(p,v) : {n:1};
     var n = sp.n;
@@ -829,7 +936,8 @@
     if(t==='turnR') return L(x,y,x+w,cy)+L(x,y+h,x+w,cy);            // scharnier rechts (punt rechts)
     if(t==='turnL') return L(x+w,y,x,cy)+L(x+w,y+h,x,cy);            // scharnier links
     if(t==='tilt')  return L(x,y,cx,y+h)+L(x+w,y,cx,y+h);           // kiep/valraam (punt onder)
-    if(t==='tiltturn') return L(x+w,y,x,cy)+L(x+w,y+h,x,cy)+L(x,y,cx,y+h)+L(x+w,y,cx,y+h); // draai-kiep
+    if(t==='tiltturn')  return L(x+w,y,x,cy)+L(x+w,y+h,x,cy)+L(x,y,cx,y+h)+L(x+w,y,cx,y+h); // draai-kiep, greep links
+    if(t==='tiltturnR') return L(x,y,x+w,cy)+L(x,y+h,x+w,cy)+L(x,y,cx,y+h)+L(x+w,y,cx,y+h);   // draai-kiep, greep rechts
     return ''; // fixed → geen symbool
   }
 
@@ -877,7 +985,8 @@
     if(t==='turnR')    return bg + mv('dkm-draaiL', x,   y+h/2, inner);  // kruk rechts → scharnier links
     if(t==='turnL')    return bg + mv('dkm-draaiR', x+w, y+h/2, inner);  // kruk links → scharnier rechts
     if(t==='tilt')     return bg + mv('dkm-kiep',   x+w/2, y+h, inner);
-    if(t==='tiltturn') return bg + mv('dkm-tkKiep', x+w/2, y+h, mv('dkm-tkDraai', x+w, y+h/2, inner));  // kruk links → scharnier rechts
+    if(t==='tiltturn')  return bg + mv('dkm-tkKiep', x+w/2, y+h, mv('dkm-tkDraai',  x+w, y+h/2, inner)); // kruk links → scharnier rechts
+    if(t==='tiltturnR') return bg + mv('dkm-tkKiep', x+w/2, y+h, mv('dkm-tkDraaiL', x,   y+h/2, inner)); // kruk rechts → scharnier links
     return inner;
   }
 
@@ -1138,14 +1247,15 @@
 
     // per-vak breedtes + per-rij hoogtes (her)opbouwen bij indelingwissel
     var vKeyNow = pKey+'|'+v.key;
-    if(vKeyNow!==lastVarKey){ lastVarKey=vKeyNow; renderSegW(p, v); renderSegH(p, v); updateSegTotalLabel(); }
+    if(vKeyNow!==lastVarKey){ lastVarKey=vKeyNow; renderVak(p, v); renderSegW(p, v); renderSegH(p, v); updateSegTotalLabel(); }
+    var ve = effVariant(p, v);   // variant inclusief de per-vak keuzes
 
     var w = curSegW ? segwTotal() : +bEl.value, h = curSegH ? seghTotal() : +hEl.value;
     var glas=GLASS[val('glas')], bes=BESLAG[val('beslag')], bin=BINNEN[val('binnen')]||BINNEN.witglad;
     var m2=(w/1000)*(h/1000);
 
     // prijs: (basis + meerprijs per m² boven standaard) × glas × kleur × beslag × indeling
-    var sub = (p.base + Math.max(0, m2-p.stdM2)*p.perM2) * glas.mult * kp.mult * bes.mult * v.mult * bin.mult;
+    var sub = (p.base + Math.max(0, m2-p.stdM2)*p.perM2) * glas.mult * kp.mult * bes.mult * indelingMult(v, curCols) * bin.mult;
     sub = softCap(sub, p.priceMax);
     var price = Math.round(sub/10)*10;
 
@@ -1158,7 +1268,7 @@
     document.getElementById('price-val').textContent = eur(price);
     document.getElementById('isde-val').textContent = isdeLow>0 ? (eur(isdeLow)+' – '+eur(isdeHigh)) : '—';
 
-    document.getElementById('cap-product').textContent = p.label + ' · ' + v.label;
+    document.getElementById('cap-product').textContent = p.label + ' · ' + v.label + (afwijkendVanStandaard(v) ? ' (aangepast)' : '');
     document.getElementById('cap-dim').textContent = Math.round(w/10)+' × '+Math.round(h/10)+' cm';
     document.getElementById('cap-kleur').textContent = kp.label.toLowerCase();
     var swSame=document.getElementById('sw-same'); if(swSame) swSame.style.background = kp.k.frame;
@@ -1166,7 +1276,8 @@
 
     document.getElementById('cfg-spec').innerHTML =
       '<li><span>Profiel</span><span>'+PROFILE.system+' · 7-kamer</span></li>' +
-      '<li><span>Indeling</span><span>'+esc(v.label)+'</span></li>' +
+      '<li><span>Indeling</span><span>'+esc(v.label)+(afwijkendVanStandaard(v)?' (aangepast)':'')+'</span></li>' +
+      (afwijkendVanStandaard(v) ? '<li><span>Per vak</span><span>'+esc(curCols.map(function(t){ return VAK[t]?VAK[t].kort:t; }).join(' · '))+'</span></li>' : '') +
       (curSegW ? '<li><span>Vakbreedtes</span><span>'+curSegW.join(' · ')+' mm</span></li>' : '') +
       (curSegH ? '<li><span>Rijhoogtes</span><span>'+curSegH.join(' · ')+' mm</span></li>' : '') +
       '<li><span>Glas</span><span>'+glas.label+'</span></li>' +
@@ -1179,14 +1290,17 @@
 
     // huidige samenstelling onthouden voor "toevoegen aan project"
     var noteEl = document.getElementById('cfg-note-input');
-    curItem = { pKey:pKey, vKey:v.key, w:w, h:h, segW:(curSegW?curSegW.slice():null), segH:(curSegH?curSegH.slice():null), glas:val('glas'), kleur:val('kleur'), kleurV:val('kleurvleugel'), binnen:val('binnen'), beslag:val('beslag'), note:(noteEl?noteEl.value.trim():'') };
+    curItem = { pKey:pKey, vKey:v.key, w:w, h:h, segW:(curSegW?curSegW.slice():null), segH:(curSegH?curSegH.slice():null), cols:(afwijkendVanStandaard(v)?curCols.slice():null), glas:val('glas'), kleur:val('kleur'), kleurV:val('kleurvleugel'), binnen:val('binnen'), beslag:val('beslag'), note:(noteEl?noteEl.value.trim():'') };
 
     // grote preview met echte verhouding (incl. vak-breedtes)
     var hasSeg = (p.kind==='window'||p.kind==='door');
     var svgEl = document.getElementById('cfg-svg');
-    svgEl.innerHTML = buildSVG(p.kind, v, w/h, kp.k, (hasSeg?curSegW:null), (hasSeg?curSegH:null), ANIM, w, kp.v);
+    svgEl.innerHTML = buildSVG(p.kind, ve, w/h, kp.k, (hasSeg?curSegW:null), (hasSeg?curSegH:null), ANIM, w, kp.v);
     svgEl.classList.toggle('dk-anim', ANIM);
-    syncAnimUI(p, v);
+    syncAnimUI(p, ve);
+
+    var resetKnop = document.getElementById('cfg-vak-reset');
+    if(resetKnop) resetKnop.hidden = !afwijkendVanStandaard(v);
 
     // bij kleurwissel ook de variant-thumbnails herkleuren (zonder selectie te verliezen)
     if(opts.recolor){ renderVariants(p, pKey, kp); }
@@ -1202,9 +1316,18 @@
   function computeItem(it){
     var p=PRODUCTS[it.pKey]; if(!p) return null;
     var v=(p.variants.filter(function(x){return x.key===it.vKey;})[0])||p.variants[0];
+    var vBasis=v;
     var glas=GLASS[it.glas]||GLASS.hrpp, kp=kleurPaar(it.kleur, it.kleurV), col=kp.k, bes=BESLAG[it.beslag]||BESLAG.rc2, bin=BINNEN[it.binnen]||BINNEN.witglad;
+    // opgeslagen per-vak indeling terugzetten op de variant
+    var bron = it.cols ? (v.cols ? 'cols' : (v.stack ? 'stack' : null)) : null;
+    if(bron && it.cols.length===v[bron].length){
+      var vk={}; for(var q in v) if(Object.prototype.hasOwnProperty.call(v,q)) vk[q]=v[q];
+      vk[bron]=it.cols.slice();
+      if(vk.stolp && !(it.cols.length===2 && it.cols.every(function(t){return t!=='fixed';}))) vk.stolp=false;
+      v=vk;
+    }
     var m2=(it.w/1000)*(it.h/1000);
-    var sub=(p.base+Math.max(0,m2-p.stdM2)*p.perM2)*glas.mult*kp.mult*bes.mult*v.mult*bin.mult;
+    var sub=(p.base+Math.max(0,m2-p.stdM2)*p.perM2)*glas.mult*kp.mult*bes.mult*indelingMult(vBasis, it.cols)*bin.mult;
     sub=softCap(sub,p.priceMax);
     var price=Math.round(sub/10)*10, glasM2=Math.max(0,m2*0.8);
     return { p:p,v:v,glas:glas,col:col,kp:kp,bes:bes,bin:bin,m2:m2,price:price,
@@ -1215,11 +1338,11 @@
     if(!curItem.pKey) return;
     var noteEl=document.getElementById('cfg-note-input');
     var note=noteEl?noteEl.value.trim():'';
-    var key=[curItem.pKey,curItem.vKey,curItem.w,curItem.h,(curItem.segW?curItem.segW.join('-'):''),(curItem.segH?curItem.segH.join('-'):''),curItem.glas,curItem.kleur,curItem.kleurV,curItem.binnen,curItem.beslag,note].join('|');
+    var key=[curItem.pKey,curItem.vKey,curItem.w,curItem.h,(curItem.segW?curItem.segW.join('-'):''),(curItem.segH?curItem.segH.join('-'):''),curItem.glas,curItem.kleur,curItem.kleurV,curItem.binnen,curItem.beslag,(curItem.cols?curItem.cols.join('-'):''),note].join('|');
     var ex=project.filter(function(x){return x.key===key;})[0];
     if(ex){ ex.qty+=currentQty; }
     else { project.push({ id:Date.now().toString(36)+Math.random().toString(36).slice(2,6), key:key,
-            pKey:curItem.pKey, vKey:curItem.vKey, w:curItem.w, h:curItem.h, segW:curItem.segW, segH:curItem.segH,
+            pKey:curItem.pKey, vKey:curItem.vKey, w:curItem.w, h:curItem.h, segW:curItem.segW, segH:curItem.segH, cols:curItem.cols,
             glas:curItem.glas, kleur:curItem.kleur, kleurV:curItem.kleurV, binnen:curItem.binnen, beslag:curItem.beslag, note:note, qty:currentQty }); }
     saveProject(); renderProject();
     // reset aantal + notitie + feedback
@@ -1242,7 +1365,7 @@
     setRadio('glas',it.glas); setRadio('kleur',it.kleur); setRadio('kleurvleugel',it.kleurV||'zelfde'); setRadio('binnen',it.binnen||'witglad'); setRadio('beslag',it.beslag);
     lastProduct=it.pKey;                 // voorkom dat applyRanges de maten reset
     bEl.value=it.w; hEl.value=it.h;
-    pendingSegW = it.segW||null; pendingSegH = it.segH||null; lastVarKey=null;   // herstel vak-maten
+    pendingSegW = it.segW||null; pendingSegH = it.segH||null; pendingCols = it.cols||null; lastVarKey=null;   // herstel vak-maten en -indeling
     var noteEl=document.getElementById('cfg-note-input'); if(noteEl) noteEl.value=it.note||'';
     currentQty=it.qty; document.getElementById('qty-val').textContent=it.qty;
     project=project.filter(function(x){return x.id!==id;}); saveProject();
@@ -1267,7 +1390,7 @@
       var noteTag = it.note ? '<span class="cfg-pitem-note">'+esc(it.note)+'</span> ' : '';
       html+='<div class="cfg-pitem">'
         +'<div class="cfg-pitem-thumb">'+thumb+'</div>'
-        +'<div class="cfg-pitem-info">'+noteTag+'<strong>'+esc(c.p.label)+' · '+esc(c.v.label)+'</strong>'
+        +'<div class="cfg-pitem-info">'+noteTag+'<strong>'+esc(c.p.label)+' · '+esc(c.v.label)+(it.cols?' (aangepast)':'')+'</strong>'
           +'<span>'+Math.round(it.w/10)+'×'+Math.round(it.h/10)+' cm · '+esc(c.glas.label)+' · '+esc(c.kp.label)+' · binnen '+esc(c.bin.label.toLowerCase())+' · '+esc(c.bes.label)+'</span></div>'
         +'<div class="cfg-pitem-qty"><button type="button" data-act="dec" data-id="'+it.id+'" aria-label="Minder">−</button><span>'+it.qty+'</span><button type="button" data-act="inc" data-id="'+it.id+'" aria-label="Meer">+</button></div>'
         +'<div class="cfg-pitem-price"><strong>'+eur(line)+'</strong>'
@@ -1278,7 +1401,7 @@
     list.innerHTML=html;
     document.getElementById('project-total').textContent=eur(total);
     document.getElementById('project-isde').textContent = isL>0 ? (eur(isL)+' – '+eur(isH)) : '—';
-    var lines=project.map(function(it){ var c=computeItem(it); return it.qty+'x '+c.p.label+' ('+c.v.label+') '+Math.round(it.w/10)+'x'+Math.round(it.h/10)+'cm'+(it.segW?(' [vakbr '+it.segW.join('/')+'mm]'):'')+(it.segH?(' [rijh '+it.segH.join('/')+'mm]'):'')+' '+c.glas.label+'/'+c.kp.label+'/binnen '+c.bin.label.toLowerCase()+'/'+c.bes.label+' '+eur(c.price*it.qty); });
+    var lines=project.map(function(it){ var c=computeItem(it); return it.qty+'x '+c.p.label+' ('+c.v.label+(it.cols?' — per vak: '+it.cols.map(function(t){return VAK[t]?VAK[t].kort:t;}).join(', '):'')+') '+Math.round(it.w/10)+'x'+Math.round(it.h/10)+'cm'+(it.segW?(' [vakbr '+it.segW.join('/')+'mm]'):'')+(it.segH?(' [rijh '+it.segH.join('/')+'mm]'):'')+' '+c.glas.label+'/'+c.kp.label+'/binnen '+c.bin.label.toLowerCase()+'/'+c.bes.label+' '+eur(c.price*it.qty); });
     var msg='Mijn project ('+totalItems+' onderdelen, indicatie '+eur(total)+'):\n'+lines.join('\n');
     document.getElementById('project-offerte').href='/contact/?project='+encodeURIComponent(msg);
   }
@@ -1345,6 +1468,21 @@
     if(e.target && e.target.name==='product'){ update({forceVariants:true}); }
     else if(e.target && /^kleur/.test(e.target.name||'')){ update({recolor:true}); }
     else { update(); }
+  });
+
+  // Indeling per vak
+  document.getElementById('cfg-vak').addEventListener('change', function(e){
+    var el = e.target.closest('.cfg-vak-in'); if(!el || !curCols) return;
+    var i = +el.getAttribute('data-i');
+    if(i>=0 && i<curCols.length){ curCols[i] = el.value; update(); }
+    if(window.gtag) gtag('event', 'configurator_vak_indeling', { vak: i+1, type: el.value });
+  });
+  document.getElementById('cfg-vak-reset').addEventListener('click', function(){
+    var pKey = val('product'), p = PRODUCTS[pKey], v = getVariant(p, pKey);
+    var bron = vakBron(v); if(!bron) return;
+    curCols = v[bron].slice();
+    renderVak(p, v);
+    update();
   });
 
   // Werking-animatie aan/uit
