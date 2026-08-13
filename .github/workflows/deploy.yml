@@ -1,0 +1,32 @@
+name: Deploy naar Vercel
+
+# Handmatig te starten via Actions → "Deploy naar Vercel" → "Run workflow".
+# Bewust géén automatische trigger op push: Vercel deployt zelf al bij een
+# commit op main via de Git-integratie. Deze workflow is er voor als je een
+# deploy zelf wilt afdwingen of wilt zien of hij slaagt.
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy naar productie
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: team_N6hKf8FooSD2zO5MrycFtZmA
+          VERCEL_PROJECT_ID: prj_VmroHJNqBgMLvcOFPCEztzoAQy3b
+        run: |
+          if [ -z "$VERCEL_TOKEN" ]; then
+            echo "::error::VERCEL_TOKEN ontbreekt. Zet hem onder Settings → Secrets and variables → Actions."
+            exit 1
+          fi
+          npm install -g vercel --silent
+          vercel pull --yes --environment=production --token="$VERCEL_TOKEN"
+          vercel deploy --prod --yes --token="$VERCEL_TOKEN" | tee deploy.log
+          echo "DEPLOY_URL=$(tail -n1 deploy.log)" >> "$GITHUB_ENV"
+
+      - name: Resultaat
+        run: echo "Live op $DEPLOY_URL"
