@@ -47,6 +47,8 @@ def footer():
       </div>
       <div><p class="ftr-nav-title">Diensten</p><ul>
         <li><a href="/diensten/kunststof-kozijnen/">Kunststof kozijnen</a></li>
+        <li><a href="/diensten/schuco-living/">Schüco LivIng</a></li>
+        <li><a href="/diensten/aluplast-ideal-7000-nl/">Aluplast Ideal 7000 NL</a></li>
         <li><a href="/diensten/kunststof-deuren/">Kunststof deuren</a></li>
         <li><a href="/diensten/kunststof-schuifpuien/">Schuifpuien</a></li>
         <li><a href="/diensten/kunststof-gevelbekleding/">Gevelbekleding</a></li>
@@ -203,7 +205,7 @@ POSTS = [
 <ol>
 <li><strong>Afmeting:</strong> grotere kozijnen kosten meer per stuk, maar minder per vierkante meter</li>
 <li><strong>Type:</strong> vast glas is goedkoper dan draai-kiep, hefschuif is duurder dan standaard schuif</li>
-<li><strong>Profielsysteem:</strong> wij werken uitsluitend met Schüco LivIng (premium)</li>
+<li><strong>Profielsysteem:</strong> wij werken met Schüco LivIng en Aluplast Ideal 7000 NL (beide premium)</li>
 <li><strong>Glassoort:</strong> HR++ is standaard, triple glas (HR+++) is ~30% duurder</li>
 <li><strong>Kleur:</strong> standaard wit is goedkoopst; folie-uitvoering (antraciet, eikenhout) ~15-25% meerprijs</li>
 <li><strong>Inbraakwering:</strong> RC2 is standaard; RC3 of PKVW ~10-15% meerprijs</li>
@@ -602,7 +604,7 @@ POSTS = [
     {
         'slug': 'schueco-living-82-review',
         'takeaways': [
-            'Schüco LivIng is ons enige profiel: Duitse kwaliteit met een bouwdiepte van 82 mm.',
+            'Schüco LivIng is een van onze twee premium profielen: Duitse kwaliteit met een bouwdiepte van 82 mm.',
             'Sterke punten: zeer goede isolatie, een stevige kern en een strakke uitstraling.',
             'Eerlijk nadeel: het is geen budgetprofiel — u betaalt voor kwaliteit en levensduur.',
             'Standaard geschikt voor HR++ én triple glas en voor RC2-inbraakwerendheid.',

@@ -552,7 +552,7 @@ def page(loc):
         "@type": "Service",
         "@id": f"https://www.duurkrachtkozijnen.nl/kunststof-kozijnen-{slug}/#service",
         "name": f"Kunststof kozijnen plaatsen in {name}",
-        "description": f"Levering en montage van uitsluitend Schüco LivIng kunststof kozijnen op kunststof stelkozijnen in {name} ({province}). Eigen monteurs, nette afwerking, 10 jaar garantie en gratis advies aan huis.",
+        "description": f"Levering en montage van Schüco LivIng en Aluplast Ideal 7000 NL kunststof kozijnen op kunststof stelkozijnen in {name} ({province}). Eigen monteurs, nette afwerking, 10 jaar garantie en gratis advies aan huis.",
         "provider": {"@type": "LocalBusiness", "name": "Duurkracht Kozijnen B.V.", "@id": "https://www.duurkrachtkozijnen.nl/#business"},
         "areaServed": {
             "@type": "City",
@@ -623,7 +623,7 @@ def page(loc):
     title = f"Kunststof Kozijnen {name} — Prijs & Offerte | Duurkracht"
     if len(title) > 60:  # lange plaatsnamen: korter zodat Google niet afkapt
         title = f"Kunststof Kozijnen {name} | Duurkracht"
-    description = f"Kunststof kozijnen kopen in {name} ({province})? Schüco LivIng, scherpe prijzen, gratis offerte, eigen monteurs, 4,9★ Google en 10 jaar garantie."
+    description = f"Kunststof kozijnen kopen in {name} ({province})? Schüco LivIng of Aluplast, scherpe prijzen, gratis offerte, eigen monteurs, 4,9★ Google en 10 jaar garantie."
 
     return f'''<!DOCTYPE html>
 <html lang="nl-NL">
@@ -736,7 +736,7 @@ def page(loc):
           <span class="stars">★★★★★</span>
           <span>4,9 / 5 · <strong>Google reviews</strong></span>
           <span class="sep">|</span>
-          <span>Schüco LivIng · kunststof stelkozijnen · geen reistoeslag</span>
+          <span>Schüco LivIng &amp; Aluplast · kunststof stelkozijnen · geen reistoeslag</span>
         </div>
       </div>
       <figure class="hero-visual">
@@ -757,14 +757,14 @@ def page(loc):
 <div class="usp-strip">
   <div class="usp-row">
     <span>Actief in {name}</span><span class="sep"></span>
-    <span>Alleen Schüco LivIng</span><span class="sep"></span>
+    <span>Schüco LivIng &amp; Aluplast</span><span class="sep"></span>
     <span>Kunststof stelkozijnen</span><span class="sep"></span>
     <span>Geen reistoeslag</span><span class="sep"></span>
     <span>4,9 ★ Google</span><span class="sep"></span>
     <span>10 jaar garantie</span><span class="sep"></span>
     <span>Eigen monteurs</span><span class="sep"></span>
     <span>Actief in {name}</span><span class="sep"></span>
-    <span>Alleen Schüco LivIng</span><span class="sep"></span>
+    <span>Schüco LivIng &amp; Aluplast</span><span class="sep"></span>
     <span>Kunststof stelkozijnen</span><span class="sep"></span>
     <span>Geen reistoeslag</span><span class="sep"></span>
     <span>4,9 ★ Google</span><span class="sep"></span>
@@ -832,7 +832,7 @@ def page(loc):
       <p>Vijf disciplines, één aanspreekpunt — alle diensten leveren wij ook in {name}.</p>
     </div>
     <div class="benefits">
-      <article class="benefit"><div class="ic"><img src="/design-assets/icons/check-gradient.svg" alt="" /></div><h3>Schüco LivIng kozijnen</h3><p>Warmer wonen, minder tocht en nooit meer schilderen met onze vaste kozijnlijn. <a href="/diensten/kunststof-kozijnen/" style="color:var(--green);">Meer info →</a></p></article>
+      <article class="benefit"><div class="ic"><img src="/design-assets/icons/check-gradient.svg" alt="" /></div><h3>Kunststof kozijnen</h3><p>Warmer wonen, minder tocht en nooit meer schilderen — keuze uit Schüco LivIng en Aluplast Ideal 7000 NL. <a href="/diensten/kunststof-kozijnen/" style="color:var(--green);">Meer info →</a></p></article>
       <article class="benefit"><div class="ic"><img src="/design-assets/icons/check-gradient.svg" alt="" /></div><h3>Kunststof deuren</h3><p>Een veilige, goed isolerende entree in de stijl van uw woning. <a href="/diensten/kunststof-deuren/" style="color:var(--green);">Meer info →</a></p></article>
       <article class="benefit"><div class="ic"><img src="/design-assets/icons/check-gradient.svg" alt="" /></div><h3>Schuifpuien</h3><p>Meer licht, soepel naar buiten en een strakke verbinding met de tuin. <a href="/diensten/kunststof-schuifpuien/" style="color:var(--green);">Meer info →</a></p></article>
       <article class="benefit"><div class="ic"><img src="/design-assets/icons/check-gradient.svg" alt="" /></div><h3>Kunststof gevelbekleding</h3><p>Een frisse gevel zonder schilderwerk, verkrijgbaar in veel kleuren en houtlooks. <a href="/diensten/kunststof-gevelbekleding/" style="color:var(--green);">Meer info →</a></p></article>
@@ -887,6 +887,8 @@ def page(loc):
       </div>
       <div><p class="ftr-nav-title">Diensten</p><ul>
         <li><a href="/diensten/kunststof-kozijnen/">Kunststof kozijnen</a></li>
+        <li><a href="/diensten/schuco-living/">Schüco LivIng</a></li>
+        <li><a href="/diensten/aluplast-ideal-7000-nl/">Aluplast Ideal 7000 NL</a></li>
         <li><a href="/diensten/kunststof-deuren/">Kunststof deuren</a></li>
         <li><a href="/diensten/kunststof-schuifpuien/">Schuifpuien</a></li>
         <li><a href="/diensten/kunststof-gevelbekleding/">Gevelbekleding</a></li>
