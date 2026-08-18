@@ -5,7 +5,7 @@
 > "Last updated" below. Keep the business facts in section 4 authoritative — they are the
 > single source of truth; do not invent prices, terms or product claims that contradict it.
 
-**Last updated:** 2026-06-24 (domein live)
+**Last updated:** 2026-08-13 (configurator flink uitgebreid — zie ook `OVERDRACHT.md`)
 
 ---
 
@@ -26,7 +26,11 @@
 
 ## 2. Deploy workflow (exact commands)
 
-Deploys are **not** automatic on commit. After committing, deploy manually:
+> **2026-08-13:** er is nu ook `.github/workflows/deploy.yml` — handmatig te starten via
+> Actions → "Deploy naar Vercel" → Run workflow. Handig als je geen Vercel CLI bij de hand hebt.
+> Die workflow is nog nooit gedraaid; het `VERCEL_TOKEN`-secret is daarmee nog niet bewezen.
+
+Vanaf een machine met de Vercel CLI en een gekoppeld project:
 
 ```bash
 vercel deploy --prod --yes
@@ -55,7 +59,7 @@ files can drift from the `.py` if someone patched HTML directly — watch for th
 
 | Generator | Produces |
 |---|---|
-| `build_blog.py` | `blog/index.html` + 11 article pages (see section 5) |
+| `build_blog.py` | `blog/index.html` + article pages (see section 5). Let op: er staan inmiddels 19 blogmappen; de twee nieuwste (`kozijntrends-2026`, `tweekleurige-kozijnen`) zijn los toegevoegd en staan **niet** in de generator |
 | `build_location_pages.py` | the ~25 `kunststof-kozijnen-<stad>/index.html` city pages |
 | `build_service_pages.py` | service pages under `diensten/` |
 | `build_picture_tags.py` / `build_picture_tags`-helpers | image `<picture>` optimization |
@@ -138,8 +142,18 @@ via `?type=<product>&indeling=<variant>`. The configurator itself (`configurator
 is a single-file SPA: 6 product types (raam, voordeur, achterdeur, schuifpui, tuindeuren,
 balkondeur), SVG renderers (drawWindow/drawDoor/drawSlider/drawFrench), per-vak/per-rij dimension
 inputs with a total slider, RAL color palette, price model `basis + m²×prijs/m²` with caps, and
-project/offerte submission via Formspree. Considered feature-complete. Homepage and `/kosten`
-CTAs point to the gallery.
+project/offerte submission via Formspree. Homepage and `/kosten` CTAs point to the gallery.
+
+**Niet langer "feature-complete" — flink uitgebreid in augustus 2026:**
+
+- bewegende preview (CSS 3D-transforms) die laat zien hoe elk type opengaat
+- profielgeometrie volgens Schüco LivIng 82, op ware schaal uit mm omgerekend
+- kleur van kozijn en vleugel apart instelbaar (tweekleurig), plus binnenzijde-afwerking
+- indeling én draairichting per vak instelbaar, los van de gekozen preset
+
+**Lees `OVERDRACHT.md` voordat je hieraan werkt.** Daarin staan de tekenregels (met name:
+de punt van het openingssymbool is de kruk, niet het scharnier — dat ging twee keer mis),
+de plekken die stilletjes uit de pas lopen bij een wijziging, en waar de prijsconstanten staan.
 
 ---
 
@@ -171,11 +185,26 @@ CTAs point to the gallery.
    submitted. GA4 (G-W45QZ8KED5) added to all 155 pages + all generators.
 3. The **5 newest blogs** are intentionally shorter (~250–300 words) than the older long-form
    guides (~900). Layout is finished; deepening their content to match is an optional follow-up.
+4. **`ANTHROPIC_API_KEY` ontbreekt of is leeg** — de blogautomatie faalt sinds half juli met
+   `Could not resolve authentication method`. De workflow crasht vóór de Vercel-stap.
+5. **`priceMax` raamkozijn (€3.000)** — `softCap` knijpt boven €2.250, waardoor prijsverschillen
+   bij meervaks-ramen nauwelijks doorkomen. Beslissen of het plafond omhoog moet.
+6. **Aanzichtmaten in `PROFILE`** komen uit modelkennis, niet uit een Schüco-datasheet.
+   Bouwdiepte 82 mm en 7-kamer kloppen met de site; de 117 mm aanzicht is onbevestigd.
 
 ---
 
 ## 10. Status & changelog (newest first — append after each batch)
 
+- **2026-08-13** — Configurator flink uitgebreid (commits `e928084` t/m `93defda`): bewegende
+  preview, profielgeometrie Schüco LivIng 82 op ware schaal, kleur kozijn/vleugel apart,
+  binnenzijde-afwerking (+15% voor houtnerf of kleur), en indeling + draairichting per vak.
+  Prijsafspraken bevestigd door de eigenaar: twee kleuren buiten kost niets extra; wit of crème
+  glad binnen is inbegrepen. Twee blogartikelen toegevoegd (`kozijntrends-2026`,
+  `tweekleurige-kozijnen`). Onderweg gevonden en hersteld: de artikelkolom van 17 blogposts stond
+  op 280px doordat de inhoudsopgave de brede gridkolom kreeg, en de topbar toonde "Nu open"
+  tijdens een sluitingsperiode. Deploy-workflow toegevoegd. Zie **`OVERDRACHT.md`** voor de
+  volledige overdracht.
 - **2026-06-24** — DNS live: `www.duurkrachtkozijnen.nl` actief op Vercel (A→76.76.21.21, CNAME www→cname.vercel-dns.com via Cloud86). SSL Let's Encrypt auto-issued. GA4 (G-W45QZ8KED5) toegevoegd aan 155 HTML-bestanden + alle 3 generators. Trust-badges: officiële logo's KOMO/SKG/Schüco/Keralit. WCAG-contrast fixes (6 problemen). GSC sitemap ingediend.
 - **2026-06-24** — Blog layout for readability + Google/AI indexing: added "In het kort"
   takeaways box, featured `<figure>` image, `nl_date()` human dates + semantic `<time>`,
