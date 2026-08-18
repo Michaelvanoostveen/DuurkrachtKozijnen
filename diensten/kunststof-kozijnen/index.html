@@ -51,15 +51,19 @@
     "@type": "Country",
     "name": "Nederland"
   },
-  "brand": {
-    "@type": "Brand",
-    "name": "Schüco",
-    "url": "https://www.schueco.com/nl"
-  },
+  "brand": [
+    {"@type": "Brand", "name": "Schüco LivIng", "url": "https://www.schueco.com/nl"},
+    {"@type": "Brand", "name": "Aluplast Ideal 7000 NL", "url": "https://www.aluplast.net/eng-us/product/window/ideal/ideal-7000/"}
+  ],
   "offers": {
-    "@type": "Offer",
+    "@type": "AggregateOffer",
     "priceCurrency": "EUR",
-    "availability": "https://schema.org/InStock"
+    "lowPrice": "1890",
+    "highPrice": "2100",
+    "offerCount": "2",
+    "priceValidUntil": "2026-12-31",
+    "availability": "https://schema.org/InStock",
+    "description": "All-in stelpost per standaard raamkozijn: Aluplast Ideal 7000 NL vanaf € 1.890, Schüco LivIng vanaf € 2.100"
   }
 }
 </script>
@@ -80,10 +84,10 @@
   "@type":"FAQPage",
   "mainEntity":[
     {"@type":"Question","name":"Met welke kozijnen werkt Duurkracht?","acceptedAnswer":{"@type":"Answer","text":"Wij werken met twee premium kozijnlijnen: Schüco LivIng en Aluplast Ideal 7000 NL. Door met twee bewezen systemen te werken, houden we kwaliteit, onderdelen en montage voorspelbaar én heeft u keuze."}},
-    {"@type":"Question","name":"Wat kost een kunststof kozijn gemiddeld?","acceptedAnswer":{"@type":"Answer","text":"Onze all-in stelpost voor een standaard kunststof raamkozijn is € 2.100 per stuk — inclusief Schüco LivIng profiel, HR++ glas, kunststof stelkozijn, RC2 sluitwerk, montage door eigen monteurs, garantie en btw. Bereken uw totale project op duurkrachtkozijnen.nl/kosten."}},
-    {"@type":"Question","name":"Welke kleuren zijn er beschikbaar?","acceptedAnswer":{"@type":"Answer","text":"Onze Schüco LivIng kozijnen zijn verkrijgbaar in standaard wit, of in folie-uitvoering met houtnerf-look (eiken, mahonie, antraciet) en RAL-kleuren naar wens. Antraciet (RAL 7016) en wit zijn de meest gekozen kleuren."}},
+    {"@type":"Question","name":"Wat kost een kunststof kozijn gemiddeld?","acceptedAnswer":{"@type":"Answer","text":"Dat hangt af van het profiel. Voor Aluplast Ideal 7000 NL is onze all-in stelpost € 1.890 per raamkozijn, voor Schüco LivIng € 2.100. Beide inclusief HR++ glas, kunststof stelkozijn, RC2 sluitwerk, montage door eigen monteurs, garantie en btw. Bereken uw totale project op duurkrachtkozijnen.nl/kosten."}},
+    {"@type":"Question","name":"Welke kleuren zijn er beschikbaar?","acceptedAnswer":{"@type":"Answer","text":"Beide kozijnlijnen zijn verkrijgbaar in standaard wit, of in folie-uitvoering met houtnerf-look (eiken, mahonie, antraciet) en RAL-kleuren naar wens. Aluplast biedt daarnaast 50+ foliekleuren en Woodec/Aludec houtnerf. Antraciet (RAL 7016) en wit zijn de meest gekozen kleuren."}},
     {"@type":"Question","name":"Hoe lang duurt de plaatsing van kozijnen?","acceptedAnswer":{"@type":"Answer","text":"De montage van een gemiddeld huis met 6 tot 10 kozijnen duurt 1 à 2 werkdagen. De totale doorlooptijd van adviesgesprek tot oplevering is 6 tot 8 weken."}},
-    {"@type":"Question","name":"Waarom kunststof stelkozijnen?","acceptedAnswer":{"@type":"Answer","text":"Kunststof stelkozijnen vormen een maatvaste en vochtbestendige basis achter het kozijn. Daardoor kunnen we Schüco LivIng kozijnen strak plaatsen en blijft de aansluiting beter controleerbaar."}}
+    {"@type":"Question","name":"Waarom kunststof stelkozijnen?","acceptedAnswer":{"@type":"Answer","text":"Kunststof stelkozijnen vormen een maatvaste en vochtbestendige basis achter het kozijn. Daardoor kunnen we beide kozijnlijnen strak plaatsen en blijft de aansluiting beter controleerbaar."}}
   ]
 }
 </script>
@@ -231,7 +235,7 @@
   <div class="container">
     <div class="stat"><div class="num">A+</div><div class="lbl">Isolerende<br>kwaliteitsopbouw</div></div>
     <div class="stat"><div class="num">0</div><div class="lbl">Schilderbeurten<br>nodig</div></div>
-    <div class="stat"><div class="num">7</div><div class="lbl">Isolerende kamers<br>in het profiel</div></div>
+    <div class="stat"><div class="num">6-7</div><div class="lbl">Isolerende kamers<br>afhankelijk van profiel</div></div>
     <div class="stat"><div class="num">40+</div><div class="lbl">Jaar verwachte<br>levensduur</div></div>
   </div>
 </section>
@@ -264,31 +268,36 @@
   <div class="container">
     <div class="section-head">
       <div>
-        <span class="eyebrow">Kwaliteitsdetails</span>
-        <h2>De techniek,<br><span class="em-italic">kort uitgelegd.</span></h2>
+        <span class="eyebrow">Vergelijking</span>
+        <h2>Twee kozijnlijnen,<br><span class="em-italic">naast elkaar.</span></h2>
       </div>
-      <p>Voor wie wil vergelijken: dit zijn de details achter het comfort. Tijdens het adviesgesprek vertalen we ze naar een praktische keuze voor uw woning.</p>
+      <p>Wij leveren twee premium profielsystemen. Beide zijn Duits, KOMO-gecertificeerd en krijgen 10 jaar garantie. Hieronder ziet u waar ze van elkaar verschillen.</p>
     </div>
-    <table class="specs-table">
+    <div style="overflow-x: auto;">
+    <table class="specs-table compare-table">
+      <thead>
+        <tr>
+          <th scope="col">Kenmerk</th>
+          <th scope="col"><a href="/diensten/schuco-living/" style="color:var(--green);">Schüco LivIng</a></th>
+          <th scope="col"><a href="/diensten/aluplast-ideal-7000-nl/" style="color:var(--green);">Aluplast Ideal 7000 NL</a></th>
+        </tr>
+      </thead>
       <tbody>
-        <tr><th>Profielsysteem</th><td><strong>Schüco LivIng kunststof kozijnsysteem</strong></td></tr>
-        <tr><th>Montagebasis</th><td><strong>Kunststof stelkozijn</strong> — vormvast, vochtbestendig en controleerbaar</td></tr>
-        <tr><th>Isolatie-opbouw</th><td>Meerkamerprofiel met isolerende luchtkamers</td></tr>
-        <tr><th>Bouwdiepte</th><td>82 mm</td></tr>
-        <tr><th>Uf-waarde (frame)</th><td><strong>0,92 W/(m²K)</strong></td></tr>
-        <tr><th>Ug-waarde HR++ glas</th><td>±1,1 W/(m²K)</td></tr>
-        <tr><th>Ug-waarde triple glas</th><td>0,5 – 0,7 W/(m²K)</td></tr>
-        <tr><th>Veiligheid</th><td>Inbraakwerend hang- en sluitwerk, RC2/RC3 op aanvraag</td></tr>
-        <tr><th>Afdichting</th><td>EPDM, lasbaar (gesloten hoeken)</td></tr>
-        <tr><th>Versterking</th><td>Stalen versterkingsprofielen</td></tr>
-        <tr><th>Kleuren</th><td>Wit standaard, folie- en RAL-kleuren op aanvraag</td></tr>
-        <tr><th>Glasopties</th><td>HR++ (standaard), triple HR+++ (optioneel)</td></tr>
-        <tr><th>Verwachte levensduur</th><td>40 – 50 jaar</td></tr>
-        <tr><th>Garantie</th><td>10 jaar op profiel en montage</td></tr>
-        <tr><th>Technische controle</th><td>Wij lichten relevante waardes toe in de offerte</td></tr>
+        <tr><th>Herkomst merk</th><td>Duitsland — Bielefeld, sinds 1951</td><td>Duitsland — Karlsruhe, sinds 1982</td></tr>
+        <tr><th>Isolatiekamers</th><td>7 kamers</td><td>6 kamers, dubbele EPDM-afdichting</td></tr>
+        <tr><th>Bouwdiepte</th><td>82 mm</td><td>120 mm (verdiept blokprofiel)</td></tr>
+        <tr><th>Uf-waarde (frame)</th><td><strong>0,92 W/(m²K)</strong></td><td>1,1 W/(m²K) — 1,0 met Powerdur®</td></tr>
+        <tr><th>Uw met triple glas</th><td>onder 0,8 (passiefhuis-niveau)</td><td>tot 0,70 W/(m²K)</td></tr>
+        <tr><th>Inbraakwerendheid</th><td>RC2 standaard, RC3 op verzoek</td><td>RC2 mogelijk (EN 1627 / NEN 5096)</td></tr>
+        <tr><th>Uitstraling</th><td>Strak en modern, slank zichtwerk</td><td>Klassiek verdiept; HVL-optie oogt als houtwerk</td></tr>
+        <tr><th>Kleuren</th><td>Wit, folie-houtnerf en RAL op aanvraag</td><td>Wit, crème, antraciet · 50+ folies · Woodec/Aludec</td></tr>
+        <tr><th>Sterkste punt</th><td>Beste isolatiewaarde van de twee</td><td>Traditionele uitstraling bij renovatie</td></tr>
+        <tr><th>All-in stelpost</th><td><strong>€ 2.100</strong> per raamkozijn</td><td><strong>€ 1.890</strong> per raamkozijn <span style="color:var(--orange); font-weight:600;">(−10%)</span></td></tr>
       </tbody>
     </table>
-    <p style="font-size: 13px; color: var(--gray-500); margin-top: 16px;">Bron: <a href="https://www.schueco.com/nl" rel="external nofollow noopener" style="color: var(--green);">schueco.com</a></p>
+    </div>
+    <p style="margin-top: 20px;"><strong>Welke kiest u?</strong> Gaat u voor de allerbeste isolatiewaarde, dan is Schüco LivIng de logische keuze. Wilt u een klassieke, verdiepte uitstraling bij een renovatie — of een scherpere prijs bij vergelijkbare premium kwaliteit — dan past Aluplast Ideal 7000 NL beter. Onze adviseur helpt u kosteloos kiezen.</p>
+    <p style="font-size: 13px; color: var(--gray-500); margin-top: 16px;">Gemeenschappelijk voor beide: kunststof stelkozijn als montagebasis, HR++ glas standaard (triple optioneel), stalen versterking, verwachte levensduur 40–50 jaar en 10 jaar garantie op profiel én montage. Bron: <a href="https://www.schueco.com/nl" rel="external nofollow noopener" style="color: var(--green);">schueco.com</a> · <a href="https://www.aluplast.net/eng-us/product/window/ideal/ideal-7000/" rel="external nofollow noopener" style="color: var(--green);">aluplast.net</a></p>
   </div>
 </section>
 
@@ -467,11 +476,11 @@
       </details>
       <details class="faq-item">
         <summary>Waarom kunststof stelkozijnen?</summary>
-        <div class="answer"><p>Kunststof stelkozijnen vormen de basis achter het zichtbare kozijn. Ze zijn maatvast en vochtbestendig, waardoor het Schüco LivIng kozijn strak en controleerbaar geplaatst kan worden. Compriband kan afdichten, maar is bij ons niet de dragende montagebasis.</p></div>
+        <div class="answer"><p>Kunststof stelkozijnen vormen de basis achter het zichtbare kozijn. Ze zijn maatvast en vochtbestendig, waardoor beide kozijnlijnen strak en controleerbaar geplaatst kunnen worden. Compriband kan afdichten, maar is bij ons niet de dragende montagebasis.</p></div>
       </details>
       <details class="faq-item">
         <summary>Wat kost een kunststof kozijn gemiddeld?</summary>
-        <div class="answer"><p>Onze all-in stelpost voor een standaard kunststof raamkozijn is <strong>€ 2.100 per stuk</strong> — inclusief Schüco LivIng profiel, HR++ glas, kunststof stelkozijn, RC2 sluitwerk, montage door eigen monteurs, 10 jaar garantie en btw. Geen verborgen kosten achteraf. <a href="/kosten/">Bereken uw totale project</a> op onze kosten-pagina.</p></div>
+        <div class="answer"><p>Dat hangt af van het profiel dat u kiest: <strong>€ 1.890 per stuk</strong> voor Aluplast Ideal 7000 NL en <strong>€ 2.100 per stuk</strong> voor Schüco LivIng. Beide all-in — inclusief profiel, HR++ glas, kunststof stelkozijn, RC2 sluitwerk, montage door eigen monteurs, 10 jaar garantie en btw. Geen verborgen kosten achteraf. <a href="/kosten/">Bereken uw totale project</a> op onze kosten-pagina.</p></div>
       </details>
       <details class="faq-item">
         <summary>Welke kleuren zijn er beschikbaar?</summary>
