@@ -209,6 +209,34 @@ Controleer standaard: geen JS-fouten (`page.on("pageerror")`), geen horizontale 
 
 ---
 
+## 8b. Positionering — prijs is geen USP
+
+> **Instructie van de eigenaar (2026-08-13), geldt voor het Aluplast-traject.**
+
+Aluplast Ideal 7000 NL is goedkoper dan Schüco LivIng. Dat prijsverschil mag **wel** doorwerken
+in de berekende prijzen, maar mag **niet** als verkoopargument worden gebruikt.
+
+**Verwijderen:** elke vermelding in de trant van "10% goedkoper", "voordeliger dan", of een
+prijsvergelijking als USP — in koppen, USP-balken, trust-badges, meta-descriptions, JSON-LD,
+blogteksten en advertentiecopy.
+
+**Behouden:** de prijzen zelf in de calculator en configurator. De klant ziet gewoon wat het
+kost; hij krijgt alleen niet te lezen dat het goedkoper is dan iets anders.
+
+De reden is positionering: het merk staat voor vakwerk, eigen monteurs en 10 jaar garantie —
+niet voor de laagste prijs. Een kortingsargument trekt het gesprek naar prijs in plaats van
+kwaliteit, en ondermijnt de marge bij de offerte.
+
+Waar je op moet letten bij het opschonen:
+
+- USP-balken en marquees op de homepage
+- `<meta name="description">` en `og:description`
+- JSON-LD (`description`, FAQ-antwoorden) — die wordt makkelijk over het hoofd gezien
+- Blogartikelen en vergelijkingspagina's
+- Python-generators: schoon daar de bron op, niet de gegenereerde HTML
+
+---
+
 ## 9. Conventies in dit project
 
 - **Nederlands** in alle klantgerichte tekst, commit-berichten en code-commentaar
