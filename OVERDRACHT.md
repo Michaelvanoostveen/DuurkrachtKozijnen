@@ -211,29 +211,37 @@ Controleer standaard: geen JS-fouten (`page.on("pageerror")`), geen horizontale 
 
 ## 8b. Positionering — prijs is geen USP
 
-> **Instructie van de eigenaar (2026-08-13), geldt voor het Aluplast-traject.**
+> **Vaste regel van de eigenaar (2026-08-13). Doorgevoerd, houd het zo.**
 
-Aluplast Ideal 7000 NL is goedkoper dan Schüco LivIng. Dat prijsverschil mag **wel** doorwerken
-in de berekende prijzen, maar mag **niet** als verkoopargument worden gebruikt.
+De site voert twee kozijnlijnen: **Schüco LivIng 82** en **Aluplast Ideal 7000 NL**. Aluplast
+ligt circa 10% lager in prijs (€ 1.890 vs € 2.100 voor een standaard raamkozijn).
 
-**Verwijderen:** elke vermelding in de trant van "10% goedkoper", "voordeliger dan", of een
-prijsvergelijking als USP — in koppen, USP-balken, trust-badges, meta-descriptions, JSON-LD,
-blogteksten en advertentiecopy.
+Dat prijsverschil mag **wel** zichtbaar zijn in de calculator en configurator — de klant ziet
+gewoon wat het kost. Het mag **niet** als verkoopargument worden gebruikt.
 
-**Behouden:** de prijzen zelf in de calculator en configurator. De klant ziet gewoon wat het
-kost; hij krijgt alleen niet te lezen dat het goedkoper is dan iets anders.
+Het merk staat voor vakwerk, eigen monteurs en 10 jaar garantie, niet voor de laagste prijs.
+Een kortingsargument trekt het gesprek naar prijs in plaats van kwaliteit en ondermijnt de
+marge bij de offerte. De pagina zegt daarom bewust *"een Duits profielmerk, geen goedkoop
+alternatief"* — die framing hoort zo te blijven.
 
-De reden is positionering: het merk staat voor vakwerk, eigen monteurs en 10 jaar garantie —
-niet voor de laagste prijs. Een kortingsargument trekt het gesprek naar prijs in plaats van
-kwaliteit, en ondermijnt de marge bij de offerte.
+**Wat is opgeschoond** (allemaal vervangen door de levertijd van 3 à 4 weken of een feitelijke
+profieleigenschap):
 
-Waar je op moet letten bij het opschonen:
+| Plek | Was |
+|---|---|
+| `diensten/aluplast-ideal-7000-nl/` meta description | "…en circa 10% voordeliger" |
+| idem, `og:description` | "…en circa 10% voordeliger" |
+| idem, JSON-LD FAQ-antwoord | "circa 10% onder onze Schüco LivIng stelpost" |
+| idem, zichtbare FAQ | idem |
+| `kosten/` profielkiezer | "6-kamer · verdiept 120 mm · circa 10% voordeliger" |
 
-- USP-balken en marquees op de homepage
-- `<meta name="description">` en `og:description`
-- JSON-LD (`description`, FAQ-antwoorden) — die wordt makkelijk over het hoofd gezien
-- Blogartikelen en vergelijkingspagina's
-- Python-generators: schoon daar de bron op, niet de gegenereerde HTML
+**Bewust blijven staan:** de prijzen zelf (`PRICE_SETS` in `kosten/index.html`) en het
+JS-commentaar dat uitlegt waarom ze verschillen — dat is code-documentatie, geen marketing.
+
+Bij nieuwe teksten letten op: USP-balken en marquees, `<meta name="description">` en
+`og:description`, JSON-LD (`description` en FAQ-antwoorden — die wordt makkelijk vergeten),
+blogartikelen en vergelijkingspagina's. Komt de tekst uit een `build_*.py`, schoon dan de
+Python-bron op en niet de gegenereerde HTML.
 
 ---
 
