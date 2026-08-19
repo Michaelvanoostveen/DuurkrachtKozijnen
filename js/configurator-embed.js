@@ -56,6 +56,29 @@
     window.addEventListener('load', report);
     document.addEventListener('click', function () { setTimeout(report, 60); });
     report();
+
+    breakOutOfFrame();
+  }
+
+  // In een iframe zou een gewone link (bv. "Vraag offerte aan voor dit
+  // project") de contactpagina BINNEN het configurator-venster laden.
+  // Daarom laten we navigerende links het hele venster overnemen.
+  //
+  // Als capture-listener i.p.v. eenmalig target zetten: zo werkt het ook
+  // voor links die later door de configurator worden toegevoegd, en voor
+  // de offerte-link waarvan de href steeds herschreven wordt.
+  function breakOutOfFrame() {
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href]');
+      if (!a) return;
+      var href = a.getAttribute('href') || '';
+      // Ankers binnen de pagina moeten in de iframe blijven.
+      if (href.charAt(0) === '#') return;
+      if (/^javascript:/i.test(href)) return;
+      // Een expliciete keuze van de auteur respecteren.
+      if (a.getAttribute('target')) return;
+      a.setAttribute('target', '_top');
+    }, true);
   }
 
   // ---------------------------------------------------------------- PARENT
