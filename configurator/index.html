@@ -284,6 +284,27 @@
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "xkjrl7c4vw");
 </script>
+<!-- EMBED-MODUS: met ?embed=1 wordt de configurator zonder site-chrome getoond,
+     zodat hij in een iframe op de homepage past. Zie /js/configurator-embed.js -->
+<style>
+  html.is-embed body{ background: transparent; }
+  html.is-embed .topbar,
+  html.is-embed .nav,
+  html.is-embed .breadcrumb,
+  html.is-embed footer,
+  html.is-embed .mobile-cta,
+  html.is-embed .wa-float,
+  html.is-embed .exit-intent-overlay{ display: none !important; }
+  html.is-embed .cfg-section{ padding-top: 0; padding-bottom: 0; }
+  html.is-embed .cfg-head{ display: none; }
+  html.is-embed .container{ padding-left: 0; padding-right: 0; }
+</style>
+<script>
+  // Zo vroeg mogelijk zetten, zodat de chrome nooit even oplicht (geen FOUC).
+  if (new URLSearchParams(location.search).get('embed') === '1') {
+    document.documentElement.classList.add('is-embed');
+  }
+</script>
 </head>
 <body>
 
@@ -1524,5 +1545,6 @@
 
 <script src="/js/tracking.js" defer></script>
 <script src="/js/exit-intent.js" defer></script>
+<script src="/js/configurator-embed.js" defer></script>
 </body>
 </html>

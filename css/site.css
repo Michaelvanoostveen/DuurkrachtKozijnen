@@ -526,7 +526,10 @@ h3{ font-size: clamp(1.25rem, 1.8vw, 1.6rem); }
 /* WIDGET CARD */
 .tools-widget{
   position: relative; z-index: 2;
-  max-width: 820px; margin: 0 auto;
+  /* Ruimer dan de oorspronkelijke 820px, zodat de ingebedde configurator
+     zijn tweekoloms-indeling kwijt kan. Het postcode-paneel houdt hieronder
+     zijn eigen, smallere maat. */
+  max-width: 1180px; margin: 0 auto;
   background: #fff;
   border-radius: 20px;
   box-shadow:
@@ -574,8 +577,28 @@ h3{ font-size: clamp(1.25rem, 1.8vw, 1.6rem); }
 /* PANELS */
 .tools-panel{ padding: 32px clamp(20px, 4vw, 40px); display: none; }
 .tools-panel.is-active{ display: block; }
+/* Het postcode-formulier oogt uitgerekt op de volle 1180px, dus houden we
+   dat paneel op de oorspronkelijke breedte. */
+#panel-postcode{ max-width: 820px; margin: 0 auto; }
+/* De configurator benut de volle breedte; minder padding = meer werkruimte. */
+#panel-kosten{ padding: 20px clamp(12px, 2vw, 22px); }
 
 /* SUBSIDIE-PANEL ROWS */
+/* Configurator ingebed op de homepage.
+   De iframe isoleert de configurator volledig, zodat zijn CSS/JS de
+   homepage-layout niet kan raken. De hoogte wordt gezet door
+   /js/configurator-embed.js; de waarde hieronder is de start/fallback. */
+.cfg-embed-wrap{ position: relative; width: 100%; }
+.cfg-embed-wrap iframe{
+  display: block; width: 100%; height: 1180px; min-height: 520px;
+  border: 0; border-radius: 14px; background: #fff;
+  transition: height .18s ease;
+}
+@media (max-width: 900px){ .cfg-embed-wrap iframe{ height: 1520px; } }
+@media (max-width: 560px){ .cfg-embed-wrap iframe{ height: 1720px; } }
+/* Zonder JS blijft de fallback-hoogte staan en mag de iframe zelf scrollen. */
+@media (prefers-reduced-motion: reduce){ .cfg-embed-wrap iframe{ transition: none; } }
+
 /* Profielkeuze in de kostencalculator */
 .calc-profile{ margin-bottom: 4px; }
 .calc-profile-legend{
