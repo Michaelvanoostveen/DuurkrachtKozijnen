@@ -4,6 +4,7 @@
 User-agent: *
 Allow: /
 Disallow: /preview
+Disallow: /intern/
 Disallow: /index-original*
 Disallow: /design-comp*
 Disallow: /_extracted/

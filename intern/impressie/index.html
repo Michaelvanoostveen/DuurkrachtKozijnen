@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="nl-NL">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Impressie-tool (intern) | Duurkracht Kozijnen</title>
+<!-- INTERN HULPMIDDEL — niet voor bezoekers. Niet in de sitemap, geblokkeerd in robots.txt. -->
+<meta name="robots" content="noindex, nofollow" />
+<link rel="icon" type="image/svg+xml" href="/design-assets/beelmerkje-klein.svg" />
+<style>
+  :root{
+    --green:#0B5A2B; --accent:#E8612C; --ink:#0D1F18;
+    --g100:#f3f3f1; --g200:#e4e4e0; --g600:#696960;
+  }
+  *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body{ margin:0; padding:0; background:#111; color:#fff;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Manrope,sans-serif; }
+  body{ min-height:100dvh; display:flex; flex-direction:column; }
+
+  header{ background:var(--green); padding:10px 16px; display:flex; align-items:center; gap:12px; flex:none; }
+  header strong{ font-size:15px; }
+  header .tag{ font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+    background:rgba(255,255,255,.16); padding:3px 8px; border-radius:99px; }
+
+  /* WERKVLAK */
+  .work{ flex:1; display:flex; align-items:center; justify-content:center; overflow:auto; padding:12px; }
+  .stage{ position:relative; display:inline-block; line-height:0; touch-action:none; }
+  .stage img{ display:block; max-width:100%; max-height:72dvh; border-radius:6px; }
+
+  /* De overlay wordt met matrix3d in perspectief gezet. transform-origin
+     linksboven, want de homografie rekent vanaf (0,0). */
+  #overlay{ position:absolute; left:0; top:0; transform-origin:0 0;
+    pointer-events:none; will-change:transform; }
+  #overlay svg{ display:block; }
+  .stage.compare #overlay{ opacity:0; }
+
+  /* Hoekpunten. 44px raakvlak, kleine stip — Apple's richtlijn voor touch. */
+  .handle{ position:absolute; width:44px; height:44px; margin:-22px 0 0 -22px;
+    display:grid; place-items:center; touch-action:none; cursor:grab; z-index:3; }
+  .handle::after{ content:''; width:18px; height:18px; border-radius:50%;
+    background:var(--accent); border:3px solid #fff; box-shadow:0 1px 6px rgba(0,0,0,.5); }
+  .handle:active{ cursor:grabbing; }
+  .handle::before{ content:attr(data-nr); position:absolute; top:-2px; left:30px;
+    font-size:11px; color:#fff; text-shadow:0 1px 3px #000; }
+  .stage.compare .handle, .stage.clean .handle{ display:none; }
+
+  /* Hulplijnen tussen de hoekpunten */
+  #guides{ position:absolute; left:0; top:0; width:100%; height:100%;
+    pointer-events:none; z-index:2; }
+  .stage.compare #guides, .stage.clean #guides{ display:none; }
+
+  .watermark{ position:absolute; right:8px; bottom:8px; z-index:4;
+    font-size:10px; letter-spacing:.14em; text-transform:uppercase;
+    color:rgba(255,255,255,.85); background:rgba(0,0,0,.35);
+    padding:4px 8px; border-radius:4px; pointer-events:none; }
+
+  /* BEDIENING */
+  .panel{ flex:none; background:#1b1b1b; border-top:1px solid #2e2e2e;
+    padding:12px 14px calc(12px + env(safe-area-inset-bottom)); }
+  .row{ display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-bottom:10px; }
+  .row:last-child{ margin-bottom:0; }
+  .lbl{ font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#9a9a92;
+    width:100%; margin-bottom:2px; }
+
+  button, .filebtn{ font:inherit; font-size:14px; font-weight:600; border:1px solid #3a3a3a;
+    background:#262626; color:#fff; padding:9px 13px; border-radius:9px; cursor:pointer; }
+  button:hover, .filebtn:hover{ border-color:#555; }
+  button[aria-pressed="true"], .chip[aria-pressed="true"]{
+    background:var(--green); border-color:var(--green); }
+  button.primary{ background:var(--accent); border-color:var(--accent); }
+  .filebtn input{ display:none; }
+
+  .chip{ padding:8px 12px; font-size:13px; }
+  .sw{ width:38px; height:38px; padding:0; border-radius:9px; border:2px solid #3a3a3a; }
+  .sw[aria-pressed="true"]{ border-color:#fff; box-shadow:0 0 0 2px var(--green); }
+
+  .empty{ color:#8d8d85; text-align:center; padding:40px 20px; font-size:15px; line-height:1.5; }
+  .hint{ font-size:12px; color:#8d8d85; margin-top:8px; line-height:1.45; }
+</style>
+</head>
+<body>
+
+<header>
+  <strong>Impressie-tool</strong>
+  <span class="tag">Intern</span>
+</header>
+
+<div class="work">
+  <div class="empty" id="empty">
+    Kies een foto van de gevel.<br>
+    Sleep daarna de vier stippen naar de hoeken van de bestaande opening.
+  </div>
+
+  <div class="stage" id="stage" hidden>
+    <img id="foto" alt="Gevelfoto" />
+    <svg id="guides"><polygon id="guidePoly" fill="none" stroke="rgba(232,97,44,.9)"
+      stroke-width="1.5" stroke-dasharray="6 5" /></svg>
+    <div id="overlay"></div>
+    <div class="handle" data-i="0" data-nr="1"></div>
+    <div class="handle" data-i="1" data-nr="2"></div>
+    <div class="handle" data-i="2" data-nr="3"></div>
+    <div class="handle" data-i="3" data-nr="4"></div>
+    <span class="watermark">Impressie — geen exacte weergave</span>
+  </div>
+</div>
+
+<div class="panel">
+  <div class="row">
+    <label class="filebtn">Foto kiezen
+      <input type="file" id="file" accept="image/*" />
+    </label>
+    <button id="btnCompare">Toon origineel</button>
+    <button id="btnClean" aria-pressed="false">Verberg punten</button>
+    <button id="btnReset">Punten herstellen</button>
+  </div>
+
+  <div class="row" id="rowType">
+    <span class="lbl">Kozijntype</span>
+    <button class="chip" data-type="tuindeuren-bl" aria-pressed="true">Tuindeuren + bovenlicht</button>
+    <button class="chip" data-type="tuindeuren" aria-pressed="false">Tuindeuren</button>
+    <button class="chip" data-type="raam-dk" aria-pressed="false">Raamkozijn draai-kiep</button>
+    <button class="chip" data-type="schuifpui" aria-pressed="false">Schuifpui</button>
+  </div>
+
+  <div class="row" id="rowKleur">
+    <span class="lbl">Kleur</span>
+  </div>
+
+  <p class="hint" id="hint">
+    Tip: het glas blijft doorzichtig — u vervangt alleen het profiel, dus het zicht naar binnen
+    klopt vanzelf met de foto.
+  </p>
+</div>
+
+<script>
+(function(){
+  'use strict';
+
+  // ─────────────────────────────────────────────────────────────
+  // KLEUREN
+  // ─────────────────────────────────────────────────────────────
+  var KLEUREN = [
+    { key:'wit',       label:'Wit',       vlak:'#F4F4F0', rand:'#D2D2CA' },
+    { key:'creme',     label:'Crème',     vlak:'#EFE7D5', rand:'#CFC5AE' },
+    { key:'antraciet', label:'Antraciet', vlak:'#3B3E3D', rand:'#2A2C2B' },
+    { key:'zwart',     label:'Zwart',     vlak:'#1E201F', rand:'#131414' },
+    { key:'eiken',     label:'Eiken',     vlak:'#8A5A2B', rand:'#6B4520' }
+  ];
+  var kleur = KLEUREN[0], type = 'tuindeuren-bl';
+
+  // ─────────────────────────────────────────────────────────────
+  // KOZIJNTEKENING
+  // Alleen het PROFIEL wordt getekend; glasvlakken blijven leeg, zodat
+  // de originele foto er doorheen zichtbaar blijft. Daardoor kloppen
+  // spiegeling en zicht naar binnen automatisch met de opname.
+  // ─────────────────────────────────────────────────────────────
+  var W = 1000, H = 1500;   // tekenruimte; de homografie schaalt naar de foto
+
+  function ring(x, y, w, h, t){
+    return 'M'+x+' '+y+'H'+(x+w)+'V'+(y+h)+'H'+x+'Z'
+         + 'M'+(x+t)+' '+(y+t)+'V'+(y+h-t)+'H'+(x+w-t)+'V'+(y+t)+'Z';
+  }
+  function bar(x, y, w, h){ return 'M'+x+' '+y+'H'+(x+w)+'V'+(y+h)+'H'+x+'Z'; }
+
+  function tekening(kind){
+    var d = [];                       // profielvlakken
+    var buiten = 42;                  // buitenkader
+    var vleugel = 34;                 // vleugelprofiel
+
+    d.push(ring(0, 0, W, H, buiten));
+
+    if (kind === 'tuindeuren-bl' || kind === 'tuindeuren'){
+      var top = 0;
+      if (kind === 'tuindeuren-bl'){
+        var blH = Math.round(H * 0.19);            // hoogte bovenlicht
+        d.push(bar(buiten, blH, W - 2*buiten, buiten));  // tussendorpel
+        top = blH + buiten;
+      } else {
+        top = buiten;
+      }
+      var binW = W - 2*buiten, binH = H - top - buiten;
+      var midden = Math.round(W/2 - buiten/2);
+      d.push(bar(midden, top, buiten, binH));      // middenstijl
+      // twee deurvleugels
+      var dw = Math.round((binW - buiten) / 2);
+      d.push(ring(buiten, top, dw, binH, vleugel));
+      d.push(ring(midden + buiten, top, dw, binH, vleugel));
+    }
+
+    if (kind === 'raam-dk'){
+      d.push(ring(buiten, buiten, W - 2*buiten, H - 2*buiten, vleugel));
+    }
+
+    if (kind === 'schuifpui'){
+      var m = Math.round(W/2 - buiten/2);
+      d.push(bar(m, buiten, buiten, H - 2*buiten));
+      var sw = Math.round((W - 2*buiten - buiten) / 2);
+      d.push(ring(buiten, buiten, sw, H - 2*buiten, vleugel));
+      d.push(ring(m + buiten, buiten, sw, H - 2*buiten, vleugel));
+    }
+    return d.join('');
+  }
+
+  function svgMarkup(){
+    return '<svg width="'+W+'" height="'+H+'" viewBox="0 0 '+W+' '+H+'" '
+      + 'xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision">'
+      + '<path d="'+tekening(type)+'" fill="'+kleur.vlak+'" fill-rule="evenodd" '
+      +   'stroke="'+kleur.rand+'" stroke-width="2" stroke-linejoin="miter"/>'
+      + '</svg>';
+  }
+
+  // ─────────────────────────────────────────────────────────────
+  // PERSPECTIEF
+  // Homografie die (0,0),(W,0),(W,H),(0,H) op de vier gesleepte punten legt,
+  // omgezet naar een CSS matrix3d. Zo doet Safari het rekenwerk op de GPU
+  // en blijft de tekening scherp bij elke schaal.
+  // ─────────────────────────────────────────────────────────────
+  function solve(A, b){                    // Gauss met partiële pivotering
+    var n = b.length, i, j, k;
+    for (i = 0; i < n; i++){
+      var p = i;
+      for (j = i+1; j < n; j++) if (Math.abs(A[j][i]) > Math.abs(A[p][i])) p = j;
+      var t = A[i]; A[i] = A[p]; A[p] = t;
+      var tb = b[i]; b[i] = b[p]; b[p] = tb;
+      if (Math.abs(A[i][i]) < 1e-12) return null;      // ontaarde vierhoek
+      for (j = i+1; j < n; j++){
+        var f = A[j][i] / A[i][i];
+        for (k = i; k < n; k++) A[j][k] -= f * A[i][k];
+        b[j] -= f * b[i];
+      }
+    }
+    var x = new Array(n);
+    for (i = n-1; i >= 0; i--){
+      var s = b[i];
+      for (j = i+1; j < n; j++) s -= A[i][j] * x[j];
+      x[i] = s / A[i][i];
+    }
+    return x;
+  }
+
+  function matrix3d(q){
+    var src = [[0,0],[W,0],[W,H],[0,H]];
+    var A = [], b = [];
+    for (var i = 0; i < 4; i++){
+      var u = src[i][0], v = src[i][1], x = q[i][0], y = q[i][1];
+      A.push([u, v, 1, 0, 0, 0, -u*x, -v*x]); b.push(x);
+      A.push([0, 0, 0, u, v, 1, -u*y, -v*y]); b.push(y);
+    }
+    var h = solve(A, b);
+    if (!h) return null;
+    // CSS matrix3d is kolom-major
+    return 'matrix3d('
+      + h[0]+','+h[3]+',0,'+h[6]+','
+      + h[1]+','+h[4]+',0,'+h[7]+','
+      + '0,0,1,0,'
+      + h[2]+','+h[5]+',0,1)';
+  }
+
+  // ─────────────────────────────────────────────────────────────
+  // STATE
+  // Hoekpunten als fractie van de foto, zodat ze blijven kloppen bij
+  // draaien van de iPad of een andere schermmaat.
+  // ─────────────────────────────────────────────────────────────
+  var pts = [[0.30,0.22],[0.70,0.22],[0.70,0.80],[0.30,0.80]];
+
+  var stage   = document.getElementById('stage');
+  var foto    = document.getElementById('foto');
+  var overlay = document.getElementById('overlay');
+  var guides  = document.getElementById('guides');
+  var poly    = document.getElementById('guidePoly');
+  var empty   = document.getElementById('empty');
+  var handles = [].slice.call(document.querySelectorAll('.handle'));
+
+  function stageSize(){
+    return { w: foto.clientWidth, h: foto.clientHeight };
+  }
+
+  function draw(){
+    var s = stageSize();
+    if (!s.w || !s.h) return;
+
+    var q = pts.map(function(p){ return [p[0]*s.w, p[1]*s.h]; });
+
+    var m = matrix3d(q);
+    if (m) overlay.style.transform = m;
+
+    handles.forEach(function(el, i){
+      el.style.left = q[i][0] + 'px';
+      el.style.top  = q[i][1] + 'px';
+    });
+
+    guides.setAttribute('width', s.w);
+    guides.setAttribute('height', s.h);
+    poly.setAttribute('points', q.map(function(p){ return p[0]+','+p[1]; }).join(' '));
+  }
+
+  function render(){
+    overlay.innerHTML = svgMarkup();
+    draw();
+  }
+
+  // ── slepen (pointer events dekken muis én touch op iPad) ──
+  handles.forEach(function(el){
+    el.addEventListener('pointerdown', function(ev){
+      ev.preventDefault();
+      el.setPointerCapture(ev.pointerId);
+      var i = +el.dataset.i;
+
+      function move(e){
+        var r = foto.getBoundingClientRect();
+        var x = (e.clientX - r.left) / r.width;
+        var y = (e.clientY - r.top)  / r.height;
+        pts[i] = [Math.min(1.2, Math.max(-0.2, x)), Math.min(1.2, Math.max(-0.2, y))];
+        draw();
+      }
+      function up(e){
+        el.releasePointerCapture(ev.pointerId);
+        el.removeEventListener('pointermove', move);
+        el.removeEventListener('pointerup', up);
+        el.removeEventListener('pointercancel', up);
+      }
+      el.addEventListener('pointermove', move);
+      el.addEventListener('pointerup', up);
+      el.addEventListener('pointercancel', up);
+    });
+  });
+
+  // ── foto laden ──
+  document.getElementById('file').addEventListener('change', function(e){
+    var f = e.target.files && e.target.files[0];
+    if (!f) return;
+    var url = URL.createObjectURL(f);
+    foto.onload = function(){
+      URL.revokeObjectURL(url);
+      stage.hidden = false;
+      empty.hidden = true;
+      render();
+    };
+    foto.src = url;
+  });
+
+  // ── knoppen ──
+  var btnCompare = document.getElementById('btnCompare');
+  ['pointerdown','pointerup','pointerleave','pointercancel'].forEach(function(t){
+    btnCompare.addEventListener(t, function(){
+      stage.classList.toggle('compare', t === 'pointerdown');
+    });
+  });
+
+  var btnClean = document.getElementById('btnClean');
+  btnClean.addEventListener('click', function(){
+    var on = btnClean.getAttribute('aria-pressed') === 'true';
+    btnClean.setAttribute('aria-pressed', String(!on));
+    stage.classList.toggle('clean', !on);
+  });
+
+  document.getElementById('btnReset').addEventListener('click', function(){
+    pts = [[0.30,0.22],[0.70,0.22],[0.70,0.80],[0.30,0.80]];
+    draw();
+  });
+
+  document.getElementById('rowType').addEventListener('click', function(e){
+    var b = e.target.closest('.chip'); if (!b) return;
+    type = b.dataset.type;
+    [].forEach.call(this.querySelectorAll('.chip'), function(c){
+      c.setAttribute('aria-pressed', String(c === b));
+    });
+    render();
+  });
+
+  // kleurknoppen opbouwen
+  var rowKleur = document.getElementById('rowKleur');
+  KLEUREN.forEach(function(k, i){
+    var b = document.createElement('button');
+    b.className = 'sw';
+    b.style.background = k.vlak;
+    b.title = k.label;
+    b.setAttribute('aria-label', k.label);
+    b.setAttribute('aria-pressed', String(i === 0));
+    b.addEventListener('click', function(){
+      kleur = k;
+      [].forEach.call(rowKleur.querySelectorAll('.sw'), function(s){
+        s.setAttribute('aria-pressed', String(s === b));
+      });
+      render();
+    });
+    rowKleur.appendChild(b);
+  });
+
+  window.addEventListener('resize', draw);
+  window.addEventListener('orientationchange', function(){ setTimeout(draw, 250); });
+
+  // testhaak, zodat de perspectiefwiskunde controleerbaar is
+  window.__impressie = {
+    setPoints: function(p){ pts = p; draw(); },
+    getPoints: function(){ return pts; },
+    matrixFor: matrix3d,
+    render: render,
+    W: W, H: H
+  };
+})();
+</script>
+</body>
+</html>
