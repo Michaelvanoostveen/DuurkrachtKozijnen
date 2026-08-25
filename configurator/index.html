@@ -71,6 +71,30 @@
 .cfg-step-label{ display:flex; align-items:center; gap:10px; font-weight:600; font-size:14.5px; color:var(--ink); margin-bottom:14px; }
 .cfg-num{ display:inline-flex; align-items:center; justify-content:center; width:26px; height:26px; border-radius:50%; background:var(--green); color:#fff; font-size:12px; font-weight:700; flex-shrink:0; }
 
+/* Profielkeuze — twee brede knoppen, zelfde visuele taal als de producttegels */
+.cfg-profiel{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.cfg-profiel-opt{ cursor:pointer; }
+.cfg-profiel-opt input{ position:absolute; opacity:0; pointer-events:none; }
+.cfg-profiel-card{
+  display:flex; flex-direction:column; gap:3px; padding:14px 15px;
+  border:1.5px solid var(--gray-200); border-radius:12px; background:#fff;
+  transition:all .15s ease; height:100%;
+  /* neutraliseert de generieke `form label`-regel; deze kaarten bevatten
+     beschrijvende zinnen, die lezen slecht in kapitalen */
+  text-transform:none; letter-spacing:normal;
+}
+.cfg-profiel-opt:hover .cfg-profiel-card{ border-color:var(--green); }
+.cfg-profiel-opt input:checked + .cfg-profiel-card{
+  border-color:var(--green); background:rgba(11,90,43,0.05); box-shadow:0 0 0 3px rgba(11,90,43,0.10);
+}
+.cfg-profiel-opt input:focus-visible + .cfg-profiel-card{ outline:2px solid var(--accent); outline-offset:2px; }
+.cfg-profiel-card .cp-title{ font-size:14px; font-weight:700; color:var(--ink); line-height:1.25; }
+.cfg-profiel-opt input:checked + .cfg-profiel-card .cp-title{ color:var(--green); }
+.cfg-profiel-card .cp-meta{ font-size:12px; color:var(--ink-soft); line-height:1.35; }
+.cfg-profiel-card .cp-note{ font-size:11.5px; color:#7b857f; margin-top:2px; }
+.cfg-profiel-card .cp-note--accent{ color:var(--accent); font-weight:600; }
+@media (max-width:520px){ .cfg-profiel{ grid-template-columns:1fr; } }
+
 /* Producttegels */
 .cfg-tiles{ display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
 .cfg-tile{ cursor:pointer; }
@@ -385,8 +409,30 @@
           <div><span class="cfg-fg-eyebrow">Gekozen product</span><strong id="cfg-fg-label">—</strong></div>
           <a href="/configurator/galerij/" class="cfg-fg-change">← Andere keuze</a>
         </div>
+        <div class="cfg-step" id="cfg-step-profiel">
+          <div class="cfg-step-label"><span class="cfg-num">1</span> Kies uw profielsysteem</div>
+          <div class="cfg-profiel" role="radiogroup" aria-label="Profielsysteem">
+            <label class="cfg-profiel-opt">
+              <input type="radio" name="profiel" value="schuco" checked />
+              <span class="cfg-profiel-card">
+                <span class="cp-title">Schüco LivIng</span>
+                <span class="cp-meta">7-kamer · Uf 0,92 · beste isolatie</span>
+                <span class="cp-note">Levertijd 6 – 8 weken</span>
+              </span>
+            </label>
+            <label class="cfg-profiel-opt">
+              <input type="radio" name="profiel" value="aluplast" />
+              <span class="cfg-profiel-card">
+                <span class="cp-title">Aluplast Ideal 7000 NL</span>
+                <span class="cp-meta">6-kamer · verdiept 120 mm · Duits merk</span>
+                <span class="cp-note cp-note--accent">Levertijd 3 à 4 weken</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
         <div class="cfg-step" id="cfg-step-product">
-          <div class="cfg-step-label"><span class="cfg-num">1</span> Kies uw product</div>
+          <div class="cfg-step-label"><span class="cfg-num">2</span> Kies uw product</div>
           <div class="cfg-tiles" role="radiogroup" aria-label="Producttype">
             <label class="cfg-tile"><input type="radio" name="product" value="raam" checked />
               <span class="cfg-tile-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 3l18 18"/></svg><span>Raamkozijn</span></span></label>
@@ -404,7 +450,7 @@
         </div>
 
         <div class="cfg-step" id="cfg-step-indeling">
-          <div class="cfg-step-label"><span class="cfg-num">2</span> <span id="indeling-label">Indeling</span></div>
+          <div class="cfg-step-label"><span class="cfg-num">3</span> <span id="indeling-label">Indeling</span></div>
           <div class="cfg-variants" id="cfg-variants" role="radiogroup" aria-label="Indeling"></div>
           <div class="cfg-vak-wrap" id="cfg-vak-wrap" hidden>
             <p class="cfg-vak-kop">Indeling per vak <span>— kies per vak het type en de draairichting</span></p>
@@ -414,7 +460,7 @@
         </div>
 
         <div class="cfg-step">
-          <div class="cfg-step-label"><span class="cfg-num">3</span> Afmetingen</div>
+          <div class="cfg-step-label"><span class="cfg-num">4</span> Afmetingen</div>
           <div class="cfg-dim">
             <div class="cfg-dim-field" id="cfg-bw-field">
               <label for="breedte">Breedte</label>
@@ -445,7 +491,7 @@
         </div>
 
         <div class="cfg-step">
-          <div class="cfg-step-label"><span class="cfg-num">4</span> Glas</div>
+          <div class="cfg-step-label"><span class="cfg-num">5</span> Glas</div>
           <div class="cfg-pills" role="radiogroup" aria-label="Glastype">
             <label class="cfg-pill"><input type="radio" name="glas" value="hrpp" checked /><span><strong>HR++</strong><small>U ≤ 1,1 · standaard</small></span></label>
             <label class="cfg-pill"><input type="radio" name="glas" value="triple" /><span><strong>Triple</strong><small>U ≤ 0,7 · beste isolatie</small></span></label>
@@ -453,7 +499,7 @@
         </div>
 
         <div class="cfg-step">
-          <div class="cfg-step-label"><span class="cfg-num">5</span> Kleur &amp; afwerking</div>
+          <div class="cfg-step-label"><span class="cfg-num">6</span> Kleur &amp; afwerking</div>
           <p class="cfg-sublabel">Kozijn <span>(het vaste kader)</span></p>
           <div class="cfg-swatches" role="radiogroup" aria-label="Kleur kozijn">
             <label class="cfg-swatch"><input type="radio" name="kleur" value="wit" checked /><span class="cfg-swatch-dot" style="background:#f3f2ec"></span><span>Wit (9010)</span></label>
@@ -483,7 +529,7 @@
         </div>
 
         <div class="cfg-step">
-          <div class="cfg-step-label"><span class="cfg-num">6</span> Beslag &amp; veiligheid</div>
+          <div class="cfg-step-label"><span class="cfg-num">7</span> Beslag &amp; veiligheid</div>
           <div class="cfg-pills" role="radiogroup" aria-label="Beslag">
             <label class="cfg-pill"><input type="radio" name="beslag" value="rc2" checked /><span><strong>RC2</strong><small>SKG-getest · standaard</small></span></label>
             <label class="cfg-pill"><input type="radio" name="beslag" value="rc3" /><span><strong>RC3</strong><small>extra inbraakwerend</small></span></label>
@@ -1279,7 +1325,7 @@
     var m2=(w/1000)*(h/1000);
 
     // prijs: (basis + meerprijs per m² boven standaard) × glas × kleur × beslag × indeling
-    var sub = (p.base + Math.max(0, m2-p.stdM2)*p.perM2) * glas.mult * kp.mult * bes.mult * indelingMult(v, curCols) * bin.mult;
+    var sub = (p.base + Math.max(0, m2-p.stdM2)*p.perM2) * glas.mult * kp.mult * bes.mult * indelingMult(v, curCols) * bin.mult * profielMult();
     sub = softCap(sub, p.priceMax);
     var price = Math.round(sub/10)*10;
 
@@ -1330,6 +1376,21 @@
     if(opts.recolor){ renderVariants(p, pKey, kp); }
   }
 
+  // ── PROFIELSYSTEEM ──
+  // Eén keuze voor het hele project: je bestelt niet half Schüco, half Aluplast.
+  // Aluplast ligt circa 10% onder Schüco; dat is de enige prijsafwijking.
+  var PROFIELEN = {
+    schuco:   { label:'Schüco LivIng',          mult:1.00, levertijd:'6 – 8 weken' },
+    aluplast: { label:'Aluplast Ideal 7000 NL', mult:0.90, levertijd:'3 à 4 weken' }
+  };
+  var PROFIEL_STORAGE='dk_profiel';
+  var profiel = (function(){
+    try{ var s=localStorage.getItem(PROFIEL_STORAGE); if(s && PROFIELEN[s]) return s; }catch(e){}
+    return 'schuco';
+  })();
+  function profielMult(){ return (PROFIELEN[profiel]||PROFIELEN.schuco).mult; }
+  function profielLabel(){ return (PROFIELEN[profiel]||PROFIELEN.schuco).label; }
+
   // ── PROJECT (winkelmand zonder afrekenen) ──
   var STORAGE='dk_project', curItem={}, currentQty=1;
   var project = loadProject();
@@ -1351,7 +1412,7 @@
       v=vk;
     }
     var m2=(it.w/1000)*(it.h/1000);
-    var sub=(p.base+Math.max(0,m2-p.stdM2)*p.perM2)*glas.mult*kp.mult*bes.mult*indelingMult(vBasis, it.cols)*bin.mult;
+    var sub=(p.base+Math.max(0,m2-p.stdM2)*p.perM2)*glas.mult*kp.mult*bes.mult*indelingMult(vBasis, it.cols)*bin.mult*profielMult();
     sub=softCap(sub,p.priceMax);
     var price=Math.round(sub/10)*10, glasM2=Math.max(0,m2*0.8);
     return { p:p,v:v,glas:glas,col:col,kp:kp,bes:bes,bin:bin,m2:m2,price:price,
@@ -1426,7 +1487,7 @@
     document.getElementById('project-total').textContent=eur(total);
     document.getElementById('project-isde').textContent = isL>0 ? (eur(isL)+' – '+eur(isH)) : '—';
     var lines=project.map(function(it){ var c=computeItem(it); return it.qty+'x '+c.p.label+' ('+c.v.label+(it.cols?' — per vak: '+it.cols.map(function(t){return VAK[t]?VAK[t].kort:t;}).join(', '):'')+') '+Math.round(it.w/10)+'x'+Math.round(it.h/10)+'cm'+(it.segW?(' [vakbr '+it.segW.join('/')+'mm]'):'')+(it.segH?(' [rijh '+it.segH.join('/')+'mm]'):'')+' '+c.glas.label+'/'+c.kp.label+'/binnen '+c.bin.label.toLowerCase()+'/'+c.bes.label+' '+eur(c.price*it.qty); });
-    var msg='Mijn project ('+totalItems+' onderdelen, indicatie '+eur(total)+'):\n'+lines.join('\n');
+    var msg='Mijn project ('+totalItems+' onderdelen, indicatie '+eur(total)+')\n'+'Profielsysteem: '+profielLabel()+' (levertijd '+(PROFIELEN[profiel]||PROFIELEN.schuco).levertijd+')\n\n'+lines.join('\n');
     document.getElementById('project-offerte').href='/contact/?project='+encodeURIComponent(msg);
   }
 
@@ -1489,10 +1550,28 @@
     else { update(); }
   });
   form.addEventListener('change', function(e){
+    if(e.target && e.target.name==='profiel'){ setProfiel(e.target.value); return; }
     if(e.target && e.target.name==='product'){ update({forceVariants:true}); }
     else if(e.target && /^kleur/.test(e.target.name||'')){ update({recolor:true}); }
     else { update(); }
   });
+
+  // Profielwissel raakt zowel de losse prijsindicatie als alle regels die
+  // al in het project staan — beide dus opnieuw berekenen.
+  function setProfiel(key){
+    if(!PROFIELEN[key]) return;
+    profiel = key;
+    try{ localStorage.setItem(PROFIEL_STORAGE, key); }catch(e){}
+    update();
+    renderProject();
+    if(window.gtag) gtag('event', 'configurator_profiel', { profiel: key });
+  }
+
+  // Opgeslagen keuze terugzetten in de knoppen bij het openen van de pagina.
+  (function initProfiel(){
+    var el = form.querySelector('input[name="profiel"][value="'+profiel+'"]');
+    if(el) el.checked = true;
+  })();
 
   // Indeling per vak
   document.getElementById('cfg-vak').addEventListener('change', function(e){
