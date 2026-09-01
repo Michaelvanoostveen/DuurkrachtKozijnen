@@ -33,6 +33,8 @@
     background:rgba(0,0,0,.45); padding:4px 9px; border-radius:99px; pointer-events:none; }
   .live-dot::before{ content:''; width:8px; height:8px; border-radius:50%; background:#e5484d;
     animation:pulse 1.4s ease-in-out infinite; }
+  /* display:flex hierboven wint van het standaard [hidden]-gedrag, dus expliciet */
+  .live-dot[hidden]{ display:none; }
   @keyframes pulse{ 0%,100%{ opacity:1 } 50%{ opacity:.35 } }
 
   /* De overlay wordt met matrix3d in perspectief gezet. transform-origin
@@ -125,6 +127,8 @@
     <button id="btnCompare">Toon origineel</button>
     <button id="btnClean" aria-pressed="false">Verberg punten</button>
     <button id="btnReset">Punten herstellen</button>
+    <button id="btnShare" class="primary">Delen</button>
+    <button id="btnSave">Opslaan</button>
   </div>
 
   <div class="row" id="rowType">
@@ -169,55 +173,75 @@
   // ─────────────────────────────────────────────────────────────
   var W = 1000, H = 1500;   // tekenruimte; de homografie schaalt naar de foto
 
-  function ring(x, y, w, h, t){
-    return 'M'+x+' '+y+'H'+(x+w)+'V'+(y+h)+'H'+x+'Z'
-         + 'M'+(x+t)+' '+(y+t)+'V'+(y+h-t)+'H'+(x+w-t)+'V'+(y+t)+'Z';
+  // De tekening wordt bewaard als hoekpunten, niet als kant-en-klaar pad.
+  // Dat is nodig voor het exporteren: een homografie beeldt rechte lijnen op
+  // rechte lijnen af, dus de rechthoeken kunnen exact worden meegetransformeerd
+  // in plaats van als pixels vervormd te worden.
+  //   vorm  = [ring, ...]   eerste ring is de buitenrand, de rest zijn gaten
+  //   ring  = [[x,y], ...]
+  function rect(x, y, w, h){
+    return [[x,y],[x+w,y],[x+w,y+h],[x,y+h]];
   }
-  function bar(x, y, w, h){ return 'M'+x+' '+y+'H'+(x+w)+'V'+(y+h)+'H'+x+'Z'; }
+  function ringShape(x, y, w, h, t){
+    return [ rect(x, y, w, h), rect(x+t, y+t, w-2*t, h-2*t) ];
+  }
+  function barShape(x, y, w, h){ return [ rect(x, y, w, h) ]; }
 
   function tekening(kind){
-    var d = [];                       // profielvlakken
+    var s = [];                       // profielvlakken
     var buiten = 42;                  // buitenkader
     var vleugel = 34;                 // vleugelprofiel
 
-    d.push(ring(0, 0, W, H, buiten));
+    s.push(ringShape(0, 0, W, H, buiten));
 
     if (kind === 'tuindeuren-bl' || kind === 'tuindeuren'){
-      var top = 0;
+      var top = buiten;
       if (kind === 'tuindeuren-bl'){
-        var blH = Math.round(H * 0.19);            // hoogte bovenlicht
-        d.push(bar(buiten, blH, W - 2*buiten, buiten));  // tussendorpel
+        var blH = Math.round(H * 0.19);                      // hoogte bovenlicht
+        s.push(barShape(buiten, blH, W - 2*buiten, buiten)); // tussendorpel
         top = blH + buiten;
-      } else {
-        top = buiten;
       }
       var binW = W - 2*buiten, binH = H - top - buiten;
       var midden = Math.round(W/2 - buiten/2);
-      d.push(bar(midden, top, buiten, binH));      // middenstijl
-      // twee deurvleugels
-      var dw = Math.round((binW - buiten) / 2);
-      d.push(ring(buiten, top, dw, binH, vleugel));
-      d.push(ring(midden + buiten, top, dw, binH, vleugel));
+      s.push(barShape(midden, top, buiten, binH));           // middenstijl
+      var dw = Math.round((binW - buiten) / 2);              // twee deurvleugels
+      s.push(ringShape(buiten, top, dw, binH, vleugel));
+      s.push(ringShape(midden + buiten, top, dw, binH, vleugel));
     }
 
     if (kind === 'raam-dk'){
-      d.push(ring(buiten, buiten, W - 2*buiten, H - 2*buiten, vleugel));
+      s.push(ringShape(buiten, buiten, W - 2*buiten, H - 2*buiten, vleugel));
     }
 
     if (kind === 'schuifpui'){
       var m = Math.round(W/2 - buiten/2);
-      d.push(bar(m, buiten, buiten, H - 2*buiten));
+      s.push(barShape(m, buiten, buiten, H - 2*buiten));
       var sw = Math.round((W - 2*buiten - buiten) / 2);
-      d.push(ring(buiten, buiten, sw, H - 2*buiten, vleugel));
-      d.push(ring(m + buiten, buiten, sw, H - 2*buiten, vleugel));
+      s.push(ringShape(buiten, buiten, sw, H - 2*buiten, vleugel));
+      s.push(ringShape(m + buiten, buiten, sw, H - 2*buiten, vleugel));
     }
-    return d.join('');
+    return s;
+  }
+
+  // Bouwt een SVG-pad. Met `tf` worden de punten eerst getransformeerd.
+  function padVan(shapes, tf){
+    var d = '';
+    shapes.forEach(function(vorm){
+      vorm.forEach(function(ring){
+        ring.forEach(function(p, i){
+          var q = tf ? tf(p[0], p[1]) : p;
+          d += (i ? 'L' : 'M') + q[0].toFixed(2) + ' ' + q[1].toFixed(2);
+        });
+        d += 'Z';
+      });
+    });
+    return d;
   }
 
   function svgMarkup(){
     return '<svg width="'+W+'" height="'+H+'" viewBox="0 0 '+W+' '+H+'" '
       + 'xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision">'
-      + '<path d="'+tekening(type)+'" fill="'+kleur.vlak+'" fill-rule="evenodd" '
+      + '<path d="'+padVan(tekening(type))+'" fill="'+kleur.vlak+'" fill-rule="evenodd" '
       +   'stroke="'+kleur.rand+'" stroke-width="2" stroke-linejoin="miter"/>'
       + '</svg>';
   }
@@ -251,7 +275,8 @@
     return x;
   }
 
-  function matrix3d(q){
+  // Coëfficiënten van de homografie die de tekenruimte op vierhoek q legt.
+  function solveH(q){
     var src = [[0,0],[W,0],[W,H],[0,H]];
     var A = [], b = [];
     for (var i = 0; i < 4; i++){
@@ -259,7 +284,17 @@
       A.push([u, v, 1, 0, 0, 0, -u*x, -v*x]); b.push(x);
       A.push([0, 0, 0, u, v, 1, -u*y, -v*y]); b.push(y);
     }
-    var h = solve(A, b);
+    return solve(A, b);
+  }
+
+  // Past de homografie toe op één punt.
+  function applyH(h, x, y){
+    var w = h[6]*x + h[7]*y + 1;
+    return [ (h[0]*x + h[1]*y + h[2]) / w, (h[3]*x + h[4]*y + h[5]) / w ];
+  }
+
+  function matrix3d(q){
+    var h = solveH(q);
     if (!h) return null;
     // CSS matrix3d is kolom-major
     return 'matrix3d('
@@ -477,6 +512,85 @@
     rowKleur.appendChild(b);
   });
 
+  // ─────────────────────────────────────────────────────────────
+  // OPSLAAN & DELEN
+  // De weergave op het scherm gebruikt CSS matrix3d; die is niet uit te
+  // lezen. Voor de export tekenen we daarom opnieuw op een canvas, op de
+  // volledige resolutie van de foto, met de hoekpunten door dezelfde
+  // homografie gehaald. Rechte lijnen blijven recht, dus het resultaat is
+  // exact — er wordt niets uitgerekt of geïnterpoleerd.
+  // ─────────────────────────────────────────────────────────────
+  function bouwAfbeelding(){
+    if (!foto.src || !foto.naturalWidth) return null;
+    var NW = foto.naturalWidth, NH = foto.naturalHeight;
+
+    var c = document.createElement('canvas');
+    c.width = NW; c.height = NH;
+    var g = c.getContext('2d');
+    g.drawImage(foto, 0, 0, NW, NH);
+
+    var q = pts.map(function(p){ return [p[0]*NW, p[1]*NH]; });
+    var h = solveH(q);
+    if (h){
+      var d = padVan(tekening(type), function(x, y){ return applyH(h, x, y); });
+      var pad = new Path2D(d);
+      g.fillStyle = kleur.vlak;
+      g.fill(pad, 'evenodd');
+      g.strokeStyle = kleur.rand;
+      g.lineWidth = Math.max(1, NW / 900);
+      g.lineJoin = 'miter';
+      g.stroke(pad);
+    }
+
+    // Watermerk meeschalen met de foto
+    var fs = Math.max(13, Math.round(NW / 52));
+    g.font = '600 ' + fs + 'px -apple-system, sans-serif';
+    var tekst = 'IMPRESSIE — GEEN EXACTE WEERGAVE';
+    var tw = g.measureText(tekst).width;
+    var pad2 = Math.round(fs * 0.55);
+    g.fillStyle = 'rgba(0,0,0,.42)';
+    g.fillRect(NW - tw - 3*pad2, NH - fs - 3*pad2, tw + 2*pad2, fs + 2*pad2);
+    g.fillStyle = 'rgba(255,255,255,.92)';
+    g.fillText(tekst, NW - tw - 2*pad2, NH - 2*pad2 - Math.round(fs*0.15));
+
+    return c;
+  }
+
+  function bestandsnaam(){
+    var d = new Date().toISOString().slice(0,10);
+    return 'impressie-' + type + '-' + kleur.key + '-' + d + '.jpg';
+  }
+
+  function metAfbeelding(cb){
+    var c = bouwAfbeelding();
+    if (!c){ alert('Leg eerst een foto of camerabeeld vast.'); return; }
+    c.toBlob(function(blob){ if (blob) cb(blob); }, 'image/jpeg', 0.92);
+  }
+
+  document.getElementById('btnSave').addEventListener('click', function(){
+    metAfbeelding(function(blob){
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url; a.download = bestandsnaam();
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(function(){ URL.revokeObjectURL(url); }, 4000);
+    });
+  });
+
+  // Web Share met bestand werkt op iPad in Safari: AirDrop, Mail, WhatsApp.
+  var btnShare = document.getElementById('btnShare');
+  if (!(navigator.canShare && navigator.canShare({
+        files: [new File([new Blob()], 'x.jpg', { type:'image/jpeg' })] }))){
+    btnShare.hidden = true;                    // niet ondersteund: alleen opslaan
+  }
+  btnShare.addEventListener('click', function(){
+    metAfbeelding(function(blob){
+      var file = new File([blob], bestandsnaam(), { type:'image/jpeg' });
+      navigator.share({ files:[file], title:'Impressie nieuwe kozijnen' })
+        .catch(function(){ /* geannuleerd door de gebruiker */ });
+    });
+  });
+
   // Het videoformaat is pas bekend zodra de stream loopt; dan opnieuw uitlijnen.
   cam.addEventListener('loadedmetadata', draw);
   cam.addEventListener('resize', draw);
@@ -490,6 +604,8 @@
     getPoints: function(){ return pts; },
     matrixFor: matrix3d,
     render: render,
+    bouwAfbeelding: bouwAfbeelding,
+    solveH: solveH, applyH: applyH,
     W: W, H: H
   };
 })();
