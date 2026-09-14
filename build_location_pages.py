@@ -623,7 +623,7 @@ def page(loc):
     title = f"Kunststof Kozijnen {name} — Prijs & Offerte | Duurkracht"
     if len(title) > 60:  # lange plaatsnamen: korter zodat Google niet afkapt
         title = f"Kunststof Kozijnen {name} | Duurkracht"
-    description = f"Kunststof kozijnen kopen in {name} ({province})? Schüco LivIng of Aluplast, scherpe prijzen, gratis offerte, eigen monteurs, 4,9★ Google en 10 jaar garantie."
+    description = f"Kunststof kozijnen in {name}? Schüco LivIng of Aluplast, gratis offerte, eigen monteurs, 4,9★ Google en 10 jaar garantie."
 
     return f'''<!DOCTYPE html>
 <html lang="nl-NL">
@@ -632,9 +632,16 @@ def page(loc):
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W45QZ8KED5"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  function gtag(){{dataLayer.push(arguments);}}
   gtag('js', new Date());
   gtag('config', 'G-W45QZ8KED5');
+</script>
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){{
+        c[a]=c[a]||function(){{(c[a].q=c[a].q||[]).push(arguments)}};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    }})(window, document, "clarity", "script", "xkjrl7c4vw");
 </script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />

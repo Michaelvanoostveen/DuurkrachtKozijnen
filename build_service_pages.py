@@ -122,9 +122,16 @@ def head(title, description, slug, image):
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W45QZ8KED5"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  function gtag(){{dataLayer.push(arguments);}}
   gtag('js', new Date());
   gtag('config', 'G-W45QZ8KED5');
+</script>
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){{
+        c[a]=c[a]||function(){{(c[a].q=c[a].q||[]).push(arguments)}};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    }})(window, document, "clarity", "script", "xkjrl7c4vw");
 </script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -568,7 +575,7 @@ PAGES = {
     'kunststof-schuifpuien': {
         'label': 'Schuifpuien',
         'data': {
-            'title': 'Kunststof Schuifpuien op Maat — tot 6 Meter | Duurkracht Kozijnen',
+            'title': 'Kunststof schuifpuien op maat | Duurkracht',
             'description': 'Kunststof schuifpuien en hefschuifdeuren op maat. Tot 6 meter breed, soepel lopend op rvs-rails. Smalle profielen voor maximaal daglicht. HR++ of triple.',
             'service_name': 'Kunststof schuifpuien en hefschuifdeuren',
             'service_desc': 'Levering en montage van kunststof schuifpuien en hefschuifdeuren tot 6 meter breed. Smalle profielen, rvs-rails, HR++ of triple glas. Perfect voor tuinkamers en achteruitbouw.',
@@ -667,7 +674,7 @@ PAGES = {
     'kunststof-gevelbekleding': {
         'label': 'Keralit gevelbekleding',
         'data': {
-            'title': 'Keralit Gevelbekleding — 10 Jaar Garantie | Duurkracht Kozijnen',
+            'title': 'Keralit gevelbekleding op maat | Duurkracht',
             'description': 'Keralit gevelbekleding plaatsen: onderhoudsarm kunststof in 35+ kleuren. 10 jaar fabrieksgarantie. Sponningmodellen 143, 167 en 190 mm. Nooit meer schilderen.',
             'service_name': 'Keralit gevelbekleding levering en montage',
             'service_desc': 'Levering en montage van Keralit kunststof gevelbekleding. 35+ kleuren, 10 jaar fabrieksgarantie, drie sponningmodellen (143/167/190 mm). Onderhoudsarm — nooit schilderen of schuren.',
