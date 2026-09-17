@@ -3,7 +3,7 @@
 ## Bedrijf
 - **Naam:** Duurkracht Kozijnen B.V.
 - **Adres:** Hassinkweg 1, 7556 BV Hengelo
-- **KvK:** 90895312 · BTW: NL865386488B01
+- **KvK:** 90895312 · BTW: NL865489725B01
 - **Telefoon:** 085 073 1660
 - **E-mail:** info@duurkrachtkozijnen.nl
 - **Website:** https://www.duurkrachtkozijnen.nl
@@ -47,11 +47,12 @@
 ## Design-systeem (CSS-variabelen)
 ```
 --green: #0B5A2B    (primaire kleur, headers, knoppen)
---orange / --accent: #E8612C  (CTA-knoppen, highlights)
---lime: #B5D96B     (eyebrow-tekst, accenten)
---ink: #0D1F18      (bodytekst)
+--orange / --accent: #ED6B06  (CTA-knoppen, highlights)
+--lime: #D3CF29     (eyebrow-tekst, accenten)
+--ink: #0E0E0E      (bodytekst)
 --radius: 12px
 ```
+De waarden hierboven komen uit `/css/site.css`; dat bestand is de bron.
 
 ## Sitemap / pagina-overzicht (89 URLs)
 

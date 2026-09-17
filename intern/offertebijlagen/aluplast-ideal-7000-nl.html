@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aluplast Ideal 7000 NL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* Huisstijl Duurkracht: groen als dragende kleur, oranje als accent en lime
+     als lichte tint op donkergroen — dezelfde rollen als in /css/site.css. */
+  :root {
+    --navy: #0B5A2B; --navy-deep: #074120; --navy-mid: #1A7A42; --navy-tint: #E8F0EB;
+    --cta: #ED6B06; --cta-tekst: #14100A; --cta-diep: #C4570A;
+    --cta-accent: #C4570A; --cta-tekst-licht: #D3CF29;
+    --amber-tint: #FDE9D6; --steel: #696960; --steel-soft: #B0BDB4;
+    --ink: #0E0E0E; --rule: #EAEAE6; --off: #FAFAFA; --wit: #FFFFFF;
+    --sans: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    --serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+  }
+
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-family: var(--sans); font-size: 9.6pt; line-height: 1.6;
+         color: var(--ink); background: #8D9A90; padding: 8mm 0; }
+
+  .page { width: 210mm; height: 297mm; background: var(--wit); margin: 0 auto 9mm;
+          position: relative; overflow: hidden; box-shadow: 0 3mm 9mm rgba(16,20,24,.28);
+          page-break-after: always; break-after: page; }
+  .page:last-child { page-break-after: auto; break-after: auto; margin-bottom: 0; }
+
+  @page { size: A4; margin: 0; }
+  @media print { body { background: none; padding: 0; } .page { margin: 0; box-shadow: none; } }
+
+  .em-italic { font-family: var(--serif); font-style: italic; font-weight: 400; }
+
+  .kop { display: flex; justify-content: space-between; align-items: center;
+         padding: 6mm 14mm 4mm; border-bottom: 1px solid var(--rule); }
+  .kop .merk img { height: 7mm; display: block; }
+  .kop .doc { font-size: 6.6pt; color: var(--steel); letter-spacing: .06em;
+              text-transform: uppercase; font-weight: 600; text-align: right; }
+
+  .voet { position: absolute; bottom: 0; left: 0; right: 0; height: 12mm;
+          background: var(--navy); display: flex; justify-content: space-between;
+          align-items: center; padding: 0 14mm; }
+  .voet span { color: var(--steel-soft); font-size: 6.6pt; }
+  .voet strong { color: var(--wit); font-weight: 700; }
+  .voet .pg { color: var(--wit); font-size: 6.6pt; font-weight: 700;
+              background: rgba(255,255,255,.14); border-radius: 2mm; padding: .8mm 2.6mm; }
+
+  .vlak { padding: 6mm 14mm 14mm; }
+
+  .ey { font-size: 6.8pt; font-weight: 800; text-transform: uppercase;
+        letter-spacing: .16em; color: var(--cta-accent); margin-bottom: 2.4mm; }
+  .ey.licht { color: var(--cta-tekst-licht); }
+
+  h2 { font-size: 20pt; font-weight: 800; line-height: 1.12; color: var(--navy); letter-spacing: -.012em; }
+  h3 { font-size: 11pt; font-weight: 800; color: var(--navy); line-height: 1.3; }
+  h4 { font-size: 8.6pt; font-weight: 800; color: var(--navy);
+       text-transform: uppercase; letter-spacing: .07em; margin-bottom: 2mm; }
+
+  p { font-size: 9.4pt; line-height: 1.68; color: #4A4A44; }
+  p + p { margin-top: 2.6mm; }
+  .lood { font-size: 10.6pt; line-height: 1.62; color: #4A4A44; }
+  .klein { font-size: 7.8pt; line-height: 1.55; color: var(--steel); }
+
+  .streep { width: 13mm; height: 2.6px; background: var(--cta); border-radius: 2px; margin: 2.6mm 0 3.4mm; }
+
+  .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; }
+  .g3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 4.5mm; }
+  .g4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 3.5mm; }
+
+  .cijfer { background: var(--navy); border-radius: 2.5mm; padding: 3.4mm 4mm; text-align: center; }
+  .cijfer .n { font-size: 17pt; font-weight: 800; color: var(--cta-tekst-licht);
+               line-height: 1.05; letter-spacing: -.02em; }
+  .cijfer .n small { font-size: 9pt; font-weight: 700; }
+  .cijfer .l { font-size: 6.8pt; color: var(--steel-soft); margin-top: 1.4mm; line-height: 1.4; }
+
+  ul.vink { list-style: none; display: flex; flex-direction: column; gap: 1.9mm; }
+  ul.vink li { display: flex; align-items: flex-start; gap: 2.6mm; font-size: 9pt;
+               line-height: 1.55; color: #4A4A44; }
+  ul.vink li::before {
+    content: ""; flex: 0 0 3.6mm; width: 3.6mm; height: 3.6mm; margin-top: 1.1mm;
+    border-radius: 50%; background: var(--cta);
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'><path d='M3 6.2l2.1 2.1L9.2 4.2' fill='none' stroke='%2314100A' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+    background-size: 3.6mm 3.6mm; }
+  ul.vink.blauw li::before { background-color: var(--navy);
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'><path d='M3 6.2l2.1 2.1L9.2 4.2' fill='none' stroke='white' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'/></svg>"); }
+
+  ul.streepjes { list-style: none; display: flex; flex-direction: column; gap: 1.4mm; }
+  ul.streepjes li { position: relative; padding-left: 4mm; font-size: 8.8pt;
+                    line-height: 1.55; color: #4A4A44; }
+  ul.streepjes li::before { content: ""; position: absolute; left: 0; top: 1.9mm;
+                            width: 2mm; height: 1.4px; background: var(--steel); }
+
+  table.spec { width: 100%; border-collapse: collapse; font-size: 8.6pt; }
+  table.spec caption { caption-side: top; text-align: left; font-size: 8.6pt; font-weight: 800;
+                       color: var(--navy); text-transform: uppercase; letter-spacing: .07em;
+                       padding-bottom: 1.5mm; }
+  table.spec th { background: var(--navy); color: var(--wit); text-align: left; font-size: 7.4pt;
+                  font-weight: 700; letter-spacing: .07em; text-transform: uppercase; padding: 2.4mm 3.5mm; }
+  table.spec td { padding: 1.3mm 3.2mm; line-height: 1.38; border-bottom: 1px solid var(--rule);
+                  color: #4A4A44; vertical-align: top; }
+  table.spec tr:nth-child(even) td { background: var(--off); }
+  table.spec td:first-child { font-weight: 700; color: var(--navy); width: 42%; }
+  table.spec tr:last-child td { border-bottom: none; }
+
+  .kader { border: 1px solid var(--rule); border-radius: 2.5mm; padding: 3.6mm 4.6mm; }
+  .kader.tint { background: var(--navy-tint); border-color: #CFDDD4; }
+  .kader.navy { background: var(--navy); border-color: var(--navy); }
+  .kader.navy h4 { color: var(--cta-tekst-licht); }
+  .kader.navy p, .kader.navy li { color: var(--steel-soft); }
+
+  .let-op { border-left: 3px solid var(--cta); background: var(--amber-tint);
+            border-radius: 0 2mm 2mm 0; padding: 3mm 4.2mm; }
+  .let-op p { font-size: 8.4pt; color: #4A3A28; }
+
+  figure { margin: 0; }
+  figure img { display: block; width: 100%; object-fit: cover; border-radius: 2.5mm; }
+  figcaption { font-size: 7.2pt; color: var(--steel); margin-top: 1.6mm; line-height: 1.45; }
+
+  .stap { display: flex; gap: 4mm; align-items: flex-start; padding: 1.2mm 0; border-bottom: 1px solid var(--rule); }
+  .stap:last-child { border-bottom: none; }
+  .stap .nr { flex: 0 0 7.5mm; width: 7.5mm; height: 7.5mm; border-radius: 50%;
+              background: var(--navy); color: var(--wit); font-size: 8.4pt; font-weight: 800;
+              display: flex; align-items: center; justify-content: center; }
+  .stap .tx h4 { margin-bottom: 1mm; }
+  .stap .tx p { font-size: 8.6pt; }
+
+  /* invulregels op de omslag: label links, schrijfruimte rechts */
+  .veld { display: flex; align-items: baseline; gap: 4mm; padding: 2.4mm 0; }
+  /* 28 mm, niet 26: "OFFERTENUMMER" is in kapitalen met letterspatiëring
+     27,3 mm breed, en een flex-item krimpt niet onder zijn inhoud. Bij 26 mm
+     duwde dat ene label zijn invulregel 1,2 mm naar rechts, uit de rooilijn
+     van de andere velden. */
+  .veld .lb { flex: 0 0 28mm; font-size: 7.2pt; color: var(--steel-soft);
+              text-transform: uppercase; letter-spacing: .1em; font-weight: 700;
+              white-space: nowrap; }
+  .veld .invul { flex: 1 1 auto; height: 4.6mm;
+                 border-bottom: 1px dotted rgba(255,255,255,.42); }
+  .veld.breed { padding-bottom: 3.2mm; margin-bottom: 1.4mm;
+                border-bottom: 1px solid rgba(255,255,255,.14); }
+  .veld.breed .lb { flex-basis: 28mm; }
+  .veld.breed .invul { height: 6mm; }
+
+  .leg { display: grid; grid-template-columns: repeat(2,1fr); gap: 2mm 5mm; }
+  .leg div { display: flex; gap: 2.2mm; align-items: flex-start; font-size: 8pt;
+             line-height: 1.45; color: #4A4A44; }
+  .leg b { flex: 0 0 4.6mm; width: 4.6mm; height: 4.6mm; border-radius: 50%; background: var(--navy);
+           color: var(--wit); font-size: 6.4pt; font-weight: 800; display: flex;
+           align-items: center; justify-content: center; margin-top: .3mm; }
+
+  @media screen and (max-width: 230mm) {
+    body { padding: 4mm 0; }
+    .page { width: 100%; max-width: 210mm; height: auto; min-height: 0; padding-bottom: 14mm; }
+    .voet { position: static; height: auto; padding: 4mm 14mm; margin-top: 8mm; }
+    .vlak { padding-bottom: 6mm; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════ 1 · OMSLAG ══════ -->
+<div class="page" style="background:var(--navy-deep);">
+  <div style="position:absolute;inset:0;">
+    <img src="img/cover.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.42;">
+    <div style="position:absolute;inset:0;background:linear-gradient(175deg,rgba(7,65,32,.70) 0%,rgba(7,65,32,.88) 52%,rgba(7,65,32,.97) 100%);"></div>
+  </div>
+  <div style="position:absolute;top:0;left:0;right:0;height:3.2mm;background:linear-gradient(90deg,var(--cta) 0%,var(--cta-diep) 55%,var(--navy-mid) 100%);"></div>
+
+  <!-- De voetbalk hieronder staat absoluut op bottom:0 en telt dus niet mee in
+       de kolom. Zonder die 24 mm onderaan schuift het invulpaneel eronder en
+       verdwijnen "Adviseur" en "Geldig tot" achter de balk. -->
+  <div style="position:relative;height:100%;display:flex;flex-direction:column;padding:16mm 16mm 24mm;">
+    <div style="background:var(--wit);border-radius:3mm;padding:6mm 8mm;align-self:flex-start;box-shadow:0 2mm 7mm rgba(0,0,0,.26);">
+      <img src="img/logo.png" alt="Duurkracht Kozijnen — Stiller, warmer, lichter wonen." style="height:17mm;display:block;">
+    </div>
+
+    <div style="margin-top:auto;padding-top:12mm;padding-bottom:6mm;">
+      <div class="ey licht" style="margin-bottom:4mm;">Productbijlage bij uw offerte</div>
+      <h2 style="color:var(--wit);font-size:34pt;line-height:1.06;letter-spacing:-.022em;">
+        Aluplast<br>Ideal 7000 <span style="color:var(--cta-tekst-licht);">NL</span>
+      </h2>
+      <div style="width:20mm;height:3px;background:var(--cta);border-radius:2px;margin:6mm 0 5mm;"></div>
+      <p style="color:rgba(255,255,255,.90);font-size:12pt;line-height:1.6;max-width:128mm;">
+        Kunststof kozijnen met <strong style="color:#fff;">85 mm bouwdiepte</strong>,
+        een <strong style="color:#fff;">zeskamerprofiel</strong> en
+        <strong style="color:#fff;">tien jaar garantie</strong> op product én montage.
+      </p>
+      <p class="em-italic" style="color:var(--cta-tekst-licht);font-size:13pt;margin-top:5mm;">Stiller, warmer, lichter wonen.</p>
+    </div>
+
+    <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:3mm;padding:5mm 6mm;">
+      
+      <div class="veld breed"><span class="lb">Opgesteld voor</span><span class="invul" data-veld="klantnaam"></span></div>
+      <div class="g2" style="gap:0 9mm;margin-top:1mm;">
+        
+        <div class="veld"><span class="lb">Offertenummer</span><span class="invul" data-veld="offertenummer"></span></div>
+        <div class="veld"><span class="lb">Datum</span><span class="invul" data-veld="datum"></span></div>
+        <div class="veld"><span class="lb">Adviseur</span><span class="invul" data-veld="adviseur"></span></div>
+        <div class="veld"><span class="lb">Geldig tot</span><span class="invul" data-veld="geldigtot"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div style="position:absolute;bottom:0;left:0;right:0;background:rgba(4,40,20,.74);padding:5mm 16mm;display:flex;justify-content:space-between;align-items:center;">
+    <div>
+      <div style="color:var(--wit);font-size:9.6pt;font-weight:800;">Duurkracht Kozijnen B.V.</div>
+      <div style="color:var(--steel-soft);font-size:7.4pt;margin-top:.6mm;">Hassinkweg 1, 7556 BV Hengelo · werkzaam in heel Nederland</div>
+      <div style="color:var(--steel-soft);font-size:7.4pt;">KvK 90895312 · btw NL865489725B01</div>
+    </div>
+    <div style="text-align:right;color:var(--steel-soft);font-size:7.4pt;line-height:1.75;">
+      085 073 1660 · info@duurkrachtkozijnen.nl<br>www.duurkrachtkozijnen.nl
+    </div>
+  </div>
+</div>
+
+<!-- ══════ 2 · WAAROM DIT PROFIEL ══════ -->
+<div class="page">
+  
+  <div class="kop">
+    <div class="merk"><img src="img/logo.png" alt="Duurkracht Kozijnen"></div>
+    <div class="doc">Productbijlage · Aluplast Ideal 7000 NL</div>
+  </div>
+  <div class="vlak">
+    <div class="ey">Waarover deze bijlage gaat</div>
+    <h2>Het profiel dat wij<br>voor u hebben gekozen</h2>
+    <div class="streep"></div>
+
+    <div class="g2" style="gap:7mm;align-items:start;">
+      <div>
+        <p class="lood" style="margin-bottom:3mm;">
+          In uw offerte staat wát wij leveren en wat het kost. Deze bijlage laat zien
+          <span class="em-italic">waaruit</span> uw kozijnen bestaan: het profiel, het glas,
+          het hang- en sluitwerk en de garantie die u erop krijgt.
+        </p>
+        <p>Wij monteren de Aluplast Ideal 7000 NL: een Duits kunststof profielsysteem dat speciaal is ontwikkeld voor de Nederlandse renovatiemarkt. Het heeft een bouwdiepte van 85 mm en een zeskamerconstructie — meer kamers betekent meer stilstaande lucht in het profiel, en stilstaande lucht isoleert.</p>
+        <p>De NL-uitvoering is een verdiept profiel met een inbouwdiepte van 120 mm. Dat is precies de maat die in Nederlandse gevels past, waardoor uw nieuwe kozijn dezelfde schaduwwerking en diepte houdt als het kozijn dat eruit gaat. Uw gevel blijft er dus uitzien zoals u gewend bent — alleen beter geïsoleerd, stiller en zonder onderhoud.</p>
+      </div>
+      <figure>
+        <img src="img/sfeer-1.jpg" alt="Kunststof kozijnen en voordeur in antraciet" style="height:74mm;">
+        <figcaption>Uitgevoerd werk: kozijnen en voordeur in antraciet, geplaatst door onze eigen monteurs.</figcaption>
+      </figure>
+    </div>
+
+    <div class="g4" style="margin-top:6mm;">
+      <div class="cijfer"><div class="n">85<small> mm</small></div><div class="l">Bouwdiepte<br>van het profiel</div></div>
+      <div class="cijfer"><div class="n">6</div><div class="l">Kamers<br>in kozijn en vleugel</div></div>
+      <div class="cijfer"><div class="n">1,1</div><div class="l">U<sub>f</sub>-waarde<br>W/m²K</div></div>
+      <div class="cijfer"><div class="n">10<small> jaar</small></div><div class="l">Garantie op<br>product én montage</div></div>
+    </div>
+
+    <div style="margin-top:6mm;" class="g2">
+      <div>
+        <h4>Wat dit voor u betekent</h4>
+        <ul class="vink">
+          <li><span><strong>Warmer in huis.</strong> Minder warmteverlies langs het kozijn, en geen koudestraling meer langs het raam.</span></li>
+          <li><span><strong>Stiller.</strong> De drievoudige afdichting en het zware glaspakket dempen verkeers- en buitengeluid.</span></li>
+          <li><span><strong>Geen onderhoud.</strong> Nooit meer schilderen; het profiel blijft kleurvast en vraagt alleen af en toe schoonmaken.</span></li>
+          <li><span><strong>Snel te leveren.</strong> Drie tot vier weken productietijd na het inmeten — de kortste levertijd van onze twee lijnen.</span></li>
+        </ul>
+      </div>
+      <div class="kader tint">
+        <h4>Twee lijnen, één keuze</h4>
+        <p style="font-size:8.8pt;">Duurkracht Kozijnen werkt bewust met twee profielsystemen: Aluplast Ideal 7000 NL en Schüco LivIng 82. Allebei Duits, allebei KOMO-gecertificeerd.</p>
+        <p style="font-size:8.8pt;">Voor uw woning adviseren wij de Aluplast Ideal 7000 NL. Naast de prestaties speelt de levertijd mee: 3 tot 4 weken voor Aluplast, tegenover 6 tot 8 weken voor Schüco LivIng.</p>
+        <p class="klein" style="margin-top:3mm;">
+          Tot aan het bouwkundig inmeten kunt u nog van profiel wisselen. Vraag ons gerust om een vergelijking.
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="voet">
+    <span><strong>Duurkracht Kozijnen</strong> · Stiller, warmer, lichter wonen.</span>
+    <span class="pg">2</span>
+  </div>
+</div>
+
+<!-- ══════ 3 · DOORSNEDE ══════ -->
+<div class="page">
+  
+  <div class="kop">
+    <div class="merk"><img src="img/logo.png" alt="Duurkracht Kozijnen"></div>
+    <div class="doc">Productbijlage · Aluplast Ideal 7000 NL</div>
+  </div>
+  <div class="vlak">
+    <div class="ey">Het profiel van binnen</div>
+    <h2>Zes kamers, drie afdichtingen</h2>
+    <div class="streep"></div>
+
+    <p style="max-width:150mm;">
+      Hieronder ziet u een doorsnede door kozijn en draaiend deel: bovenin de buitenzijde,
+      onderin uw woonkamer. De zes kamers, de drievoudige
+      afdichting en de versterkingskamer zijn de drie onderdelen die het verschil maken.
+    </p>
+
+    <div style="background:var(--off);border:1px solid var(--rule);border-radius:2.5mm;padding:5mm 5mm 3mm;margin:4mm 0 4mm;">
+      <svg viewBox="0 0 900 440" style="width:100%;height:auto;display:block;" xmlns="http://www.w3.org/2000/svg" role="img"
+     aria-label="Schematische doorsnede van het Aluplast Ideal 7000 NL profiel">
+  <defs>
+    <pattern id="staal" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="7" height="7" fill="#B0BDB4"/>
+      <line x1="0" y1="0" x2="0" y2="7" stroke="#6E7E90" stroke-width="2.4"/>
+    </pattern>
+    <linearGradient id="glasv" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#CFE3E6"/><stop offset="1" stop-color="#AFCBD2"/>
+    </linearGradient>
+  </defs>
+
+  <!-- buiten boven, binnen onder -->
+  <text x="150" y="34" font-family="Manrope,Arial,sans-serif" font-size="15" font-weight="800" fill="#696960" letter-spacing="2.4">BUITEN</text>
+  <text x="150" y="422" font-family="Manrope,Arial,sans-serif" font-size="15" font-weight="800" fill="#696960" letter-spacing="2.4">BINNEN</text>
+  <line x1="232" y1="29" x2="470" y2="29" stroke="#D5D5CF" stroke-width="2"/>
+  <line x1="232" y1="417" x2="470" y2="417" stroke="#D5D5CF" stroke-width="2"/>
+
+  <!-- maatlijn bouwdiepte -->
+  <line x1="112" y1="58" x2="112" y2="382" stroke="#C4570A" stroke-width="2.4"/>
+  <line x1="104" y1="58" x2="120" y2="58" stroke="#C4570A" stroke-width="2.4"/>
+  <line x1="104" y1="382" x2="120" y2="382" stroke="#C4570A" stroke-width="2.4"/>
+  <rect x="98" y="194" width="28" height="52" rx="4" fill="#FAFAFA"/>
+  <text x="112" y="220" font-family="Manrope,Arial,sans-serif" font-size="14" font-weight="800" fill="#C4570A" text-anchor="middle" transform="rotate(-90 112 220)">85 mm</text>
+
+  <!-- kozijn en vleugel -->
+  <rect x="150" y="58" width="196" height="324" rx="7" fill="#FFFFFF" stroke="#0B5A2B" stroke-width="3.4"/><rect x="166.0" y="74" width="164.0" height="64" rx="3" fill="#F1F5F2" stroke="#1A7A42" stroke-width="2"/><rect x="166.0" y="146" width="76.0" height="64" rx="3" fill="#F1F5F2" stroke="#1A7A42" stroke-width="2"/><rect x="254.0" y="146" width="76.0" height="64" rx="3" fill="#F1F5F2" stroke="#1A7A42" stroke-width="2"/><rect x="180" y="218" width="136" height="76" rx="4" fill="url(#staal)" stroke="#0B5A2B" stroke-width="3"/><rect x="166.0" y="302" width="76.0" height="64" rx="3" fill="#F1F5F2" stroke="#1A7A42" stroke-width="2"/><rect x="254.0" y="302" width="76.0" height="64" rx="3" fill="#F1F5F2" stroke="#1A7A42" stroke-width="2"/>
+  <rect x="386" y="58" width="180" height="324" rx="7" fill="#FFFFFF" stroke="#0B5A2B" stroke-width="3.4"/><rect x="402.0" y="74" width="148.0" height="64" rx="3" fill="#F1F5F2" stroke="#1A7A42" stroke-width="2"/><rect x="402.0" y="146" width="68.0" height="64" rx="3" fill="#F1F5F2" stroke="#1A7A42" stroke-width="2"/><rect x="482.0" y="146" width="68.0" height="64" rx="3" fill="#F1F5F2" stroke="#1A7A42" stroke-width="2"/><rect x="416" y="218" width="120" height="76" rx="4" fill="url(#staal)" stroke="#0B5A2B" stroke-width="3"/><rect x="402.0" y="302" width="68.0" height="64" rx="3" fill="#F1F5F2" stroke="#1A7A42" stroke-width="2"/><rect x="482.0" y="302" width="68.0" height="64" rx="3" fill="#F1F5F2" stroke="#1A7A42" stroke-width="2"/>
+
+  <!-- afdichtingen: buiten, midden (accent), binnen -->
+  <circle cx="366" cy="92" r="15" fill="#101418"/>
+  <circle cx="366" cy="220" r="17" fill="#ED6B06"/>
+  <circle cx="366" cy="348" r="15" fill="#101418"/>
+
+  <!-- glasaanslag buiten, glaspakket, glaslat binnen -->
+  <rect x="566" y="128" width="40" height="46" rx="3" fill="#FFFFFF" stroke="#0B5A2B" stroke-width="3"/>
+  <rect x="566" y="174" width="284" height="15" fill="url(#glasv)" stroke="#6E8F98" stroke-width="1.6"/>
+  <rect x="566" y="189" width="284" height="62" fill="#F2F7F8" stroke="#C6D6DA" stroke-width="1.2"/>
+  <rect x="566" y="251" width="284" height="15" fill="url(#glasv)" stroke="#6E8F98" stroke-width="1.6"/>
+  <rect x="566" y="174" width="284" height="92" fill="none" stroke="#0B5A2B" stroke-width="2.6"/>
+  <text x="726" y="226" font-family="Manrope,Arial,sans-serif" font-size="13" font-weight="700" fill="#1A7A42" text-anchor="middle">4 &#8211; 16 &#8211; 4 mm</text>
+  <rect x="566" y="266" width="40" height="46" rx="3" fill="#FFFFFF" stroke="#0B5A2B" stroke-width="3"/>
+
+  <!-- nummers -->
+  <circle cx="289" cy="109" r="15" fill="#0B5A2B"/><text x="289" y="114" font-family="Manrope,Arial,sans-serif" font-size="13" font-weight="800" fill="#FFFFFF" text-anchor="middle">1</text>
+  <circle cx="250" cy="220" r="15" fill="#0B5A2B"/><text x="250" y="225" font-family="Manrope,Arial,sans-serif" font-size="13" font-weight="800" fill="#FFFFFF" text-anchor="middle">2</text>
+  <line x1="366" y1="243" x2="366" y2="282" stroke="#C4570A" stroke-width="2"/>
+  <circle cx="366" cy="298" r="15" fill="#ED6B06"/><text x="366" y="303" font-family="Manrope,Arial,sans-serif" font-size="13" font-weight="800" fill="#0D1117" text-anchor="middle">3</text>
+  <circle cx="476" cy="220" r="15" fill="#0B5A2B"/><text x="476" y="225" font-family="Manrope,Arial,sans-serif" font-size="13" font-weight="800" fill="#FFFFFF" text-anchor="middle">4</text>
+  <line x1="586" y1="312" x2="586" y2="344" stroke="#0B5A2B" stroke-width="2"/>
+  <circle cx="586" cy="360" r="15" fill="#0B5A2B"/><text x="586" y="365" font-family="Manrope,Arial,sans-serif" font-size="13" font-weight="800" fill="#FFFFFF" text-anchor="middle">5</text>
+  <line x1="790" y1="174" x2="790" y2="140" stroke="#0B5A2B" stroke-width="2"/>
+  <circle cx="790" cy="124" r="15" fill="#0B5A2B"/><text x="790" y="129" font-family="Manrope,Arial,sans-serif" font-size="13" font-weight="800" fill="#FFFFFF" text-anchor="middle">6</text>
+
+  <text x="620" y="300" font-family="Manrope,Arial,sans-serif" font-size="12" font-weight="600" fill="#696960">HR++ isolatieglas, 24 mm</text>
+  <text x="620" y="318" font-family="Manrope,Arial,sans-serif" font-size="12" font-weight="600" fill="#696960">U<tspan dy="3" font-size="9">g</tspan><tspan dy="-3"> 1,1 W/m&#178;K</tspan></text>
+</svg>
+      <p class="klein" style="text-align:center;margin-top:1mm;">
+        Schematische weergave — bedoeld om de opbouw uit te leggen, niet op schaal en niet maatvoerend.
+      </p>
+    </div>
+
+    <div class="leg">
+      <div><b>1</b><span><strong>Zeskamerprofiel.</strong> Gescheiden luchtkamers in kozijn én vleugel remmen de warmtestroom van binnen naar buiten.</span></div>
+      <div><b>2</b><span><strong>Versterkingskamer.</strong> Verzinkt staal (of Powerdur-versterking) houdt het kozijn kaarsrecht, ook bij grote maten.</span></div>
+      <div><b>3</b><span><strong>Middendichting.</strong> De derde afdichting scheidt de natte buitenzone van de droge binnenzone — winst op isolatie én geluid.</span></div>
+      <div><b>4</b><span><strong>Vleugel, 85 mm.</strong> Even diep als het kozijn, met dezelfde kamerindeling en versterking.</span></div>
+      <div><b>5</b><span><strong>Glaslat.</strong> Aan de binnenzijde gemonteerd: het glas is van buitenaf niet uit te nemen.</span></div>
+      <div><b>6</b><span><strong>Beglazing tot 51 mm.</strong> Ruimte voor HR++, triple of geluidwerend glas — nu of bij een latere upgrade.</span></div>
+    </div>
+
+    <div class="let-op" style="margin-top:4.5mm;">
+      <p><strong>Waarom die middendichting telt.</strong> Veel goedkopere kozijnen hebben twee afdichtingen. De Ideal 7000 NL heeft er drie. De extra dichting houdt de sponning droog, waardoor er minder koude lucht tot in het profiel komt. U merkt dat aan de tocht die wegblijft en aan het geluid dat buiten blijft.</p>
+    </div>
+  </div>
+  
+  <div class="voet">
+    <span><strong>Duurkracht Kozijnen</strong> · Stiller, warmer, lichter wonen.</span>
+    <span class="pg">3</span>
+  </div>
+</div>
+
+<!-- ══════ 4 · SPECIFICATIES ══════ -->
+<div class="page">
+  
+  <div class="kop">
+    <div class="merk"><img src="img/logo.png" alt="Duurkracht Kozijnen"></div>
+    <div class="doc">Productbijlage · Aluplast Ideal 7000 NL</div>
+  </div>
+  <div class="vlak">
+    <div class="ey">Specificaties</div>
+    <h2>Technische gegevens</h2>
+    <div class="streep"></div>
+
+    
+    <table class="spec">
+      <caption>Profielsysteem</caption>
+      <tbody>
+        <tr><td>Merk en type</td><td>Aluplast Ideal 7000 NL — Verdiept profiel, ontwikkeld voor de Nederlandse renovatiemarkt</td></tr>
+        <tr><td>Herkomst</td><td>Aluplast GmbH, Karlsruhe (Duitsland)</td></tr>
+        <tr><td>Bouwdiepte profiel</td><td>85 mm</td></tr>
+        <tr><td>Inbouwdiepte (NL, verdiept)</td><td>120 mm, met vaste aanslag</td></tr>
+        <tr><td>Kamerindeling</td><td>Zeskamersysteem in kozijn en vleugel</td></tr>
+        <tr><td>Afdichting</td><td>Drievoudig, met doorlopende middendichting</td></tr>
+        <tr><td>U<sub>f</sub>-waarde profiel</td><td>1,1 W/m²K</td></tr>
+        <tr><td>U<sub>w</sub>-waarde raam</td><td>Vanaf 1,2 W/m²K met HR++; met triple beglazing tot 0,70 W/m²K haalbaar</td></tr>
+        <tr><td>Maximale glasdikte</td><td>Tot 51 mm — ruimte voor HR++, triple en geluidwerend glas</td></tr>
+        <tr><td>Versterking</td><td>Verzinkt staal in de versterkingskamer; Powerdur-versterking optioneel</td></tr>
+        <tr><td>Hoekverbinding</td><td>Diagonale verstekverbinding, machinaal gelast</td></tr>
+        <tr><td>Geluidsisolatie</td><td>Tot 46 dB, afhankelijk van de gekozen beglazing</td></tr>
+        <tr><td>Certificering</td><td>KOMO-gecertificeerd, SKG-getest hang- en sluitwerk; glasopbouw conform NEN 2608</td></tr>
+        <tr><td>Levertijd productie</td><td>3 tot 4 weken na bouwkundig inmeten</td></tr>
+      </tbody>
+    </table>
+
+    <div class="g2" style="margin-top:5mm;gap:6mm;align-items:start;">
+      <div>
+        
+    <table class="spec">
+      <caption>Standaard beglazing</caption>
+      <tbody>
+        <tr><td>Type</td><td>HR++ isolatieglas</td></tr>
+        <tr><td>Opbouw</td><td>4 – 16 – 4 mm, totaal 24 mm</td></tr>
+        <tr><td>U<sub>g</sub>-waarde</td><td>1,1 W/m²K</td></tr>
+        <tr><td>Vulling</td><td>Argon, met warme afstandhouder</td></tr>
+        <tr><td>Norm</td><td>NEN 2608, KOMO-keurmerk</td></tr>
+      </tbody>
+    </table>
+        <p class="klein" style="margin-top:2.5mm;">
+          Triple beglazing (HR+++), geluidwerend glas, zonwerend glas en veiligheidsglas volgens
+          NEN 3569 zijn leverbaar tegen meerprijs. Wat er in úw offerte staat, leest u op het
+          offerteblad zelf.
+        </p>
+      </div>
+
+      <div class="kader navy">
+        <h4>Wat de U-waarde betekent</h4>
+        <p style="font-size:8.8pt;margin-bottom:2.5mm;">
+          De U-waarde zegt hoeveel warmte er per vierkante meter verloren gaat.
+          <strong style="color:#fff;">Hoe lager, hoe beter.</strong>
+        </p>
+        <ul class="streepjes" style="margin-top:1mm;">
+          <li style="color:var(--steel-soft);"><strong style="color:#fff;">U<sub>f</sub></strong> — alleen het kozijnprofiel</li>
+          <li style="color:var(--steel-soft);"><strong style="color:#fff;">U<sub>g</sub></strong> — alleen het glas</li>
+          <li style="color:var(--steel-soft);"><strong style="color:#fff;">U<sub>w</sub></strong> — het complete raam, glas en profiel samen</li>
+        </ul>
+        <p style="font-size:8.4pt;margin-top:3mm;color:var(--steel-soft);">
+          Ter vergelijking: enkel glas in een houten kozijn zit rond de 5,0 W/m²K.
+          Uw nieuwe kozijnen met HR++ komen op ongeveer 1,2 — ruim vier keer zo goed.
+        </p>
+      </div>
+    </div>
+
+    <div class="let-op" style="margin-top:4.5mm;">
+      <p>
+        <strong>Over de opgegeven waarden.</strong> De genoemde U-waarden zijn systeemwaarden van
+        de fabrikant, gemeten onder genormeerde omstandigheden. De werkelijke waarde van úw raam
+        hangt af van de maat, de indeling en het gekozen glas. De definitieve prestaties leggen we
+        vast bij het bouwkundig inmeten.
+      </p>
+    </div>
+  </div>
+  
+  <div class="voet">
+    <span><strong>Duurkracht Kozijnen</strong> · Stiller, warmer, lichter wonen.</span>
+    <span class="pg">4</span>
+  </div>
+</div>
+
+<!-- ══════ 5 · VEILIGHEID & UITVOERING ══════ -->
+<div class="page">
+  
+  <div class="kop">
+    <div class="merk"><img src="img/logo.png" alt="Duurkracht Kozijnen"></div>
+    <div class="doc">Productbijlage · Aluplast Ideal 7000 NL</div>
+  </div>
+  <div class="vlak">
+    <div class="ey">Veiligheid, bediening en uitvoering</div>
+    <h2>Zoals u hem straks<br>gebruikt</h2>
+    <div class="streep"></div>
+
+    <div class="g2" style="gap:6mm;align-items:start;">
+      <div>
+        <h4>Hang- en sluitwerk</h4>
+        <ul class="vink blauw">
+          <li><span>Alle draai-kiepramen en deuren krijgen standaard <strong>SKG**-beslag</strong> met meerpuntsluiting en stalen versterking.</span></li>
+          <li><span>Daarmee voldoen uw ramen en deuren standaard aan <strong>weerstandsklasse RC2</strong> volgens NEN 5096.</span></li>
+          <li><span>Op verzoek uit te voeren op <strong>PKVW-niveau</strong> — het Politiekeurmerk Veilig Wonen, waar veel inboedelverzekeraars premiekorting voor geven.</span></li>
+          <li><span>Draai-kiepramen zijn in <strong>twee ventilatiestanden</strong> te zetten en draaien altijd naar binnen open.</span></li>
+          <li><span>Voor- en achterdeur hebben een <strong>driepuntssluiting</strong> met automatisch slot, cilinderslot en kerntrekbeveiliging.</span></li>
+          <li><span>Voor- en achterdeur worden geleverd met een onderdorpel van <strong>Isostone</strong>.</span></li>
+        </ul>
+      </div>
+      <figure>
+        <img src="img/sfeer-4.jpg" alt="Draai-kiepraam van binnenuit gezien" style="height:52mm;">
+        <figcaption>Draai-kiepraam van binnenuit: naar binnen draaiend, met twee ventilatiestanden.</figcaption>
+      </figure>
+    </div>
+
+    <div class="g2" style="gap:6mm;margin-top:5mm;align-items:start;">
+      <div>
+        <h4>Kleuren en afwerking</h4>
+        <p style="font-size:8.8pt;">
+          Standaard leveren wij in <strong>wit RAL 9010</strong>. De Ideal 7000 NL is daarnaast
+          leverbaar met gekleurde folie aan de buitenzijde en wit aan de binnenzijde — de meest
+          gekozen combinatie in Nederland.
+        </p>
+        <ul class="streepjes" style="margin-top:3mm;">
+          <li>Veelgekozen buitenkleuren: antracietgrijs RAL 7016 (nerf), zwart RAL 9005 (nerf), crème RAL 9001</li>
+          <li>Houtnerfdecors zoals Golden Oak en Noten voor woningen met een klassieke gevel</li>
+          <li>Binnenzijde standaard wit RAL 9016 glad, of in dezelfde kleur als buiten</li>
+          <li>Kleurvast en UV-bestendig; nooit meer schilderen</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Afwerking binnen</h4>
+        <p style="font-size:8.8pt;">
+          Na de montage werken wij de aansluiting tussen kozijn en binnenmuur af met een kunststof
+          hoek, zodat u geen stuc- of schilderwerk hoeft te laten doen. Standaardkleuren zijn
+          wit RAL 9016 en crème RAL 9001, glad.
+        </p>
+        <h4 style="margin-top:4mm;">Vensterbanken</h4>
+        <p style="font-size:8.8pt;">
+          Waar nu een vensterbank zit, plaatsen wij er een terug — tenzij anders afgesproken.
+          Onze vensterbanken zijn krasvast, UV-bestendig en ongevoelig voor vocht en warmte.
+        </p>
+      </div>
+    </div>
+
+    <div style="margin-top:5mm;">
+      <h4>Uitgevoerd werk</h4>
+      <div class="g3" style="margin-top:2.5mm;">
+        <figure><img src="img/sfeer-2.jpg" alt="Kunststof kozijnen en deuren in een bakstenen gevel" style="height:40mm;"></figure>
+        <figure><img src="img/sfeer-3.jpg" alt="Kunststof schuifpui naar de achtertuin" style="height:40mm;"></figure>
+        <figure><img src="img/sfeer-5.jpg" alt="Nieuwe voordeur met zijlicht in antraciet" style="height:40mm;"></figure>
+      </div>
+      <p class="klein" style="margin-top:2mm;">
+        Projecten van Duurkracht Kozijnen. Uitvoeringen kunnen per woning verschillen; uw eigen indeling,
+        kleur en draairichting leggen we vast bij het bouwkundig inmeten.
+      </p>
+    </div>
+  </div>
+  
+  <div class="voet">
+    <span><strong>Duurkracht Kozijnen</strong> · Stiller, warmer, lichter wonen.</span>
+    <span class="pg">5</span>
+  </div>
+</div>
+
+<!-- ══════ 6 · GARANTIE ══════ -->
+<div class="page">
+  
+  <div class="kop">
+    <div class="merk"><img src="img/logo.png" alt="Duurkracht Kozijnen"></div>
+    <div class="doc">Productbijlage · Aluplast Ideal 7000 NL</div>
+  </div>
+  <div class="vlak">
+    <div class="ey">Garantiebepalingen</div>
+    <h2>Tien jaar, op product<br>én op montage</h2>
+    <div class="streep"></div>
+
+    <p style="max-width:152mm;">
+      Wij leveren en monteren in eigen beheer. Daardoor hoeft u bij een klacht niet te zoeken wie
+      verantwoordelijk is: u meldt het bij ons, en wij lossen het op. Eén aanspreekpunt, voor zowel
+      het product als het werk.
+    </p>
+
+    <div class="g3" style="margin-top:3.5mm;">
+      <div class="cijfer"><div class="n">10<small> jaar</small></div><div class="l">Op het kozijnprofiel<br>in basiskleur</div></div>
+      <div class="cijfer"><div class="n">10<small> jaar</small></div><div class="l">Op de montage<br>door onze monteurs</div></div>
+      <div class="cijfer"><div class="n">10<small> jaar</small></div><div class="l">Op de beglazing<br>HR++ en HR+++</div></div>
+    </div>
+
+    <div class="g2" style="margin-top:3.5mm;gap:6mm;align-items:start;">
+      <div>
+        <h4>Waarop de garantie geldt</h4>
+        <ul class="vink blauw">
+          <li><span><strong>Profiel.</strong> Materiaal- en fabricagefouten, vormvastheid en kleurvastheid van het profiel in basiskleur.</span></li>
+          <li><span><strong>Beglazing.</strong> Lekkage van de isolerende beglazing — het beslaan tussen de ruiten door een defecte randafdichting.</span></li>
+          <li><span><strong>Hang- en sluitwerk.</strong> Goede werking van scharnieren, sluitingen en bediening bij normaal gebruik.</span></li>
+          <li><span><strong>Montage.</strong> De plaatsing, de aansluiting op het metselwerk en de waterdichtheid van die aansluiting.</span></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Waarop de garantie niet geldt</h4>
+        <ul class="streepjes">
+          <li>Schade door geweld van buitenaf, inbraak, storm, brand of andere calamiteiten</li>
+          <li>Glasbreuk anders dan door een aantoonbaar materiaalgebrek</li>
+          <li>Krassen en beschadigingen die bij oplevering niet zijn gemeld</li>
+          <li>Gebreken door verkeerd gebruik, eigen aanpassingen of reparaties door derden</li>
+          <li>Normale slijtage van bewegende delen en afdichtingsrubbers</li>
+          <li>Thermische breuk van glas door afplakken, beschilderen of het plaatsen van folie</li>
+          <li>Verkleuring van niet-basiskleuren buiten de door de folieleverancier gestelde termijn</li>
+          <li>Werk van derden dat op onze kozijnen aansluit, zoals stuc-, schilder- of metselwerk</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="kader tint" style="margin-top:3.5mm;">
+      <h4>Voorwaarden waaronder de garantie loopt</h4>
+      <div class="g2" style="gap:3mm 6mm;margin-top:1mm;">
+        <ul class="streepjes"><li>De garantietermijn gaat in op de datum van oplevering</li>
+          <li>De factuur is volledig voldaan volgens de overeengekomen betalingsvoorwaarden</li>
+          <li>De kozijnen zijn normaal gebruikt en onderhouden — schoonmaken met water en een mild middel, geen schuurmiddelen</li></ul>
+        <ul class="streepjes"><li>Gebreken worden binnen redelijke termijn na ontdekking schriftelijk bij ons gemeld</li>
+          <li>Wij krijgen de gelegenheid het gebrek zelf te onderzoeken en te herstellen</li>
+          <li>De garantie is gekoppeld aan het adres en gaat bij verkoop van de woning over op de nieuwe eigenaar</li></ul>
+      </div>
+    </div>
+
+    <div class="g2" style="margin-top:3mm;gap:6mm;align-items:start;">
+      <div class="kader" style="background:var(--amber-tint);border-color:#F6D8BC;">
+        <h4>Service melden</h4>
+        <p style="font-size:8.6pt;">
+          Een gebrek meldt u bij ons kantoor, met foto's en het offerte- of factuurnummer.
+          Wij nemen binnen vijf werkdagen contact op om een afspraak te plannen.
+        </p>
+        <p style="font-size:8.6pt;margin-top:2mm;"><strong>085 073 1660</strong> · <strong>info@duurkrachtkozijnen.nl</strong></p>
+      </div>
+      <div class="let-op">
+        <p>
+          <strong>Voorrang van voorwaarden.</strong> Deze bijlage vat de garantie samen en is bedoeld
+          om u te informeren. Op al onze leveringen, offertes en overeenkomsten zijn onze algemene
+          verkoop- en leveringsvoorwaarden van toepassing. Wijkt de tekst hierboven daarvan af, dan
+          gaan de algemene voorwaarden en de offerte zelf voor.
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="voet">
+    <span><strong>Duurkracht Kozijnen</strong> · Stiller, warmer, lichter wonen.</span>
+    <span class="pg">6</span>
+  </div>
+</div>
+
+<!-- ══════ 7 · MONTAGE & AFSPRAKEN ══════ -->
+<div class="page">
+  
+  <div class="kop">
+    <div class="merk"><img src="img/logo.png" alt="Duurkracht Kozijnen"></div>
+    <div class="doc">Productbijlage · Aluplast Ideal 7000 NL</div>
+  </div>
+  <div class="vlak" style="padding-bottom:10mm;">
+    <div class="ey">Van akkoord tot oplevering</div>
+    <h2>Hoe wij het uitvoeren</h2>
+    <div class="streep"></div>
+
+    <div class="g2" style="gap:7mm;align-items:start;">
+      <div>
+        
+        <div class="stap">
+          <div class="nr">1</div>
+          <div class="tx"><h4>Akkoord op de offerte</h4><p>U tekent de offerte. Binnen twee weken bellen wij u voor de afspraak voor het bouwkundig inmeten.</p></div>
+        </div>
+        <div class="stap">
+          <div class="nr">2</div>
+          <div class="tx"><h4>Bouwkundig inmeten</h4><p>Onze bouwkundige komt langs en legt maatvoering, kleuren en draairichtingen definitief vast. Tot dat moment kunt u nog wijzigen.</p></div>
+        </div>
+        <div class="stap">
+          <div class="nr">3</div>
+          <div class="tx"><h4>Productie</h4><p>Uw kozijnen gaan op maat in productie bij Aluplast. Reken op een levertijd van 3 tot 4 weken.</p></div>
+        </div>
+        <div class="stap">
+          <div class="nr">4</div>
+          <div class="tx"><h4>Montage</h4><p>Onze eigen monteurs demonteren de oude kozijnen en plaatsen de nieuwe op kunststof stelkozijnen, inclusief beglazing en binnenafwerking.</p></div>
+        </div>
+        <div class="stap">
+          <div class="nr">5</div>
+          <div class="tx"><h4>Oplevering</h4><p>Wij lopen het werk met u na, leveren schoon op en voeren het bouwafval af. Vanaf die datum loopt uw garantie.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <figure style="margin-bottom:5mm;">
+          <img src="img/montage.jpg" alt="Montage van kunststof kozijnen" style="height:55mm;">
+          <figcaption>Montage in eigen beheer — geen onderaannemers.</figcaption>
+        </figure>
+        <div class="kader tint">
+          <h4>Wat wij van u vragen</h4>
+          <ul class="streepjes"><li>Rondom de werkplekken circa 1,5 meter ruimte vrijmaken</li>
+          <li>Ramen en vensterbanken leeg, gordijnen en raamdecoratie verwijderd</li>
+          <li>Een parkeerplek voor de bus in de buurt van de woning</li>
+          <li>Toegang tot water en elektra tijdens de werkdag</li></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="g2" style="margin-top:3.5mm;gap:6mm;align-items:start;">
+      <div>
+        <h4>Standaard inbegrepen</h4>
+        <ul class="vink"><li>Levering en montage van de kozijnen, inclusief het plaatsen van het glas</li>
+          <li>Kunststof stelkozijnen als montagebasis</li>
+          <li>Demontage van de bestaande kozijnen en afvoer van het bouwafval</li>
+          <li>Binnenafwerking met kunststof hoeklijst</li>
+          <li>Terugplaatsen van vensterbanken waar die nu zitten</li></ul>
+      </div>
+      <div>
+        <h4>Niet inbegrepen, tenzij vermeld op de offerte</h4>
+        <ul class="streepjes"><li>Demontage en montage van rolluiken, screens, radiatoren en elektra</li>
+          <li>Stuc-, metsel-, schilder- en loodgieterswerk</li>
+          <li>Steigerwerk, tenzij dat op de offerte staat</li>
+          <li>Afvoer van asbesthoudend of chemisch afval</li>
+          <li>Het afdekken van meubilair en het aanvragen van vergunningen</li>
+          <li>Veiligheidsbeglazing volgens NEN 3569 — wel leverbaar tegen meerprijs</li></ul>
+      </div>
+    </div>
+
+    <div style="margin-top:4mm;background:var(--navy);border-radius:3mm;padding:5mm 7mm;display:flex;justify-content:space-between;align-items:center;gap:6mm;">
+      <div>
+        <div class="ey licht" style="margin-bottom:2mm;">Vragen over deze bijlage?</div>
+        <p style="color:var(--wit);font-size:11pt;line-height:1.5;font-weight:600;margin-bottom:2mm;">
+          Bel of app ons gerust — wij lopen de offerte<br>graag punt voor punt met u door.
+        </p>
+        <p style="color:var(--steel-soft);font-size:8.4pt;">Duurkracht Kozijnen B.V. · Hassinkweg 1, 7556 BV Hengelo · KvK 90895312</p>
+      </div>
+      <div style="text-align:right;flex-shrink:0;">
+        <div style="color:var(--cta-tekst-licht);font-size:14pt;font-weight:800;">085 073 1660</div>
+        <div style="color:var(--wit);font-size:9pt;margin-top:1.5mm;">info@duurkrachtkozijnen.nl</div>
+        <div style="color:var(--steel-soft);font-size:9pt;">www.duurkrachtkozijnen.nl</div>
+      </div>
+    </div>
+
+    <p class="klein" style="margin-top:2.5mm;text-align:center;">Deze productbijlage hoort bij de offerte waaraan hij is gekoppeld en bevat geen prijzen. Prijzen, aantallen en posities staan op het offerteblad zelf. Aan deze bijlage kunnen geen rechten worden ontleend voor zover zij afwijkt van de offerte of van onze algemene verkoop- en leveringsvoorwaarden.</p>
+  </div>
+  
+  <div class="voet">
+    <span><strong>Duurkracht Kozijnen</strong> · Stiller, warmer, lichter wonen.</span>
+    <span class="pg">7</span>
+  </div>
+</div>
+
+</body>
+</html>
