@@ -610,7 +610,7 @@ POSTS = [
             'Standaard geschikt voor HR++ én triple glas en voor RC2-inbraakwerendheid.',
         ],
         'title': 'Schüco LivIng review 2026',
-        'meta_desc': 'Onafhankelijke review van Schüco LivIng: 7-kamer, Uf 0,92, RC2. Specs, voor- en nadelen, vergelijking met concurrenten.',
+        'meta_desc': 'Onafhankelijke review van Schüco LivIng: 7-kamer, Uf 0,96, RC2. Specs, voor- en nadelen, vergelijking met concurrenten.',
         'category': 'Product review',
         'date': '2026-05-12',
         'modified': '2026-05-24',
@@ -628,7 +628,7 @@ POSTS = [
 <tbody>
 <tr><td><strong>Aantal kamers</strong></td><td>7 luchtkamers in profieldoorsnede</td></tr>
 <tr><td><strong>Bouwdiepte</strong></td><td>82 mm</td></tr>
-<tr><td><strong>Uf-waarde (frame)</strong></td><td>0,92 W/m²K</td></tr>
+<tr><td><strong>Uf-waarde (frame)</strong></td><td>0,96 W/m²K</td></tr>
 <tr><td><strong>Inbraakwerendheid</strong></td><td>RC2 standaard (RC3 op verzoek)</td></tr>
 <tr><td><strong>Afdichting</strong></td><td>EPDM, lasbaar (eerste in industrie)</td></tr>
 <tr><td><strong>Versterking</strong></td><td>Stalen versterkingsprofielen</td></tr>
@@ -642,7 +642,7 @@ POSTS = [
 """},
         {'id': 'voordelen', 'h2': 'De vijf grootste pluspunten', 'body': """
 <h3>1. Top-isolatie</h3>
-<p>Met Uf = 0,92 W/m²K zit LivIng in de top-3 van kunststof kozijnen wereldwijd. Combineer met triple glas en je haalt passiefhuis-niveau (Uw < 0,8) zonder dat je naar aluminium of hout hoeft.</p>
+<p>Met Uf = 0,96 W/m²K zit LivIng in de top-3 van kunststof kozijnen wereldwijd. Combineer met triple glas en je haalt passiefhuis-niveau (Uw < 0,8) zonder dat je naar aluminium of hout hoeft.</p>
 <h3>2. Lasbare EPDM-afdichting</h3>
 <p>Schüco was de eerste fabrikant die kunststof EPDM-afdichtingen kon lassen. Resultaat: <strong>geen zichtbare hoekverbindingen</strong> in de rubbers, geen waterlek, esthetisch strakker.</p>
 <h3>3. RC2 standaard</h3>
@@ -665,7 +665,7 @@ POSTS = [
 <table>
 <thead><tr><th>Systeem</th><th>Bouwdiepte</th><th>Kamers</th><th>Uf-waarde</th><th>Prijs-index</th></tr></thead>
 <tbody>
-<tr><td><strong>Schüco LivIng</strong></td><td>82 mm</td><td>7</td><td>0,92</td><td>100 (referentie)</td></tr>
+<tr><td><strong>Schüco LivIng</strong></td><td>82 mm</td><td>7</td><td>0,96</td><td>100 (referentie)</td></tr>
 <tr><td>Veka Softline 82</td><td>82 mm</td><td>6</td><td>1,0</td><td>95</td></tr>
 <tr><td>Deceuninck Zendow 70</td><td>70 mm</td><td>5</td><td>1,3</td><td>80</td></tr>
 <tr><td>Aluplast Ideal 7000</td><td>85 mm</td><td>7</td><td>0,95</td><td>92</td></tr>

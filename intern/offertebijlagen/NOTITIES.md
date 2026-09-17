@@ -82,7 +82,7 @@ bestand in Voorvertoning, Acrobat of de browser, klik op de regel achter
 *Opgesteld voor* en typ; Tab springt naar het volgende veld. De tekst is wit,
 want de omslag is donker — in macOS Voorvertoning zie je tijdens het typen een
 lichtgrijs vakje met donkere letters, dat is de bewerkingsweergave van het
-programma. Bij opslaan en afdrukken staat er wit op navy.
+programma. Bij opslaan en afdrukken staat er wit op groen.
 
 `pdf-invulvelden.js` legt die velden erop. De uitlijning wordt niet geschat: na
 het renderen meet het script dezelfde HTML nog een keer met headless Chrome,
@@ -122,24 +122,25 @@ duurkrachtkozijnen.nl staat. Het glas is in de bijlage op dezelfde termijn gezet
 **Inbraakwerendheid** — de site belooft standaard RC2 (SKG\*\*) en PKVW op
 verzoek. De bijlage zegt hetzelfde; wijkt er één af, pas dan allebei aan.
 
+**U<sub>f</sub> Schüco 0,96, niet 0,92.** De site noemde overal 0,92; dat is op
+17 september 2026 rechtgezet naar de fabrikant- en ift-opgave voor de
+MD-uitvoering die wij leveren. Staat er ergens weer 0,92, dan is dat de oude
+waarde. `build_blog.py` is meegegaan, zodat nieuwe blogs het goed hebben.
+
 ## Nog te controleren vóór dit naar klanten gaat
 
-1. **U<sub>f</sub> Schüco: 0,96 of 0,92?** De fabrikant en ift Rosenheim geven
-   0,96 voor LivIng 82 MD, en dat staat nu in de bijlage. Elders is wel eens
-   0,92 genoemd; klopt dat, zet het dan in `producten.js` recht.
-
-2. **Glasopbouw 4–16–4.** Dat is de gangbare 24 mm-opbouw, maar controleer wat
+1. **Glasopbouw 4–16–4.** Dat is de gangbare 24 mm-opbouw, maar controleer wat
    onze glasleverancier daadwerkelijk levert — 4–15–4 of 5–15–4 met een dikkere
    spouwvulling komt ook voor.
 
-3. **Garantie op glas.** De bijlage geeft 10 jaar op HR++/HR+++. Controleer of
+2. **Garantie op glas.** De bijlage geeft 10 jaar op HR++/HR+++. Controleer of
    dat de termijn van de glasleverancier is.
 
-4. **Algemene voorwaarden.** De bijlage verwijst ernaar en geeft ze voorrang.
+3. **Algemene voorwaarden.** De bijlage verwijst ernaar en geeft ze voorrang.
    Zorg dat ze als bijlage bij de offerte zitten —
    `docs/algemene-voorwaarden-dkk-2026.pdf`.
 
-5. **Levertijd Aluplast.** De bijlage en de configurator zeggen allebei 3 à 4
+4. **Levertijd Aluplast.** De bijlage en de configurator zeggen allebei 3 à 4
    weken, tegenover 6 tot 8 voor Schüco. Verandert dat, pas dan `producten.js`
    én `configurator/index.html` aan.
 
