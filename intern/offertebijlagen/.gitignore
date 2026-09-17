@@ -1,0 +1,4 @@
+# De PDF's zijn de publieke versie en staan in /docs/; ze hier óók bewaren zet
+# bij elke build vijf megabyte dubbel in de geschiedenis. Draai
+# `node maak-documenten.js` en kopieer ze naar /docs/ — zie NOTITIES.md.
+Productbijlage-*.pdf
