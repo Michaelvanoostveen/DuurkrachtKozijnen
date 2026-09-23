@@ -8,8 +8,12 @@ Disallow: /intern/
 Disallow: /index-original*
 Disallow: /design-comp*
 Disallow: /_extracted/
-Disallow: /locaties/
 Crawl-delay: 1
+# /locaties/* is bewust NIET geblokkeerd: die paden bestaan niet meer als
+# content maar leiden om (zie vercel.json) naar de huidige locatiepagina's.
+# Blokkeer je ze hier, dan kan Googlebot die omleiding nooit zien en blijft
+# de oude URL vastzitten in Search Console als "geblokkeerd door robots.txt"
+# in plaats van netjes te worden vervangen door de nieuwe URL.
 
 # Google
 User-agent: Googlebot
