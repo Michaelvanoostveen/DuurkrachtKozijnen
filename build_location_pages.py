@@ -606,13 +606,13 @@ def page(loc):
         "@context": "https://schema.org", "@type": "FAQPage",
         "mainEntity": [
             {"@type": "Question", "name": f"Plaatst Duurkracht Kozijnen ook in {name}?",
-             "acceptedAnswer": {"@type": "Answer", "text": f"Ja. Vanuit onze werkplaats in Hengelo plaatsen wij regelmatig kunststof kozijnen, deuren en gevelbekleding in {name}. {dist_text}."}},
+             "acceptedAnswer": {"@type": "Answer", "text": f"Ja. Onze eigen monteurs rijden vanuit Hengelo regelmatig naar {name} voor kozijnen, deuren en gevelbekleding. {dist_text}."}},
             {"@type": "Question", "name": f"Wat kost een kunststof kozijn in {name}?",
-             "acceptedAnswer": {"@type": "Answer", "text": "Een standaard kunststof draai-kiep kozijn van circa 1,00 × 1,20 m kost inclusief HR++ glas en montage gemiddeld €600 tot €950. De prijs in {0} is gelijk aan onze prijs elders — geen toeslag voor regio. Wij berekenen geen voorrijkosten of reistoeslag.".format(name)}},
+             "acceptedAnswer": {"@type": "Answer", "text": "Voor een standaard draai-kiep kozijn van circa 1,00 × 1,20 m, inclusief HR++ glas en montage, rekent u gemiddeld €600 tot €950. Dat is in {0} hetzelfde bedrag als elders in ons werkgebied — geen regiotoeslag, geen voorrijkosten.".format(name)}},
             {"@type": "Question", "name": f"Hoe lang duurt de plaatsing in {name}?",
-             "acceptedAnswer": {"@type": "Answer", "text": f"De montage van een gemiddelde woning met 6 tot 10 kozijnen duurt 1 à 2 werkdagen. De totale doorlooptijd van adviesgesprek tot oplevering is 6 tot 8 weken — ook bij projecten in {name}."}},
+             "acceptedAnswer": {"@type": "Answer", "text": f"Reken op 1 à 2 werkdagen montage bij een gemiddelde woning met 6 tot 10 kozijnen. Van adviesgesprek tot oplevering duurt het geheel 6 tot 8 weken, ook bij projecten in {name}."}},
             {"@type": "Question", "name": f"Welke wijken bedienen jullie in {name}?",
-             "acceptedAnswer": {"@type": "Answer", "text": f"Wij plaatsen kozijnen in alle wijken van {name}, waaronder {', '.join(wijken[:4])} en {wijken[4] if len(wijken) > 4 else 'andere wijken'}."}},
+             "acceptedAnswer": {"@type": "Answer", "text": f"Alle wijken van {name}, waaronder {', '.join(wijken[:4])} en {wijken[4] if len(wijken) > 4 else 'andere wijken'}."}},
         ]
     }
 
@@ -733,7 +733,7 @@ def page(loc):
         <span class="eyebrow">Kunststof kozijnen · {name} ({province})</span>
         <h1>Kunststof kozijnen in <span class="em-italic">{name}.</span></h1>
         <p class="lead">
-          {intro} {dist_text} — zonder voorrij- of reiskosten.
+          {intro} {dist_text}, zonder voorrij- of reiskosten in rekening te brengen.
         </p>
         <div class="hero-cta">
           <a href="/contact/" class="btn btn-primary">Plan een gratis inmeting <span class="arrow">→</span></a>
@@ -795,14 +795,14 @@ def page(loc):
       <span class="eyebrow" style="color: var(--orange);">Onze ervaring in {name}</span>
       <h2>Kozijnen plaatsen <span class="em-italic">in {name},</span> in elke wijk.</h2>
       <p>{intro}</p>
-      <p>Wilt u <strong>kunststof kozijnen kopen in {name}</strong>? Vraag vrijblijvend een offerte aan. Onze adviseur komt langs voor een gratis adviesgesprek met een heldere prijs — geen verkoopdruk, wel eerlijk advies. Wij plaatsen alleen wat u nodig heeft.</p>
+      <p>Overweegt u <strong>kunststof kozijnen in {name}</strong>? Onze adviseur komt vrijblijvend langs voor een adviesgesprek met een heldere prijs erbij — geen verkoopdruk, wel eerlijk advies over wat voor uw woning nodig is.</p>
       <ul class="checklist">
         <li><strong>{usp_extra}</strong></li>
         <li><strong>Geen voorrijkosten</strong> in {name}</li>
-        <li><strong>Eigen monteurs</strong> — geen onderaannemers</li>
-        <li><strong>Strakke montage</strong> met aandacht voor tocht en afdichting</li>
-        <li><strong>Schoon opgeleverd</strong> — bouwafval afgevoerd</li>
-        <li><strong>10 jaar garantie</strong> op product en montage</li>
+        <li><strong>Eigen monteurs</strong>, geen onderaannemers</li>
+        <li><strong>Strakke montage</strong>, met aandacht voor tocht en afdichting</li>
+        <li><strong>Netjes opgeleverd</strong>, bouwafval gaat mee terug</li>
+        <li><strong>10 jaar garantie</strong> op zowel product als montage</li>
       </ul>
     </div>
     <div class="img-stack">
@@ -818,7 +818,7 @@ def page(loc):
         <span class="eyebrow" style="color: var(--orange);">Wijken in {name}</span>
         <h2>Waar we werken in <span class="em-italic">{name}.</span></h2>
       </div>
-      <p>Wij plaatsen kozijnen in alle wijken van {name}. Een greep uit de wijken waar we recent actief waren:</p>
+      <p>Een greep uit de wijken van {name} waar we recent aan de slag waren:</p>
     </div>
     <ul style="columns: 3; column-gap: 28px; font-size: 16px; line-height: 2.2; color: var(--ink); list-style: none; padding: 0; margin: 0;">
       {wijken_html}
@@ -836,15 +836,15 @@ def page(loc):
         <span class="eyebrow" style="color: var(--orange);">Onze diensten in {name}</span>
         <h2>Wat we plaatsen in <span class="em-italic">{name}.</span></h2>
       </div>
-      <p>Vijf disciplines, één aanspreekpunt — alle diensten leveren wij ook in {name}.</p>
+      <p>Eén aanspreekpunt voor vijf disciplines — ook in {name} leveren we ze allemaal.</p>
     </div>
     <div class="benefits">
-      <article class="benefit"><div class="ic"><img src="/design-assets/icons/check-gradient.svg" alt="" /></div><h3>Kunststof kozijnen</h3><p>Warmer wonen, minder tocht en nooit meer schilderen — keuze uit Schüco LivIng en Aluplast Ideal 7000 NL. <a href="/diensten/kunststof-kozijnen/" style="color:var(--green);">Meer info →</a></p></article>
-      <article class="benefit"><div class="ic"><img src="/design-assets/icons/check-gradient.svg" alt="" /></div><h3>Kunststof deuren</h3><p>Een veilige, goed isolerende entree in de stijl van uw woning. <a href="/diensten/kunststof-deuren/" style="color:var(--green);">Meer info →</a></p></article>
-      <article class="benefit"><div class="ic"><img src="/design-assets/icons/check-gradient.svg" alt="" /></div><h3>Schuifpuien</h3><p>Meer licht, soepel naar buiten en een strakke verbinding met de tuin. <a href="/diensten/kunststof-schuifpuien/" style="color:var(--green);">Meer info →</a></p></article>
-      <article class="benefit"><div class="ic"><img src="/design-assets/icons/check-gradient.svg" alt="" /></div><h3>Kunststof gevelbekleding</h3><p>Een frisse gevel zonder schilderwerk, verkrijgbaar in veel kleuren en houtlooks. <a href="/diensten/kunststof-gevelbekleding/" style="color:var(--green);">Meer info →</a></p></article>
-      <article class="benefit"><div class="ic"><img src="/design-assets/icons/check-gradient.svg" alt="" /></div><h3>Kunststof stelkozijn montage</h3><p>Geplaatst op kunststof stelkozijnen door eigen monteurs, strak afgewerkt en schoon opgeleverd. <a href="/diensten/montage/" style="color:var(--green);">Meer info →</a></p></article>
-      <article class="benefit"><div class="ic"><img src="/design-assets/icons/icon-adviesgesprek-op-locatie.svg" alt="" /></div><h3>Gratis advies aan huis</h3><p>Onze adviseur komt vrijblijvend bij u in {name} langs.</p></article>
+      <article class="benefit"><div class="ic"><img src="/design-assets/icons/check-gradient.svg" alt="" /></div><h3>Kunststof kozijnen</h3><p>Minder tocht, meer warmte, en nooit meer schilderwerk — met Schüco LivIng of Aluplast Ideal 7000 NL. <a href="/diensten/kunststof-kozijnen/" style="color:var(--green);">Meer info →</a></p></article>
+      <article class="benefit"><div class="ic"><img src="/design-assets/icons/check-gradient.svg" alt="" /></div><h3>Kunststof deuren</h3><p>Een veilige entree die goed isoleert en past bij de stijl van uw woning. <a href="/diensten/kunststof-deuren/" style="color:var(--green);">Meer info →</a></p></article>
+      <article class="benefit"><div class="ic"><img src="/design-assets/icons/check-gradient.svg" alt="" /></div><h3>Schuifpuien</h3><p>Een strakke, soepel bewegende verbinding tussen woonkamer en tuin, met meer lichtinval. <a href="/diensten/kunststof-schuifpuien/" style="color:var(--green);">Meer info →</a></p></article>
+      <article class="benefit"><div class="ic"><img src="/design-assets/icons/check-gradient.svg" alt="" /></div><h3>Kunststof gevelbekleding</h3><p>Een frisse gevel in de kleur en houtlook van uw keuze, zonder ooit nog te hoeven schilderen. <a href="/diensten/kunststof-gevelbekleding/" style="color:var(--green);">Meer info →</a></p></article>
+      <article class="benefit"><div class="ic"><img src="/design-assets/icons/check-gradient.svg" alt="" /></div><h3>Kunststof stelkozijn montage</h3><p>Onze eigen monteurs plaatsen op kunststof stelkozijnen, strak afgewerkt en netjes opgeleverd. <a href="/diensten/montage/" style="color:var(--green);">Meer info →</a></p></article>
+      <article class="benefit"><div class="ic"><img src="/design-assets/icons/icon-adviesgesprek-op-locatie.svg" alt="" /></div><h3>Gratis advies aan huis</h3><p>Onze adviseur komt vrijblijvend bij u thuis in {name}.</p></article>
     </div>
   </div>
 </section>
@@ -858,11 +858,11 @@ def page(loc):
       </div>
     </div>
     <div class="faq-list">
-      <details class="faq-item" open><summary>Plaatst Duurkracht Kozijnen ook in {name}?</summary><div class="answer"><p>Ja. Vanuit onze werkplaats in Hengelo plaatsen wij regelmatig kunststof kozijnen, deuren en gevelbekleding in {name}. {dist_text}.</p></div></details>
-      <details class="faq-item"><summary>Wat kost een kunststof kozijn in {name}?</summary><div class="answer"><p>Een standaard kunststof draai-kiep kozijn van circa 1,00 × 1,20 m kost inclusief HR++ glas en montage gemiddeld <strong>€ 600 tot € 950</strong>. De prijs in {name} is gelijk aan onze prijs elders — <strong>geen toeslag voor regio of voorrijkosten</strong>.</p></div></details>
-      <details class="faq-item"><summary>Hoe lang duurt de plaatsing in {name}?</summary><div class="answer"><p>De montage van een gemiddelde woning met 6 tot 10 kozijnen duurt <strong>1 à 2 werkdagen</strong>. De totale doorlooptijd van adviesgesprek tot oplevering is <strong>6 tot 8 weken</strong> — ook bij projecten in {name}.</p></div></details>
-      <details class="faq-item"><summary>Welke wijken bedienen jullie in {name}?</summary><div class="answer"><p>Wij plaatsen kozijnen in alle wijken van {name}, waaronder <strong>{', '.join(wijken[:4])}</strong> en {wijken[4] if len(wijken) > 4 else 'andere wijken'}. Staat uw wijk er niet bij? Bel ons gerust.</p></div></details>
-      <details class="faq-item"><summary>Geven jullie ook in {name} 10 jaar garantie?</summary><div class="answer"><p>Ja, ongeacht uw locatie geven wij <strong>10 jaar garantie</strong> op zowel het product als op onze montage. Bij eventuele klachten komen wij ook in {name} kosteloos langs voor herstel.</p></div></details>
+      <details class="faq-item" open><summary>Plaatst Duurkracht Kozijnen ook in {name}?</summary><div class="answer"><p>Ja. Onze eigen monteurs rijden vanuit Hengelo regelmatig naar {name} voor kozijnen, deuren en gevelbekleding. {dist_text}.</p></div></details>
+      <details class="faq-item"><summary>Wat kost een kunststof kozijn in {name}?</summary><div class="answer"><p>Voor een standaard draai-kiep kozijn van circa 1,00 × 1,20 m, inclusief HR++ glas en montage, rekent u gemiddeld <strong>€ 600 tot € 950</strong>. Dat is in {name} hetzelfde bedrag als elders in ons werkgebied — <strong>geen regiotoeslag, geen voorrijkosten</strong>.</p></div></details>
+      <details class="faq-item"><summary>Hoe lang duurt de plaatsing in {name}?</summary><div class="answer"><p>Reken op <strong>1 à 2 werkdagen</strong> montage bij een gemiddelde woning met 6 tot 10 kozijnen. Van adviesgesprek tot oplevering duurt het geheel <strong>6 tot 8 weken</strong>, ook bij projecten in {name}.</p></div></details>
+      <details class="faq-item"><summary>Welke wijken bedienen jullie in {name}?</summary><div class="answer"><p>Alle wijken van {name}, waaronder <strong>{', '.join(wijken[:4])}</strong> en {wijken[4] if len(wijken) > 4 else 'andere wijken'}. Staat uw wijk er niet bij, bel ons dan gerust.</p></div></details>
+      <details class="faq-item"><summary>Geven jullie ook in {name} 10 jaar garantie?</summary><div class="answer"><p>Ja, locatie maakt daarbij niets uit: <strong>10 jaar garantie</strong> op zowel het product als onze montage. Is er iets niet goed, dan komen we ook in {name} kosteloos langs om het te herstellen.</p></div></details>
     </div>
   </div>
 </section>
@@ -872,7 +872,7 @@ def page(loc):
     <div>
       <span class="eyebrow">In {name}?</span>
       <h2>Plan uw adviesgesprek<br><span class="em-italic">in {name}.</span></h2>
-      <p>Onze adviseur komt vrijblijvend bij u langs in {name}. Geen voorrijkosten, geen verkoopdruk — wel eerlijk advies, een vaste offerte en een doorlooptijd van 6 tot 8 weken.</p>
+      <p>Onze adviseur komt vrijblijvend bij u thuis in {name}: geen voorrijkosten, geen verkoopdruk, wel eerlijk advies, een vaste offerte en een doorlooptijd van 6 tot 8 weken.</p>
     </div>
     <div class="cta-banner-actions">
       <a href="/contact/" class="btn btn-primary">Plan een gratis adviesgesprek <span class="arrow">→</span></a>
