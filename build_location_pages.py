@@ -794,7 +794,6 @@ def page(loc):
     <div>
       <span class="eyebrow" style="color: var(--orange);">Onze ervaring in {name}</span>
       <h2>Kozijnen plaatsen <span class="em-italic">in {name},</span> in elke wijk.</h2>
-      <p>{intro}</p>
       <p>Overweegt u <strong>kunststof kozijnen in {name}</strong>? Onze adviseur komt vrijblijvend langs voor een adviesgesprek met een heldere prijs erbij — geen verkoopdruk, wel eerlijk advies over wat voor uw woning nodig is.</p>
       <ul class="checklist">
         <li><strong>{usp_extra}</strong></li>
