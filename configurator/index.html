@@ -1005,9 +1005,9 @@
     function L(x1,y1,x2,y2){ return '<line x1="'+x1.toFixed(1)+'" y1="'+y1.toFixed(1)+'" x2="'+x2.toFixed(1)+'" y2="'+y2.toFixed(1)+'" stroke="'+c+'" stroke-width="'+sw.toFixed(2)+'" opacity="'+o+'"/>'; }
     if(t==='turnR') return L(x,y,x+w,cy)+L(x,y+h,x+w,cy);            // scharnier rechts (punt rechts)
     if(t==='turnL') return L(x+w,y,x,cy)+L(x+w,y+h,x,cy);            // scharnier links
-    if(t==='tilt')  return L(x,y,cx,y+h)+L(x+w,y,cx,y+h);           // kiep/valraam (punt onder)
-    if(t==='tiltturn')  return L(x+w,y,x,cy)+L(x+w,y+h,x,cy)+L(x,y,cx,y+h)+L(x+w,y,cx,y+h); // draai-kiep, greep links
-    if(t==='tiltturnR') return L(x,y,x+w,cy)+L(x,y+h,x+w,cy)+L(x,y,cx,y+h)+L(x+w,y,cx,y+h);   // draai-kiep, greep rechts
+    if(t==='tilt')  return L(x,y+h,cx,y)+L(x+w,y+h,cx,y);           // kiep/valraam (punt boven)
+    if(t==='tiltturn')  return L(x+w,y,x,cy)+L(x+w,y+h,x,cy)+L(x,y+h,cx,y)+L(x+w,y+h,cx,y); // draai-kiep, greep links
+    if(t==='tiltturnR') return L(x,y,x+w,cy)+L(x,y+h,x+w,cy)+L(x,y+h,cx,y)+L(x+w,y+h,cx,y);   // draai-kiep, greep rechts
     return ''; // fixed → geen symbool
   }
 
